@@ -59,33 +59,7 @@ const Testimonial11 = () => {
                 elevation={3}
               >
                 <img className="h-full w-900 h-600" src="/assets/images/bg-intro.jpg" alt="" />
-                <p className="my-6">
-                  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore"
-                </p>
-
-                <Divider className="mb-4"></Divider>
-
-                <div className="flex flex-wrap mb-6">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Icon key={i} fontSize="small" color="primary">
-                      start
-                    </Icon>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap justify-between items-end pb-4">
-                  <div>
-                    <h5 className="m-0 font-medium">hhhh</h5>
-                    <small className="text-muted">
-                     hhhhhhyy
-                    </small>
-                  </div>
-                  <testimonial.icon
-                    className="mb-5px text-muted text-14 cursor-pointer"
-                    fontSize="small"
-                  />
-                </div>
+            
               </div>
             </div>
           ))}
