@@ -25,7 +25,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     width: "500px",
     height: "515px",
     left: "-258px",
-    top: "1275px",
+    top: "1069px",
     overflow: "visible",
     opacity: "1"
   },
@@ -35,7 +35,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     width: "450px",
     height: "428px",
     right: "-274px",
-    top: "1825px",
+    top: "1674px",
     overflow: "visible",
     opacity: "1"
   }

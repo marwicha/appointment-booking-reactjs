@@ -35,7 +35,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
   navButton: {
     position: "absolute !important",
-    top: "50%",
+    top: "40%",
     transform: "translateY(calc(-50% - 50px))",
     zIndex: 1,
     [theme.breakpoints.down("sm")]: {
