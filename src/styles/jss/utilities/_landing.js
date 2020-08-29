@@ -26,14 +26,14 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
     },
 
     ".container": {
-      padding: "0px 2rem",
-      maxWidth: "1500px",
+      padding: "0px 0rem",
+      maxWidth: "1700px",
       margin: "0 auto"
     },
 
     ".container-formations": {
       padding: "0px 2rem",
-      maxWidth: "1500px",
+      maxWidth: "1700px",
       margin: "0 auto",
       background: "rgba(var(--primary),0.05)"
     },
@@ -56,9 +56,11 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       zIndex: "999",
     },
     ".header .header-container": {
+      padding: "10px 0 16px 0",
       display: "flex",
       flexDirection: "row",
-      alignItems: "center"
+      alignItems: "center",
+      boxShadow: "0px 5px 5px #dfe5e6;"
     },
     ".header .header-container .brand": {
       margin: "0 5% 0 1%",

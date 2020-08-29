@@ -59,9 +59,8 @@ const Testimonial11 = () => {
         >
           {testimonialList.map((testimonial, index) => (
             <div className="pt-12" key={index}>
-            <img className="h-full w-full w-1400 h-600" src={testimonial.img} alt="" />
+            <img className="h-full w-full w-1300 h-500" src={testimonial.img} alt="" />
            
-          
                 <h1 className={clsx(classes.img, 
                   "mx-auto text-center justify-center font-medium text-44 text-second m-0")}>
                 IKDO

@@ -120,8 +120,8 @@ const Carousel = (props) => {
           ))}
         </div>
 
-        {/* pagination */}
-        <div className={clsx("swiper-pagination relative", paginationClass)} />
+        {/* pagination <div className={clsx("swiper-pagination relative", paginationClass)} /> */}
+        
       </div>
 
       {/* navigation */}

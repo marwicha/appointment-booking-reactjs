@@ -46,7 +46,7 @@ const Intro10 = () => {
           <div
             className={clsx(
               "relative mx-auto text-center flex-column justify-center items-center",
-              classes.intro
+               classes.intro
             )}
           >
            
