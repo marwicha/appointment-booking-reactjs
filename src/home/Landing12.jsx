@@ -6,7 +6,7 @@ import Intro12 from "./sections/Intro12";
 import Clients1 from "./sections/Clients1";
 import Features12 from "./sections/Features12";
 import Marketing3 from "./sections/Marketing3";
-import Testimonial11 from "./sections/Testimonial11";
+import IntroFinal from "./sections/IntroFinal";
 import Services11 from "./sections/Services11";
 import FAQ1 from "./sections/FAQ1";
 import Subscription2 from "./sections/Subscription2";
@@ -21,7 +21,7 @@ const Landing12 = () => {
       <Services12 />
       <Features12 />
       <Services13 />
-      <Testimonial11 />
+      <IntroFinal />
       <Footer2 />
     </div>
   );

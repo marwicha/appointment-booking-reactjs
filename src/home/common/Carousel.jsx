@@ -20,22 +20,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     display: "inline-block",
     borderRadius: "100%",
     cursor: "pointer",
-    margin: "0 4px",
+    margin: "0 4px"
   },
   bulletActiveClass: {
     transform: "scale(1.8)",
   },
-  prevButton: {
-    left: 0,
-    marginLeft: "-24px !important",
-  },
-  nextButton: {
-    right: 0,
-    marginRight: "-24px !important",
-  },
   navButton: {
     position: "absolute !important",
-    top: "40%",
+    top: "50%",
     transform: "translateY(calc(-50% - 50px))",
     zIndex: 1,
     [theme.breakpoints.down("sm")]: {
@@ -47,14 +39,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 const Carousel = (props) => {
   let theme = useTheme();
   let {
-    slidesPerView = 3,
+    slidesPerView = 1,
     spacing = 32,
     allowSlideNext = true,
     allowSlidePrev = true,
-    delay = 5000,
+    delay = 3000,
     navigation = true,
-    bulletColor = theme.palette.primary.main,
-    paginationClass = "mt-6",
+    bulletColor = theme.palette.second,
+    paginationClass = "mt-6 !important",
     carouselId = "swiper-1",
     children,
   } = props;
@@ -99,12 +91,7 @@ const Carousel = (props) => {
       bulletClass,
       bulletActiveClass,
       clickable: true,
-    },
-
-    navigation: {
-      nextEl: ".carousel__button-next",
-      prevEl: ".carousel__button-prev",
-    },
+    }
   };
 
   useEffect(() => {
@@ -120,33 +107,10 @@ const Carousel = (props) => {
           ))}
         </div>
 
-        {/* pagination <div className={clsx("swiper-pagination relative", paginationClass)} /> */}
+        {/* pagination */}
+        <div className={clsx("swiper-pagination relative", paginationClass)} /> 
         
       </div>
-
-      {/* navigation */}
-      {navigation && (
-        <Fab
-          className={clsx(
-            "carousel__button-prev bg-white",
-            prevButton,
-            navButton
-          )}
-        >
-          <NavigateBefore />
-        </Fab>
-      )}
-      {navigation && (
-        <Fab
-          className={clsx(
-            "carousel__button-next bg-white",
-            nextButton,
-            navButton
-          )}
-        >
-          <NavigateNext />
-        </Fab>
-      )}
     </div>
   );
 };

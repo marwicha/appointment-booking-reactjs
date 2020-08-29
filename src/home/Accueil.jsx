@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { scrollTo } from "utils";
-import Testimonial11 from "./sections/Testimonial11";
+import IntroFinal from "./sections/IntroFinal";
 import TopBar from "./sections/TopBar";
 import Services8 from "./sections/Services8";
 import Massages from "./sections/Massages";
@@ -16,7 +16,7 @@ const Accueil = () => {
   return (
     <div className="landing">
       <TopBar />
-      <Testimonial11 />
+      <IntroFinal />
       <Services8 />
       <Massages />
       <Formations />
