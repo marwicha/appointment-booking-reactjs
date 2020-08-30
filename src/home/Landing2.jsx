@@ -6,7 +6,6 @@ import Services2 from "./sections/Services2";
 import CallToAction1 from "./sections/CallToAction1";
 import Pricing1 from "./sections/Pricing1";
 import Footer1 from "./sections/Footer1";
-import TopBar2 from "./sections/TopBar2";
 
 const Landing2 = () => {
   useEffect(() => {
@@ -15,7 +14,6 @@ const Landing2 = () => {
 
   return (
     <div className="landing">
-      <TopBar2 />
       <Portfolio2 />
       <Testimonial2 />
       <Services2 />

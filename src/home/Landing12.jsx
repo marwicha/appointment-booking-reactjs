@@ -1,6 +1,5 @@
 import React from "react";
 
-import TopBar12 from "./sections/TopBar12";
 import Intro12 from "./sections/Intro12";
 import Clients1 from "./sections/Clients1";
 import Features12 from "./sections/Features12";
@@ -15,7 +14,6 @@ import Services13 from "./sections/Services13";
 const Landing12 = () => {
   return (
     <div className="landing">
-      <TopBar12 />
       <Intro12 />
       <Services12 />
       <Features12 />

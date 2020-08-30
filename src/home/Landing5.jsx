@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { scrollTo } from "utils";
-import TopBar5 from "./sections/TopBar5";
 import Testimonial5 from "./sections/Testimonial5";
 import Intro5 from "./sections/Intro5";
 import About1 from "./sections/About1";
@@ -16,7 +15,6 @@ const Landing5 = () => {
 
   return (
     <div className="landing">
-      <TopBar5 />
       <Intro5 />
       <About1 />
       <Gallery1 />

@@ -54,28 +54,33 @@ const TopBar = (props) => {
       <img src="./assets/images/logos/logo@2x.png" alt="" />
      </div>
      
-        <ul className="navigation">
-          <li>
-            <NavLink to="/demos">Accueil</NavLink>
-          </li>
-          <li>
-            <ScrollTo to="intro6" onScroll={close}>
-            Massages et Somatothérapie
-            </ScrollTo>
-          </li>
+     <ul className="navigation">
+     <li>
+       <NavLink to="/Accueil">Accueil</NavLink>
+     </li>
+     <li>
+       <NavLink to="/Massages">
+       Massages
+       </NavLink>
+     </li>
+<li>
+<NavLink to="/Somatothérapie">
+Somatothérapie
+</NavLink>
 
-          <li>
-            <ScrollTo to="services8" onScroll={close}>
-              Formations
-            </ScrollTo>
-          </li>
-         
-          <li>
-            <ScrollTo to="subscription1" onScroll={close}>
-              Contact
-            </ScrollTo>
-          </li>
-        </ul>
+</li>
+     <li>
+       <NavLink to="/Formations">
+         Formations
+       </NavLink>
+     </li>
+    
+     <li>
+       <ScrollTo to="contact" onScroll={close}>
+         Contact
+       </ScrollTo>
+     </li>
+   </ul>
         <div className="m-auto" />
         <ul className="navigation flex">
          <li>
