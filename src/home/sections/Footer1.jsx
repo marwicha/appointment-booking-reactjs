@@ -25,67 +25,71 @@ const Footer1 = () => {
     <div className={clsx("bg-light-dark", classes.footerSection)} id="footer1">
       <div className="container">
         <Grid container>
-          <Grid item lg={6} md={6} sm={12}>
+          <Grid item lg={4} md={4} sm={12}>
             <div className="p-8 h-full elevation-z3">
               <h4 className="text-20 mb-6 relative">A propos</h4>
               <p className="text-inherit">
                 IKDO By ZEN WORKSHOP
               </p>
-             
+              <p className="text-inherit">Coordonnées: </p>
+               <p className="text-inherit">Tel : 09 82 22 85 55 ou : 07 86 99 59 40 </p>
+
+<p className="text-inherit"> Heures d'ouverture: </p>
+<p className="text-inherit"> Du lundi au samedi de 9h à 21h. Ouvert le dimanche sur deux </p>
+
+<p className="text-inherit">Adresse: </p>
+<p className="text-inherit">446 Bis Avenue de Dunkerque 59130 - LAMBERSART </p>
             </div>
           </Grid>
-          <Grid item lg={3} md={3} sm={12}>
+          <Grid item lg={4} md={4} sm={12}>
             <div className="p-8 h-full elevation-z3">
-              <h4 className="text-20 mb-6 relative">Contact</h4>
+              <h4 className="text-20 mb-6 relative">Prestations</h4>
               <div className="px-4 my-8 flex items-center mx--4">
-                <Icon className="text-secondary">mail</Icon>
                 <div className="pl-4">
-                  <h5 className="m-0 p-0 text-16">Email</h5>
-                  <p className="m-0 p-0 text-inherit">email@abc.com</p>
+                  <h5 className="m-0 p-0 text-16">Massages</h5>
                 </div>
               </div>
               <div className="px-4 mt-8 flex items-center mx--4">
-                <Icon className="text-secondary">location_on</Icon>
                 <div className="pl-4">
-                  <h5 className="m-0 p-0 text-16">Adresse</h5>
-                  <p className="m-0 p-0 text-inherit">
-                  446 Avenue de Dunkerque, 59130 Lambersart
-                  </p>
+                  <h5 className="m-0 p-0 text-16">Somathotérapie</h5>
+                 
                 </div>
               </div>
-            </div>
-          </Grid>
-          <Grid item lg={3} md={3} sm={12}>
-            <div className="p-8 h-full elevation-z3">
-              <h4 className="text-20 mb-6 relative">Reseaux sociaux</h4>
-              <div className="mt-8">
-                <a href="#linkedin" className="px-2">
-                  <img
-                    className="h-24 w-24"
-                    src="./assets/images/social-linkedin.png"
-                    alt=""
-                  />
-                </a>
-                <a href="#twitter" className="px-2">
-                  <img
-                    className="h-24 w-24"
-                    src="./assets/images/social-twitter.png"
-                    alt=""
-                  />
-                </a>
-                <a href="#facebook" className="px-2">
-                  <img
-                    className="h-24 w-24"
-                    src="./assets/images/social-facebook.png"
-                    alt=""
-                  />
-                </a>
+
+              <div className="px-4 mt-8 flex items-center mx--4">
+              <div className="pl-4">
+                <h5 className="m-0 p-0 text-16">Formations</h5>
+               
               </div>
             </div>
+
+            </div>
+          </Grid>
+          <Grid item lg={4} md={4} sm={12}>
+          <div className="p-8 h-full elevation-z3">
+          <h4 className="text-20 mb-6 relative">Contact</h4>
+          <div className="px-4 my-8 flex items-center mx--4">
+            <Icon className="text-secondary">mail</Icon>
+            <div className="pl-4">
+              <h5 className="m-0 p-0 text-16">Email</h5>
+              <p className="m-0 p-0 text-inherit">email@abc.com</p>
+            </div>
+          </div>
+          <div className="px-4 mt-8 flex items-center mx--4">
+            <Icon className="text-secondary">location_on</Icon>
+            <div className="pl-4">
+              <h5 className="m-0 p-0 text-16">Adresse</h5>
+              <p className="m-0 p-0 text-inherit">
+              446 Avenue de Dunkerque, 59130 Lambersart
+              </p>
+            </div>
+          </div>
+        </div>
           </Grid>
         </Grid>
       </div>
     </div>
+   
   );
 };
 

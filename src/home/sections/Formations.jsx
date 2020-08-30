@@ -1,5 +1,5 @@
 import React from "react"; 
-import { Grid, Avatar, Box, Typography, Divider, CardContent} from "@material-ui/core";
+import { Grid, Avatar, Box, Typography, Divider, CardContent, Button} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -51,6 +51,26 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   Icon3: {
     color: palette.second,
     fontSize:"35px"
+  },
+  textContainer: {
+    display: "flex",
+    width: "100%",
+    marginBottom: "10px",
+    position: "relative"
+  },
+
+  icon: {
+    position: "inline-block",
+    padding: "3px",
+    minWidth: "50px",
+    textAlign: "center"
+  },
+
+  titleText: {
+  position: "inline-block",
+  width: "100%",
+  padding: "10px",
+  outline: "none"
   }
 }));
 
@@ -107,10 +127,12 @@ const Massages = () => {
     alt=""
   />
     <CardContent className={classes.content}>
-    <Icon className={clsx(item.color, "relative")} >circle</Icon> 
-     <h5 className="inline-block">
+    <div className={classes.textContainer}>
+       
+     <h5 className={classes.titleText}>
       {item.title}
       </h5>
+    </div>
       <div>
       <Typography
         variant={"caption"}
@@ -121,12 +143,12 @@ const Massages = () => {
       </div>
       <Divider className={classes.divider} light />
       <div className={classes.center}>
-      <Box  className={clsx(
+      <Button  className={clsx(
         "p-4",
         classes.button
       )} size="large"> 
       Savoir plus
-      </Box>
+      </Button>
       </div>
     </CardContent>
   </div>

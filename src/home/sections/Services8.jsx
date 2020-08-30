@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Box, Button } from "@material-ui/core";
 import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,17 +7,14 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
     marginTop: "2rem !important",
-    paddingTop: "1rem !important",
-    paddingBottom: "1rem !important",
-    fontSize: 14,
-    fontFamily: theme.typography.fontFamily
+    padding: "1rem 2rem 1rem 2rem",
+    fontSize: 16,
+    fontFamily: theme.typography.fontFamily,
+    backgroundColor: palette.third
   },
   image: {
     maxWidth: "150px"
-  },
-  section: {
-    background: "rgba(var(--primary),0.05)"
-  },
+  }
 }));
 
 
@@ -51,22 +48,25 @@ const getImgSrc = (id,imgSrc,imageClass) => {
   return <img src={imgSrc} className={ imageClass} alt=""/>
 }
   return (
-    <section className={clsx("section", classes.section)} id="booking1">
-    <div className="container">
+    
+    <div className="container-services8">
     <Grid container spacing={6} justify="center">
     {serviceList.map((item, ind) => (
       <Grid key={ind} item sm={3} xs={12}>
         <div className="text-center max-w-160 mx-auto">
+
            {getImgSrc(item.id,item.imgSrc,classes.image)}
-          <Box className={ classes.button } bgcolor="third"> 
+
+          <Button className={ classes.button }> 
           {item.title}
-          </Box>
+          </Button>
+
         </div>
       </Grid>
     ))}
   </Grid>
     </div>
-  </section>
+ 
 
   );
 };

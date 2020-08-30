@@ -1,5 +1,4 @@
 import React from "react";
-import Footer2 from "./sections/Footer2";
 import TopBar8 from "./sections/TopBar8";
 import Intro8 from "./sections/Intro8";
 import Features6 from "./sections/Features6";
@@ -19,7 +18,6 @@ const Landing8 = () => {
       <Features8 />
       <Features9 />
       <Features10 />
-      <Footer2 />
     </div>
   );
 };

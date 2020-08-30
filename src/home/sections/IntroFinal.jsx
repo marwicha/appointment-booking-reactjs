@@ -10,22 +10,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     height: "100%",
     overflow: "hidden",
   },
-  intro: {
-    padding: "7.5rem 0rem",
-    maxWidth: 500,
-    [theme.breakpoints.down("sm")]: {
-      padding: "2.5rem 0rem",
-    },
-    zIndex: 5,
-  },
-  text: {
+text: {
   position: "absolute",
-  top: "60%",
+  top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)"
   },
 
-  p: {
+p: {
   letterSpacing: "0.72px",
   lineHeight: "40px",
   textAlign: "center",
@@ -36,7 +28,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   h1: {
     color: "#182731",
-    fontSize: "48px",
+    fontSize: "40px",
     lineHeight: "64px",
     textAlign: "center"
   },
@@ -44,19 +36,19 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   h2: {
     color: "#182731",
     fontFamily: "LEMON MILK Light",
-    fontSize: "35px",
+    fontSize: "30px",
     lineHeight: "40px",
     textAlign: "center"
   },
 
   button: {
-  height: "86px",
-  width: "255px",
+  width: "200px",
+  height: "60px",
   borderRadius: "100px",
   backgroundColor: "#182731",
   color: "white",
-  fontSize: "1.5em",
-  fontFamily: "LEMON MILK Light"
+  fontSize: "1rem",
+  fontFamily: "LEMON MILK Light",
   },
 
   center: {
@@ -64,8 +56,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "1rem"
-   },
+    marginTop: "1rem",
+   }
 }));
 
 const IntroFinal = () => {
@@ -77,13 +69,13 @@ const IntroFinal = () => {
       h1: "IKDO",
       h2: " By Zen Workshop",
       text: "Détentez vous et prenez votre temps",
-      buttonText:"Massage"
+      buttonText:"Massages"
     },
     {
       img: "./assets/images/2.jpg",
       h1: "IKDO",
       h2: " By Zen Workshop",
-      text: "Plusieurs formations sont accesibles",
+      text: "Plusieurs formations sont accessibles",
       buttonText:"Formations"
     },
     {
@@ -91,7 +83,7 @@ const IntroFinal = () => {
       h1: "IKDO",
       h2: " By Zen Workshop",
       text: "Détentez vous et prenez votre temps",
-      buttonText: "Coaching"
+      buttonText: "Somathotérapie"
     }
   ];
 
@@ -105,9 +97,9 @@ const IntroFinal = () => {
           slidesPerView={1}
         >
           {ikdoList.map((item, index) => (
-          <div key={index}>
+          <div  key={index}>
             
-          <img className="h-full w-full relative" src={item.img} alt="" />
+          <img className="h-full w-full" src={item.img} alt="" />
         
            <div className={clsx(classes.text)}>
                 <h1 className={classes.h1}>
@@ -121,12 +113,12 @@ const IntroFinal = () => {
               {item.text}
               </p>
               <div className={classes.center}>
-              <button size="large" className={clsx(classes.button, classes.center)}>
+              <button className={clsx(classes.button)}>
               {item.buttonText}
               </button>
               </div>
 
-              </div>
+            </div>
             </div>
           ))}
         </Carousel>

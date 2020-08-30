@@ -56,27 +56,32 @@ const TopBar6 = (props) => {
      
         <ul className="navigation">
           <li>
-            <NavLink to="/demos">Accueil</NavLink>
+            <NavLink to="/Accueil">Accueil</NavLink>
           </li>
           <li>
-            <ScrollTo to="intro6" onScroll={close}>
-            Massages et Somatothérapie
-            </ScrollTo>
+            <NavLink to="/Massages">
+            Massages
+            </NavLink>
           </li>
+<li>
+<NavLink to="/Somatothérapie">
+Somatothérapie
+</NavLink>
 
+</li>
           <li>
-            <ScrollTo to="services8" onScroll={close}>
+            <NavLink to="/Formations">
               Formations
-            </ScrollTo>
+            </NavLink>
           </li>
          
           <li>
-            <ScrollTo to="subscription1" onScroll={close}>
+            <ScrollTo to="contact" onScroll={close}>
               Contact
             </ScrollTo>
           </li>
         </ul>
-        <div className="m-auto" />
+        <div className="mx-auto" />
         <ul className="navigation flex">
          <li>
           <NavLink to="/signup">

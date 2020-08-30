@@ -1,5 +1,4 @@
 import React from "react";
-import Footer2 from "./sections/Footer2";
 
 import TopBar9 from "./sections/TopBar9";
 import Intro9 from "./sections/Intro9";
@@ -23,7 +22,6 @@ const Landing9 = () => {
       <Blog1 />
       <Testimonial8 />
       <Contact2 />
-      <Footer2 />
     </div>
   );
 };

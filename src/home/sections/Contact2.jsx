@@ -19,7 +19,7 @@ const Contact2 = () => {
   const classes = useStyles();
   
   return (
-    <section className="section" id="contact2">
+    <section className="section" id="contact">
       <div className="container text-center">
         <h1 className="mt-0 mb-16 font-normal text-28 mx-auto">
           Contactez nous

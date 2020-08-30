@@ -1,5 +1,4 @@
 import React from "react";
-import Footer2 from "./sections/Footer2";
 import TopBar7 from "./sections/TopBar7";
 import Intro7 from "./sections/Intro7";
 import Subscription3 from "./sections/Subscription3";
@@ -24,7 +23,6 @@ const Landing7 = () => {
       <Marketing2 />
       <Testimonial4 />
       <Subscription3 />
-      <Footer2 />
     </div>
   );
 };

@@ -57,11 +57,6 @@ const TopBar2 = () => {
             <NavLink to="/demos">Demos</NavLink>
           </li>
           <li>
-            <ScrollTo to="intro2" onScroll={close}>
-              Home
-            </ScrollTo>
-          </li>
-          <li>
             <ScrollTo to="portfoli2" onScroll={close}>
               Works
             </ScrollTo>

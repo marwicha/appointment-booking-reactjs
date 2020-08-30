@@ -25,6 +25,10 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       },
     },
 
+    ".section-services8" : {
+      paddingtTop: "3rem !important"
+    },
+
     ".container": {
       padding: "0px 0rem",
       maxWidth: "1700px",
@@ -32,7 +36,14 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
     },
 
     ".container-formations": {
-      padding: "0px 2rem",
+      padding: "0 0 0 0",
+      maxWidth: "1700px",
+      margin: "0 auto",
+      background: "rgba(var(--primary),0.05)"
+    },
+
+    ".container-services8": {
+      padding: "5rem 0 0 0",
       maxWidth: "1700px",
       margin: "0 auto",
       background: "rgba(var(--primary),0.05)"
@@ -45,16 +56,16 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       background: "var(--bg-paper)",
       left: "0",
       right: "0",
-      padding: "20px 0",
+      padding: "0 0 0 0",
       transition: "padding 0.3s linear",
       zIndex: "999999"
     },
-    ".header.header-fixed": {
-      padding: "10px 0",
-      background: "#ffffff",
-      boxShadow: "0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28)",
-      zIndex: "999",
-    },
+    // ".header.header-fixed": {
+    //   padding: "10px 0",
+    //   background: "#ffffff",
+    //   boxShadow: "0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28)",
+    //   zIndex: "999",
+    // },
     ".header .header-container": {
       padding: "10px 0 16px 0",
       display: "flex",

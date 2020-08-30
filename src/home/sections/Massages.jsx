@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Avatar, Box } from "@material-ui/core";
+import { Grid, Avatar, Box, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -20,24 +20,23 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
    fontSize: "14px"
   },
 
+
   imgStoneLeft: {
     position: "absolute",
-    width: "500px",
+    maxWidth: "500px",
     height: "515px",
-    left: "-258px",
-    top: "1069px",
-    overflow: "visible",
-    opacity: "1"
+    top: "677px",
+    left: "-265px",
+    overflow: "visible"
   },
 
   imgStoneRight: {
     position: "absolute",
     width: "450px",
     height: "428px",
-    right: "-274px",
-    top: "1674px",
-    overflow: "visible",
-    opacity: "1"
+    right: "-271px",
+    top: "1222px",
+    overflow: "visible"
   }
 
 }));
@@ -46,12 +45,12 @@ const Massages = () => {
   const classes = useStyles();
   const massagesList = [
     {
-      name: "Massage assise",
+      name: "Massage sur chaise assise",
       imgUrl: "/assets/images/massage-assis.png",
       buttonTitle: "SAVOIR PLUS"
     },
     {
-      name: "Massage 9 sens",
+      name: "Massage des 9 sens",
       imgUrl: "/assets/images/massage-9sens.png",
       buttonTitle: "SAVOIR PLUS"
     },
@@ -71,11 +70,13 @@ const Massages = () => {
 
       <div className="container">
 
-      <img className={classes.imgStoneLeft} src="assets/images/logos/stone_left.png" 
-      srcset="assets/images/logos/stone_left.png 1x, assets/images/logos/stone_1162727_1920_ca@2x.png 2x" alt=""/>
+      <img className={clsx(classes.imgStoneLeft, "hide-on-mobile")} 
+      src="assets/images/logos/stone_left.png" 
+      srcset="assets/images/logos/stone_left.png 1x, assets/images/logos/stone_1162727_1920_ca@2x.png 2x"
+       alt=""/>
 
 
-      <img className={classes.imgStoneRight} src="assets/images/logos/stone_right.png" 
+      <img className={clsx(classes.imgStoneRight, "hide-on-mobile")} src="assets/images/logos/stone_right.png" 
       srcset="assets/images/logos/stone_right.png 1x, assets/images/logos/stone_1162727_1920_ca@2x.png 2x" alt=""/>
 
         <Grid container spacing={0} justify="center">
@@ -99,9 +100,9 @@ const Massages = () => {
                     text text text text text text text text
                 </p>
                 <div className={classes.center}>
-                 <Box className="p-4 bg-button-savoirplus" size="large"> 
+                 <Button className="p-4 bg-button-savoirplus" size="large"> 
                  {item.buttonTitle}
-                 </Box>
+                 </Button>
 
                  </div>
                 
