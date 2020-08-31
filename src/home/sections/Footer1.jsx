@@ -14,7 +14,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       width: 64,
       background: palette.third
     },
-    backgroundColor: palette.second
+    marginTop: "2rem"
+    //backgroundColor: palette.second
   },
 }));
 
@@ -27,7 +28,7 @@ const Footer1 = () => {
         <Grid container>
           <Grid item lg={4} md={4} sm={12}>
             <div className="p-8 h-full elevation-z3">
-              <h4 className="text-20 mb-6 relative">A propos</h4>
+              <h4 className="text-14 mb-6 relative">A propos</h4>
               <p className="text-inherit">
                 IKDO By ZEN WORKSHOP
               </p>
@@ -43,22 +44,22 @@ const Footer1 = () => {
           </Grid>
           <Grid item lg={4} md={4} sm={12}>
             <div className="p-8 h-full elevation-z3">
-              <h4 className="text-20 mb-6 relative">Prestations</h4>
+              <h4 className="text-14 mb-6 relative">Prestations</h4>
               <div className="px-4 my-8 flex items-center mx--4">
                 <div className="pl-4">
-                  <h5 className="m-0 p-0 text-16">Massages</h5>
+                  <h5 className="m-0 p-0 text-14">Massages</h5>
                 </div>
               </div>
               <div className="px-4 mt-8 flex items-center mx--4">
                 <div className="pl-4">
-                  <h5 className="m-0 p-0 text-16">Somathotérapie</h5>
+                  <h5 className="m-0 p-0 text-14">Somathotérapie</h5>
                  
                 </div>
               </div>
 
               <div className="px-4 mt-8 flex items-center mx--4">
               <div className="pl-4">
-                <h5 className="m-0 p-0 text-16">Formations</h5>
+                <h5 className="m-0 p-0 text-14">Formations</h5>
                
               </div>
             </div>
@@ -67,18 +68,18 @@ const Footer1 = () => {
           </Grid>
           <Grid item lg={4} md={4} sm={12}>
           <div className="p-8 h-full elevation-z3">
-          <h4 className="text-20 mb-6 relative">Contact</h4>
+          <h4 className="text-14 mb-6 relative">Contact</h4>
           <div className="px-4 my-8 flex items-center mx--4">
             <Icon className="text-secondary">mail</Icon>
             <div className="pl-4">
-              <h5 className="m-0 p-0 text-16">Email</h5>
+              <h5 className="m-0 p-0 text-14">Email</h5>
               <p className="m-0 p-0 text-inherit">email@abc.com</p>
             </div>
           </div>
           <div className="px-4 mt-8 flex items-center mx--4">
             <Icon className="text-secondary">location_on</Icon>
             <div className="pl-4">
-              <h5 className="m-0 p-0 text-16">Adresse</h5>
+              <h5 className="m-0 p-0 text-14">Adresse</h5>
               <p className="m-0 p-0 text-inherit">
               446 Avenue de Dunkerque, 59130 Lambersart
               </p>
