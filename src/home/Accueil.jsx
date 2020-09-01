@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { scrollTo } from "utils";
 import IntroFinal from "./sections/IntroFinal";
 import TopBar from "./sections/TopBar";
-import Services8 from "./sections/Services8";
+import AllServices from "./sections/AllServices";
 import Massages from "./sections/Massages";
 import Formations from "./sections/Formations";
 import Footer1 from "./sections/Footer1";
-import Contact2 from "./sections/Contact2";
+import Contact from "./sections/Contact";
 
 const Accueil = () => {
   useEffect(() => {
@@ -17,10 +17,10 @@ const Accueil = () => {
     <div className="landing">
       <TopBar />
       <IntroFinal />
-      <Services8 />
+      <AllServices />
       <Massages />
       <Formations />
-      <Contact2 />
+      <Contact />
       <Footer1 />
     </div>
   );

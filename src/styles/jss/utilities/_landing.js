@@ -25,10 +25,6 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       },
     },
 
-    ".section-services8" : {
-      paddingtTop: "3rem !important"
-    },
-
     ".container": {
       padding: "0px 0rem",
       maxWidth: "1700px",
@@ -42,7 +38,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       background: "rgba(var(--primary),0.05)"
     },
 
-    ".container-services8": {
+    ".container-AllServices": {
       padding: "5rem 0 0 0",
       maxWidth: "1700px",
       margin: "0 auto",
@@ -71,7 +67,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
-      boxShadow: "0px 5px 5px #dfe5e6;"
+      boxShadow: "2px 5px 5px 2px #0404046e;"
     },
     ".header .header-container .brand": {
       margin: "0 5% 0 1%",

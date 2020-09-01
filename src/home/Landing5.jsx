@@ -6,7 +6,7 @@ import About1 from "./sections/About1";
 import Gallery1 from "./sections/Gallery1";
 import WorkProcess1 from "./sections/WorkProcess1";
 import Blog1 from "./sections/Blog1";
-import Contact2 from "./sections/Contact2";
+import Contact2 from "./sections/Contact";
 
 const Landing5 = () => {
   useEffect(() => {

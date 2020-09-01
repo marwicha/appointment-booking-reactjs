@@ -9,8 +9,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     transition: "all 250ms ease-in-out"
   },
   button: {
-    fontSize: 14,
-    fontFamily: theme.typography.fontFamily
+    fontSize: 16,
+    fontFamily: theme.typography.fontFamily,
+    borderRadius: "100px",
+    background: `${palette.first} !important`,
+    color: "white !important",
+    width: "200px",
+   height: "60px",
   },
   center: {
    display: "flex",
@@ -19,25 +24,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
    height: "100px",
    fontSize: "14px"
   },
-
-
-  imgStoneLeft: {
-    position: "absolute",
-    maxWidth: "500px",
-    height: "515px",
-    top: "677px",
-    left: "-265px",
-    overflow: "visible"
-  },
-
-  imgStoneRight: {
-    position: "absolute",
-    width: "450px",
-    height: "428px",
-    right: "-271px",
-    top: "1222px",
-    overflow: "visible"
-  }
 
 }));
 
@@ -70,15 +56,6 @@ const Massages = () => {
 
       <div className="container">
 
-      <img className={clsx(classes.imgStoneLeft, "hide-on-mobile")} 
-      src="assets/images/logos/stone_left.png" 
-      srcset="assets/images/logos/stone_left.png 1x, assets/images/logos/stone_1162727_1920_ca@2x.png 2x"
-       alt=""/>
-
-
-      <img className={clsx(classes.imgStoneRight, "hide-on-mobile")} src="assets/images/logos/stone_right.png" 
-      srcset="assets/images/logos/stone_right.png 1x, assets/images/logos/stone_1162727_1920_ca@2x.png 2x" alt=""/>
-
         <Grid container spacing={0} justify="center">
           {massagesList.map((item, ind) => (
             <Grid key={ind} item sm={4} xs={12}>
@@ -100,7 +77,7 @@ const Massages = () => {
                     text text text text text text text text
                 </p>
                 <div className={classes.center}>
-                 <Button className="p-4 bg-button-savoirplus" size="large"> 
+                 <Button className={clsx(classes.button,"p-4")} size="large"> 
                  {item.buttonTitle}
                  </Button>
 

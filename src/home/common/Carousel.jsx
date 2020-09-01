@@ -45,8 +45,7 @@ const Carousel = (props) => {
     allowSlidePrev = true,
     delay = 3000,
     navigation = true,
-    bulletColor = theme.palette.second,
-    paginationClass = "marginBottom: 35px !important",
+    bulletColor = theme.palette.fourth,
     carouselId = "swiper-1",
     children,
   } = props;

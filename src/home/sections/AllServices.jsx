@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box, Button } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,7 +10,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     padding: "1rem 2rem 1rem 2rem",
     fontSize: 16,
     fontFamily: theme.typography.fontFamily,
-    backgroundColor: palette.third
+    backgroundColor: palette.third,
+    borderRadius: "100px"
+
   },
   image: {
     maxWidth: "150px"
@@ -18,7 +20,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 }));
 
 
-const Services8 = () => {
+const AllServices = () => {
 
   const classes = useStyles();
   const serviceList = [
@@ -49,7 +51,7 @@ const getImgSrc = (id,imgSrc,imageClass) => {
 }
   return (
     
-    <div className="container-services8">
+    <div className="container-AllServices">
     <Grid container spacing={6} justify="center">
     {serviceList.map((item, ind) => (
       <Grid key={ind} item sm={3} xs={12}>
@@ -71,4 +73,4 @@ const getImgSrc = (id,imgSrc,imageClass) => {
   );
 };
 
-export default Services8;
+export default AllServices;

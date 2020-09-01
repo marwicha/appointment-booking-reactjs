@@ -17,6 +17,7 @@ import Landing3 from "./home/Landing3";
 import Landing4 from "./home/Landing4";
 import Landing5 from "./home/Landing5";
 import Accueil from "./home/Accueil";
+import Formations from "./home/Formations";
 import Landing7 from "./home/Landing7";
 import Landing8 from "./home/Landing8";
 import Landing9 from "./home/Landing9";
@@ -41,6 +42,7 @@ function App() {
               <Route path="/landing4" component={Landing4} />
               <Route path="/landing5" component={Landing5} />
               <Route path="/Accueil" component={Accueil} />
+              <Route path="/Formations" component={Formations} />
                 <Route path="/landing7" component={Landing7} />
               <Route path="/landing8" component={Landing8} />
               <Route path="/landing9" component={Landing9} />

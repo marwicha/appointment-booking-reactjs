@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Card, TextField, Box } from "@material-ui/core";
+import { Grid, TextField, Box } from "@material-ui/core";
 import ContactMap1 from "./ContactMap1";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -14,7 +14,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 }));
 
-const Contact2 = () => {
+const Contact = () => {
 
   const classes = useStyles();
   
@@ -35,7 +35,7 @@ const Contact2 = () => {
             />
           </Grid>
           <Grid item md={6} sm={6} xs={12}>
-            <Card className="py-10 px-6" elevation={3}>
+            <div className="py-10 px-6" elevation={3}>
               <form>
                 <TextField
                   color="second"
@@ -70,7 +70,7 @@ const Contact2 = () => {
                 </Box>
 
               </form>
-            </Card>
+            </div>
           </Grid>
         </Grid>
       </div>
@@ -78,4 +78,4 @@ const Contact2 = () => {
   );
 };
 
-export default Contact2;
+export default Contact;

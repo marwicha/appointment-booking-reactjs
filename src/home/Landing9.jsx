@@ -1,7 +1,7 @@
 import React from "react";
 
 import Intro9 from "./sections/Intro9";
-import Contact2 from "./sections/Contact2";
+import Contact2 from "./sections/Contact";
 import Booking1 from "./sections/Booking1";
 import Gallery2 from "./sections/Gallery2";
 import HotelTour from "./sections/HotelTour";

@@ -92,7 +92,7 @@ Somatothérapie
 
           <li>
         
-          <Icon  style={{ fontSize: 28, marginLeft: "16px" }}> facebook </Icon>
+          <Icon  style={{ fontSize: 30, marginLeft: "6px" }}> facebook </Icon>
           </li>
 
         </ul>

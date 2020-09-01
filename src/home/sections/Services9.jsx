@@ -22,7 +22,7 @@ const Services9 = () => {
   ];
 
   return (
-    <section className="section" id="services8">
+    <section className="section">
       <div className="container">
         <Grid container spacing={6} justify="space-between">
           {serviceList.map((item, ind) => (

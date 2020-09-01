@@ -12,10 +12,6 @@ export const colorStyles = makeStyles(({ palette, ...theme }) => ({
       background: `${palette.error.main} !important`,
       color: "white !important",
     },
-    ".bg-button-savoirplus": {
-      background: `${palette.first} !important`,
-      color: "white !important",
-    },
     ".bg-white": { background: "#fff !important", color: "inherit" },
     ".bg-default": { background: `${palette.background.default} !important` },
     ".bg-paper": { background: `${palette.background.paper}` },

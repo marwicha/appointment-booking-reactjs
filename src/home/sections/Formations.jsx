@@ -7,11 +7,15 @@ import Icon from "@material-ui/core/Icon";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: theme.typography.fontFamily,
     backgroundColor: `${palette.second}`,
-    color: "white"
+    color: "white",
+    width: "200px",
+    height: "60px",
+  borderRadius: "100px"
   },
+  
   center: {
    display: "flex",
    flexWrap: "wrap",
