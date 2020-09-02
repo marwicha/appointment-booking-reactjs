@@ -26,18 +26,14 @@ const SecondSection = () => {
   const classes = useStyles();
   
   return (
-  
     <div className="container text-center">
       
     <h1 className="font-bold text-26 text-second mt-15">
       IKDO
     </h1>
-
-    <h2 className={clsx(classes.h2, "text-24 text-second")}>
+    <h2 className={clsx(classes.h2, "text-20 text-second")}>
       Formation
     </h2>
-
-    
     <div className="container">
 
         <Grid container spacing={0} justify="center">
@@ -53,12 +49,11 @@ const SecondSection = () => {
             </Grid>
 
             <Grid  sm={6} md={6} xs={12}>
-           
-              <div className="mb-6 ml-1 relative h-700">
+              <div className="mb-6 ml-1 relative">
                <img src="/assets/images/formations/9sens.png" alt="" />
               </div>
            
-          </Grid>
+            </Grid>
 
         </Grid>
       </div>

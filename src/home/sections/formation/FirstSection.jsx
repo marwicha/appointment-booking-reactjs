@@ -33,6 +33,7 @@ const FirstSection = () => {
   
   return (
   
+    <div className="section-intro-formations">
     <div className="container-AllServices text-center">
       
     <h1 className="font-normal text-28 text-second mt-15">
@@ -54,6 +55,7 @@ const FirstSection = () => {
       </Grid>
     ))}
   </Grid>
+  </div>
   </div>
  
 

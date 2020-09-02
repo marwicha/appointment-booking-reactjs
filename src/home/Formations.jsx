@@ -3,6 +3,7 @@ import { scrollTo } from "utils";
 import TopBar from "../home/sections/TopBar";
 import FirstSection from "./sections/formation/FirstSection";
 import SecondSection from "./sections/formation/SecondSection";
+import ThirdSection from './sections/formation/ThirdSection';
 import Footer1 from "./sections/Footer1";
 
 const Formation = () => {
@@ -15,6 +16,7 @@ const Formation = () => {
       <TopBar />
       <FirstSection />
       <SecondSection />
+      <ThirdSection />
       <Footer1 />
     </div>
   );

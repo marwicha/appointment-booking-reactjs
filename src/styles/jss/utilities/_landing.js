@@ -7,6 +7,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
     ".landing a": { textDecoration: "none" },
     ".landing div, .landing section": { boxSizing: "border-box" },
     ".section-intro": { paddingTop: "5rem !important" },
+    ".section-intro-formations": { paddingTop: "6rem !important" },
     ".section": {
       paddingTop: "7rem",
 
@@ -39,7 +40,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
     },
 
     ".container-AllServices": {
-      padding: "3rem 0 0 0",
+      padding: "1rem 0 0 0",
       maxWidth: "1700px",
       margin: "0 auto",
       background: "rgba(var(--primary),0.05)"
