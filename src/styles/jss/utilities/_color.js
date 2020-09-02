@@ -53,6 +53,7 @@ export const colorStyles = makeStyles(({ palette, ...theme }) => ({
     ".text-first": { color: `${palette.first} !important` },
     ".text-second": { color: `${palette.second} !important` },
     ".text-third": { color: `${palette.third} !important` },
+    ".text-fourth": { color: `${palette.fourth} !important` },
     ".text-secondary": { color: `${palette.secondary.main} !important` },
     ".text-error": { color: `${palette.error.main} !important` },
     ".text-green": { color: "#08ad6c !important" },

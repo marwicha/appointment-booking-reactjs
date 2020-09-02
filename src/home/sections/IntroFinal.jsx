@@ -1,6 +1,6 @@
 import React from "react";
 
-import { makeStyles, lighten } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "../common/Carousel";
 import clsx from "clsx";
 
@@ -65,14 +65,14 @@ const IntroFinal = () => {
 
   const ikdoList = [
     {
-      img: "./assets/images/1.jpg",
+      img: "./assets/images/1.png",
       h1: "IKDO",
       h2: " By Zen Workshop",
       text: "Détentez vous et prenez votre temps",
       buttonText:"Massages"
     },
     {
-      img: "./assets/images/2.jpg",
+      img: "./assets/images/2.png",
       h1: "IKDO",
       h2: " By Zen Workshop",
       text: "Plusieurs formations sont accessibles",
@@ -88,7 +88,7 @@ const IntroFinal = () => {
   ];
 
   return (
-    <div className="section">
+    <div className="section-intro">
     <div className={classes.introWrapper}>
       <div className="container">
         <Carousel
@@ -97,7 +97,7 @@ const IntroFinal = () => {
           slidesPerView={1}
         >
           {ikdoList.map((item, index) => (
-          <div  key={index}>
+          <div key={index}>
             
           <img className="h-full w-full" src={item.img} alt="" />
         

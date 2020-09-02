@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Button, Icon } from "@material-ui/core";
-import AppleIcon from "../common/icons/AppleIcon";
 
 const useStyles = makeStyles((theme) => ({
   themeText: {
@@ -108,7 +107,6 @@ const Intro4 = () => {
                   variant="contained"
                   color="primary"
                 >
-                  <AppleIcon fontSize="small" className="mr-3" />
                   App Store
                 </Button>
               </div>

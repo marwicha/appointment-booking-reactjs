@@ -8,10 +8,6 @@ import {
   Icon,
   Button,
 } from "@material-ui/core";
-import EuroIcon from "../common/icons/EuroIcon";
-import StarterIcon from "../common/icons/StarterIcon";
-import TieIcon from "../common/icons/TieIcon";
-import CompanyIcon from "../common/icons/CompanyIcon";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   cardWrapper: {
@@ -61,22 +57,18 @@ const Pricing2 = () => {
   const planList = [
     {
       title: "Free",
-      icon: EuroIcon,
       price: 0,
     },
     {
       title: "Starter",
-      icon: StarterIcon,
       price: 19,
     },
     {
       title: "Business",
-      icon: TieIcon,
       price: 39,
     },
     {
       title: "Ultimate",
-      icon: CompanyIcon,
       price: 59,
     },
   ];

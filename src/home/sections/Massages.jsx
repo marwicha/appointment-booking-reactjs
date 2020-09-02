@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Avatar, Box, Button } from "@material-ui/core";
+import { Grid, Avatar, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -47,10 +47,10 @@ const Massages = () => {
 
       <div className="container text-center">
       
-      <h1 className="font-normal font-bold text-32 text-third">
+      <h1 className="font-bold text-32 text-second">
         IKDO
       </h1>
-      <p className="max-w-500 mx-auto text-18 mt-4">
+      <p className="mx-auto text-18 pb-6">
         Massages et Somatothérapie
       </p>
 

@@ -3,7 +3,6 @@ import { Grid, Icon, Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { SdCard } from "@material-ui/icons";
-import RAMIcon from "../common/icons/RAMIcon";
 
 const tubeStyle = {
   height: 64,
@@ -81,7 +80,7 @@ const Features10 = () => {
                 </p>
               </div>
               <div className="icon-wrapper my-4">
-                <RAMIcon color="primary" className="text-72" />
+              
               </div>
             </Card>
             <Card

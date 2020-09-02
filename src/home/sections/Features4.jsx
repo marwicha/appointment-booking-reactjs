@@ -1,13 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, useMediaQuery } from "@material-ui/core";
-import Feature4IconCreator from "../common/icons/Feature4IconCreator";
-import CubeIcon from "../common/icons/CubeIcon";
-import RetinaIcon from "../common/icons/RetinaIcon";
-import DesktopIcon from "../common/icons/DesktopIcon";
-import CheckedIcon from "../common/icons/CheckedIcon";
-import PcMobileIcon from "../common/icons/PcMobileIcon";
-import HeartIcon from "../common/icons/HeartIcon";
 
 const useStyles = makeStyles((theme) => ({
   feature: {
@@ -100,9 +93,7 @@ const Feature4 = () => {
                 className={classes.feature}
               >
                 <div className="relative mx-4">
-                  <Feature4IconCreator>
-                    <DesktopIcon color="primary" className="text-54" />
-                  </Feature4IconCreator>
+                 
                 </div>
                 <div>
                   <h4 className="mt-6 font-normal mb-0">Use on Any Device</h4>
@@ -119,9 +110,7 @@ const Feature4 = () => {
                 className={classes.feature}
               >
                 <div className="relative mx-4">
-                  <Feature4IconCreator>
-                    <CubeIcon color="primary" className="text-54" />
-                  </Feature4IconCreator>
+                
                 </div>
                 <div>
                   <h4 className="mt-6 font-normal mb-0">
@@ -140,9 +129,7 @@ const Feature4 = () => {
                 className={classes.feature}
               >
                 <div className="relative mx-4">
-                  <Feature4IconCreator>
-                    <RetinaIcon color="primary" className="text-54" />
-                  </Feature4IconCreator>
+                  
                 </div>
                 <div>
                   <h4 className="mt-6 font-normal mb-0">Retina Ready</h4>
@@ -159,9 +146,7 @@ const Feature4 = () => {
                 className={classes.feature}
               >
                 <div className="relative mx-4">
-                  <Feature4IconCreator>
-                    <CheckedIcon color="primary" className="text-54" />
-                  </Feature4IconCreator>
+                 
                 </div>
                 <div>
                   <h4 className="mt-6 font-normal mb-0">W3c Valid Code</h4>
@@ -178,9 +163,7 @@ const Feature4 = () => {
                 className={classes.feature}
               >
                 <div className="relative mx-4">
-                  <Feature4IconCreator>
-                    <PcMobileIcon color="primary" className="text-54" />
-                  </Feature4IconCreator>
+                  
                 </div>
                 <div>
                   <h4 className="mt-6 font-normal mb-0">Fully Responsive</h4>
@@ -197,9 +180,7 @@ const Feature4 = () => {
                 className={classes.feature}
               >
                 <div className="relative mx-4">
-                  <Feature4IconCreator>
-                    <HeartIcon color="primary" className="text-54" />
-                  </Feature4IconCreator>
+                 
                 </div>
                 <div>
                   <h4 className="mt-6 font-normal mb-0">

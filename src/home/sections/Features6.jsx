@@ -2,13 +2,6 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
-import { BatteryChargingFull, LinkedCamera } from "@material-ui/icons";
-import SSDIcon from "../common/icons/SSDIcon";
-import DesktopIcon from "../common/icons/DesktopIcon";
-import RAMIcon from "../common/icons/RAMIcon";
-import FingerPrintIcon from "../common/icons/FingerPrintIcon";
-import ProcessorIcon from "../common/icons/ProcessorIcon";
-import MetalicIcon from "../common/icons/MetalicIcon";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   iconWrapper: {
@@ -31,35 +24,27 @@ const Features6 = () => {
   const classes = useStyles();
   const featureList = [
     {
-      icon: SSDIcon,
       title: "SSD",
     },
     {
-      icon: DesktopIcon,
       title: "19 inch OLED Display",
     },
     {
-      icon: RAMIcon,
       title: "12 GB Ram",
     },
     {
-      icon: FingerPrintIcon,
       title: "Fingerprint Scanner",
     },
     {
-      icon: BatteryChargingFull,
       title: "6 Hrs. Battery Backup ",
     },
     {
-      icon: ProcessorIcon,
       title: "Core i9",
     },
     {
-      icon: LinkedCamera,
       title: "12MP Camera",
     },
     {
-      icon: MetalicIcon,
       title: "Metallic Finish",
     },
   ];

@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Fab, Icon } from "@material-ui/core";
-import AppleIcon from "../common/icons/TwitterIcon";
 import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
@@ -58,7 +57,6 @@ const CallToAction3 = () => {
               Play Store
             </Fab>
             <Fab className="px-6" variant="extended" color="primary">
-              <AppleIcon fontSize="small" className="mr-3" />
               App Store
             </Fab>
           </div>

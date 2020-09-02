@@ -2,8 +2,6 @@ import React from "react";
 import { Card, Avatar, Divider, Icon, useMediaQuery } from "@material-ui/core";
 import { makeStyles, lighten, useTheme } from "@material-ui/core/styles";
 import Carousel from "../common/Carousel";
-import TwitterIcon from "../common/icons/TwitterIcon";
-import FacebookIcon from "../common/icons/FacebookIcon";
 import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
@@ -29,7 +27,7 @@ const Testimonial5 = () => {
           elit. Fugit modi voluptas vero iusto fuga quos totam
           eius, atis magnam tempora doloribus ducimus dolorem
           culpa animi beatae tenetur! Sapiente, quia tempora."`,
-      icon: TwitterIcon,
+     
       user: {
         imageUrl: "./assets/images/face-1.png",
         name: "John Doe",
@@ -42,7 +40,7 @@ const Testimonial5 = () => {
           elit. Fugit modi voluptas vero iusto fuga quos totam
           eius, atis magnam tempora doloribus ducimus dolorem
           culpa animi beatae tenetur! Sapiente, quia tempora."`,
-      icon: FacebookIcon,
+     
       user: {
         imageUrl: "./assets/images/face-2.png",
         name: "Adam Smith",
@@ -55,7 +53,7 @@ const Testimonial5 = () => {
           elit. Fugit modi voluptas vero iusto fuga quos totam
           eius, atis magnam tempora doloribus ducimus dolorem
           culpa animi beatae tenetur! Sapiente, quia tempora."`,
-      icon: TwitterIcon,
+      
       user: {
         imageUrl: "./assets/images/face-3.png",
         name: "John White",
@@ -68,7 +66,7 @@ const Testimonial5 = () => {
           elit. Fugit modi voluptas vero iusto fuga quos totam
           eius, atis magnam tempora doloribus ducimus dolorem
           culpa animi beatae tenetur! Sapiente, quia tempora."`,
-      icon: FacebookIcon,
+    
       user: {
         imageUrl: "./assets/images/face-2.png",
         name: "Adam Smith",
@@ -81,7 +79,7 @@ const Testimonial5 = () => {
           elit. Fugit modi voluptas vero iusto fuga quos totam
           eius, atis magnam tempora doloribus ducimus dolorem
           culpa animi beatae tenetur! Sapiente, quia tempora."`,
-      icon: TwitterIcon,
+     
       user: {
         imageUrl: "./assets/images/face-3.png",
         name: "John White",
@@ -94,7 +92,7 @@ const Testimonial5 = () => {
           elit. Fugit modi voluptas vero iusto fuga quos totam
           eius, atis magnam tempora doloribus ducimus dolorem
           culpa animi beatae tenetur! Sapiente, quia tempora."`,
-      icon: FacebookIcon,
+      
       user: {
         imageUrl: "./assets/images/face-4.png",
         name: "Jessica Hiche",

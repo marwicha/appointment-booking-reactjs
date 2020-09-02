@@ -8,7 +8,6 @@ import {
   ConfirmationNumber,
   HeadsetMic,
 } from "@material-ui/icons";
-import Feature4IconCreator from "../common/icons/Feature4IconCreator";
 
 const Services12 = () => {
   const serviceList = [
@@ -55,9 +54,7 @@ const Services12 = () => {
             <Grid key={ind} item md={4} sm={2} xs={12}>
               <div className="text-center max-w-252 mx-auto">
                 <div className="relative mb-8">
-                  <Feature4IconCreator>
-                    <item.icon className="text-62 text-primary" />
-                  </Feature4IconCreator>
+                  
                 </div>
                 <h4 className="font-normal text-primary text-20 inline-block">
                   {item.title}

@@ -9,9 +9,6 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
-import { School, PersonOutline } from "@material-ui/icons";
-import BookIcon from "../common/icons/BookIocn";
-import MessangerIcon from "../common/icons/MessengerIcon";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   iconWrapper: {
@@ -42,22 +39,18 @@ const Services11 = () => {
   const classes = useStyles();
   const achievementList = [
     {
-      icon: School,
       title: "97%",
       subtitle: "Happy Clients",
     },
     {
-      icon: BookIcon,
       title: "15+",
       subtitle: "Awards",
     },
     {
-      icon: PersonOutline,
       title: "2K",
       subtitle: "Job Placement",
     },
     {
-      icon: MessangerIcon,
       title: "98%",
       subtitle: "Project Complete",
     },

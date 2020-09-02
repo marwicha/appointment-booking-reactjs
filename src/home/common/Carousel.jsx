@@ -43,7 +43,7 @@ const Carousel = (props) => {
     spacing = 32,
     allowSlideNext = true,
     allowSlidePrev = true,
-    delay = 3000,
+    delay = 5000,
     navigation = true,
     bulletColor = theme.palette.fourth,
     carouselId = "swiper-1",
@@ -99,15 +99,15 @@ const Carousel = (props) => {
 
   return (
     <div className="relative w-full">
-      <div className="swiper-container"  style={{height: "450px"}} id={carouselId}>
+      <div className="swiper-container"  style={{height: "100%"}} id={carouselId}>
         <div className="swiper-wrapper">
           {Children.map(children, (child, index) => (
-            <div className="swiper-slide h-auto p-1 pb-6">{child}</div>
+            <div className="swiper-slide h-auto">{child}</div>
           ))}
         </div>
 
         {/* pagination */}
-        <div className={clsx("swiper-pagination")} style={{bottom: "20px"}}/> 
+        <div className={clsx("swiper-pagination")} style={{bottom: "50px"}}/> 
         
       </div>
     </div>

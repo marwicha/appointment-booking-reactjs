@@ -1,9 +1,6 @@
 import React from "react";
 import { Grid, IconButton, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import ThicknessIcon from "../common/icons/ThicknessIcon";
-import WidthIcon from "../common/icons/WidthIcon";
-import WeightIcon from "../common/icons/WeightIcon";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   gridWrapper: {
@@ -50,7 +47,7 @@ const Features8 = () => {
               <div className="flex justify-between flex-wrap mb-6 max-w-320">
                 <div className="text-center my-4">
                   <IconButton className="bg-light-primary p-4 mb-4">
-                    <ThicknessIcon color="primary" className="text-32" />
+                  
                   </IconButton>
                   <h4 className="font-medium text-primary mt-0 mb-2">
                     0.4&rdquo;
@@ -59,7 +56,7 @@ const Features8 = () => {
                 </div>
                 <div className="text-center my-4">
                   <IconButton className="bg-light-primary p-4 mb-4">
-                    <WidthIcon color="primary" className="text-32" />
+                   
                   </IconButton>
                   <h4 className="font-medium text-primary mt-0 mb-2">
                     10&rdquo;
@@ -68,7 +65,7 @@ const Features8 = () => {
                 </div>
                 <div className="text-center my-4">
                   <IconButton className="bg-light-primary p-4 mb-4">
-                    <WeightIcon color="primary" className="text-32" />
+                   
                   </IconButton>
                   <h4 className="font-medium text-primary mt-0 mb-2">
                     1.9 lbs

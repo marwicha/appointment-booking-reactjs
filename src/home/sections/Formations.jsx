@@ -1,21 +1,20 @@
 import React from "react"; 
-import { Grid, Avatar, Box, Typography, Divider, CardContent, Button} from "@material-ui/core";
+import { Grid, Typography, Divider, CardContent, Button} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
-import Icon from "@material-ui/core/Icon";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
     fontSize: 16,
     fontFamily: theme.typography.fontFamily,
-    backgroundColor: `${palette.second}`,
+    background: `${palette.second} !important`,
     color: "white",
     width: "200px",
     height: "60px",
-  borderRadius: "100px"
+    borderRadius: "100px"
   },
-  
+
   center: {
    display: "flex",
    flexWrap: "wrap",
@@ -110,7 +109,7 @@ const Massages = () => {
   return (
     <section className="section">
     <div className="container text-center">
-    <h1 className="font-bold text-32 text-error">
+    <h1 className="font-bold text-32 text-fourth">
       IKDO
     </h1>
     <p className="mx-auto text-18 pb-7">

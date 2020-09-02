@@ -2,9 +2,6 @@ import React from "react";
 import { Grid, Icon, Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
-import ProcessorIcon from "../common/icons/ProcessorIcon";
-import SpeedIcon from "../common/icons/SpeedIcon";
-import RAMIcon from "../common/icons/RAMIcon";
 
 const tubeStyle = {
   height: 64,
@@ -104,7 +101,7 @@ const Features9 = () => {
               )}
             >
               <div className="icon-wrapper my-4">
-                <ProcessorIcon color="primary" className="text-72" />
+               
               </div>
               <div className="max-w-400">
                 <h4 className="mt-0 mb-4 font-medium">2.0GHz 8Core x64</h4>
@@ -123,7 +120,7 @@ const Features9 = () => {
               )}
             >
               <div className="icon-wrapper my-4">
-                <SpeedIcon color="primary" className="text-72" />
+               
               </div>
               <div className="max-w-400">
                 <h4 className="mt-0 mb-4 font-medium">1600bs Speed</h4>

@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid, Card, Icon, IconButton, Button } from "@material-ui/core";
-import BookIcon from "../common/icons/BookIocn";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
@@ -68,7 +67,6 @@ const CourseList1 = () => {
                             30 Students
                           </small>
 
-                          <BookIcon className="text-16 text-muted" />
                           <small className="text-muted ml-2 mr-4">
                             3 Lessons
                           </small>
