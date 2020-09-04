@@ -26,18 +26,19 @@ const AllServices = () => {
   const serviceList = [
     {
       id:"1",
-      title: "Coaching",
+      title: "Somathotérapie",
       imgSrc: "/assets/images/logos/coaching.png"
-    },
-    {
-      id:"2",
-      title: "Massages",
-      imgSrc: "/assets/images/logos/ID12.png"
     },
     {
       id:"3",
       title: "Formations",
       imgSrc: "/assets/images/logos/ID123.png"
+    },
+
+    {
+      id:"2",
+      title: "Massages",
+      imgSrc: "/assets/images/logos/ID12.png"
     },
   ];
   

@@ -51,7 +51,7 @@ const Massages = () => {
         IKDO
       </h1>
       <p className="mx-auto text-18 pb-6">
-        Massages et Somatothérapie
+        Massages
       </p>
 
       <div className="container">
