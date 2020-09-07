@@ -14,8 +14,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       width: 64,
       background: palette.third
     },
-    marginTop: "2rem"
-    //backgroundColor: palette.second
+    marginTop: "2rem",
+    backgroundColor: palette.second
   },
 }));
 
