@@ -34,9 +34,9 @@ const FirstSection = () => {
   return (
   
     <div className="section-intro-formations">
-    <div className="container-AllServices text-center">
+    <div className="container-formation text-center">
       
-    <h1 className="font-normal text-28 text-second mt-15">
+    <h1 className="font-normal text-28 text-second mt-10">
       Nos Formations
     </h1>
 

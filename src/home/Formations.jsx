@@ -5,6 +5,7 @@ import FirstSection from "./sections/formation/FirstSection";
 import SecondSection from "./sections/formation/SecondSection";
 import ThirdSection from './sections/formation/ThirdSection';
 import Footer1 from "./sections/Footer1";
+import FourthSection from './sections/formation/FourthSection'
 
 const Formation = () => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const Formation = () => {
       <FirstSection />
       <SecondSection />
       <ThirdSection />
+      <FourthSection />
       <Footer1 />
     </div>
   );

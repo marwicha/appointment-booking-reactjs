@@ -46,6 +46,13 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       background: "rgba(var(--primary),0.05)"
     },
 
+    ".container-formation": {
+      padding: "2rem 0 0 0",
+      maxWidth: "1700px",
+      margin: "0 auto",
+      background: "#DFE6E7"
+    },
+
     ".header": {
       position: "fixed",
       width: "100%",

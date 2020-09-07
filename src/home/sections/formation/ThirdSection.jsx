@@ -24,34 +24,37 @@ const ThirdSection = () => {
   const classes = useStyles();
   
   return (
+
+    <div className="section">
+    <div className="container-formation text-center">
   
-    <div className="section-intro-formations">
-    <div className="container-AllServices text-center">
-
-    <Grid container spacing={2} justify="space-around" >
+    <Grid container justify="flex-start">
    
-      <Grid sm={5} md={5} xs={12}>
-        <div className="pt-10">
+      <Grid sm={3} md={3} xs={12}>
+        <div className="pt-2">
 
-        <h1 className="font-bold text-24 text-second" > Formation </h1>
-        <h2 className={clsx(classes.h2, "font-normal text-20 text-second")}> Massage des 9 sens </h2>
+        <h1 className="font-bold text-28 text-second p-2 mr-20" > Formation </h1>
+        <h2 className={clsx(classes.h2, "font-normal text-24 text-second")}> Massage des 9 sens </h2>
         </div>
       </Grid>
 
-      <Grid sm={5} md={5} xs={12}>
-      <div className="pt-10">
+      <Grid sm={3} md={3} xs={12}>
+      </Grid>
 
-      <h1 className="font-bold text-24 text-second"> Objectif </h1>
+      <Grid sm={4} md={4} xs={12}>
+      <div className="pt-2">
+
+      <h1 className="font-bold text-28 text-second"> Objectif </h1>
 
 
-      <p className="font-normal text-14 text-second">
+      <p className="font-normal text-16 text-second">
       Reconnecter les personnes à leurs 9 sens
       
       </p> 
       
-      <p className="font-normal text-14 text-second"> par le biais de différentes techniques de toucher. </p>
+      <p className="font-normal text-16 text-second"> par le biais de différentes techniques de toucher. </p>
       
-      <p className="font-normal text-14 text-second"> Reconnexion entre le corps et l’esprit </p>
+      <p className="font-normal text-16 text-second"> Reconnexion entre le corps et l’esprit </p>
       
       </div>
     </Grid>
