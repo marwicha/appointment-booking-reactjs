@@ -33,7 +33,7 @@ const FiveSection = () => {
   return (
 
     <div className="section">
-    <div className="container-program-formation text-center p-18">
+    <div className="container-program-formation text-center p-12">
   
       <div container>
 
@@ -47,10 +47,11 @@ const FiveSection = () => {
       <h4 className={clsx(classes.h2,"text-white")}> Bon Moyen </h4>
 
       <p className={clsx(classes.p,"text-white")}>
-       de découvrir cette méthode avant de vous engager dans cette formation est de profiter d'un soin au sein
+       De découvrir cette méthode avant de vous engager dans cette formation est de profiter d'un soin au sein
       de notre institut.</p>
-      
 
+      <img src="./assets/images/formations/arrow.png" className="w-120" alt=""/>
+      
       </div>
   
   </div>

@@ -15,7 +15,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       background: palette.third
     },
     marginTop: "2rem",
-    backgroundColor: palette.second
+    backgroundColor: "#e6e9ed"
   },
 }));
 
@@ -23,7 +23,7 @@ const Footer1 = () => {
   const classes = useStyles();
 
   return (
-    <div className={clsx("bg-light-dark", classes.footerSection)} id="footer1">
+    <div className={clsx( classes.footerSection)} id="footer1">
       <div className="container">
         <Grid container>
           <Grid item lg={4} md={4} sm={12}>
