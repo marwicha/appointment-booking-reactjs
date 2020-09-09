@@ -56,7 +56,7 @@ const getImgSrc = (id,imgSrc,imageClass) => {
     <Grid container spacing={6} justify="center">
     {serviceList.map((item, ind) => (
       <Grid key={ind} item sm={3} xs={12}>
-        <div className="text-center max-w-160 mx-auto">
+        <div className="text-center max-w-120 mx-auto">
 
            {getImgSrc(item.id,item.imgSrc,classes.image)}
 

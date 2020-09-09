@@ -2,9 +2,6 @@ import "swiper/dist/css/swiper.min.css";
 import React, { Children, useEffect } from "react";
 import Swiper from "swiper";
 import PropTypes from "prop-types";
-import { Fab } from "@material-ui/core";
-import NavigateNext from "@material-ui/icons/NavigateNext";
-import NavigateBefore from "@material-ui/icons/NavigateBefore";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -44,7 +41,6 @@ const Carousel = (props) => {
     allowSlideNext = true,
     allowSlidePrev = true,
     delay = 5000,
-    navigation = true,
     bulletColor = theme.palette.fourth,
     carouselId = "swiper-1",
     children,
@@ -55,9 +51,6 @@ const Carousel = (props) => {
   let {
     bulletClass,
     bulletActiveClass,
-    nextButton,
-    prevButton,
-    navButton,
   } = useStyles();
 
   const swiperOptions = {

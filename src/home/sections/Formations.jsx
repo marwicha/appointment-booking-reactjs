@@ -118,7 +118,7 @@ const Massages = () => {
 
     <div className="container-formations">
 
-    <Grid container spacing={0}  justify="center">
+    <Grid container spacing={0} justify="center">
     {formationsList.map((item) => (
 
     <Grid sm={3} xs={12}>

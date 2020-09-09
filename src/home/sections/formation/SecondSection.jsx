@@ -28,10 +28,10 @@ const SecondSection = () => {
   return (
     <div className="container text-center">
       
-    <h1 className="font-bold text-26 text-second mt-15">
+    <h1 className="font-bold text-28 text-second mt-15">
       IKDO
     </h1>
-    <h2 className={clsx(classes.h2, "text-20 text-second")}>
+    <h2 className={clsx(classes.h2, "text-24 text-second")}>
       Formation
     </h2>
     <div className="container">

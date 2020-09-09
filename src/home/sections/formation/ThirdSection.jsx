@@ -26,7 +26,7 @@ const ThirdSection = () => {
   return (
 
     <div className="section">
-    <div className="container-formation text-center">
+    <div className="container-icon-formation text-center">
   
     <Grid container justify="flex-start">
    

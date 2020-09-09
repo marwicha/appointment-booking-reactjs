@@ -1,8 +1,8 @@
 import React from "react";
-import { Grid, Button } from "@material-ui/core";
-import clsx from "clsx";
+import { Grid } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
@@ -18,6 +18,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
   sizeICone: {
     paddingBottom: "10px"
+  },
+  paragraph: {
+    color: "#434343",
+    fontFamily: "Lato Medium",
+    fontSize: "20px",
+    lineHeight: "24px"
   }
 }));
 
@@ -49,34 +55,47 @@ const FourthSection = () => {
 
   const imgList2 = [ 
     {
+     id:'1',
      link: "/assets/images/formations/proprioception.png",
      title: "La proprioception",
-     text: "qui est le fait de localiser ses différentes parties du corps dans l’espace.",
+     text: "Qui est le fait de localiser ses différentes parties du corps dans l’espace.",
      size: null
     },
 
     {
+      id:"2",
       link: "/assets/images/formations/equilibrioception.png",
       title: "L'équilibrioception",
-      text: "",
+      text: "Aide à prévenir toute chute chez les humains et animaux en équilibre",
       size: classes.sizeICone
     },
 
     {
+      id:'3',
       link: "/assets/images/formations/nociception.png",
       title: "La nociception",
-      text: "",
+      text: "Qui est le fait d’avoir le sens de la douleur.",
       size: null
     },
 
     {
+      id:'4',
       link: "/assets/images/formations/thermo.png",
       title: "La thermoception",
-      text: "",
+      text: " Qui est le fait d’avoir la perception du chaud / froid.",
       size: null
     },
   ]
   
+  const getImgSrc = (id,imgSrc) => {
+    if (id ==="2")
+    return <img src={imgSrc} className="mt--7" alt=""/>
+    else if (id === "4") {
+      return <img src={imgSrc} className="mt--6" alt=""/>
+    }
+    return <img src={imgSrc} alt=""/>
+  }
+
   return (
   
     <div className="section">
@@ -87,20 +106,24 @@ const FourthSection = () => {
 
     {imgList.map(item => (
       <Grid key sm={2} md={2} xs={12}>
-        <img className="w-50" src={item.link} alt="" />
 
+        <img src={item.link} alt="" />
 
       </Grid>
     ))}
 
     {imgList2.map(item => (
-      <Grid key
-       sm={3} md={3} xs={12}>
-        <img className="w-50" src={item.link} alt="" />
+      <Grid className="mt-6" key sm={3} md={3} xs={12}>
+     
+       {getImgSrc(item.id,item.link)}
 
-        <h6>{item.title}</h6>
+        <h6 className="px-24 mt-3 w-240"> {item.title} </h6>
+
+        <p className={clsx(classes.paragraph, "px-25 mt-3 w-240")}> {item.text} </p>
+
       </Grid>
     ))}
+   
   
   </Grid>
   </div>
