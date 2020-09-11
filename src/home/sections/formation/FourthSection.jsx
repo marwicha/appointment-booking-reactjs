@@ -101,19 +101,18 @@ const FourthSection = () => {
     <div className="section">
     <div className="container text-center">
 
-    <Grid sm={12} md={12} xs={12} container>
+    <Grid sm={12} md={12} xs={12} container  justify="space-evenly" alignItems="center">
    
 
     {imgList.map(item => (
       <Grid key sm={2} md={2} xs={12}>
 
-        <img src={item.link} alt="" />
-
+        <img src={item.link} alt=""/>
       </Grid>
     ))}
 
     {imgList2.map(item => (
-      <Grid className="mt-8" key sm={3} md={3} xs={12} alignContent="center">
+      <Grid className="mt-8" key sm={3} md={3} xs={12} >
      
        {getImgSrc(item.id,item.link)}
 
