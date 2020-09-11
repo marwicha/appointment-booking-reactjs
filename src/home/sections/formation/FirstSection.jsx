@@ -8,16 +8,31 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
     marginTop: "1rem !important",
     padding: "1rem 2rem 1rem 2rem",
-    fontSize: 16,
-    fontFamily: theme.typography.fontFamily,
+    fontSize: 14,
     backgroundColor: palette.second,
     color: "white",
-    borderRadius: "100px"
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: 300,
+    borderRadius: "50px",
+    display: "flex",
+    alignItems: "center",
+    textAlign: "center"
   },
   containerTabs: {
-    background: "#DFE6E7",
+    background: "#EBF0FF",
     paddingTop: "1rem"
-  }
+  },
+
+  h1: {
+fontFamily: "LEMON MILK",
+fontStyle: "normal",
+fontWeight: "normal",
+fontSize: "26px",
+alignItems: "center",
+textAlign: "center"
+  
+}
 }));
 
 const FirstSection = () => {
@@ -40,7 +55,7 @@ const FirstSection = () => {
     <div className="section-intro-formations">
     <div className="container-formation text-center">
       
-    <h1 className="font-normal text-28 text-second">
+    <h1 className={classes.h1}>
       Nos Formations
     </h1>
 
@@ -50,7 +65,7 @@ const FirstSection = () => {
     <Grid container spacing={6} justify="center">
     {serviceList.map((item, ind) => (
       <Grid key={ind} item sm={3} md={3} xs={12}>
-        <div className="text-center max-w-400 mx-auto">
+        <div className="text-center mx-auto">
 
           <Button className={ classes.button }> 
           {item.title}

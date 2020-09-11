@@ -22,9 +22,15 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   paragraph: {
     color: "#434343",
     fontFamily: "Lato Medium",
-    fontSize: "20px",
-    lineHeight: "24px"
+    fontSize: "18px"
+  },
+
+  boxSahdow: {
+    background: "#FFFFFF",
+    boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.25)",
+    borderRadius: "30px 0px"
   }
+ 
 }));
 
 const FourthSection = () => {
@@ -101,13 +107,16 @@ const FourthSection = () => {
     <div className="section">
     <div className="container text-center">
 
-    <Grid sm={12} md={12} xs={12} container  justify="space-evenly" alignItems="center">
+    <Grid sm={12} md={12} xs={12} lg={12} container justify="space-evenly" alignItems="center">
    
 
     {imgList.map(item => (
       <Grid key sm={2} md={2} xs={12}>
 
+      <div className={classes.boxSahdow}>
         <img src={item.link} alt=""/>
+
+        </div>
       </Grid>
     ))}
 
