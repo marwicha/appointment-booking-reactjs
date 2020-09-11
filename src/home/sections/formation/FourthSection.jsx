@@ -101,7 +101,7 @@ const FourthSection = () => {
     <div className="section">
     <div className="container text-center">
 
-    <Grid sm={12} md={12} xs={12} container justify="space-around">
+    <Grid sm={12} md={12} xs={12} container>
    
 
     {imgList.map(item => (
@@ -113,7 +113,7 @@ const FourthSection = () => {
     ))}
 
     {imgList2.map(item => (
-      <Grid className="mt-6" key sm={3} md={3} xs={12}>
+      <Grid className="mt-8" key sm={3} md={3} xs={12} alignContent="center">
      
        {getImgSrc(item.id,item.link)}
 
