@@ -42,31 +42,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       marginLeft: -theme.spacing.unit
     }
   },
-  Icon1: {
-    color: palette.third,
-    fontSize:"35px",
-    alignSelf:"center"
-  },
-  Icon2: {
-    color: palette.fourth,
-    fontSize:"35px"
-  },
-  Icon3: {
-    color: palette.second,
-    fontSize:"35px"
-  },
+
   textContainer: {
     display: "flex",
     width: "100%",
     marginBottom: "10px",
     position: "relative"
-  },
-
-  icon: {
-    position: "inline-block",
-    padding: "3px",
-    minWidth: "50px",
-    textAlign: "center"
   },
 
   titleText: {
@@ -85,24 +66,21 @@ const Massages = () => {
       title: "Massage sur chaise assise",
       imgUrl: "/assets/images/logos/e.png",
       text: "Différents type de massages adapté au besoin de la  personne massée et des consigne sanitaire.",
-      buttonTitle: "SAVOIR PLUS",
-      color: classes.Icon1
+      buttonTitle: "SAVOIR PLUS"
 
     },
     {
       title: "Massage des 9 sens",
       imgUrl: "/assets/images/logos/a.png",
       text: "Différents type de massages adapté au besoin de la  personne massée et des consigne sanitaire.",
-      buttonTitle: "SAVOIR PLUS",
-      color: classes.Icon2
+      buttonTitle: "SAVOIR PLUS"
     },
 
     {
       title: "Meditation pleine consciense",
       imgUrl: "/assets/images/logos/z.png",
       text: "Différents type de massages adapté au besoin de la  personne massée et des consigne sanitaire.",
-      buttonTitle: "SAVOIR PLUS",
-      color: classes.Icon3
+      buttonTitle: "SAVOIR PLUS"
     },
   ];
 

@@ -64,7 +64,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       padding: "2rem 0 0 0",
       maxWidth: "1700px",
       margin: "0 auto",
-      background: "#EBF0FF"
+      background: "#FAFBFF"
     },
 
     ".container-program-formation": {

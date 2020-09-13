@@ -16,19 +16,23 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   h2: {
     fontFamily: "LEMON MILK Light"
   },
-  sizeICone: {
-    paddingBottom: "10px"
-  },
+
   paragraph: {
     color: "#434343",
     fontFamily: "Lato Medium",
-    fontSize: "18px"
+    fontSize: "18px",
   },
 
   boxSahdow: {
     background: "#FFFFFF",
     boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.25)",
     borderRadius: "30px 0px"
+  },
+
+  textContainer: {
+    position: "relative",
+    overflow: "hidden",
+    marginTop: "1rem"
   }
  
 }));
@@ -39,7 +43,7 @@ const FourthSection = () => {
 
   const imgList = [ 
     {
-     link: "/assets/images/formations/ouie.png",
+     link: "/assets/images/formations/image1.png",
     },
 
     {
@@ -64,40 +68,40 @@ const FourthSection = () => {
      id:'1',
      link: "/assets/images/formations/proprioception.png",
      title: "La proprioception",
-     text: "Qui est le fait de localiser ses différentes parties du corps dans l’espace.",
-     size: null
+     text: "Qui est le fait de localiser ses différentes parties du corps dans l’espace."
     },
 
     {
       id:"2",
       link: "/assets/images/formations/equilibrioception.png",
       title: "L'équilibrioception",
-      text: "Aide à prévenir toute chute chez les humains et animaux en équilibre",
-      size: classes.sizeICone
+      text: "Aide à prévenir toute chute chez les humains et animaux en équilibre"
     },
 
     {
       id:'3',
       link: "/assets/images/formations/nociception.png",
       title: "La nociception",
-      text: "Qui est le fait d’avoir le sens de la douleur.",
-      size: null
+      text: "Qui est le fait d’avoir le sens de la douleur."
     },
 
     {
       id:'4',
       link: "/assets/images/formations/thermo.png",
       title: "La thermoception",
-      text: " Qui est le fait d’avoir la perception du chaud / froid.",
-      size: null
+      text: " Qui est le fait d’avoir la perception du chaud / froid."
+  
     },
   ]
   
   const getImgSrc = (id,imgSrc) => {
     if (id ==="2")
-    return <img src={imgSrc} className="mt--7" alt=""/>
+    return <img src={imgSrc} className="mt--4" alt=""/>
+    else if (id=== "3") {
+      return <img src={imgSrc} className="mt--4" alt=""/>
+    }
     else if (id === "4") {
-      return <img src={imgSrc} className="mt--6" alt=""/>
+      return <img src={imgSrc} className="mt--7" alt=""/>
     }
     return <img src={imgSrc} alt=""/>
   }
@@ -107,13 +111,13 @@ const FourthSection = () => {
     <div className="section">
     <div className="container text-center">
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="space-evenly" alignItems="center">
+    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
    
 
     {imgList.map(item => (
       <Grid key sm={2} md={2} xs={12}>
 
-      <div className={classes.boxSahdow}>
+      <div >
         <img src={item.link} alt=""/>
 
         </div>
@@ -121,14 +125,14 @@ const FourthSection = () => {
     ))}
 
     {imgList2.map(item => (
-      <Grid className="mt-8" key sm={3} md={3} xs={12} >
-     
+      <Grid key sm={3} md={3} xs={12} className="mb--20">
+       <div className={classes.textContainer}>
        {getImgSrc(item.id,item.link)}
 
-        <h6 className="px-24 mt-3 w-240"> {item.title} </h6>
+        <h6 className="absolute text-center"> {item.title} </h6>
 
-        <p className={clsx(classes.paragraph, "px-25 mt-3 w-240")}> {item.text} </p>
-
+        <p className={clsx(classes.paragraph, "absolute text-center")}> {item.text} </p>
+       </div>
       </Grid>
     ))}
    
