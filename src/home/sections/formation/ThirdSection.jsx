@@ -19,8 +19,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "28px",
-    lineHeight: "30px",
+    fontSize: "30px",
+    marginBottom: "20px",
     alignItems: "center",
     textAlign: "justify"
   },
@@ -29,8 +29,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "26px",
-    lineHeight: "30px",
+    fontSize: "30px",
     alignItems: "center",
     textAlign: "justify"
   },
@@ -45,10 +44,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   verticalLine: {
-    borderLeft: "3px solid #182731",
-    height: "170px",
-    position: "absolute",
-    left: "41%"
+    borderLeft: "3px solid",
+    paddingLeft: "20px"
   },
 
   p: {
@@ -73,10 +70,15 @@ const ThirdSection = () => {
     <div className="section">
     <div className="container-icon-formation text-center">
   
-    <Grid container justify="flex-start">
+    <Grid container>
    
-      <Grid sm={3} md={3} xs={12}>
-        <div className="p-7">
+    <Grid sm={1} md={1} xs={12}>
+        
+
+      </Grid>
+
+      <Grid sm={5} md={5} xs={12}>
+        <div className="pt-8">
 
         <h1 className={clsx(classes.h1)}> Formation </h1>
         <h2 className={clsx(classes.h2)}> 9 SENS </h2>
@@ -84,14 +86,9 @@ const ThirdSection = () => {
 
       </Grid>
 
-      <Grid sm={2} md={2} xs={12}>
-
-      <div className={clsx(classes.verticalLine, "mt-7")} > </div>
-
-      </Grid>
 
       <Grid sm={5} md={5} xs={12}>
-      <div className="pt-2">
+      <div className={classes.verticalLine}>
 
       <p className={classes.benefice}> Les bénéfices </p>
 
@@ -104,6 +101,11 @@ const ThirdSection = () => {
       </p> 
       
       </div>
+    </Grid>
+
+    <Grid sm={1} md={1} xs={12}>
+        
+
     </Grid>
   
   </Grid>

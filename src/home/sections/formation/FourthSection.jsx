@@ -40,6 +40,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     marginTop: "4rem",
     justifyContent: "center",
     textAlign: "center",
+  },
+
+  imgShadow: {
+    boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.25)",
+    borderRadius: "30px 0px",
+    width: "150px",
+    height: "130px",
+    padding: "18px",
+    textAlign: "center",
+    background: "#FFFFFF"
   }
  
 }));
@@ -50,22 +60,27 @@ const FourthSection = () => {
 
   const imgList = [ 
     {
+     title: "L’ouïe",
      link: "/assets/images/formations/image1.png",
     },
 
     {
+      title: "La vue",
       link: "/assets/images/formations/vue.png",
     },
 
     {
+      title: "Le goût",
       link: "/assets/images/formations/gout.png",
     },
 
     {
+      title: "L’odorat",
       link: "/assets/images/formations/odorat.png",
     },
 
     {
+      title: "Le toucher",
       link: "/assets/images/formations/toucher.png",
     }
   ]
@@ -103,12 +118,12 @@ const FourthSection = () => {
   
   const getImgSrc = (id,imgSrc) => {
     if (id ==="2")
-    return <img src={imgSrc} className="mt--4" alt=""/>
+    return <img src={imgSrc} className="mb--4" alt=""/>
     else if (id=== "3") {
-      return <img src={imgSrc} className="mt--4" alt=""/>
+      return <img src={imgSrc} className="mb--4" alt=""/>
     }
     else if (id === "4") {
-      return <img src={imgSrc} className="mt--7" alt=""/>
+      return <img src={imgSrc} className="mb--7" alt=""/>
     }
     return <img src={imgSrc} alt=""/>
   }
@@ -124,22 +139,24 @@ const FourthSection = () => {
     {imgList.map(item => (
       <Grid key sm={2} md={2} xs={12}>
 
-      <div >
+      <div className={classes.imgShadow}>
         <img src={item.link} alt=""/>
+
+        <h6 className="mt-3"> {item.title} </h6>
 
         </div>
       </Grid>
     ))}
 
     {imgList2.map(item => (
-      <Grid key sm={3} md={3} xs={12} className="mb--20 mt-5">
+      <Grid key sm={3} md={3} xs={12}>
        <div className={classes.textContainer}>
        {getImgSrc(item.id,item.link)}
 
-        <h5 className={clsx(classes.h5, "absolute mt-3")}> {item.title} </h5>
+        <h5 className={clsx(classes.h5, "absolute mt-7")}> {item.title} </h5>
 
         <div>
-        <p className={clsx(classes.paragraph, "absolute mt-3")} > {item.text} </p>
+        <p className={clsx(classes.paragraph, "absolute mt-7")} > {item.text} </p>
 
         </div>
        </div>

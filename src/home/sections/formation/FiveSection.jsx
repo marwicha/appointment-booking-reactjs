@@ -19,12 +19,15 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   fontFamily: "Lato Medium",
   fontSize: "20px",
   lineHeight: "24px",
-  textAlign: "center",
-  color: "#384C5A"
+  color: "#384C5A",
+  width: "50%",
+  margin: "auto"
   },
 
-  color: {
+  title: {
     color: "#384C5A",
+    width: "50%",
+    margin: "auto"
   }
 }));
 
@@ -39,19 +42,19 @@ const FiveSection = () => {
   
       <div container>
 
-      <h4 className={classes.color}> Bon Moyen </h4>
+      <h4 className={classes.title}> Bon Moyen </h4>
 
-      <p className={clsx(classes.p)}>
+      <p className={clsx(classes.p, "mt-6")}>
       Vous apprendrez les bases de différentes techniques de massage telles que le shiatsu, le massage californien, suédois et le massage aux pierres chaudes. 
 
       </p> 
 
-      <p className={clsx(classes.p)}>
+      <p className={clsx(classes.p, "mt-6")}>
       De découvrir cette méthode avant de vous engager dans cette formation est de profiter d'un soin au sein
       de notre institut.</p>
 
-      <img src="./assets/images/formations/arrow.png" className="w-120" alt=""/>
-      
+      <img src="./assets/images/formations/Polygon.png" className="mt-10" alt=""/>
+
       </div>
   
   </div>
