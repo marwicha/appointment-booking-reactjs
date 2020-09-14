@@ -31,10 +31,10 @@ const SecondSection = () => {
     <h1 className="font-bold text-28 text-second mt-15">
       IKDO
     </h1>
-    <h2 className={clsx(classes.h2, "text-24 text-second")}>
+    <h2 className={clsx(classes.h2, "text-26 text-second")}>
       Formation
     </h2>
-    <div className="container">
+    <div className="container mt-15">
 
         <Grid container spacing={0} justify="center">
             <Grid  sm={6} md={6} xs={12}>

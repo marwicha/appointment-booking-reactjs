@@ -6,6 +6,15 @@ import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
+  title: {
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "26px",
+    alignItems: "center",
+    textAlign: "center",
+    color: "#182731"
+  }
 }));
 
 const SixSection = () => {
@@ -38,6 +47,9 @@ const SixSection = () => {
   
     <div className="section">
     <div className="container text-center">
+
+
+    <h1 className={classes.title}> Programme </h1>
 
     <Grid sm={12} md={12} xs={12} container justify="flex-start" alignContent="flex-start">
    

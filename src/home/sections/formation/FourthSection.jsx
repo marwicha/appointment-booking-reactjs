@@ -13,14 +13,19 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     backgroundColor: "white",
     borderRadius: "100px"
   },
-  h2: {
-    fontFamily: "LEMON MILK Light"
+
+  h5: {
+    fontFamily: "LEMON MILK",
+    width: "50%",
+    margin: "auto"
   },
 
   paragraph: {
     color: "#434343",
     fontFamily: "Lato Medium",
     fontSize: "18px",
+    width: "50%",
+    margin: "auto"
   },
 
   boxSahdow: {
@@ -32,7 +37,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   textContainer: {
     position: "relative",
     overflow: "hidden",
-    marginTop: "1rem"
+    marginTop: "4rem",
+    justifyContent: "center",
+    textAlign: "center",
   }
  
 }));
@@ -125,13 +132,16 @@ const FourthSection = () => {
     ))}
 
     {imgList2.map(item => (
-      <Grid key sm={3} md={3} xs={12} className="mb--20">
+      <Grid key sm={3} md={3} xs={12} className="mb--20 mt-5">
        <div className={classes.textContainer}>
        {getImgSrc(item.id,item.link)}
 
-        <h6 className="absolute text-center"> {item.title} </h6>
+        <h5 className={clsx(classes.h5, "absolute mt-3")}> {item.title} </h5>
 
-        <p className={clsx(classes.paragraph, "absolute text-center")}> {item.text} </p>
+        <div>
+        <p className={clsx(classes.paragraph, "absolute mt-3")} > {item.text} </p>
+
+        </div>
        </div>
       </Grid>
     ))}

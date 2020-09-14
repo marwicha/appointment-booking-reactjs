@@ -71,7 +71,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       padding: "2rem 0 0 0",
       maxWidth: "1700px",
       margin: "0 auto",
-      background: "#384C5A"
+      background: "#EBF0FF"
     },
 
     ".header": {
