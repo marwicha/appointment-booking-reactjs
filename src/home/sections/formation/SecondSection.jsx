@@ -6,19 +6,41 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
-  container: {
-     height: "600px"
+  wrapperAll: {
+    display: "flex",
+    flexWrap: "wrap",
+    marginRight: "-1rem",
+    marginLeft: "-1rem",
+    paddingRight: "0",
+    paddingLeft: "0"
+  },
+
+  "@media (min-width: 768px)": {
+  containerTextWrapper: {
+    position: "relative",
+    width: "100%",
+    flex: "0 0 41.6666666667%",
+    maxWidth: "41.6666666667%",
+    marginRight: "8.3333333333%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: "7.5rem 5.625rem 7.5rem 0"
+  }},
+
+  textWrapper: {
+    maxWidth: "490px",
+    marginRight: "0",
+    marginLeft: "auto", 
   },
 
   h1: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "20px",
     color: "#182731",
-    lineHeight: "30px",
-    width: "560px",
-    margin: "0 auto"
+    fontSize: "1rem",
+    lineHeight: "2.5rem"
 
   },
 
@@ -43,6 +65,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   icon: {
     marginLeft: "34rem",
     marginTop: "2rem"
+  },
+
+  img: {
+    minHeight: "36rem",
+    // position: "relative",
+    // width: "100%",
+    // flex: "0 0 50%",
+    // maxWidth: "50%"
   }
 }));
 
@@ -62,7 +92,8 @@ const SecondSection = () => {
 
     <img src='/assets/images/formations/formation.png' alt="" className={classes.icon} />
 
-    <div className="mt-30">
+    
+    <div className= {classes.wrapperAll}>
 
         <Grid container spacing={3}>
 
@@ -71,19 +102,24 @@ const SecondSection = () => {
 
             <Grid  lg={6} xl={6} sm={5} md={5} xs={12}>
              
-             <h1 className={classes.h1}> IKDO EST AUSSI UN CENTRE DE FORMATIONS </h1>
-             <h1 className={classes.h1}>ET D'ATELIERS D'INITIATIONS: </h1>
+
+            <div className={classes.containerTextWrapper} >
+
+            <div className={classes.textWrapper}>
+             <h1 className={classes.h1}> IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS D'INITIATIONS: </h1>
              <h2 className={classes.h2}> Pour acquérir des notions en Toucher-Massage® Ikdo </h2>
 
               <p>Ikdo est doté d’un centre de formation qui a pour but de vous faire acquérir les notions de bases en toucher-massage®,
                et sur les autres techniques associées aux autres sens tels que la vue, 
               l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).</p>
                
+              </div>
+              </div>
             </Grid>
 
             <Grid  sm={4} md={4} xs={12}>
               <div className="mb-6 ml-1 relative">
-               <img src="/assets/images/formations/9sens.png" alt="" />
+               <img src="/assets/images/formations/9sens.png" className={classes.img} alt="" />
               </div>
            
             </Grid>
