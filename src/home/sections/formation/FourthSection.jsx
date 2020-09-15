@@ -133,7 +133,7 @@ const FourthSection = () => {
     <div className="section">
     <div className="container text-center">
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
+    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignContent="center">
    
 
     {imgList.map(item => (
@@ -153,10 +153,10 @@ const FourthSection = () => {
        <div className={classes.textContainer}>
        {getImgSrc(item.id,item.link)}
 
-        <h5 className={clsx(classes.h5, "absolute mt-7")}> {item.title} </h5>
+        <h5 className={clsx(classes.h5, "absolute mt-6")}> {item.title} </h5>
 
-        <div>
-        <p className={clsx(classes.paragraph, "absolute mt-7")} > {item.text} </p>
+        <div flexWrap="wrap">
+        <p className={clsx(classes.paragraph, "absolute mt-6")} > {item.text} </p>
 
         </div>
        </div>

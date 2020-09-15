@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Card } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -14,6 +14,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     alignItems: "center",
     textAlign: "center",
     color: "#182731"
+  },
+
+  boxShadows: {
+    background: "#FFFFFF",
+    boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
+    borderRadius: "0px 50px",
+    width: "300px",
+    height: "200px"
   }
 }));
 
@@ -55,12 +63,14 @@ const SixSection = () => {
    
 
     <Grid sm={5} md={5} xs={12}>
-     
+     <Card className={classes.boxShadows} >
     1
     <h1>CALIFORNIEN</h1>
 
 
-    <h4>Méthode des 9 Sens  
+    <h4>
+    
+    Méthode des 9 Sens  
     Manoeuvres de base dos - Aromathérapie:</h4>
 
 
@@ -68,6 +78,8 @@ const SixSection = () => {
 Dans le module 1 vous découvrirez l’utilité de la méthode des 9 SENS  Nous commencerons par des manœuvre de base du dos avec dos 
 (mouvement lent et ample) ainsi que l’utilisation de l’aromathérapie  et des autres sens.
 </p> 
+
+</Card>
 
       
     </Grid>
