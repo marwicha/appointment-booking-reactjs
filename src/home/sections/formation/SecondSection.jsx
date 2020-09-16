@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Card } from "@material-ui/core";
+import { Grid, Card, Button } from "@material-ui/core";
 import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,29 +7,28 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   wrapperAll: {
-    display: "flex",
     flexWrap: "wrap",
     marginRight: "-1rem",
     marginLeft: "-1rem",
     paddingRight: "0",
-    paddingLeft: "0"
+    paddingLeft: "0",
+    paddingTop: "7rem"
   },
 
-  "@media (min-width: 768px)": {
   containerTextWrapper: {
     position: "relative",
     width: "100%",
+    height: "100%",
     flex: "0 0 41.6666666667%",
-    maxWidth: "41.6666666667%",
-    marginRight: "8.3333333333%",
-    display: "flex",
+    maxWidth: "80%",
+    marginRight: "8%",
     flexDirection: "column",
     justifyContent: "center",
-    padding: "7.5rem 5.625rem 7.5rem 0"
-  }},
+    //padding: "7.5rem 5.625rem 7.5rem 0"
+  },
 
   textWrapper: {
-    maxWidth: "490px",
+    maxWidth: "500px",
     marginRight: "0",
     marginLeft: "auto", 
   },
@@ -41,7 +40,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#182731",
     fontSize: "1rem",
     lineHeight: "2.5rem"
-
   },
 
   h2: {
@@ -49,8 +47,22 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "20px",
-    color: "#182731"
+    color: "#182731",
+    lineHeight: "22px",
+    marginTop: "2rem"
   },
+
+
+  h22: {
+    fontFamily: "LEMON MILK Light",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "18px",
+    lineHeight: "22px",
+    color: "#182731",
+    marginTop: "2rem"
+  },
+
 
   button: {
     marginTop: "2rem !important",
@@ -64,7 +76,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   icon: {
     marginLeft: "34rem",
-    marginTop: "2rem"
+    marginTop: "2rem",
+    justifyContent: "center", 
+    position: "absolute"
   },
 
   img: {
@@ -73,6 +87,38 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     // width: "100%",
     // flex: "0 0 50%",
     // maxWidth: "50%"
+  },
+
+  p: {
+    fontFamily: "Lato",
+fontStyle: "normal",
+fontWeight: "300",
+fontSize: "14px",
+lineHeight: "22px",
+alignItems: "center",
+color: "#182731",
+marginTop: "2rem"
+
+  },
+
+  h3: {
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: "400",
+    color: "#182731",
+    fontSize: "1rem",
+    lineHeight: "2.5rem",
+  },
+
+  h4: {
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "22px",
+    lineHeight: "30px",
+    display: "flex",
+    alignItems: "center",
+    textAlign: "center"
   }
 }));
 
@@ -83,16 +129,14 @@ const SecondSection = () => {
   return (
     <div className={clsx(classes.container, "container")}>
       
-    <h1 className="font-bold text-28 text-center text-second mt-15">
+    <h3 className="font-bold text-28 text-center text-second mt-10">
       IKDO
-    </h1>
-    <h2 className={clsx(classes.h2, "text-center text-26 text-second")}>
+    </h3>
+    <h3 className={clsx(classes.h2, "text-center text-26 text-second")}>
       Formation
-    </h2>
+    </h3>
 
-    <img src='/assets/images/formations/formation.png' alt="" className={classes.icon} />
-
-    
+  
     <div className= {classes.wrapperAll}>
 
         <Grid container spacing={3}>
@@ -101,7 +145,6 @@ const SecondSection = () => {
         </Grid>
 
             <Grid  lg={6} xl={6} sm={5} md={5} xs={12}>
-             
 
             <div className={classes.containerTextWrapper} >
 
@@ -109,11 +152,31 @@ const SecondSection = () => {
              <h1 className={classes.h1}> IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS D'INITIATIONS: </h1>
              <h2 className={classes.h2}> Pour acquérir des notions en Toucher-Massage® Ikdo </h2>
 
-              <p>Ikdo est doté d’un centre de formation qui a pour but de vous faire acquérir les notions de bases en toucher-massage®,
+              <p className={classes.p}> Ikdo est doté d’un centre de formation qui a pour but de vous faire acquérir les notions de bases en toucher-massage®,
                et sur les autres techniques associées aux autres sens tels que la vue, 
-              l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).</p>
-               
+              l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).
+              
+              </p>
+
+              
+              <h2 className={classes.h22}>
+              Déplacements possible chez vous avec les équipements nécessaires : Tables ou chaise de massage,
+               musique relaxante, huiles essentielles... (*):
+
+              </h2>
+
+              <p className={classes.p}> "Massages" non thérapeutiques, ne s'apparentant à aucune pratique médicale ni paramédicale occidentale.
+              </p>
+
+
+              <h4 className={classes.h4} justify="center" alignItems="center"> Prendre un rendez vous </h4>
+
+
+
               </div>
+
+            
+
               </div>
             </Grid>
 
