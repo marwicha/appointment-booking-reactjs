@@ -28,12 +28,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     margin: "auto"
   },
 
-  boxSahdow: {
-    background: "#FFFFFF",
-    boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.25)",
-    borderRadius: "30px 0px"
-  },
-
   textContainer: {
     position: "relative",
     overflow: "hidden",
@@ -46,10 +40,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.25)",
     borderRadius: "30px 0px",
     width: "150px",
-    height: "130px",
+    //height: "130px",
     padding: "18px",
+    background: "#FFFFFF",
+    justifyContent: "center",
     textAlign: "center",
-    background: "#FFFFFF"
   }
  
 }));
@@ -119,11 +114,8 @@ const FourthSection = () => {
   const getImgSrc = (id,imgSrc) => {
     if (id ==="2")
     return <img src={imgSrc} className="mb--4" alt=""/>
-    else if (id=== "3") {
-      return <img src={imgSrc} className="mb--4" alt=""/>
-    }
     else if (id === "4") {
-      return <img src={imgSrc} className="mb--7" alt=""/>
+      return <img src={imgSrc} className="mb--5" alt=""/>
     }
     return <img src={imgSrc} alt=""/>
   }
@@ -151,14 +143,13 @@ const FourthSection = () => {
     {imgList2.map(item => (
       <Grid key sm={3} md={3} xs={12}>
        <div className={classes.textContainer}>
+
        {getImgSrc(item.id,item.link)}
 
         <h5 className={clsx(classes.h5, "absolute mt-6")}> {item.title} </h5>
 
-        <div flexWrap="wrap">
         <p className={clsx(classes.paragraph, "absolute mt-6")} > {item.text} </p>
 
-        </div>
        </div>
       </Grid>
     ))}
