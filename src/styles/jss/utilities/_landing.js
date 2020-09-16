@@ -50,13 +50,6 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       padding: "4rem 0 1rem 0",
       maxWidth: "1700px",
       margin: "0 auto",
-      background: "#FAFBFF;"
-    },
-
-    ".container-nos-formation": {
-      maxWidth: "1200px",
-      margin: "0 auto",
-      background: "#FAFBFF;"
     },
 
 

@@ -15,23 +15,23 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontStyle: "normal",
     fontWeight: 300,
     borderRadius: "50px",
-    display: "flex",
     alignItems: "center",
     textAlign: "center"
   },
+
   containerTabs: {
     background: "#EBF0FF",
-    paddingTop: "1rem"
+    paddingTop: "1rem",
+    margin: "0 auto"
   },
 
   h1: {
-fontFamily: "LEMON MILK",
-fontStyle: "normal",
-fontWeight: "normal",
-fontSize: "26px",
-alignItems: "center",
-textAlign: "center"
-  
+   fontFamily: "LEMON MILK",
+   fontStyle: "normal",
+   fontWeight: "normal",
+   fontSize: "26px",
+   alignItems: "center",
+   textAlign: "center"
 }
 }));
 
@@ -65,7 +65,7 @@ const FirstSection = () => {
     <Grid container spacing={6} justify="center">
     {serviceList.map((item, ind) => (
       <Grid key={ind} item sm={3} md={3} xs={12}>
-        <div className="text-center mx-auto">
+        <div className="text-center">
 
           <Button className={ classes.button }> 
           {item.title}
