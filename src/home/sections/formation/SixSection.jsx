@@ -10,98 +10,101 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "26px",
+    fontSize: "16px",
+   // alignItems: "center",
+   // textAlign: "center",
+    color: "#182731"
+  },
+
+  // boxShadows: {
+  //   background: "#FFFFFF",
+  //   boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
+  //   borderRadius: "0px 50px",
+  //   width: "300px",
+  //   height: "200px"
+  // },
+
+  description: {
+    fontFamily: "LEMON MILK Light",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "10px",
     alignItems: "center",
     textAlign: "center",
     color: "#182731"
   },
 
-  boxShadows: {
-    background: "#FFFFFF",
+  imgShadow: {
     boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
-    borderRadius: "0px 50px",
-    width: "300px",
-    height: "200px"
+    borderRadius: "30px 0px",
+    width: "100%",
+    height: "100%",
+    padding: "18px",
+    background: "#FFFFFF",
+    justifyContent: "center",
+    textAlign: "center",
   }
 }));
 
 const SixSection = () => {
 
-  const classes = useStyles();
 
-  const imgList = [ 
+  const programList = [ 
     {
-     link: "/assets/images/formations/ouie.png",
+     title: "CALIFORNIEN",
+     title2: "Méthode des 9 Sens Manoeuvres de base dos - Aromathérapie:",
+     description:
+      "Dans le module 1 vous découvrirez l’utilité de la méthode des 9 SENS  Nous commencerons par des manœuvre de base du dos avec dos (mouvement lent et ample) ainsi que l’utilisation de l’aromathérapie  et des autres sens.",
     },
 
     {
-      link: "/assets/images/formations/vue.png",
+      title: "CALIFORNIEN",
+      title2: "Méthode des 9 Sens Manoeuvres de base dos - Aromathérapie:",
+      description: "Dans le module 1 vous découvrirez l’utilité de la méthode des 9 SENS  Nous commencerons par des manœuvre de base du dos avec dos (mouvement lent et ample) ainsi que l’utilisation de l’aromathérapie  et des autres sens.",
     },
 
     {
-      link: "/assets/images/formations/gout.png",
-    },
-
-    {
-      link: "/assets/images/formations/odorat.png",
-    },
-
-    {
-      link: "/assets/images/formations/toucher.png",
+      title: "CALIFORNIEN",
+      title2: "Méthode des 9 Sens Manoeuvres de base dos - Aromathérapie:",
+      description: "Dans le module 1 vous découvrirez l’utilité de la méthode des 9 SENS  Nous commencerons par des manœuvre de base du dos avec dos (mouvement lent et ample) ainsi que l’utilisation de l’aromathérapie  et des autres sens.",
     }
   ]
+
+  const classes = useStyles();
 
   return (
   
     <div className="section">
-    <div className="container text-center">
+    <div className="container">
 
-    <h1 className={classes.title}> Programme </h1>
+    <h1 className={clsx(classes.title, " text-center")}> Programme </h1>
 
-    <Grid sm={12} md={12} xs={12} container justify="center" alignItems="center">
+    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
    
-    <Grid sm={5} md={5} xs={12}>
 
-     <Card className={classes.boxShadows} >
+    {programList.map(item => (
+    <Grid sm={3} md={3} xs={12}>
 
-    1
+    <div className={classes.imgShadow} >
 
-    <h1> CALIFORNIEN </h1>
+   1
 
-    <h4>
-    
-    Méthode des 9 Sens  
-    Manoeuvres de base dos - Aromathérapie:
-    
-    </h4>
+   <h1 className={classes.h1}> {item.title} </h1>
 
-<p>
-Dans le module 1 vous découvrirez l’utilité de la méthode des 9 SENS  Nous commencerons par des manœuvre de base du dos avec dos 
-(mouvement lent et ample) ainsi que l’utilisation de l’aromathérapie  et des autres sens.
+   <h4>
+   
+   {item.title2}
+   
+   </h4>
+
+<p className={classes.description}>
+{item.description}
 </p> 
 
-</Card>
-
-      
-    </Grid>
-
-
-    <Grid sm={5} md={5} xs={12}>
-    
-    1
-    <h1>CALIFORNIEN</h1>
-
-
-    <h4>Méthode des 9 Sens  
-    Manoeuvres de base dos - Aromathérapie:</h4>
-
-
-<p>
-Dans le module 1 vous découvrirez l’utilité de la méthode des 9 SENS  Nous commencerons par des manœuvre de base du dos avec dos 
-(mouvement lent et ample) ainsi que l’utilisation de l’aromathérapie  et des autres sens.
-</p> 
-    </Grid>
-
+</div>
+     
+   </Grid>
+    ))}
 
     </Grid>
   </div>
