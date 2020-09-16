@@ -6,23 +6,21 @@ import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
-  title: {
+  h1: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "16px",
-   // alignItems: "center",
-   // textAlign: "center",
+    fontSize: "26px",
     color: "#182731"
   },
 
-  // boxShadows: {
-  //   background: "#FFFFFF",
-  //   boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
-  //   borderRadius: "0px 50px",
-  //   width: "300px",
-  //   height: "200px"
-  // },
+  title: {
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "18px",
+    color: "#182731"
+  },
 
   description: {
     fontFamily: "LEMON MILK Light",
@@ -74,18 +72,18 @@ const SixSection = () => {
 
   return (
   
-    <div className="section">
+    <div className="section-programme-formation">
     <div className="container">
 
-    <h1 className={clsx(classes.title, " text-center")}> Programme </h1>
+    <h1 className={clsx(classes.h1, "text-center")}> Programme </h1>
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
+    <Grid sm={12} md={12} xs={12} lg={12} container justify="space-around" alignItems="center">
    
 
     {programList.map(item => (
     <Grid sm={3} md={3} xs={12}>
 
-    <div className={classes.imgShadow} >
+    <div className={clsx(classes.imgShadow, "mt-5")} >
 
    1
 

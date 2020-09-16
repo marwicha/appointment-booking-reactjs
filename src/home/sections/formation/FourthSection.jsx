@@ -125,7 +125,7 @@ const FourthSection = () => {
     <div className="section">
     <div className="container text-center">
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignContent="center">
+    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
    
 
     {imgList.map(item => (

@@ -20,14 +20,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     width: "100%",
     flex: "0 0 41.6666666667%",
     maxWidth: "80%",
-    marginRight: "8%",
+    //marginRight: "3%",
     flexDirection: "column",
     justifyContent: "center",
     //padding: "7.5rem 5.625rem 7.5rem 0"
   },
 
   textWrapper: {
-    maxWidth: "500px",
+    maxWidth: "70%",
     marginRight: "0",
     marginLeft: "auto", 
   },
@@ -35,10 +35,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   h1: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
-    fontWeight: "400",
+    fontWeight: "500",
     color: "#182731",
-    fontSize: "1rem",
-    lineHeight: "22px"
+    fontSize: "22px",
+    lineHeight: "30px"
   },
 
   h2: {
@@ -47,7 +47,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "500",
     fontSize: "20px",
     color: "#182731",
-    lineHeight: "22px",
+    lineHeight: "30px",
     marginTop: "2rem"
   },
 
@@ -57,7 +57,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "18px",
-    lineHeight: "22px",
+    lineHeight: "30px",
     color: "#182731",
     marginTop: "2rem"
   },
@@ -135,20 +135,18 @@ const SecondSection = () => {
       Formation
     </h3>
 
-  
+
     <div className= {classes.wrapperAll}>
 
-        <Grid container spacing={3}>
+        <Grid container >
 
-        <Grid  sm={1} md={1} xs={12}>
-        </Grid>
-
-            <Grid  lg={6} xl={6} sm={5} md={5} xs={12}>
+            <Grid  lg={6} xl={6} sm={6} md={6} xs={12}>
 
             <div className={classes.containerTextWrapper} >
 
             <div className={classes.textWrapper}>
              <h1 className={classes.h1}> IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS D'INITIATIONS: </h1>
+
              <h2 className={classes.h2}> Pour acquérir des notions en Toucher-Massage® Ikdo </h2>
 
               <p className={classes.p}>
@@ -169,7 +167,7 @@ const SecondSection = () => {
               </p>
 
 
-              <h4 className={classes.h4} justify="center" alignItems="center"> Prendre un rendez vous </h4>
+              <h4 className={classes.h4}> Prendre un rendez vous </h4>
 
 
 
@@ -180,7 +178,7 @@ const SecondSection = () => {
               </div>
             </Grid>
 
-            <Grid  sm={4} md={4} xs={12}>
+            <Grid  sm={5} md={5} xs={12}>
               <div className="mb-6 ml-1 relative">
                <img src="/assets/images/formations/9sens.png" className={classes.img} alt="" />
               </div>
