@@ -17,17 +17,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   containerTextWrapper: {
     position: "relative",
-    width: "100%",
     flex: "0 0 41.6666666667%",
-    maxWidth: "80%",
-    //marginRight: "3%",
+    maxWidth: "97%",
+    marginRight: "3%",
     flexDirection: "column",
     justifyContent: "center",
     //padding: "7.5rem 5.625rem 7.5rem 0"
   },
 
   textWrapper: {
-    maxWidth: "70%",
+    maxWidth: "60%",
     marginRight: "0",
     marginLeft: "auto", 
   },
@@ -48,7 +47,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "20px",
     color: "#182731",
     lineHeight: "30px",
-    marginTop: "2rem"
+    marginTop: "3rem"
   },
 
 
@@ -59,7 +58,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "18px",
     lineHeight: "30px",
     color: "#182731",
-    marginTop: "2rem"
+    marginTop: "3rem"
   },
 
 
@@ -90,13 +89,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   p: {
     fontFamily: "Lato",
-fontStyle: "normal",
-fontWeight: "300",
-fontSize: "16px",
-lineHeight: "22px",
-alignItems: "center",
-color: "#182731",
-marginTop: "2rem"
+    fontStyle: "normal",
+    fontWeight: "300",
+    fontSize: "17px",
+    lineHeight: "22px",
+    alignItems: "center",
+    color: "#182731",
+    marginTop: "3rem"
 
   },
 
@@ -115,7 +114,6 @@ marginTop: "2rem"
     fontWeight: "bold",
     fontSize: "22px",
     lineHeight: "30px",
-    display: "flex",
     alignItems: "center",
     textAlign: "center"
   }
@@ -166,14 +164,9 @@ const SecondSection = () => {
               <p className={classes.p}> "Massages" non thérapeutiques, ne s'apparentant à aucune pratique médicale ni paramédicale occidentale.
               </p>
 
-
-              <h4 className={classes.h4}> Prendre un rendez vous </h4>
-
-
+              <h4 className={clsx(classes.h4, "text-center")}> Prendre un rendez vous </h4>
 
               </div>
-
-            
 
               </div>
             </Grid>
