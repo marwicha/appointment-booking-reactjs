@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { scrollTo } from "utils";
 import TopBar from "../home/sections/TopBar";
-import IndexRoute from './sections/formation/Massages-9sens/IndexRoute';
+import IndexRoute from './sections/formation/9sens/IndexRoute';
 import Footer1 from "./sections/Footer1";
 
 import { useState } from "react";

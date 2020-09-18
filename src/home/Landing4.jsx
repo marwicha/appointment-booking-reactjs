@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { scrollTo } from "utils";
-import Intro4 from "./sections/Intro4";
 import Features4 from "./sections/Features4";
 import ProductAnalytics from "./sections/ProductAnalytics";
 import Feature5 from "./sections/Features5";
@@ -15,7 +14,6 @@ const Landing4 = () => {
 
   return (
     <div className="landing">
-      <Intro4 />
       <Features4 />
       <ProductAnalytics />
       <Feature5 />

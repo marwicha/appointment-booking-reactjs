@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -31,7 +30,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   }
 }));
 
-const FiveSection = () => {
+const FithSection = () => {
 
   const classes = useStyles();
   
@@ -64,4 +63,4 @@ const FiveSection = () => {
   );
 };
 
-export default FiveSection;
+export default FithSection;

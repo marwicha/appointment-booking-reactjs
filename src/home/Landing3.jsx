@@ -6,7 +6,6 @@ import Service5 from "./sections/Services5";
 import Service6 from "./sections/Services6";
 import Service7 from "./sections/Services7";
 import Testimonial3 from "./sections/Testimonial3";
-import Intro3 from "./sections/Intro3";
 import CallToAction2 from "./sections/CallToAction2";
 import Pricing1 from "./sections/Pricing1";
 import Footer1 from "./sections/Footer1";
@@ -18,7 +17,6 @@ const Landing3 = () => {
 
   return (
     <div className="landing">
-      <Intro3 />
       <Service3 />
       <Service4 />
       <Service5 />
