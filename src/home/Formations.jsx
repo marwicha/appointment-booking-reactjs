@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { scrollTo } from "utils";
 import TopBar from "../home/sections/TopBar";
-import IndexRoute from './sections/formation/9sens/IndexRoute';
+import IndexRoute9sens from './sections/formation/9sens/IndexRoute9sens';
+
+import IndexRouteMeditation from './sections/formation/meditation/IndexRouteMeditation';
+
 import Footer1 from "./sections/Footer1";
 
 import { useState } from "react";
@@ -97,10 +100,15 @@ const Formation = () => {
     </div>
     </div>
 
-    {tabIndex === 1 && (
-      <IndexRoute />
+    {tabIndex === 0 && (
+      <IndexRoute9sens />
 
     )}
+
+    {tabIndex === 2 && (
+      <IndexRouteMeditation /> 
+    )}
+
       <Footer1 />
     </div>
   );

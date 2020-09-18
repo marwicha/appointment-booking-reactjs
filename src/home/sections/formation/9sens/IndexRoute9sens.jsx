@@ -6,7 +6,7 @@ import FourthSection from './FourthSection';
 import FithSection from './FithSection';
 import SixSection from './SixSection';
 
-const IndexRoute = () => {
+const IndexRoute9sens = () => {
 
   useEffect(() => {
     scrollTo("root");
@@ -24,4 +24,4 @@ const IndexRoute = () => {
   );
 };
 
-export default IndexRoute;
+export default IndexRoute9sens;

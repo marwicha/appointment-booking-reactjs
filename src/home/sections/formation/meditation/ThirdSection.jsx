@@ -74,13 +74,14 @@ const ThirdSection = () => {
    
     <Grid sm={1} md={1} xs={12}>
         
+
       </Grid>
 
       <Grid sm={5} md={5} xs={12}>
         <div className="pt-8">
 
         <h1 className={clsx(classes.h1)}> Formation </h1>
-        <h2 className={clsx(classes.h2)}> Massage des 9 SENS </h2>
+        <h2 className={clsx(classes.h2)}> Méditation pleine consciense </h2>
       </div>
 
       </Grid>
@@ -93,9 +94,8 @@ const ThirdSection = () => {
 
       <p className={classes.p}>
     
-      Les Bénefices Ikdo est doté d’un centre de formation qui a pour but de vous faire acquérir les notions de bases en toucher-massage®, 
-      et sur les autres techniques associées aux autres sens tels que la vue,
-      l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).
+      Conçue initialement pour réduire le stress dû à la maladie, aux douleurs chroniques, aux traitements pénibles,
+       cette méthode a contribué largement à l’amélioration de la qualité de vie de nombreuses personnes.
       
       </p> 
       
