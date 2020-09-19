@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -31,6 +31,38 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     marginLeft: "auto", 
   },
 
+  button: {
+    margin: "2rem 1rem 0 0 !important",
+    padding: "1rem 2rem 1rem 2rem",
+    fontSize: 11,
+    backgroundColor: palette.second,
+    color: "white",
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: 300,
+    borderRadius: "50px",
+    alignItems: "center",
+    textAlign: "center",
+
+},
+
+
+button2: {
+  marginTop: "2rem !important",
+  padding: "1rem 2rem 1rem 2rem",
+  fontSize: 11,
+  fontFamily: "LEMON MILK",
+  fontStyle: "normal",
+  fontWeight: 300,
+  borderRadius: "50px",
+  alignItems: "center",
+  textAlign: "center",
+  background: "#FAFBFF",
+  border: "3px solid #384C5A",
+  boxSizing: "border-box",
+  color: "#384C5A"
+},
+
   h1: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
@@ -46,8 +78,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "500",
     fontSize: "20px",
     color: "#182731",
-    lineHeight: "30px",
-    marginTop: "3rem"
+    lineHeight: "30px"
   },
 
 
@@ -61,17 +92,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     marginTop: "3rem"
   },
 
-
-  button: {
-    marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 15,
-    fontFamily: theme.typography.fontFamily,
-    backgroundColor: palette.second,
-    color: "white",
-    borderRadius: "100px"
-  },
-
   icon: {
     marginLeft: "34rem",
     marginTop: "2rem",
@@ -83,7 +103,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     minHeight: "36rem",
      position: "relative",
      flex: "0 0 50%",
-     maxWidth: "65%"
+     maxWidth: "65%",
+     borderRadius: 16,
   },
 
   p: {
@@ -111,10 +132,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "bold",
-    fontSize: "22px",
+    fontSize: "20px",
     lineHeight: "30px",
     alignItems: "center",
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: "2rem"
   }
 }));
 
@@ -125,7 +147,7 @@ const SecondSection = () => {
   return (
     <div className={clsx(classes.container, "container")}>
       
-    <h3 className="font-bold text-28 text-center text-second mt-15">
+    <h3 className="font-bold text-28 text-center text-second mt-5">
       IKDO
     </h3>
     <h3 className={clsx(classes.h2, "text-center text-26 text-second")}>
@@ -165,6 +187,16 @@ const SecondSection = () => {
 
               <h4 className={clsx(classes.h4, "text-center")}> Prendre un rendez vous </h4>
 
+              <div className="text-center">
+              <Button className={clsx(classes.button, "text-center") } >
+                  Réserver maintenant
+              </Button>
+
+              <Button className={ clsx(classes.button2, "text-center") } >
+                  Massage 9 sens
+              </Button>
+              </div>
+              
               </div>
 
               </div>

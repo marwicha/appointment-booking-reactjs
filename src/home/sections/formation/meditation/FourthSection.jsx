@@ -16,7 +16,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   h5: {
     fontFamily: "LEMON MILK",
-    width: "60%",
+    width: "70%",
     margin: "auto"
   },
 
@@ -24,7 +24,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#434343",
     fontFamily: "Lato Medium",
     fontSize: "18px",
-    width: "60%",
+    width: "70%",
     margin: "auto"
   },
 
@@ -78,11 +78,14 @@ const FourthSection = () => {
     {imgList.map(item => (
       <Grid key lg ={3} sm={2} md={2} xs={12}>
 
-        <img src={item.link} alt="" />
+      <div> <img src={item.link} alt="" /></div>
+        
+<div> 
 
-        <h5 className={clsx(classes.h5, "absolute mt-6")}> {item.title} </h5>
+<h6 className={clsx(classes.h5, "absolute mt-6")}> {item.title} </h6></div>
+       
 
-        <p className={clsx(classes.paragraph, "absolute mt-6")} > {item.description} </p>
+        <div><p className={clsx(classes.paragraph, "absolute mt-6")} > {item.description} </p></div>
 
       </Grid>
     ))}

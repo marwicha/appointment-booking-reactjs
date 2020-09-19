@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -44,10 +44,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "20px",
+    fontSize: "18px",
     color: "#182731",
     lineHeight: "30px",
-    marginTop: "3rem"
   },
 
 
@@ -55,7 +54,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "18px",
+    fontSize: "16px",
     lineHeight: "30px",
     color: "#182731",
     marginTop: "3rem"
@@ -63,15 +62,38 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 
   button: {
-    marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 15,
-    fontFamily: theme.typography.fontFamily,
-    backgroundColor: palette.second,
-    color: "white",
-    borderRadius: "100px"
+      margin: "2rem 1rem 0 0 !important",
+      padding: "1rem 2rem 1rem 2rem",
+      fontSize: 11,
+      backgroundColor: palette.second,
+      color: "white",
+      fontFamily: "LEMON MILK",
+      fontStyle: "normal",
+      fontWeight: 300,
+      borderRadius: "50px",
+      alignItems: "center",
+      textAlign: "center",
+
   },
 
+
+  button2: {
+    marginTop: "2rem !important",
+    padding: "1rem 2rem 1rem 2rem",
+    fontSize: 11,
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: 300,
+    borderRadius: "50px",
+    alignItems: "center",
+    textAlign: "center",
+    background: "#FAFBFF",
+    border: "3px solid #384C5A",
+    boxSizing: "border-box",
+    color: "#384C5A"
+},
+
+ 
   icon: {
     marginLeft: "34rem",
     marginTop: "2rem",
@@ -84,7 +106,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
      position: "relative",
      width: "100%",
      flex: "0 0 50%",
-     maxWidth: "81%"
+     maxWidth: "81%",
+     borderRadius: 16,
   },
 
   p: {
@@ -112,10 +135,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "bold",
-    fontSize: "22px",
+    fontSize: "20px",
     lineHeight: "30px",
     alignItems: "center",
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: "2rem"
   }
 }));
 
@@ -126,7 +150,7 @@ const SecondSection = () => {
   return (
     <div className={clsx(classes.container, "container")}>
       
-    <h3 className="font-bold text-28 text-center text-second mt-15">
+    <h3 className="font-bold text-28 text-center text-second mt-5">
       IKDO
     </h3>
     <h3 className={clsx(classes.h2, "text-center text-26 text-second")}>
@@ -136,9 +160,9 @@ const SecondSection = () => {
 
     <div className= {classes.wrapperAll}>
 
-        <Grid container >
+        <Grid container spacing={0} alignItems="center" >
 
-            <Grid  lg={6} xl={6} sm={6} md={6} xs={12}>
+            <Grid lg={6} xl={6} sm={6} md={6} xs={12}>
 
             <div className={classes.containerTextWrapper} >
 
@@ -153,7 +177,6 @@ const SecondSection = () => {
               l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).
               
               </p>
-
               
               <h2 className={classes.h22}>
               Déplacements possible chez vous avec les équipements nécessaires : Tables ou chaise de massage,
@@ -166,6 +189,17 @@ const SecondSection = () => {
 
               <h4 className={clsx(classes.h4, "text-center")}> Prendre un rendez vous </h4>
 
+
+              <div className="text-center">
+              <Button className={clsx(classes.button, "text-center") } >
+                  Réserver maintenant
+              </Button>
+
+              <Button className={ clsx(classes.button2, "text-center") } >
+                  Massage 9 sens
+              </Button>
+              </div>
+
               </div>
 
               </div>
@@ -173,7 +207,10 @@ const SecondSection = () => {
 
             <Grid  sm={5} md={5} xs={12}>
               <div className="mb-6 ml-1 relative">
-               <img src="/assets/images/formations/9sens.png" className={classes.img} alt="" />
+               <img src="/assets/images/formations/9sens.png"
+
+               className={clsx("w-full block", classes.img)}
+               alt="" />
               </div>
            
             </Grid>

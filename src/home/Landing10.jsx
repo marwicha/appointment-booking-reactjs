@@ -1,13 +1,7 @@
 import React from "react";
 
 import Intro10 from "./sections/Intro10";
-import Contact2 from "./sections/Contact";
-import Booking1 from "./sections/Booking1";
-import Gallery2 from "./sections/Gallery2";
-import HotelTour from "./sections/HotelTour";
-import Services10 from "./sections/Services10";
 import Blog1 from "./sections/Blog1";
-import Testimonial8 from "./sections/Testimonial8";
 import Conference1 from "./sections/Conference1";
 import EventSchedule1 from "./sections/EventSchedule1";
 import Massages from "./sections/Massages";
