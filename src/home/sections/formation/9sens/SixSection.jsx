@@ -14,23 +14,36 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#182731"
   },
 
+  number: {
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "18px",
+    color: "#182731",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
   title: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "16px",
+    fontSize: "14px",
     color: "#182731",
-    textAlign: "left"
+    //textAlign: "left",
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   title2: {
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "14px",
+    fontSize: "12px",
     color: "#182731",
-    textAlign: "left",
-    lineHeight: "22px"
+    lineHeight: "22px",
+    alignItems: "center",
+    justifyContent: "center"
 
   },
 
@@ -47,8 +60,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
     borderRadius: "30px 0px",
     background: "#FFFFFF",
-    padding: "1rem",
-    maxWidth: "73%"
+    padding: "2rem",
+    width: "326px",
+    height: "150px"
   }
 }));
 
@@ -59,7 +73,7 @@ const SixSection = () => {
     {
     id: "1",
      title: "CALIFORNIEN",
-     title2: "Méthode des 9 Sens Manoeuvres de base dos - Aromathérapie: ",
+     title2: "Méthode des 9 Sens Manoeuvres de base dos - Aromathérapie",
      description:
       "Dans le module 1 vous découvrirez l’utilité de la méthode des 9 SENS  Nous commencerons par des manœuvre de base du dos avec dos (mouvement lent et ample) ainsi que l’utilisation de l’aromathérapie  et des autres sens.",
     },
@@ -67,7 +81,7 @@ const SixSection = () => {
     {
       id: "2",
       title: "SHIATSU",
-      title2: "Dos approfondissement pression progressive et étirements doux: ",
+      title2: "Dos approfondissement pression progressive et étirements doux",
       description: 
       "Dans le module 2 vous pourrez  approfondir vos connaissances avec des pression de Shiatsu progressive et étirement doux du dos (travail avec les pouces et le plat de la main).",
     },
@@ -75,7 +89,7 @@ const SixSection = () => {
     {
       id: "3",
       title: "SUEDOIS",
-      title2: "Grand dos révision - Profondeur: ",
+      title2: "Grand dos révision - Profondeur",
       description:
        "Dans le module 3 vous verrez l’utilité du massage suédois avec du pétrissage et nous en profitons pour revoir l’ensemble du massage du dos mais avec des mouvements plus profond et plus saccadés.",
     }
@@ -86,7 +100,7 @@ const SixSection = () => {
     {
       id: "4",
       title: "INDIEN",
-      title2: "Pierres chaudes - Jambes - fessiers - pieds sur l'épaule: ",
+      title2: "Pierres chaudes - Jambes - fessiers - pieds sur l'épaule",
       description:
        "Dans le module 4 nous aborderons les techniques Indiennes avec le massage avec les Pierres chaudes  sur le dos mais aussi  le massage des Jambes - fessiers - et ce nous appelons le (pieds sur l’épaule)",
     },
@@ -94,7 +108,7 @@ const SixSection = () => {
     {
       id: "5",
       title: "TIBETAIN",
-      title2: "Bol tibétain, bol en cristal: ",
+      title2: "Bol tibétain, bol en cristal",
       description:
        "Dans le module 5, vous ressentirez les bienfaits des ondes sonores avec les Bols tibétains et les bols en crystal",
     },
@@ -102,7 +116,7 @@ const SixSection = () => {
     {
       id: "6",
       title: "9 SENS (rappel)",
-      title2: "Fluidité des enchaînements - pieds jambes: ",
+      title2: "Fluidité des enchaînements - pieds jambes",
       description:
        "Dans ce module 6 nous réviserons les bases pour rappel des techniques nous accentuerons l’apprentissage sur la bonne fluidité des enchaînements  et nous verrons les bienfait du massage des pieds et des jambes.",
     },
@@ -113,7 +127,7 @@ const SixSection = () => {
     {
       id: "7",
       title: "AYURVEDIQUE",
-      title2: "Ventre - plexus solaire: ",
+      title2: "Ventre - plexus solaire",
       description:
        "Dans le module 7 (correspondant au 7 chakras) vous apprendrez à relier les chakras avec le massage du ventre  et du plexus solaire avec des mouvements ayurvédique.",
     },
@@ -153,7 +167,7 @@ const SixSection = () => {
 
     <div className={clsx(classes.imgShadow, "mt-5")} >
 
-    <h1 className={classes.title}>  {item.id }</h1>
+    <h1 className={classes.number}>  {item.id }</h1>
 
    <h1 className={classes.title}>  {item.title} </h1>
 
@@ -170,8 +184,6 @@ const SixSection = () => {
 
     </Grid>
 
-
-
     <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
    
     {programList2.map(item => (
@@ -181,7 +193,7 @@ const SixSection = () => {
 
     <div className={clsx(classes.imgShadow, "mt-5")} >
 
-    <h1 className={classes.title}> {item.id} </h1>
+    <h1 className={classes.number}> {item.id} </h1>
 
    <h1 className={classes.title}> {item.title} </h1>
 
@@ -208,7 +220,7 @@ const SixSection = () => {
 
     <div className={clsx(classes.imgShadow, "mt-5")} >
 
-    <h1 className={classes.title}> {item.id} </h1>
+    <h1 className={classes.number}> {item.id} </h1>
 
    <h1 className={classes.title}> {item.title} </h1>
 

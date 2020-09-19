@@ -86,7 +86,6 @@ const ThirdSection = () => {
 
       </Grid>
 
-
       <Grid sm={5} md={5} xs={12}>
       <div className={classes.verticalLine}>
 
@@ -95,7 +94,7 @@ const ThirdSection = () => {
       <p className={classes.p}>
     
       Conçue initialement pour réduire le stress dû à la maladie, aux douleurs chroniques, aux traitements pénibles,
-       cette méthode a contribué largement à l’amélioration de la qualité de vie de nombreuses personnes.
+      cette méthode a contribué largement à l’amélioration de la qualité de vie de nombreuses personnes.
       
       </p> 
       
@@ -104,7 +103,6 @@ const ThirdSection = () => {
 
     <Grid sm={1} md={1} xs={12}>
         
-
     </Grid>
   
   </Grid>
