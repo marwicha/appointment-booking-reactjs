@@ -18,15 +18,15 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
     marginTop: "1rem !important",
     padding: "1rem 2rem 1rem 2rem",
-    fontSize: 14,
     backgroundColor: palette.second,
     color: "white",
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
-    fontWeight: 300,
+    fontWeight: "300",
     borderRadius: "50px",
     alignItems: "center",
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: "14px"
   },
 
   containerTabs: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   h1: {
    fontFamily: "LEMON MILK",
    fontStyle: "normal",
-   fontWeight: "normal",
+   fontWeight: "400",
    fontSize: "26px",
    alignItems: "center",
    textAlign: "center"

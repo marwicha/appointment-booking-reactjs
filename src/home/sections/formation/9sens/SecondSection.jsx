@@ -44,9 +44,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "18px",
-    color: "#182731",
+    fontSize: "16px",
     lineHeight: "30px",
+    color: "#182731",
   },
 
 
@@ -57,9 +57,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "16px",
     lineHeight: "30px",
     color: "#182731",
-    marginTop: "3rem"
+    marginTop: "2rem"
   },
-
 
   button: {
       margin: "2rem 1rem 0 0 !important",
@@ -75,7 +74,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       textAlign: "center",
 
   },
-
 
   button2: {
     marginTop: "2rem !important",
@@ -113,29 +111,19 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Lato",
     fontStyle: "normal",
-    fontWeight: "300",
-    fontSize: "17px",
+    fontWeight: "500",
+    fontSize: "14px",
     lineHeight: "22px",
     alignItems: "center",
     color: "#182731",
-    marginTop: "3rem"
-
-  },
-
-  h3: {
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: "400",
-    color: "#182731",
-    fontSize: "1rem",
-    lineHeight: "2.5rem",
+    marginTop: "2rem",
   },
 
   h4: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "18px",
+    fontWeight: "700",
+    fontSize: "22px",
     lineHeight: "30px",
     alignItems: "center",
     textAlign: "center",
@@ -157,7 +145,6 @@ const SecondSection = () => {
       Formation
     </h3>
 
-
     <div className= {classes.wrapperAll}>
 
         <Grid container spacing={0} alignItems="center" >
@@ -171,12 +158,12 @@ const SecondSection = () => {
 
              <h2 className={classes.h2}> Pour acquérir des notions en Toucher-Massage® Ikdo </h2>
 
-              <p className={classes.p}>
+              <h3 className={classes.p}>
                Ikdo est doté d’un centre de formation qui a pour but de vous faire acquérir les notions de bases en toucher-massage®,
                et sur les autres techniques associées aux autres sens tels que la vue, 
               l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).
               
-              </p>
+              </h3>
               
               <h2 className={classes.h22}>
               Déplacements possible chez vous avec les équipements nécessaires : Tables ou chaise de massage,
@@ -184,8 +171,8 @@ const SecondSection = () => {
 
               </h2>
 
-              <p className={classes.p}> "Massages" non thérapeutiques, ne s'apparentant à aucune pratique médicale ni paramédicale occidentale.
-              </p>
+              <h3 className={classes.p}> "Massages" non thérapeutiques, ne s'apparentant à aucune pratique médicale ni paramédicale occidentale.
+              </h3>
 
               <h4 className={clsx(classes.h4, "text-center")}> Prendre un rendez vous </h4>
 
