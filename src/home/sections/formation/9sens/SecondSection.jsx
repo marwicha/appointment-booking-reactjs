@@ -19,19 +19,21 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     position: "relative",
     maxWidth: "97%",
     marginRight: "3%",
-    flexDirection: "column",
-    justifyContent: "center",
-    //padding: "7.5rem 5.625rem 7.5rem 0"
+    justifyContent: "center"
   },
 
   textWrapper: {
     maxWidth: "60%",
     marginRight: "0",
     marginLeft: "auto", 
+    marginTop: "-7rem",
+    padding: "2rem 2rem 2rem 2rem",
+
     [theme.breakpoints.down("xs")]: {
       maxWidth: "90%",
       marginRight: "0",
-      marginLeft: "auto"
+      marginLeft: "auto", 
+      padding: "2rem 2rem 2rem 2rem"
     }
   },
 
@@ -41,7 +43,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "500",
     color: "#182731",
     fontSize: "22px",
-    lineHeight: "30px"
+    lineHeight: "30px",
+    marginTop: "1rem"
   },
 
   h2: {
@@ -64,12 +67,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     marginTop: "2rem"
   },
 
- 
   icon: {
-    marginLeft: "34rem",
-    marginTop: "2rem",
-    justifyContent: "center", 
-    position: "absolute"
+
+    marginTop: "-7rem",
+    marginLeft: "11rem",
+    alignItems: "center",
+    textAlign: "center",
+
+    [theme.breakpoints.down("xs")]: {
+      margin: "2rem 0 2rem 0"
+    }
   },
 
   img: {
@@ -100,7 +107,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "700",
     fontSize: "22px",
     lineHeight: "30px",
-    alignItems: "center",
     textAlign: "center",
     marginTop: "2rem"
   },
@@ -159,7 +165,11 @@ const SecondSection = () => {
 
             <div className={classes.containerTextWrapper} >
 
+
             <div className={classes.textWrapper}>
+
+            <img src='/assets/images/formations/formation.png' alt="" className={clsx(classes.icon, "text-center")} />
+
              <h1 className={classes.h1}> IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS D'INITIATIONS: </h1>
 
              <h2 className={classes.h2}> Pour acquérir des notions en Toucher-Massage® Ikdo </h2>
