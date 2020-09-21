@@ -24,17 +24,15 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     //padding: "7.5rem 5.625rem 7.5rem 0"
   },
 
-  [theme.breakpoints.down("sm")]: {
-    textWrapper: {
-    maxWidth: "90%",
-    textAlign: "center"
-    }
-  },
-
   textWrapper: {
     maxWidth: "60%",
     marginRight: "0",
     marginLeft: "auto", 
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "90%",
+      marginRight: "0",
+      marginLeft: "auto"
+    }
   },
 
   h1: {
@@ -77,9 +75,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   img: {
      minHeight: "36rem",
      position: "relative",
-     //flex: "0 0 50%",
      maxWidth: "81%",
-     borderRadius: 16
+     borderRadius: 16,
+
+     [theme.breakpoints.down("xs")]: {
+      maxWidth: "100%",
+     }
   },
 
   p: {
