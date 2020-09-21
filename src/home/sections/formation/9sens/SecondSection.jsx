@@ -17,12 +17,18 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   containerTextWrapper: {
     position: "relative",
-    flex: "0 0 41.6666666667%",
     maxWidth: "97%",
     marginRight: "3%",
     flexDirection: "column",
     justifyContent: "center",
     //padding: "7.5rem 5.625rem 7.5rem 0"
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    textWrapper: {
+    maxWidth: "90%",
+    textAlign: "center"
+    }
   },
 
   textWrapper: {
@@ -60,37 +66,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     marginTop: "2rem"
   },
 
-  button: {
-      margin: "2rem 1rem 0 0 !important",
-      padding: "1rem 2rem 1rem 2rem",
-      fontSize: 11,
-      backgroundColor: palette.second,
-      color: "white",
-      fontFamily: "LEMON MILK",
-      fontStyle: "normal",
-      fontWeight: 300,
-      borderRadius: "50px",
-      alignItems: "center",
-      textAlign: "center",
-
-  },
-
-  button2: {
-    marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 11,
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: 300,
-    borderRadius: "50px",
-    alignItems: "center",
-    textAlign: "center",
-    background: "#FAFBFF",
-    border: "3px solid #384C5A",
-    boxSizing: "border-box",
-    color: "#384C5A"
-},
-
  
   icon: {
     marginLeft: "34rem",
@@ -100,12 +75,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   img: {
-    minHeight: "36rem",
+     minHeight: "36rem",
      position: "relative",
-     width: "100%",
-     flex: "0 0 50%",
+     //flex: "0 0 50%",
      maxWidth: "81%",
-     borderRadius: 16,
+     borderRadius: 16
   },
 
   p: {
@@ -128,7 +102,38 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     alignItems: "center",
     textAlign: "center",
     marginTop: "2rem"
-  }
+  },
+
+  button: {
+    margin: "2rem 1rem 0 0 !important",
+    padding: "1rem 2rem 1rem 2rem",
+    fontSize: 11,
+    backgroundColor: palette.second,
+    color: "white",
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: 300,
+    borderRadius: "50px",
+    alignItems: "center",
+    textAlign: "center",
+
+},
+
+button2: {
+  marginTop: "2rem !important",
+  padding: "1rem 2rem 1rem 2rem",
+  fontSize: 11,
+  fontFamily: "LEMON MILK",
+  fontStyle: "normal",
+  fontWeight: 300,
+  borderRadius: "50px",
+  alignItems: "center",
+  textAlign: "center",
+  background: "#FAFBFF",
+  border: "3px solid #384C5A",
+  boxSizing: "border-box",
+  color: "#384C5A"
+},
 }));
 
 const SecondSection = () => {

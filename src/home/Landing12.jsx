@@ -1,13 +1,8 @@
 import React from "react";
 
 import Intro12 from "./sections/Intro12";
-import Clients1 from "./sections/Clients1";
 import Features12 from "./sections/Features12";
-import Marketing3 from "./sections/Marketing3";
-import IntroFinal from "./sections/IntroFinal";
-import Services11 from "./sections/Services11";
-import FAQ1 from "./sections/FAQ1";
-import Subscription2 from "./sections/Subscription2";
+import IntroFinal from "./sections/IntroFinal"
 import Services12 from "./sections/Services12";
 import Services13 from "./sections/Services13";
 
