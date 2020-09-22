@@ -44,6 +44,12 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       boxSizing: "border-box"
     },
 
+    ".container-final-formation": {
+      padding: "2rem 0 0 0",
+      maxWidth: "1700px",
+      margin: "0 auto",
+    },
+
     ".container-intro-patrick" :{
       padding: "2rem 0 0 0",
       maxWidth: "1200px",
