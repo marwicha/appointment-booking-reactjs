@@ -33,6 +33,11 @@ const landingRoutes = [
     path: "/Formations",
     component: React.lazy(() => import("./Formations")),
   },
+
+  {
+    path: "/Massages",
+    component: React.lazy(() => import("./Massages")),
+  },
   {
     path: "/landing7",
     component: React.lazy(() => import("./Landing7")),
