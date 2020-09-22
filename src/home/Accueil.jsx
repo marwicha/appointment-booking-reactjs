@@ -7,6 +7,7 @@ import Massages from "./sections/Massages";
 import Formations from "./sections/Formations";
 import Footer1 from "./sections/Footer1";
 import Contact from "./sections/Contact";
+import IntroPatrick from "./sections/IntroPatrick";
 
 const Accueil = () => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const Accueil = () => {
     <div className="landing">
       <TopBar />
       <IntroFinal />
+      <IntroPatrick />
       <AllServices />
       <Massages />
       <Formations />

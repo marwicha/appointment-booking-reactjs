@@ -150,7 +150,7 @@ const SecondSection = () => {
   return (
     <div className={clsx(classes.container, "container")}>
       
-    <h3 className="font-bold text-28 text-center text-second mt-5">
+    <h3 className="font-bold text-28 text-center text-second mt-10">
       IKDO
     </h3>
     <h3 className={clsx(classes.h2, "text-center text-26 text-second")}>
@@ -164,7 +164,6 @@ const SecondSection = () => {
             <Grid lg={6} xl={6} sm={6} md={6} xs={12}>
 
             <div className={classes.containerTextWrapper} >
-
 
             <div className={classes.textWrapper}>
 

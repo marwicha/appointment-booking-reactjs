@@ -6,12 +6,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
-    marginTop: "2rem !important",
+    //marginTop: "2rem !important",
     padding: "1rem 2rem 1rem 2rem",
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.typography.fontFamily,
-    backgroundColor: palette.third,
-    borderRadius: "100px"
+    //backgroundColor: palette.third,
+    background: "#EBF0FF",
+    borderRadius: "50px"
 
   },
   image: {
@@ -53,6 +54,15 @@ const getImgSrc = (id,imgSrc,imageClass) => {
   return (
     
     <div className="container-AllServices">
+
+      <h4 className="font-bold text-center text-26 text-second">
+        IKDO
+      </h4>
+
+      <p className="text-center text-18 pb-6">
+      Services
+      </p>
+
     <Grid container spacing={6} justify="center">
     {serviceList.map((item, ind) => (
       <Grid key={ind} item sm={3} xs={12}>

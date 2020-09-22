@@ -15,6 +15,7 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
+
   button: {
     marginTop: "1rem !important",
     padding: "1rem 2rem 1rem 2rem",
@@ -45,12 +46,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 }
 }));
 
-
-
 const Formation = () => {
 
   const [tabIndex, setTabIndex] = useState(0);
-
 
   useEffect(() => {
     scrollTo("root");

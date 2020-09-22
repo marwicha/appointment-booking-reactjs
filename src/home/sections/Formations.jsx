@@ -87,14 +87,17 @@ const Massages = () => {
   return (
     <section className="section">
     <div className="container text-center">
-    <h1 className="font-bold text-32 text-fourth">
-      IKDO
-    </h1>
-    <p className="mx-auto text-18 pb-7">
-      Formations
-    </p>
+   
 
     <div className="container-formations">
+
+    <h1 className="font-bold text-32 text-fourth pt-7">
+    IKDO
+  </h1>
+  <p className="mx-auto text-18 pb-7">
+    Formations
+  </p>
+  
 
     <Grid container spacing={0} justify="center">
     {formationsList.map((item) => (
@@ -104,7 +107,7 @@ const Massages = () => {
 
     <img
     src={item.imgUrl}
-    className="h-200 w-200 mt--3"
+    className="h-200 w-200"
     alt=""
   />
     <CardContent className={classes.content}>
