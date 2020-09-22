@@ -111,12 +111,6 @@ const IntroPatrick = () => {
               </Grid>
                
       </div>
-
-      <div className="container-intro-patrick text-center">
-
-      <img container src ="/assets/images/arizona-accueil.png" alt="" />
-
-      </div>
     </section>
   );
 };
