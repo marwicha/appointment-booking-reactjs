@@ -1,6 +1,7 @@
 import React from "react"; 
 import { Grid, Typography, Divider, CardContent, Button} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 
 
@@ -99,7 +100,7 @@ const Massages = () => {
   </p>
   
 
-    <Grid container spacing={0} justify="center">
+    <Grid container spacing={0} justify="center" alignItems="center">
     {formationsList.map((item) => (
 
     <Grid sm={3} xs={12}>
@@ -109,7 +110,8 @@ const Massages = () => {
     src={item.imgUrl}
     className="h-200 w-200"
     alt=""
-  />
+    />
+
     <CardContent className={classes.content}>
     <div className={classes.textContainer}>
        
@@ -131,7 +133,7 @@ const Massages = () => {
         "p-4",
         classes.button
       )} size="large"> 
-      Savoir plus
+      <NavLink to="/Formations"> Savoir plus </NavLink>
       </Button>
       </div>
     </CardContent>

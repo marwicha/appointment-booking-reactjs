@@ -12,13 +12,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
    position: "relative",
    top: "0",
    left: "0",
-   background: "#FAFBFF"
+   background: "#FAFBFF",
+   margin: "0 auto",
+  textAlign: "center"
   },
 
   avatar: {
     position: "absolute",
     bottom: "60%",
-    left: "40%"
+    left: "40%",
+    border: "2px solid #394d5b"
   },
 
   h1: {
@@ -54,7 +57,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: "16px",
-    lineHeight: "21px",
+    lineHeight: "30px",
     textAlign: "left"
   }
 
@@ -74,16 +77,17 @@ const IntroPatrick = () => {
                     className={clsx ("h-160 w-160", classes.avatar)}
                   ></Avatar>
 
-                  <h1 className={classes.h1}> PATRICK </h1> <h1 className={classes.h2}> CAILLER </h1>
-            
+                  <h1 className={classes.h1}> PATRICK </h1>
                   
+                  <h1 className={classes.h2}> CAILLER </h1>
+            
                 </div>
 
-                <Grid container spacing={0} justify="center" alignItems="center">
+                <Grid container spacing={0} justify="space-around" alignItems="flex-start">
                 
                   <Grid lg={5} md={5} sm={5} xs={12}>
                    
-                  <p className={clsx("max-w-400 mx-auto", classes.p)}>
+                  <p className={clsx( classes.p)}>
                       En 2000, lors d’un voyage aux Etats-Unis, Patrick découvre la petite ville de Sedona dont la grande particularité réside, selon ses habitants, dans son grand nombre de «Vortex », points de concentration d’énergie terrestre influençant la vie spirituelle de chacun.
 
                       Les falaises au camaïeu de rouge, ocre et brun contrastent avec le vert d’une forêt luxuriante. Les tribus indiennes Hopi, Sinagua et Yavapai y célébraient leurs cultes, notamment à travers le fameux massage-bien-être aux pierres chaudes.
@@ -95,8 +99,7 @@ const IntroPatrick = () => {
 
                   <Grid lg={5} md={5} sm={5} xs={12}>
                    
-
-                      <p className={clsx("max-w-400 mx-auto", classes.p)}>
+                      <p className={clsx( classes.p)}>
 
                       qui viennent se ressourcer à Sedona et faire le plein d’ondes positives.
 

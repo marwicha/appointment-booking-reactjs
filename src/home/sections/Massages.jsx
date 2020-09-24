@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Avatar, Button } from "@material-ui/core";
+
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -12,7 +13,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: 16,
     fontFamily: theme.typography.fontFamily,
     borderRadius: "100px",
-    background: `${palette.first} !important`,
+    background: `${palette.second} !important`,
     color: "white !important",
     width: "200px",
    height: "60px",
@@ -78,7 +79,9 @@ const Massages = () => {
                 </p>
                 <div className={classes.center}>
                  <Button className={clsx(classes.button,"p-4")} size="large"> 
+                 
                  {item.buttonTitle}
+
                  </Button>
 
                  </div>

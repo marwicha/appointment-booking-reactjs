@@ -10,7 +10,6 @@ const IndexRouteMassage9sens = () => {
     scrollTo("root");
     });
 
-
   return (
     <div>
       <SecondSection />

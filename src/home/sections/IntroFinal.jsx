@@ -10,6 +10,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     height: "100%",
     overflow: "hidden",
   },
+
 text: {
   position: "absolute",
   top: "50%",
@@ -27,14 +28,14 @@ p: {
   },
 
   h1: {
-    color: "#182731",
+    color: palette.second,
     fontSize: "40px",
     lineHeight: "64px",
     textAlign: "center"
   },
 
   h2: {
-    color: "#182731",
+    color: palette.second,
     fontFamily: "LEMON MILK Light",
     fontSize: "30px",
     lineHeight: "40px",
@@ -45,7 +46,8 @@ p: {
   width: "200px",
   height: "60px",
   borderRadius: "100px",
-  backgroundColor: "#182731",
+  //backgroundColor: "#182731",
+  background: palette.second,
   color: "white",
   fontSize: "1rem",
   fontFamily: "LEMON MILK Light",
@@ -58,6 +60,8 @@ p: {
     alignItems: "center",
     marginTop: "1rem",
    }
+
+
 }));
 
 const IntroFinal = () => {
@@ -99,7 +103,8 @@ const IntroFinal = () => {
           {ikdoList.map((item, index) => (
           <div key={index}>
             
-          <img className="h-full w-full" src={item.img} alt="" />
+          <img container className="h-full w-full" src={item.img} alt="" />
+
         
            <div className={clsx(classes.text)}>
                 <h1 className={classes.h1}>

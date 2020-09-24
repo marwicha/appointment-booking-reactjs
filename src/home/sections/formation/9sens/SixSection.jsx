@@ -16,8 +16,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   number: {
     fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: "400",
+    fontStyle: "bold",
+    fontWeight: "700",
     fontSize: "18px",
     color: "#182731",
     alignItems: "center",
