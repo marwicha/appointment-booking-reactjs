@@ -26,21 +26,37 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
    fontSize: "14px"
   },
 
+  p: {
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "0.90rem",
+    lineHeight: "1.66",
+    textAlign: "center",
+    margin: "0 auto"
+  }
+
 }));
 
 const Massages = () => {
+
   const classes = useStyles();
+
   const massagesList = [
+
     {
-      name: "Massage sur chaise assise",
+      name: "Massage assis",
       imgUrl: "/assets/images/massage-assis.png",
-      buttonTitle: "SAVOIR PLUS"
+      text: "Profitez de 15 minutes d'un massage sur chaise assise Amma, le massage le plus adapté en entreprise.",
+      buttonTitle: "En savoir plus"
     },
     {
       name: "Massage des 9 sens",
       imgUrl: "/assets/images/massage-9sens.png",
-      buttonTitle: "SAVOIR PLUS"
+      text: "Profitez d'une heure d'un massage de 9 sens, un ressourcement garantis qui recentre votre énergie.",
+      buttonTitle: "En savoir plus"
     },
+
   ];
 
   return (
@@ -51,6 +67,7 @@ const Massages = () => {
       <h1 className="font-bold text-32 text-second">
         IKDO
       </h1>
+
       <p className="mx-auto text-18 pb-6">
         Massages
       </p>
@@ -62,7 +79,7 @@ const Massages = () => {
             <Grid key={ind} item sm={4} xs={12}>
               <div
                 className={clsx(
-                  "text-center max-w-500",
+                  "text-center max-w-600",
                   classes.card
                 )}
               >
@@ -74,10 +91,12 @@ const Massages = () => {
                   
                 </div>
                 <h5 className="m-0 font-medium text-20">{item.name}</h5>
-                <p className="font-light text-12 max-w-150 mx-auto">
-                    text text text text text text text text
+
+                <p className={clsx(classes.p, "max-w-220 mt-5")}>
+                    {item.text}
                 </p>
                 <div className={classes.center}>
+                
                  <Button className={clsx(classes.button,"p-4")} size="large"> 
                  
                  {item.buttonTitle}

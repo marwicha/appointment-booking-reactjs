@@ -104,8 +104,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   h4: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
-    fontWeight: "700",
-    fontSize: "22px",
+    fontWeight: "600",
+    fontSize: "18px",
     lineHeight: "30px",
     textAlign: "center",
     marginTop: "2rem"
@@ -115,15 +115,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     margin: "2rem 1rem 0 0 !important",
     padding: "1rem 2rem 1rem 2rem",
     fontSize: 11,
-    backgroundColor: palette.second,
+    background: `${palette.second} !important`,
     color: "white",
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: 300,
     borderRadius: "50px",
     alignItems: "center",
-    textAlign: "center",
-
+    textAlign: "center"
 },
 
 button2: {
@@ -136,7 +135,7 @@ button2: {
   borderRadius: "50px",
   alignItems: "center",
   textAlign: "center",
-  background: "#FAFBFF",
+  background: "#FAFBFF !important",
   border: "3px solid #384C5A",
   boxSizing: "border-box",
   color: "#384C5A"
@@ -194,7 +193,7 @@ const SecondSection = () => {
 
               <div className="text-center">
               <Button className={clsx(classes.button, "text-center") } >
-                  Réserver maintenant
+                  Réserver
               </Button>
 
               <Button className={ clsx(classes.button2, "text-center") } >

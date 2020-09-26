@@ -225,14 +225,15 @@ const SixSection = () => {
    
    </h4> 
 
-
    <Dialog
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
       >
-        <DialogTitle id="responsive-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">{"Use Google's location service?"}
+
+        </DialogTitle>
         <DialogContent>
           <DialogContentText>
             Let Google help apps determine location. This means sending anonymous location data to

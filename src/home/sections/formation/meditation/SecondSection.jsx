@@ -104,26 +104,25 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   h4: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
-    fontWeight: "700",
-    fontSize: "22px",
-    lineHeight: "30px",
+    fontWeight: "600",
+    fontSize: "18px",
     textAlign: "center",
     marginTop: "2rem"
+
   },
 
   button: {
     margin: "2rem 1rem 0 0 !important",
     padding: "1rem 2rem 1rem 2rem",
     fontSize: 11,
-    backgroundColor: palette.second,
+    background: `${palette.second} !important`,
     color: "white",
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: 300,
     borderRadius: "50px",
     alignItems: "center",
-    textAlign: "center",
-
+    textAlign: "center"
 },
 
 button2: {
@@ -136,7 +135,7 @@ button2: {
   borderRadius: "50px",
   alignItems: "center",
   textAlign: "center",
-  background: "#FAFBFF",
+  background: "#FAFBFF !important",
   border: "3px solid #384C5A",
   boxSizing: "border-box",
   color: "#384C5A"
@@ -196,7 +195,7 @@ const SecondSection = () => {
 
               <div className="text-center">
               <Button className={clsx(classes.button, "text-center") } >
-                  Réserver maintenant
+                  Réserver
               </Button>
 
               <Button className={ clsx(classes.button2, "text-center") } >
@@ -210,9 +209,11 @@ const SecondSection = () => {
             </Grid>
 
             <Grid  sm={5} md={5} xs={12}>
+
               <div className="mb-6 ml-1 relative">
 
                <img src="/assets/images/formations/meditation.png" className={classes.img} alt="" />
+
               </div>
            
             </Grid>

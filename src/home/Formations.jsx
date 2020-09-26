@@ -19,7 +19,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
     marginTop: "1rem !important",
     padding: "1rem 2rem 1rem 2rem",
-    background: palette.second,
+    background: `${palette.second} !important`,
     color: "white",
     fontFamily: "LEMON MILK",
     fontStyle: "normal",

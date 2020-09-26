@@ -88,26 +88,36 @@ const IntroPatrick = () => {
                   <Grid lg={5} md={5} sm={5} xs={12}>
                    
                   <p className={clsx( classes.p)}>
-                      En 2000, lors d’un voyage aux Etats-Unis, Patrick découvre la petite ville de Sedona dont la grande particularité réside, selon ses habitants, dans son grand nombre de «Vortex », points de concentration d’énergie terrestre influençant la vie spirituelle de chacun.
 
-                      Les falaises au camaïeu de rouge, ocre et brun contrastent avec le vert d’une forêt luxuriante. Les tribus indiennes Hopi, Sinagua et Yavapai y célébraient leurs cultes, notamment à travers le fameux massage-bien-être aux pierres chaudes.
-                      
-                      La beauté des lieux et le sentiment de sérénité qui s’en dégagent attirent depuis longtemps les amateurs de philosophie « New Age »                       
-                      </p>
+                  En 1997 j’ai vécu de l’intérieur ce qu’on appelle un burn-out, 
+                  après un épuisement total physique et intellectuel j’avais du mal à cette époque à assumer mon corps. 
+                  Je ressentais de l’aversion envers mon physique et ma personne ;
+                  j’avais parallèlement des soucis d’addictions (tabac alcool) pour compenser mon mal être.
+                  Pour sortir de ces problèmes j’ai du me faire accompagner par de nombreux thérapeutes.
+
+                  Dans ces années là,  alors que j’étais perdu entre ma carrière dans la restauration (manager),
+                  et une ambition de changer de métier et l’envie tout simplement de vivre !
+                  j’ai découvert le yoga, la méditation et les massages bien-être.
+                  
+                  J’ai commencé petit à petit à faire quelques mouvements de yoga, à respirer,
+                  
+                                         
+                  </p>
                       
                   </Grid>
 
                   <Grid lg={5} md={5} sm={5} xs={12}>
                    
                       <p className={clsx( classes.p)}>
+                  à bouger mon corps, à penser autrement et à recevoir des massages bien-être.
+                  Doucement je découvrais des changements positifs dans mon corps et dans ma vie.
+                  Je me suis retrouvé avec plus d’énergie et le corps d’un homme qui s’accepte avec ses qualités et ses imperfections. 
+                  J’ai pu faire ensuite un grand nombre de formations complémentaires (voir cv),
+                  un master en psycho-santé du travail, un cycle MBSR (méditation de pleine conscience).
+                  Le yoga, la méditation et les massages bien-être sont devenus ma vie, ma passion.
+                  Installé depuis 2005, Je reçois à mon cabinet depuis en tant que praticien énergéticien
+                  pour accueillir des groupes en formation de 6 à 8 personnes.
 
-                      qui viennent se ressourcer à Sedona et faire le plein d’ondes positives.
-
-                      Après un court séjour dans l'océan indien il découvre également les techniques de bien-être ayurvédiques.
-                      
-                      C’est une véritable révélation pour Patrick qui, après avoir apprivoisé les massages-bien-être des quatre coins du monde, décide de faire bénéficier les "gens du Nord" de ces techniques de bien-être. C’est en 2006 que IKDO voit le jour !
-                      
-                      Patrick CAILLIER cherche ainsi, grâce à son savoir-faire, son expérience, ses formations, à donner, à transmettre, à travers ses mains tous les bienfaits du toucher-massage®.
                       </p>
                       
                   </Grid>

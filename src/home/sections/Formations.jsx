@@ -37,6 +37,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   divider: {
     margin: `${theme.spacing.unit * 3}px 0`
   },
+
   avatar: {
     display: "inline-block",
     "&:not(:first-of-type)": {
@@ -66,22 +67,22 @@ const Massages = () => {
     {
       title: "Massage sur chaise assise",
       imgUrl: "/assets/images/logos/e.png",
-      text: "Différents type de massages adapté au besoin de la  personne massée et des consigne sanitaire.",
-      buttonTitle: "SAVOIR PLUS"
+      text: "Devenez praticien en massage sur chaise assise Amma",
+      buttonTitle: "En savoir plus"
 
     },
     {
       title: "Massage des 9 sens",
       imgUrl: "/assets/images/logos/a.png",
-      text: "Différents type de massages adapté au besoin de la  personne massée et des consigne sanitaire.",
-      buttonTitle: "SAVOIR PLUS"
+      text: ".",
+      buttonTitle: "En savoir plus"
     },
 
     {
       title: "Meditation pleine consciense",
       imgUrl: "/assets/images/logos/z.png",
       text: "Différents type de massages adapté au besoin de la  personne massée et des consigne sanitaire.",
-      buttonTitle: "SAVOIR PLUS"
+      buttonTitle: "En savoir plus"
     },
   ];
 
@@ -107,18 +108,18 @@ const Massages = () => {
     <div className={classes.card}>
 
     <img
-    src={item.imgUrl}
-    className="h-200 w-200"
-    alt=""
+     src={item.imgUrl}
+     className="h-200 w-200"
+     alt=""
     />
 
     <CardContent className={classes.content}>
-    <div className={classes.textContainer}>
+     <div className={classes.textContainer}>
        
      <h5 className={classes.titleText}>
       {item.title}
       </h5>
-    </div>
+     </div>
       <div>
       <Typography
         variant={"caption"}
@@ -129,12 +130,19 @@ const Massages = () => {
       </div>
       <Divider className={classes.divider} light />
       <div className={classes.center}>
+
       <Button  className={clsx(
         "p-4",
         classes.button
+
       )} size="large"> 
-      <NavLink to="/Formations"> Savoir plus </NavLink>
+
+      <NavLink to="/Formations"> 
+        En savoir plus 
+      </NavLink>
+
       </Button>
+
       </div>
     </CardContent>
   </div>
