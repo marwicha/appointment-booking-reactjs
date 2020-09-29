@@ -28,18 +28,18 @@ const AllServices = () => {
     {
       id:"1",
       title: "Somathotérapie",
-      imgSrc: "/assets/images/logos/coaching.png"
+      imgSrc: "/assets/images/coaching.png"
     },
     {
       id:"3",
       title: "Formations",
-      imgSrc: "/assets/images/logos/ID123.png"
+      imgSrc: "/assets/images/formation.png"
     },
 
     {
       id:"2",
       title: "Massages",
-      imgSrc: "/assets/images/logos/ID12.png"
+      imgSrc: "/assets/images/massage.png"
     },
   ];
   
