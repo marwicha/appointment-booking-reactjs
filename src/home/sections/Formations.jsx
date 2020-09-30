@@ -7,17 +7,17 @@ import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.typography.fontFamily,
+    borderRadius: "0 50px",
     background: `${palette.second} !important`,
-    color: "white",
-    width: "200px",
+    color: "white !important",
+    width: "163px",
     height: "60px",
-    borderRadius: "100px"
+    textAlign: "left"
   },
 
   center: {
-   display: "flex",
    flexWrap: "wrap",
    justifyContent: "center",
    alignItems: "center",
@@ -35,7 +35,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   divider: {
-    margin: `${theme.spacing.unit * 3}px 0`
+    margin: `${theme.spacing.unit * 6}px 0`
   },
 
   avatar: {
@@ -46,18 +46,24 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   textContainer: {
-    display: "flex",
     width: "100%",
-    marginBottom: "10px",
-    position: "relative"
+    marginBottom: "20px",
+    position: "relative",
+    justifyContent: "center",
+    textAlign: "left",
   },
 
-  titleText: {
-  position: "inline-block",
-  width: "100%",
-  padding: "10px",
-  outline: "none"
+
+  p: {
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "0.90rem",
+    lineHeight: "1.66",
+    textAlign: "left",
+    margin: "0 auto"
   }
+
 }));
 
 const Massages = () => {
@@ -65,23 +71,26 @@ const Massages = () => {
 
   const formationsList = [
     {
-      title: "Massage sur chaise assise",
+      title: "Massage",
+      title2: "Chaise assise",
       imgUrl: "/assets/images/logos/e.png",
-      text: "Devenez praticien en massage sur chaise assise Amma, formation d'une durée de 15 heures.",
+      text: "Devenez praticien en massage sur chaise assise Amma. ",
       buttonTitle: "En savoir plus"
 
     },
     {
-      title: "Massage des 9 sens",
+      title: "Massage",
+      title2: "9 Sens",
       imgUrl: "/assets/images/logos/a.png",
-      text: "Apprenez le massage des 9 sens pour les professionnelles et les particuliers, formation d'une durée de 6 jours.",
+      text: "Apprenez le massage des 9 sens pour les professionnelles et les particuliers.",
       buttonTitle: "En savoir plus"
     },
 
     {
-      title: "Meditation pleine consciense",
+      title: "Meditation",
+      title2: "Pleine consciense",
       imgUrl: "/assets/images/logos/z.png",
-      text: "Retrouver du sens et de l'énergie pour entreprendre, formation d'une durée de 6 jours.",
+      text: "Retrouver du sens et de l'énergie pour entreprendre.",
       buttonTitle: "En savoir plus"
     },
   ];
@@ -90,11 +99,10 @@ const Massages = () => {
     <section className="section">
     <div className="container text-center">
    
-
     <div className="container-formations">
 
     <h1 className="font-bold text-32 text-fourth pt-7">
-    IKDO
+    Zen workshop
   </h1>
   <p className="mx-auto text-18 pb-7">
     Formations
@@ -114,21 +122,21 @@ const Massages = () => {
     />
 
     <CardContent className={classes.content}>
-     <div className={classes.textContainer}>
        
      <h5 className={classes.titleText}>
-      {item.title}
+     {item.title}
       </h5>
-     </div>
-      <div>
-      <Typography
-        variant={"caption"}
-      >
-     {item.text}
 
-      </Typography>
-      </div>
+     <h5 className={classes.titleText}>
+      {item.title2}
+      </h5>
+
+      <p className={clsx(classes.p, "max-w-210 mt-5")}>
+     {item.text}
+     </p>
+    
       <Divider className={classes.divider} light />
+
       <div className={classes.center}>
 
       <Button  className={clsx(

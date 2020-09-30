@@ -181,11 +181,11 @@ const SecondSection = () => {
 
               <div className="text-center">
               <Button className={clsx(classes.button, "text-center") } >
-                  Réserver
+                  Réserver maintenant
               </Button>
 
               <Button className={ clsx(classes.button2, "text-center") } >
-                  Méditation pleine consciense
+                  Massage sur chaise assise
               </Button>
               </div>
               

@@ -10,16 +10,17 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     transition: "all 250ms ease-in-out"
   },
   button: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.typography.fontFamily,
-    borderRadius: "100px",
+    borderRadius: "0 50px",
     background: `${palette.second} !important`,
     color: "white !important",
-    width: "200px",
-   height: "60px",
+    width: "163px",
+    height: "60px",
+    textAlign: "left"
   },
+
   center: {
-   display: "flex",
    justifyContent: "center",
    alignItems: "center",
    height: "100px",
@@ -32,7 +33,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "400",
     fontSize: "0.90rem",
     lineHeight: "1.66",
-    textAlign: "center",
+    textAlign: "left",
     margin: "0 auto"
   }
 
@@ -45,13 +46,13 @@ const Massages = () => {
   const massagesList = [
 
     {
-      name: "Massage assis",
+      name: "Chaise assise",
       imgUrl: "/assets/images/massage-assis.png",
       text: "Profitez de 15 minutes d'un massage sur chaise assise Amma, le massage le plus adapté en entreprise.",
       buttonTitle: "En savoir plus"
     },
     {
-      name: "Massage des 9 sens",
+      name: "9 sens",
       imgUrl: "/assets/images/massage-9sens.png",
       text: "Profitez d'une heure d'un massage de 9 sens, un ressourcement garantis qui recentre votre énergie.",
       buttonTitle: "En savoir plus"
@@ -86,18 +87,21 @@ const Massages = () => {
                 <div className="mb-6 ml-1 relative">
                   <Avatar
                     src={item.imgUrl}
-                    className="h-260 w-260 inline-block"
+                    className="h-220 w-220 inline-block"
                   ></Avatar>
                   
                 </div>
-                <h5 className="m-0 font-medium text-20">{item.name}</h5>
+
+                <h5 className="m-0 font-medium text-20">Massage</h5>
+
+                <h5 className="m-0 font-medium text-20 pt-3">{item.name}</h5>
 
                 <p className={clsx(classes.p, "max-w-220 mt-5")}>
                     {item.text}
                 </p>
                 <div className={classes.center}>
                 
-                 <Button className={clsx(classes.button,"p-4")} size="large"> 
+                 <Button className={clsx(classes.button,"mt-10")} size="medium"> 
                  
                  {item.buttonTitle}
 

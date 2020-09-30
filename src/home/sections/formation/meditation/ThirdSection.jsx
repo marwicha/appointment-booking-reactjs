@@ -19,7 +19,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "30px",
+    fontSize: "26px",
     marginBottom: "20px",
     alignItems: "center",
     textAlign: "justify"
@@ -29,7 +29,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "30px",
+    fontSize: "26px",
     alignItems: "center",
     textAlign: "justify"
   },
@@ -52,7 +52,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: "14px",
+    fontSize: "12px",
     lineHeight: "30px",
     alignItems: "center",
     textAlign: "justify",
@@ -81,7 +81,7 @@ const ThirdSection = () => {
         <div className="pt-8">
 
         <h1 className={clsx(classes.h1)}> Formation </h1>
-        <h2 className={clsx(classes.h2)}> Méditation pleine consciense </h2>
+        <h2 className={clsx(classes.h2)}> Méditation Pleine Consciense </h2>
       </div>
 
       </Grid>
@@ -93,8 +93,9 @@ const ThirdSection = () => {
 
       <p className={classes.p}>
     
-      Conçue initialement pour réduire le stress dû à la maladie, aux douleurs chroniques, aux traitements pénibles,
-      cette méthode a contribué largement à l’amélioration de la qualité de vie de nombreuses personnes.
+      La pleine conscience a le pouvoir de diminuer le stress,
+      de nous recentrer sur l’essentiel, d’augmenter notre créativité et notre enthousiasme à entreprendre,
+      d’améliorer nos relations avec les autres et surtout, de nous permettre de vivre un quotidien plus serein.
       
       </p> 
       

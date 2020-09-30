@@ -19,7 +19,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "30px",
+    fontSize: "26px",
     marginBottom: "20px",
     alignItems: "center",
     textAlign: "justify"
@@ -29,7 +29,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "30px",
+    fontSize: "26px",
     alignItems: "center",
     textAlign: "justify"
   },
@@ -52,7 +52,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: "14px",
+    fontSize: "12px",
     lineHeight: "30px",
     alignItems: "center",
     textAlign: "justify",
@@ -81,7 +81,8 @@ const ThirdSection = () => {
         <div className="pt-8">
 
         <h1 className={clsx(classes.h1)}> Formation </h1>
-        <h2 className={clsx(classes.h2)}> Méditation pleine consciense </h2>
+        <h2 className={clsx(classes.h2)}> Massage Sur Chaîse Assise </h2>
+        
       </div>
 
       </Grid>
@@ -93,8 +94,7 @@ const ThirdSection = () => {
 
       <p className={classes.p}>
     
-      Conçue initialement pour réduire le stress dû à la maladie, aux douleurs chroniques, aux traitements pénibles,
-      cette méthode a contribué largement à l’amélioration de la qualité de vie de nombreuses personnes.
+      sont instantanés et les effets immédiats : récupération, ressourcement.
       
       </p> 
       

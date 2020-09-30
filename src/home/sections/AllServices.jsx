@@ -7,12 +7,21 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
     //marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 14,
-    fontFamily: theme.typography.fontFamily,
+    //padding: "1rem 2rem 1rem 2rem",
+    //fontSize: 14,
+    //fontFamily: theme.typography.fontFamily,
     //backgroundColor: palette.third,
-    background: "#EBF0FF",
-    borderRadius: "50px"
+    //background: "#EBF0FF",
+    //borderRadius: "50px"
+
+      fontSize: 14,
+      fontFamily: theme.typography.fontFamily,
+      borderRadius: "0 50px",
+      background: `${palette.second} !important`,
+      color: "white !important",
+      width: "163px",
+      height: "60px",
+      textAlign: "left"
 
   },
   image: {
