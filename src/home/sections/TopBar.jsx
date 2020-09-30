@@ -63,17 +63,28 @@ const TopBar = (props) => {
        Massages
        </NavLink>
      </li>
+
+     <li>
+       <NavLink to="/Formations">
+         Formations
+       </NavLink>
+     </li>
+
+     <li>
+<NavLink to="/Coaching">
+Coaching
+</NavLink>
+
+</li>
+
+
 <li>
 <NavLink to="/Somatothérapie">
 Somatothérapie
 </NavLink>
 
 </li>
-     <li>
-       <NavLink to="/Formations">
-         Formations
-       </NavLink>
-     </li>
+     
     
      <li>
        <ScrollTo to="contact" onScroll={close}>

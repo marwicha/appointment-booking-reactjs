@@ -111,7 +111,6 @@ const FinalSection = () => {
 
       <h1 className={classes.h1}> <Icon className={classes.icon}> check </Icon> Déroulement de la formation: </h1>
 
-
       <p className={classes.p}>
 
       Formation par petits groupes de 8 personnes. Plusieurs formations sont accessibles :
