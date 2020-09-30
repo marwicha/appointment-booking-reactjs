@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { scrollTo } from "utils";
 import TopBar from "../home/sections/TopBar";
 import IndexRoute9sens from './sections/formation/9sens/IndexRoute9sens';
-
 import IndexRouteMeditation from './sections/formation/meditation/IndexRouteMeditation';
+import IndexRouteChaiseAssise from './sections/formation/chaiseAssise/IndexRouteChaiseAssise';
 
-import Footer1 from "./sections/Footer1";
+import Footer from "./sections/Footer";
 
 import { useState } from "react";
 import { Grid, Button } from "@material-ui/core";
@@ -27,7 +27,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     borderRadius: "50px",
     alignItems: "center",
     textAlign: "center",
-    fontSize: "14px"
+    fontSize: 11
   },
 
   containerTabs: {
@@ -103,11 +103,15 @@ const Formation = () => {
 
     )}
 
+    {tabIndex === 1 && (
+      <IndexRouteChaiseAssise />
+    )}
+
     {tabIndex === 2 && (
       <IndexRouteMeditation /> 
     )}
 
-      <Footer1 />
+      <Footer />
     </div>
   );
 };

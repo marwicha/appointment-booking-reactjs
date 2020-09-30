@@ -67,21 +67,21 @@ const Massages = () => {
     {
       title: "Massage sur chaise assise",
       imgUrl: "/assets/images/logos/e.png",
-      text: "Devenez praticien en massage sur chaise assise Amma",
+      text: "Devenez praticien en massage sur chaise assise Amma, formation d'une durée de 15 heures.",
       buttonTitle: "En savoir plus"
 
     },
     {
       title: "Massage des 9 sens",
       imgUrl: "/assets/images/logos/a.png",
-      text: ".",
+      text: "Apprenez le massage des 9 sens pour les professionnelles et les particuliers, formation d'une durée de 6 jours.",
       buttonTitle: "En savoir plus"
     },
 
     {
       title: "Meditation pleine consciense",
       imgUrl: "/assets/images/logos/z.png",
-      text: "Différents type de massages adapté au besoin de la  personne massée et des consigne sanitaire.",
+      text: "Retrouver du sens et de l'énergie pour entreprendre, formation d'une durée de 6 jours.",
       buttonTitle: "En savoir plus"
     },
   ];

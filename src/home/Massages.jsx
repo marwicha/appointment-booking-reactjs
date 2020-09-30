@@ -4,7 +4,7 @@ import TopBar from "./sections/TopBar";
 
 import IndexRouteMassage9sens from './sections/massages/IndexRouteMassage9sens';
 
-import Footer1 from "./sections/Footer1";
+import Footer from "./sections/Footer";
 
 import { useState } from "react";
 import { Grid, Button } from "@material-ui/core";
@@ -99,7 +99,7 @@ const Formation = () => {
 
     )}
 
-      <Footer1 />
+      <Footer />
     </div>
   );
 };

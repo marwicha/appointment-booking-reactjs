@@ -23,11 +23,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   textWrapper: {
+
     maxWidth: "60%",
     marginRight: "0",
     marginLeft: "auto", 
-    marginTop: "-7rem",
-    padding: "2rem 2rem 2rem 2rem",
+    marginTop: "-6rem",
+    padding: "0 2rem 2rem 2rem",
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "90%",
@@ -44,7 +45,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#182731",
     fontSize: "22px",
     lineHeight: "30px",
-    marginTop: "1rem"
+    marginTop: "3rem"
   },
 
   h2: {
@@ -67,22 +68,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     marginTop: "2rem"
   },
 
-  icon: {
-
-    marginTop: "-7rem",
-    marginLeft: "11rem",
-    alignItems: "center",
-    textAlign: "center",
-
-    [theme.breakpoints.down("xs")]: {
-      margin: "2rem 0 2rem 0"
-    }
-  },
-
   img: {
      minHeight: "36rem",
      position: "relative",
-     maxWidth: "81%",
+     maxWidth: "67%",
      borderRadius: 16,
 
      [theme.breakpoints.down("xs")]: {
@@ -105,16 +94,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "600",
-    fontSize: "18px",
+    fontSize: "16px",
+    lineHeight: "30px",
     textAlign: "center",
-    marginTop: "2rem"
-
+    margin: "2rem 0 0 0"
   },
 
   button: {
-    margin: "2rem 1rem 0 0 !important",
+    margin: "1rem 1rem 0 0 !important",
     padding: "1rem 2rem 1rem 2rem",
-    fontSize: 11,
+    fontSize: 10,
     background: `${palette.second} !important`,
     color: "white",
     fontFamily: "LEMON MILK",
@@ -126,9 +115,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 },
 
 button2: {
-  marginTop: "2rem !important",
+  marginTop: "1rem !important",
   padding: "1rem 2rem 1rem 2rem",
-  fontSize: 11,
+  fontSize: 9,
   fontFamily: "LEMON MILK",
   fontStyle: "normal",
   fontWeight: 300,
@@ -167,9 +156,6 @@ const SecondSection = () => {
 
             <div className={classes.textWrapper}>
 
-            <img src='/assets/images/formations/formation.png' alt="" className={clsx(classes.icon, "text-center")} />
-
-
              <h1 className={classes.h1}> IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS D'INITIATIONS: </h1>
 
              <h2 className={classes.h2}> Pour acquérir des notions en Toucher-Massage® Ikdo </h2>
@@ -195,7 +181,7 @@ const SecondSection = () => {
 
               <div className="text-center">
               <Button className={clsx(classes.button, "text-center") } >
-                  Réserver
+                  Réserver maintenant
               </Button>
 
               <Button className={ clsx(classes.button2, "text-center") } >

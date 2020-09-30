@@ -5,7 +5,7 @@ import TopBar from "./sections/TopBar";
 import AllServices from "./sections/AllServices";
 import Massages from "./sections/Massages";
 import Formations from "./sections/Formations";
-import Footer1 from "./sections/Footer1";
+import Footer from "./sections/Footer";
 import Contact from "./sections/Contact";
 import IntroPatrick from "./sections/IntroPatrick";
 
@@ -22,8 +22,8 @@ const Accueil = () => {
       <AllServices />
       <Massages />
       <Formations />
-      <Contact />
-      <Footer1 />
+     
+      <Footer />
     </div>
   );
 };

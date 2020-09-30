@@ -23,12 +23,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   textWrapper: {
-
     maxWidth: "60%",
     marginRight: "0",
     marginLeft: "auto", 
-    marginTop: "-6rem",
-    padding: "0 2rem 2rem 2rem",
+    marginTop: "-7rem",
+    padding: "2rem 2rem 2rem 2rem",
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "90%",
@@ -45,7 +44,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#182731",
     fontSize: "22px",
     lineHeight: "30px",
-    marginTop: "3rem"
+    marginTop: "1rem"
   },
 
   h2: {
@@ -71,7 +70,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   img: {
      minHeight: "36rem",
      position: "relative",
-     maxWidth: "67%",
+     maxWidth: "81%",
      borderRadius: 16,
 
      [theme.breakpoints.down("xs")]: {
@@ -94,16 +93,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "600",
-    fontSize: "16px",
-    lineHeight: "30px",
+    fontSize: "18px",
     textAlign: "center",
-    margin: "2rem 0 0 0"
+    marginTop: "2rem"
+
   },
 
   button: {
-    margin: "1rem 1rem 0 0 !important",
+    margin: "2rem 1rem 0 0 !important",
     padding: "1rem 2rem 1rem 2rem",
-    fontSize: 10,
+    fontSize: 11,
     background: `${palette.second} !important`,
     color: "white",
     fontFamily: "LEMON MILK",
@@ -115,9 +114,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 },
 
 button2: {
-  marginTop: "1rem !important",
+  marginTop: "2rem !important",
   padding: "1rem 2rem 1rem 2rem",
-  fontSize: 10,
+  fontSize: 9,
   fontFamily: "LEMON MILK",
   fontStyle: "normal",
   fontWeight: 300,
@@ -145,15 +144,17 @@ const SecondSection = () => {
       Formation
     </h3>
 
+
     <div className= {classes.wrapperAll}>
 
-        <Grid container spacing={0} alignItems="center" >
+        <Grid container alignItems="center" >
 
-            <Grid lg={6} xl={6} sm={6} md={6} xs={12}>
+            <Grid  lg={6} xl={6} sm={6} md={6} xs={12}>
 
             <div className={classes.containerTextWrapper} >
 
             <div className={classes.textWrapper}>
+
 
              <h1 className={classes.h1}> IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS D'INITIATIONS: </h1>
 
@@ -165,6 +166,7 @@ const SecondSection = () => {
               l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).
               
               </h3>
+
               
               <h2 className={classes.h22}>
               Déplacements possible chez vous avec les équipements nécessaires : Tables ou chaise de massage,
@@ -177,28 +179,27 @@ const SecondSection = () => {
 
               <h4 className={clsx(classes.h4, "text-center")}> Prendre un rendez vous </h4>
 
-
               <div className="text-center">
               <Button className={clsx(classes.button, "text-center") } >
-                  Réserver maintenant
+                  Réserver
               </Button>
 
               <Button className={ clsx(classes.button2, "text-center") } >
-                  Massage des 9 sens
+                  Méditation pleine consciense
               </Button>
               </div>
-
+              
               </div>
 
               </div>
             </Grid>
 
             <Grid  sm={5} md={5} xs={12}>
-              <div className="mb-6 ml-1 relative">
-               <img src="/assets/images/formations/9sens.png"
 
-               className={clsx("w-full block", classes.img)}
-               alt="" />
+              <div className="mb-6 ml-1 relative">
+
+               <img src="/assets/images/formations/chaise.png" className={classes.img} alt="" />
+
               </div>
            
             </Grid>
