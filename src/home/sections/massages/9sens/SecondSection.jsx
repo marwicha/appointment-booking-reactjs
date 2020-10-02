@@ -16,7 +16,7 @@ const SecondSection = () => {
     <div className="container">
       
 
-  <img src='/assets/images/massage9sens.png' alt="" />
+    <img src='/assets/images/massages/chaiseAssise.png' alt="" />
 
   </div>
  

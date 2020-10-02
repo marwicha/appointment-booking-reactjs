@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { scrollTo } from "utils";
 import TopBar from "./sections/TopBar";
 
-import IndexRouteMassage9sens from './sections/massages/IndexRouteMassage9sens';
+import IndexRouteMassage9sens from './sections/massages/9sens/IndexRouteMassage9sens';
+
+import IndexRouteMassageChaise from './sections/massages/chaiseAssise/IndexRouteMassageChaise'
 
 import Footer from "./sections/Footer";
 
@@ -74,7 +76,7 @@ const Formation = () => {
         Nos Massages
       </h1>
   
-      <p className="pb-8"> Choisir Le Massage </p>
+      <p className="pb-8"> Choisir votre Massage </p>
   
       <div className={clsx(classes.containerTabs)}>
       <Grid container spacing={6} justify="center">
@@ -96,6 +98,11 @@ const Formation = () => {
 
     {tabIndex === 0 && (
       <IndexRouteMassage9sens />
+
+    )}
+
+    {tabIndex === 1 && (
+      <IndexRouteMassageChaise />
 
     )}
 

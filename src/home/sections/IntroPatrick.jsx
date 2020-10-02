@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Avatar } from "@material-ui/core";
+import { Grid, Avatar, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -59,7 +59,28 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "16px",
     lineHeight: "30px",
     textAlign: "left"
-  }
+  },
+
+  bg: {
+    background: "url('./assets/images/bgPatrick.png')",
+    maxWidth: "100%",
+    borderRadius: 16,
+    //transform: "matrix(-1, 0, 0, 1, 0, 0)"
+  },
+
+  button: {
+    margin: "1rem 1rem 0 0 !important",
+    padding: "1rem 2rem 1rem 2rem",
+    fontSize: 10,
+    background: `${palette.second} !important`,
+    color: "white",
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: 300,
+    borderRadius: "50px",
+    alignItems: "center",
+    textAlign: "center"
+},
 
 }));
 
@@ -84,7 +105,7 @@ const IntroPatrick = () => {
                 </div>
 
                 <Grid container spacing={0} justify="space-around" alignItems="flex-start">
-                
+                <div className={classes.bg}>
                   <Grid lg={5} md={5} sm={5} xs={12}>
                    
                   <p className={clsx( classes.p)}>
@@ -103,24 +124,14 @@ const IntroPatrick = () => {
                   
                                          
                   </p>
+
+                  <Button className={classes.button}> En savoir plus</Button>
                       
                   </Grid>
 
-                  <Grid lg={5} md={5} sm={5} xs={12}>
-                   
-                      <p className={clsx( classes.p)}>
-                  à bouger mon corps, à penser autrement et à recevoir des massages bien-être.
-                  Doucement je découvrais des changements positifs dans mon corps et dans ma vie.
-                  Je me suis retrouvé avec plus d’énergie et le corps d’un homme qui s’accepte avec ses qualités et ses imperfections. 
-                  J’ai pu faire ensuite un grand nombre de formations complémentaires (voir cv),
-                  un master en psycho-santé du travail, un cycle MBSR (méditation de pleine conscience).
-                  Le yoga, la méditation et les massages bien-être sont devenus ma vie, ma passion.
-                  Installé depuis 2005, Je reçois à mon cabinet depuis en tant que praticien énergéticien
-                  pour accueillir des groupes en formation de 6 à 8 personnes.
+                  </div>
 
-                      </p>
-                      
-                  </Grid>
+
               </Grid>
                
       </div>
