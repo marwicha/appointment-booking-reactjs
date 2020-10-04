@@ -59,7 +59,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
 
     ".container-AllServices": {
       padding: "2rem 0 0 0",
-      maxWidth: "1700px",
+      width: "1700px",
       margin: "0 auto",
       background: "rgba(var(--primary),0.05)",
       //border: "1px solid #EBF0FF",

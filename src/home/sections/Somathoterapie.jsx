@@ -66,7 +66,7 @@ const Somathoterapie = () => {
      
         <Grid container lg={12} md={12} sm={12} xs={12} spacing={0} justify="center" alignItems="center">
 
-            <Grid lg={5} md={5} sm={5} xs={12}>
+            <Grid lg={6} md={6} sm={6} xs={12}>
               <div
                 className={clsx(
                   "text-center",
@@ -76,7 +76,7 @@ const Somathoterapie = () => {
                 
                   <img
                     src="./assets/images/somato.png"
-                    className="h-320 w-320"
+                    className="full-h full-w"
                     alt=""
                   />
                   
@@ -85,7 +85,7 @@ const Somathoterapie = () => {
             </Grid>
 
 
-            <Grid lg={5} md={5} sm={5} xs={12}>
+            <Grid lg={6} md={6} sm={6} xs={12}>
               
             <h1 className={classes.h1}>Somatothérapie</h1>
 
