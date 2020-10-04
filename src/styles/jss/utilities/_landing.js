@@ -9,8 +9,9 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
     ".section-intro": { paddingTop: "5rem !important" },
     ".section-intro-formations": { paddingTop: "6rem !important" },
     ".section-programme-formation": { paddingTop: "2rem !important" },
+    ".section-intro-massages": { paddingTop: "2rem !important" },
     ".section": {
-      paddingTop: "7rem",
+      paddingTop: "7rem !important",
 
       "& .section__header": {
         margin: "0 0 32px",
@@ -52,7 +53,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
 
     ".container-intro-patrick" :{
       padding: "2rem 0 0 0",
-      maxWidth: "1200px",
+      width: "1164px",
       margin: "0 auto"
     },
 

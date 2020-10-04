@@ -27,6 +27,7 @@ function App() {
               <Route path="/Accueil" component={Accueil} exact />
               <Route path="/Formations" component={Formations} />
               <Route path="/Massages" component={Massages} />
+            { /* <Route path="/Praticien" component={Praticien} /> */}
               <Redirect path="/" exact to="Accueil" />
               {/* <Route component={Error} /> */}
             </Switch>

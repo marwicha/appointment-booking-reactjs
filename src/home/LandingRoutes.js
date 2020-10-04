@@ -5,6 +5,12 @@ const IKDORoutes = [
     path: "/Accueil",
     component: React.lazy(() => import("./Accueil")),
   },
+
+  {
+    path: "/Praticien",
+    component: React.lazy(() => import("./Praticien")),
+  },
+  
   {
     path: "/Formations",
     component: React.lazy(() => import("./Formations")),

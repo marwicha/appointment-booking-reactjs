@@ -16,24 +16,31 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   h5: {
     fontFamily: "LEMON MILK",
-    width: "70%",
-    margin: "auto"
+    fontSize: "16px",
+    width: "100%"
   },
 
   paragraph: {
     color: "#434343",
     fontFamily: "Lato Medium",
-    fontSize: "18px",
-    width: "70%",
-    margin: "auto"
+    fontSize: "14px",
+    width: "100%",
+    //flexDirection: "column",
+    //justifyContent: "center"
+
+  },
+
+  Container: {
+    display: "flex",
+    flexDirection: "row",
+    //height: "100px",
+    padding: "10px 0"
   },
 
   textContainer: {
-    position: "relative",
-    overflow: "hidden",
-    marginTop: "4rem",
-    justifyContent: "center",
-    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
   }
 }));
 
@@ -70,24 +77,30 @@ const FourthSection = () => {
   return (
   
     <div className="section">
-    <div className="container text-center">
+    <div className="container">
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
+    <Grid sm={12} md={12} xs={12} lg={12} container justify="space-around" alignItems="center">
    
 
     {imgList.map(item => (
-      <Grid key lg ={3} sm={2} md={2} xs={12}>
+      <Grid key lg={3} sm={3} md={3} xs={12}>
 
-      <div> <img src={item.link} alt="" /></div>
-        
-<div> 
+      <div className={classes.Container}>
+      
+      <img src={item.link} alt="" />
 
-<h6 className={clsx(classes.h5, "absolute mt-6")}> {item.title} </h6></div>
+      <div className={classes.textContainer}>
+
+        <h6 className={clsx(classes.h5)}> {item.title} </h6>
        
+        
+        <p className={clsx(classes.paragraph)} > {item.description} </p>
+      
+        </div>
 
-        <div><p className={clsx(classes.paragraph, "absolute mt-6")} > {item.description} </p></div>
-
+        </div>
       </Grid>
+      
     ))}
    
   

@@ -9,6 +9,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
    justifyContent: "center",
    alignItems: "center",
    height: "127px",
+   width: "1164px",
    position: "relative",
    top: "0",
    left: "0",
@@ -58,7 +59,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "400",
     fontSize: "16px",
     lineHeight: "30px",
-    textAlign: "left"
+    textAlign: "left",
+    padding: "1rem 1rem 1rem 1rem"
   },
 
   bg: {
@@ -69,7 +71,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   button: {
-    margin: "1rem 1rem 0 0 !important",
+    margin: "0 1rem 1rem 0 !important",
     padding: "1rem 2rem 1rem 2rem",
     fontSize: 10,
     background: `${palette.second} !important`,
@@ -95,7 +97,7 @@ const IntroPatrick = () => {
 
                   <Avatar
                     src="/assets/images/patrick.png"
-                    className={clsx ("h-160 w-160", classes.avatar)}
+                    className={clsx ("h-140 w-140", classes.avatar)}
                   ></Avatar>
 
                   <h1 className={classes.h1}> PATRICK </h1>
@@ -104,7 +106,7 @@ const IntroPatrick = () => {
             
                 </div>
 
-                <Grid container spacing={0} justify="space-around" alignItems="flex-start">
+                <Grid container spacing={3} justify="flex-start">
                 <div className={classes.bg}>
                   <Grid lg={5} md={5} sm={5} xs={12}>
                    
@@ -120,7 +122,7 @@ const IntroPatrick = () => {
                   et une ambition de changer de métier et l’envie tout simplement de vivre !
                   j’ai découvert le yoga, la méditation et les massages bien-être.
                   
-                  J’ai commencé petit à petit à faire quelques mouvements de yoga, à respirer,
+                  J’ai commencé petit à petit à faire quelques mouvements de yoga, à respirer,...
                   
                                          
                   </p>

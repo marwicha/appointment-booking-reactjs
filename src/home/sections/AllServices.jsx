@@ -62,6 +62,7 @@ const getImgSrc = (id,imgSrc,imageClass) => {
 }
   return (
     
+    <section className= "section">
     <div className="container-AllServices">
 
       <h4 className="font-bold text-center text-26 text-second">
@@ -88,7 +89,7 @@ const getImgSrc = (id,imgSrc,imageClass) => {
     ))}
   </Grid>
     </div>
- 
+    </section>
 
   );
 };

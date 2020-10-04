@@ -84,6 +84,14 @@ Somatothérapie
 </NavLink>
 
 </li>
+
+
+<li>
+<NavLink to="/Praticien">
+Praticien
+</NavLink>
+
+</li>
      
     
      <li>
