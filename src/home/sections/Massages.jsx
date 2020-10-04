@@ -16,7 +16,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     background: `${palette.second} !important`,
     color: "white !important",
     width: "163px",
-    height: "60px",
+    height: "50px",
     textAlign: "left"
   },
 
@@ -63,7 +63,7 @@ const Massages = () => {
   return (
     <section className= "section">
 
-      <div className="container text-center">
+      <div className="container-AllServices text-center">
       
       <h1 className="font-bold text-32 text-second">
         IKDO
@@ -101,7 +101,7 @@ const Massages = () => {
                 </p>
                 <div className={classes.center}>
                 
-                 <Button className={clsx(classes.button,"mt-10")} size="medium"> 
+                 <Button className={clsx(classes.button,"mt-6")} size="medium"> 
                  
                  {item.buttonTitle}
 
