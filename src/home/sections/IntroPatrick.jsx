@@ -13,15 +13,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
    position: "relative",
    top: "0",
    left: "0",
-   background: "#FAFBFF",
    margin: "0 auto",
   textAlign: "center"
   },
 
   avatar: {
     position: "absolute",
-    bottom: "60%",
-    left: "40%",
+    bottom: "54%",
+    left: "44%",
     border: "2px solid #394d5b"
   },
 
@@ -37,6 +36,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     bottom: "18%",
     left: "38%",
     color: "#384C5A"
+
   },
 
   h2: {
@@ -53,7 +53,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#384C5A"
   },
   
-  p :{
+  p: {
     fontFamily: "Lato",
     fontStyle: "normal",
     fontWeight: "400",
@@ -64,10 +64,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   bg: {
-    background: "url('./assets/images/bgPatrick.png')",
-    maxWidth: "100%",
+    backgroundImage: "url('./assets/images/bgPatrick.png')",
     borderRadius: 16,
-    //transform: "matrix(-1, 0, 0, 1, 0, 0)"
+     width: "100%",
+    backgroundRepeat: "no-repeat",
+    height: "460px",
+    backgroundSize: "contain",
+    border: `1px solid ${palette.third}`
   },
 
   button: {
@@ -93,36 +96,34 @@ const IntroPatrick = () => {
     <section className= "section">
 
       <div className="container-intro-patrick text-center">
+
+                <div className={classes.bg}>
+
                 <div className={clsx( classes.center , "text-center" )}>
 
-                  <Avatar
-                    src="/assets/images/patrick.png"
-                    className={clsx ("h-140 w-140", classes.avatar)}
-                  ></Avatar>
+                <Avatar
+                  src="/assets/images/patrick.png"
+                  className={clsx ("h-140 w-140", classes.avatar)}
+                ></Avatar>
 
-                  <h1 className={classes.h1}> PATRICK </h1>
-                  
-                  <h1 className={classes.h2}> CAILLER </h1>
-            
-                </div>
+                <span>
+                <h1 className={classes.h1}> PATRICK </h1>
+                
+                <h1 className={classes.h2}> CAILLER </h1>
 
-                <Grid container spacing={3} justify="flex-start">
-                <div className={classes.bg}>
-                  <Grid lg={5} md={5} sm={5} xs={12}>
+                </span>
+          
+              </div>
+
+                  <Grid container lg={5} md={5} sm={5} xs={12} justify="center" alignItems="center">
                    
-                  <p className={clsx( classes.p)}>
+                  <p className={classes.p}>
 
                   En 1997 j’ai vécu de l’intérieur ce qu’on appelle un burn-out, 
                   après un épuisement total physique et intellectuel j’avais du mal à cette époque à assumer mon corps. 
                   Je ressentais de l’aversion envers mon physique et ma personne ;
                   j’avais parallèlement des soucis d’addictions (tabac alcool) pour compenser mon mal être.
-                  Pour sortir de ces problèmes j’ai du me faire accompagner par de nombreux thérapeutes.
-
-                  Dans ces années là,  alors que j’étais perdu entre ma carrière dans la restauration (manager),
-                  et une ambition de changer de métier et l’envie tout simplement de vivre !
-                  j’ai découvert le yoga, la méditation et les massages bien-être.
-                  
-                  J’ai commencé petit à petit à faire quelques mouvements de yoga, à respirer,...
+                  Pour sortir de ces problèmes j’ai du me faire accompagner par de nombreux thérapeutes..
                   
                                          
                   </p>
@@ -133,9 +134,6 @@ const IntroPatrick = () => {
 
                   </div>
 
-
-              </Grid>
-               
       </div>
     </section>
   );

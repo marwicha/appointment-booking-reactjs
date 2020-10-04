@@ -15,7 +15,7 @@ const Coaching = () => {
   return (
     <section className="section">
 
-    <div className="container-AllServices">
+    <div className="container">
       
   <img src='/assets/images/coach.png' alt="" />
 

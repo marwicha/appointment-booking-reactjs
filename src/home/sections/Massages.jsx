@@ -75,9 +75,10 @@ const Massages = () => {
 
       <div className="container">
 
-        <Grid container spacing={0} justify="center">
+        <Grid container spacing={0} sm={12} md={12} lg={12} xs={12} justify="center" alignItems="center">
           {massagesList.map((item, ind) => (
-            <Grid key={ind} item sm={4} xs={12}>
+            
+            <Grid key={ind} item sm={4} md={4} lg={4} xs={12}>
               <div
                 className={clsx(
                   "text-center max-w-600",
