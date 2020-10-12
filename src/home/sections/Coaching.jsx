@@ -13,15 +13,16 @@ const Coaching = () => {
   const classes = useStyles();
   
   return (
+
     <section className="section">
 
     <div className="container">
       
-  <img src='/assets/images/coach.png' alt="" />
+    <img src='/assets/images/coach.png' alt="" />
 
-  </div>
+    </div>
 
-  </section>
+    </section>
  
   );
 };
