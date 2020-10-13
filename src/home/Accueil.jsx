@@ -25,7 +25,6 @@ const Accueil = () => {
       <Massages />
       <Coaching />
       <Formations />
-     
       <Footer />
     </div>
   );

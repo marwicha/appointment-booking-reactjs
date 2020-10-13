@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Route,
   Switch,
@@ -14,7 +14,16 @@ import Accueil from "./home/Accueil";
 import Formations from "./home/Formations";
 import Massages from "./home/Massages";
 
+import Authentification from "./components/Authentification";
+import Inscription from "./components/Inscription";
+import Profile from "./components/Profile";
+import BoardUser from "./components/BoardUser";
+import BoardAdmin from "./components/BoardAdmin";
+
+
 function App() {
+
+
   return (
     <MuiThemeProvider theme={Theme}>
       <GlobalCss>
@@ -28,8 +37,19 @@ function App() {
               <Route path="/Formations" component={Formations} />
               <Route path="/Massages" component={Massages} />
             { /* <Route path="/Praticien" component={Praticien} /> */}
+
+              <Route path="/Inscription" component={Inscription}/>
+              <Route path="/Authentification" component={Authentification} />
+
+              <Route path="/profile" component={Profile} />
+
+              {/* After authentication */}
+              <Route path="/user" component={BoardUser} />
+              <Route path="/admin" component={BoardAdmin} />
+              
               <Redirect path="/" exact to="Accueil" />
               {/* <Route component={Error} /> */}
+
             </Switch>
           </Router>
         </Scrollbar>

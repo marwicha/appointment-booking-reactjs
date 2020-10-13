@@ -4,6 +4,8 @@ import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import { NavLink } from "react-router-dom";
 import ScrollTo from "../common/ScrollTo";
+import AuthService from "../../services/auth.service";
+
 
 const TopBar = (props) => {
   const [isTop, setIsTop] = useState(true);
@@ -39,6 +41,24 @@ const TopBar = (props) => {
       }
     };
   }, [scrollableElement, handleScrollRef]);
+
+
+  const [showAdminBoard, setShowAdminBoard] = useState(false);
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+    }
+  }, []);
+
+  const logOut = () => {
+    AuthService.logout();
+  };
+
 
   return (
     <section
@@ -93,7 +113,6 @@ Praticien
 
 </li>
      
-    
      <li>
        <ScrollTo to="contact" onScroll={close}>
          Contact
@@ -103,11 +122,19 @@ Praticien
         <div className="m-auto" />
         <ul className="navigation flex">
          <li>
-          <NavLink to="/signup">
+          <NavLink to="/Inscription">
            
               Inscription
           </NavLink>
           </li>
+
+          {currentUser && (
+            <li>
+              <NavLink to="/user">
+                User
+              </NavLink>
+            </li>
+          )}
 
           <li>
         
