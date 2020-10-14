@@ -136,6 +136,48 @@ Praticien
             </li>
           )}
 
+          {showAdminBoard && (
+            <li>
+              <NavLink to="/admin">
+                Admin Board
+              </NavLink>
+            </li>
+          )}
+
+
+          {currentUser ? (
+            <div>
+              <li>
+                <NavLink to="/profile">
+                  {currentUser.username}
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/Authentification"
+                 onClick={logOut}>
+                  LogOut
+                </NavLink>
+              </li>
+              </div>
+          ) : (
+
+            <div>
+              <li>
+                <NavLink to="/Authentification" >
+                  Login
+                </NavLink>
+              </li>
+  
+              <li>
+                <NavLink to="/Inscription">
+                  Sign Up
+                </NavLink>
+              </li>
+
+              </div>
+              )}
+
           <li>
         
           <Icon  style={{ fontSize: 30, marginLeft: "6px" }}> facebook </Icon>

@@ -23,7 +23,6 @@ import BoardAdmin from "./components/BoardAdmin";
 
 function App() {
 
-
   return (
     <MuiThemeProvider theme={Theme}>
       <GlobalCss>
@@ -33,7 +32,7 @@ function App() {
         >
           <Router basename="/">
             <Switch>
-              <Route path="/Accueil" component={Accueil} exact />
+              <Route path={["/", "/Accueil"]} component={Accueil} exact />
               <Route path="/Formations" component={Formations} />
               <Route path="/Massages" component={Massages} />
             { /* <Route path="/Praticien" component={Praticien} /> */}
@@ -41,9 +40,8 @@ function App() {
               <Route path="/Inscription" component={Inscription}/>
               <Route path="/Authentification" component={Authentification} />
 
-              <Route path="/profile" component={Profile} />
-
               {/* After authentication */}
+              <Route path="/profile" component={Profile} />
               <Route path="/user" component={BoardUser} />
               <Route path="/admin" component={BoardAdmin} />
               
