@@ -87,6 +87,7 @@ const ThirdSection = () => {
 
 
       <Grid sm={5} md={5} xs={12}>
+      
       <div className={classes.verticalLine}>
 
       <p className={classes.benefice}> Les bénéfices </p>

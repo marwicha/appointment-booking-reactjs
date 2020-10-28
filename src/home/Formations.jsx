@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { scrollTo } from "utils";
 import TopBar from "../home/sections/TopBar";
 import IndexRoute9sens from './sections/formation/9sens/IndexRoute9sens';
 import IndexRouteMeditation from './sections/formation/meditation/IndexRouteMeditation';
 import IndexRouteChaiseAssise from './sections/formation/chaiseAssise/IndexRouteChaiseAssise';
-
 import Footer from "./sections/Footer";
 
-import { useState } from "react";
 import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
 

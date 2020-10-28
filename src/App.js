@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Route,
   Switch,
@@ -15,6 +15,7 @@ import Formations from "./home/Formations";
 import Massages from "./home/Massages";
 
 import Authentification from "./components/Authentification";
+import Appointment from "./components/Appointment";
 import Inscription from "./components/Inscription";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
@@ -39,6 +40,8 @@ function App() {
 
               <Route path="/Inscription" component={Inscription}/>
               <Route path="/Authentification" component={Authentification} />
+
+              <Route path="/Appointment" component={Appointment} />
 
               {/* After authentication */}
               <Route path="/profile" component={Profile} />
