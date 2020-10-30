@@ -6,14 +6,11 @@ import {
 
 } from "@material-ui/core";
 
-import RaisedButton from '@material-ui/core/RaisedButton'
-import RadioButton from '@material-ui/core/RadioButton'
-import SelectField from '@material-ui/core/SelectField'
-import { DatePicker } from '@material-ui/pickers'
 import Button from '@material-ui/core/Button'
-import RadioButtonGroup from '@material-ui/core/RadioButtonGroup'
+import { RadioGroup } from '@material-ui/core';
 import SnackBar from '@material-ui/core/SnackBar'
-
+import Radio from '@material-ui/core/Radio';
+import { Select } from '@material-ui/core';
 import moment from "moment";
 
 import {
@@ -24,7 +21,7 @@ import {
 } from "@material-ui/core"
 import axios from "axios";
 
-const API_BASE = "http://localhost:8080/";
+const API_BASE = "http://localhost:8082/";
 
 class Appointment extends Component {
   constructor(props, context) {
@@ -209,7 +206,7 @@ class Appointment extends Component {
           ? time1.format("a") === "am"
           : time1.format("a") === "pm";
         return (
-          <RadioButton
+          <Radio
             label={time1.format("h:mm a") + " - " + time2.format("h:mm a")}
             key={slot}
             value={slot}
@@ -231,7 +228,8 @@ class Appointment extends Component {
 
     return (
       <div style={{ margin: "12px 0" }}>
-        <RaisedButton
+        <Button
+          variant="contained"
           label={stepIndex === 2 ? "Finish" : "Next"}
           disableTouchRipple={true}
           disableFocusRipple={true}
@@ -268,8 +266,14 @@ class Appointment extends Component {
     const contactFormFilled = data.prestation
     const DatePickerExampleSimple = () => (
       <div>
-        <DatePicker
+        <TextField
+          id="date"
+          type="date"
+          defaultValue="2020-10-30"
           hintText="Select Date"
+          InputLabelProps={{
+          shrink: true,
+        }}
           mode={smallScreen ? "portrait" : "landscape"}
           onChange={(n, date) => this.handleSetAppointmentDate(date)}
           shouldDisableDate={day => this.checkDisableDate(day)}
@@ -311,7 +315,7 @@ class Appointment extends Component {
             <Stepper
               activeStep={stepIndex}
               orientation="vertical"
-              linear={false}
+              linear="false"
             >
               <Step>
                 <StepLabel>
@@ -327,7 +331,7 @@ class Appointment extends Component {
                   Choose an available time for your appointment
                 </StepLabel>
                 <StepContent>
-                  <SelectField
+                  <Select
                     floatingLabelText="AM/PM"
                     value={data.appointmentMeridiem}
                     onChange={(evt, key, payload) =>
@@ -337,8 +341,8 @@ class Appointment extends Component {
                   >
                     <MenuItem value={0} primaryText="AM" />
                     <MenuItem value={1} primaryText="PM" />
-                  </SelectField>
-                  <RadioButtonGroup
+                  </Select>
+                  <RadioGroup
                     style={{
                       marginTop: 15,
                       marginLeft: 15
@@ -348,7 +352,7 @@ class Appointment extends Component {
                     onChange={(evt, val) => this.handleSetAppointmentSlot(val)}
                   >
                     {this.renderAppointmentTimes()}
-                  </RadioButtonGroup>
+                  </RadioGroup>
                   {this.renderStepActions(1)}
                 </StepContent>
               </Step>
@@ -370,7 +374,7 @@ class Appointment extends Component {
                         }
                       />
                 
-                      <RaisedButton
+                      <Button
                         style={{ display: "block", backgroundColor: "#00C853",
                                  marginTop: 20, maxWidth: 100 }}
                         label={
@@ -378,6 +382,7 @@ class Appointment extends Component {
                             ? "Schedule"
                             : "Fill out your information to schedule"
                         }
+                        variant="contained"
                         labelPosition="before"
                         primary={true}
                         fullWidth={true}
