@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import {
-  AppBar,
   Dialog, MenuItem,
   TextField, Card,
+  Button, Radio, 
+  RadioGroup, Select, FormControlLabel, FormControl, InputLabel
 
 } from "@material-ui/core";
 
-import Button from '@material-ui/core/Button'
-import { RadioGroup } from '@material-ui/core';
 import SnackBar from '@material-ui/core/SnackBar'
-import Radio from '@material-ui/core/Radio';
-import { Select } from '@material-ui/core';
-import moment from "moment";
+import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
+import MomentUtils from '@date-io/moment';
+import moment from 'moment'
+import fr from 'moment/locale/fr'
 
 import {
   Step,
@@ -39,7 +39,13 @@ class Appointment extends Component {
       smallScreen: window.innerWidth < 768,
       stepIndex: 0
     };
+
+    
+    this.renderAppointmentTimes = this.renderAppointmentTimes.bind(this)
+    this.renderConfirmationString = this.renderConfirmationString.bind(this)
+    this.renderAppointmentConfirmation = this.renderAppointmentConfirmation.bind(this)
   }
+
   componentWillMount() {
     axios.get(API_BASE + `api/slots/all`).then(response => {
       console.log("response via db: ", response.data);
@@ -95,26 +101,16 @@ class Appointment extends Component {
       this.setState({ stepIndex: stepIndex - 1 });
     }
   };
-//   validateEmail(email) {
-//     const regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-//     return regex.test(email)
-//       ? this.setState({ email: email, validEmail: true })
-//       : this.setState({ validEmail: false });
-//   }
-//   validatePhone(phoneNumber) {
-//     const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-//     return regex.test(phoneNumber)
-//       ? this.setState({ phone: phoneNumber, validPhone: true })
-//       : this.setState({ validPhone: false });
-//   }
+
   checkDisableDate(day) {
     const dateString = moment(day).format("YYYY-DD-MM");
-    return (
-      this.state.schedule[dateString] === true ||
-      moment(day)
-        .startOf("day")
-        .diff(moment().startOf("day")) < 0
-    );
+    //moment(date, 'YYYY-DD-MM').format('YYYY-DD-MM')
+   return (
+     this.state.schedule[dateString] === true ||
+     moment(day)
+       .startOf("day")
+       .diff(moment().startOf("day")) < 0
+   );
   }
 
   
@@ -182,44 +178,38 @@ class Appointment extends Component {
       </section>
     );
   }
+
+    renderConfirmationString() {
+    const spanStyle = {color: '#00bcd4'}
+    return this.state.confirmationTextVisible ? <h2 style={{ textAlign: this.state.smallScreen ? 'center' : 'left', color: '#bdbdbd', lineHeight: 1.5, padding: '0 10px', fontFamily: 'Roboto'}}>
+      { <span>
+        Scheduling a
+
+          <span style={spanStyle}> 1 hour </span>
+
+        appointment {this.state.appointmentDate && <span>
+          on <span style={spanStyle}>{moment(this.state.appointmentDate).format('dddd[,] MMMM Do')}</span>
+      </span>} {Number.isInteger(this.state.appointmentSlot) && <span>at <span style={spanStyle}>{moment().hour(9).minute(0).add(this.state.appointmentSlot, 'hours').format('h:mm a')}</span></span>}
+      </span>}
+    </h2> : null
+  }
+  
   renderAppointmentTimes() {
-    if (!this.state.isLoading) {
-      const slots = [...Array(8).keys()];
+    if (!this.state.loading) {
+      const slots = [...Array(8).keys()]
       return slots.map(slot => {
-        const appointmentDateString = moment(this.state.appointmentDate).format(
-          "YYYY-DD-MM"
-        );
-        const time1 = moment()
-          .hour(9)
-          .minute(0)
-          .add(slot, "hours");
-        const time2 = moment()
-          .hour(9)
-          .minute(0)
-          .add(slot + 1, "hours");
-        const scheduleDisabled = this.state.schedule[appointmentDateString]
-          ? this.state.schedule[
-              moment(this.state.appointmentDate).format("YYYY-DD-MM")
-            ][slot]
-          : false;
-        const meridiemDisabled = this.state.appointmentMeridiem
-          ? time1.format("a") === "am"
-          : time1.format("a") === "pm";
-        return (
-          <Radio
-            label={time1.format("h:mm a") + " - " + time2.format("h:mm a")}
-            key={slot}
-            value={slot}
-            style={{
-              marginBottom: 15,
-              display: meridiemDisabled ? "none" : "inherit"
-            }}
-            disabled={scheduleDisabled || meridiemDisabled}
-          />
-        );
-      });
+        const appointmentDateString = moment(this.state.appointmentDate).format('YYYY-DD-MM')
+        const t1 = moment().hour(9).minute(0).add(slot, 'hours')
+        const t2 = moment().hour(9).minute(0).add(slot + 1, 'hours')
+        const scheduleDisabled = this.state.schedule[appointmentDateString] ? this.state.schedule[moment(this.state.appointmentDate).format('YYYY-DD-MM')][slot] : false
+        const meridiemDisabled = this.state.appointmentMeridiem ? t1.format('a') === 'am' : t1.format('a') === 'pm'
+        return  <FormControlLabel value={slot} control={<Radio />} key={slot} label={t1.format('h:mm a') + ' - ' + t2.format('h:mm a')} 
+                                  style={{marginBottom: 15, display: meridiemDisabled ? 'none' : 'inherit'}}
+                                  disabled={scheduleDisabled || meridiemDisabled}
+        />
+      })
     } else {
-      return null;
+      return null
     }
   }
 
@@ -230,27 +220,29 @@ class Appointment extends Component {
       <div style={{ margin: "12px 0" }}>
         <Button
           variant="contained"
-          label={stepIndex === 2 ? "Finish" : "Next"}
           disableTouchRipple={true}
           disableFocusRipple={true}
-          primary={true}
+          primary="true"
           onClick={this.handleNext}
-          backgroundColor="#00C853 !important"
-          style={{ marginRight: 12, backgroundColor: "#00C853" }}
-        />
+          style={{ marginRight: 12, backgroundColor: "#394d5b", color: "white" }}
+        >
+        {stepIndex === 2 ? "Valider" : "Suivant"}
+        </Button>
+       
         {step > 0 && (
           <Button
-            label="Back"
+            
             disabled={stepIndex === 0}
             disableTouchRipple={true}
             disableFocusRipple={true}
             onClick={this.handlePrev}
-          />
+          >
+          Retour
+          </Button>
         )}
       </div>
     );
   }
-
 
 
   render() {
@@ -263,42 +255,38 @@ class Appointment extends Component {
       confirmationSnackbarOpen,
       ...data
     } = this.state;
+
     const contactFormFilled = data.prestation
+    console.log(data)
+
     const DatePickerExampleSimple = () => (
-      <div>
-        <TextField
-          id="date"
-          type="date"
-          defaultValue="2020-10-30"
-          hintText="Select Date"
-          InputLabelProps={{
-          shrink: true,
-        }}
-          mode={smallScreen ? "portrait" : "landscape"}
-          onChange={(n, date) => this.handleSetAppointmentDate(date)}
-          shouldDisableDate={day => this.checkDisableDate(day)}
+     <div>
+      <MuiPickersUtilsProvider utils={MomentUtils}  locale='fr'>
+        <DatePicker
+        value={data.appointmentDate}
+        mode={smallScreen ? "portrait" : "landscape"}
+        onChange={(date) => this.handleSetAppointmentDate(date)}
+        shouldDisableDate={day => this.checkDisableDate(day)}
         />
+        
+      </MuiPickersUtilsProvider>
       </div>
     );
     const modalActions = [
       <Button
         label="Cancel"
-        primary={false}
+        primary="false"
         onClick={() => this.setState({ confirmationModalOpen: false })}
       />,
       <Button
         label="Confirm"
         style={{ backgroundColor: "#00C853 !important" }}
-        primary={true}
+        primary="true"
         onClick={() => this.handleSubmit()}
       />
     ];
     return (
       <div>
-        <AppBar
-          title="Appointment Scheduler"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-        />
         <section
           style={{
             maxWidth: !smallScreen ? "80%" : "100%",
@@ -319,7 +307,7 @@ class Appointment extends Component {
             >
               <Step>
                 <StepLabel>
-                  Choose an available day for your appointment
+                  Choisir une date de rendez-vous
                 </StepLabel>
                 <StepContent>
                   {DatePickerExampleSimple()}
@@ -328,63 +316,47 @@ class Appointment extends Component {
               </Step>
               <Step disabled={!data.appointmentDate}>
                 <StepLabel>
-                  Choose an available time for your appointment
+                  Choisir l'heure de rendez-vous
                 </StepLabel>
                 <StepContent>
-                  <Select
-                    floatingLabelText="AM/PM"
+                   <FormControl>
+                   <Select
                     value={data.appointmentMeridiem}
-                    onChange={(evt, key, payload) =>
-                      this.handleSetAppointmentMeridiem(payload)
-                    }
-                    selectionRenderer={value => (value ? "PM" : "AM")}
-                  >
-                    <MenuItem value={0} primaryText="AM" />
-                    <MenuItem value={1} primaryText="PM" />
+                    onChange={(evt, key, payload) => this.handleSetAppointmentMeridiem(payload)}
+                    selectionRenderer={value => value ? 'PM' : 'AM'}>
+                    <MenuItem value={0}>AM</MenuItem>
+                    <MenuItem value={1}>PM</MenuItem>
                   </Select>
+                  </FormControl>
                   <RadioGroup
-                    style={{
-                      marginTop: 15,
-                      marginLeft: 15
-                    }}
+                    style={{ marginTop: 15,
+                             marginLeft: 15
+                           }}
                     name="appointmentTimes"
-                    defaultSelected={data.appointmentSlot}
-                    onChange={(evt, val) => this.handleSetAppointmentSlot(val)}
-                  >
+                    defaultValue={data.appointmentSlot}
+                    onChange={(evt, val) => this.handleSetAppointmentSlot(val)}>
                     {this.renderAppointmentTimes()}
                   </RadioGroup>
-                  {this.renderStepActions(1)}
                 </StepContent>
               </Step>
               <Step>
                 <StepLabel>
-                  Share your contact information with us and we'll send you a
-                  reminder
+                  Choisir la prestation
                 </StepLabel>
                 <StepContent>
                   <p>
                     <section>
-                      <TextField
-                        style={{ display: "block" }}
-                        name="prestation"
-                        hintText="First Name"
-                        floatingLabelText="First Name"
-                        onChange={(evt, newValue) =>
-                          this.setState({ prestation: newValue })
-                        }
-                      />
+                    <TextField
+                      style={{ display: 'block' }}
+                      name="prestation"
+                      onChange={(evt, newValue) => this.setState({ prestation: newValue })}/>
                 
                       <Button
                         style={{ display: "block", backgroundColor: "#00C853",
                                  marginTop: 20, maxWidth: 100 }}
-                        label={
-                          contactFormFilled
-                            ? "Schedule"
-                            : "Fill out your information to schedule"
-                        }
                         variant="contained"
                         labelPosition="before"
-                        primary={true}
+                        primary="true"
                         fullWidth={true}
                         onClick={() =>
                           this.setState({
@@ -393,7 +365,13 @@ class Appointment extends Component {
                           })
                         }
                         disabled={!contactFormFilled || data.processed}
-                      />
+                      >
+                      {
+                          contactFormFilled
+                            ? "Schedule"
+                            : "Fill out your information to schedule"
+                      }
+                      </Button>
                     </section>
                   </p>
                   {this.renderStepActions(2)}
