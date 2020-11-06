@@ -3,7 +3,8 @@ import {
   Dialog, MenuItem,
   TextField, Card,
   Button, Radio, 
-  RadioGroup, Select, FormControlLabel, FormControl, InputLabel
+  RadioGroup, Select, FormControlLabel,
+  FormControl
 
 } from "@material-ui/core";
 
@@ -33,6 +34,7 @@ class Appointment extends Component {
       confirmationModalOpen: false,
       appointmentDateSelected: false,
       appointmentMeridiem: 0,
+     // appointmentSlot: "",
       //validEmail: true,
       //validPhone: true,
       finished: false,
@@ -44,24 +46,38 @@ class Appointment extends Component {
     this.renderAppointmentTimes = this.renderAppointmentTimes.bind(this)
     this.renderConfirmationString = this.renderConfirmationString.bind(this)
     this.renderAppointmentConfirmation = this.renderAppointmentConfirmation.bind(this)
+    this.handleSetAppointmentMeridiem = this.handleSetAppointmentMeridiem.bind(this)
+    this.handleNext = this.handleNext.bind(this)
+    this.handlePrev = this.handlePrev.bind(this)
+    this.handleSetAppointmentDate = this.handleSetAppointmentDate.bind(this)
+    this.handleSetAppointmentSlot = this.handleSetAppointmentSlot.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.checkDisableDate = this.checkDisableDate.bind(this)
   }
 
   componentWillMount() {
     axios.get(API_BASE + `api/slots/all`).then(response => {
       console.log("response via db: ", response.data);
-      this.handleDBReponse(response.data);
     });
   }
   handleSetAppointmentDate(date) {
     this.setState({ appointmentDate: date, confirmationTextVisible: true });
   }
 
-  handleSetAppointmentSlot(slot) {
-    this.setState({ appointmentSlot: slot });
+  handleSetAppointmentSlot(event) {
+     const newValue = event.target.value
+     this.setState({
+      appointmentSlot: newValue
+    })
   }
-  handleSetAppointmentMeridiem(meridiem) {
-    this.setState({ appointmentMeridiem: meridiem });
+
+  handleSetAppointmentMeridiem(event) {
+    const newValue = event.target.value
+    this.setState({
+      appointmentMeridiem: newValue
+    })
   }
+
   handleSubmit() {
     this.setState({ confirmationModalOpen: false });
     const newAppointment = {
@@ -104,7 +120,6 @@ class Appointment extends Component {
 
   checkDisableDate(day) {
     const dateString = moment(day).format("YYYY-DD-MM");
-    //moment(date, 'YYYY-DD-MM').format('YYYY-DD-MM')
    return (
      this.state.schedule[dateString] === true ||
      moment(day)
@@ -113,7 +128,6 @@ class Appointment extends Component {
    );
   }
 
-  
   handleDBReponse(response) {
     const appointments = response;
     const today = moment().startOf("day"); //start of today 12 am
@@ -203,10 +217,11 @@ class Appointment extends Component {
         const t2 = moment().hour(9).minute(0).add(slot + 1, 'hours')
         const scheduleDisabled = this.state.schedule[appointmentDateString] ? this.state.schedule[moment(this.state.appointmentDate).format('YYYY-DD-MM')][slot] : false
         const meridiemDisabled = this.state.appointmentMeridiem ? t1.format('a') === 'am' : t1.format('a') === 'pm'
-        return  <FormControlLabel value={slot} control={<Radio />} key={slot} label={t1.format('h:mm a') + ' - ' + t2.format('h:mm a')} 
+        return  <FormControlLabel control={<Radio />} value={slot} key={slot}
+                                  label={t1.format('h:mm a') + ' - ' + t2.format('h:mm a')} 
                                   style={{marginBottom: 15, display: meridiemDisabled ? 'none' : 'inherit'}}
                                   disabled={scheduleDisabled || meridiemDisabled}
-        />
+                 />
       })
     } else {
       return null
@@ -319,24 +334,26 @@ class Appointment extends Component {
                   Choisir l'heure de rendez-vous
                 </StepLabel>
                 <StepContent>
-                   <FormControl>
+                <FormControl>
                    <Select
                     value={data.appointmentMeridiem}
-                    onChange={(evt, key, payload) => this.handleSetAppointmentMeridiem(payload)}
-                    selectionRenderer={value => value ? 'PM' : 'AM'}>
+                    onChange={this.handleSetAppointmentMeridiem }>
                     <MenuItem value={0}>AM</MenuItem>
                     <MenuItem value={1}>PM</MenuItem>
                   </Select>
+                  
                   </FormControl>
+                  <div> selected : {data.appointmentMeridiem}</div>
+                    <FormControl>
                   <RadioGroup
-                    style={{ marginTop: 15,
-                             marginLeft: 15
-                           }}
-                    name="appointmentTimes"
-                    defaultValue={data.appointmentSlot}
-                    onChange={(evt, val) => this.handleSetAppointmentSlot(val)}>
+                    name="value"
+                    value={data.appointmentSlot }
+                    onChange={this.handleSetAppointmentSlot}>
                     {this.renderAppointmentTimes()}
                   </RadioGroup>
+                  </FormControl>
+                   <div> selected: {data.appointmentSlot}</div>
+                  
                 </StepContent>
               </Step>
               <Step>
