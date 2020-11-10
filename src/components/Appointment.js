@@ -1,12 +1,15 @@
+/* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
 import {
-  Dialog, MenuItem,
+  Dialog,
   TextField, Card,
   Button, Radio, 
-  RadioGroup, Select, FormControlLabel,
-  FormControl
+  RadioGroup, FormControlLabel,
+  FormControl,StepButton, DialogActions,
+  DialogContent
 
 } from "@material-ui/core";
+
 
 import SnackBar from '@material-ui/core/SnackBar'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
@@ -17,7 +20,6 @@ import fr from 'moment/locale/fr'
 import {
   Step,
   Stepper,
-  StepLabel,
   StepContent
 } from "@material-ui/core"
 import axios from "axios";
@@ -25,18 +27,17 @@ import axios from "axios";
 const API_BASE = "http://localhost:8082/";
 
 class Appointment extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor() {
+    super();
 
     this.state = {
-     prestation: "",
+      loading: true,
+      prestation: "",
       schedule: [],
       confirmationModalOpen: false,
+      confirmationSnackbarOpen: false,
       appointmentDateSelected: false,
-      appointmentMeridiem: 0,
-     // appointmentSlot: "",
-      //validEmail: true,
-      //validPhone: true,
+      confirmationTextVisible: false,
       finished: false,
       smallScreen: window.innerWidth < 768,
       stepIndex: 0
@@ -46,13 +47,12 @@ class Appointment extends Component {
     this.renderAppointmentTimes = this.renderAppointmentTimes.bind(this)
     this.renderConfirmationString = this.renderConfirmationString.bind(this)
     this.renderAppointmentConfirmation = this.renderAppointmentConfirmation.bind(this)
-    this.handleSetAppointmentMeridiem = this.handleSetAppointmentMeridiem.bind(this)
     this.handleNext = this.handleNext.bind(this)
-    this.handlePrev = this.handlePrev.bind(this)
     this.handleSetAppointmentDate = this.handleSetAppointmentDate.bind(this)
     this.handleSetAppointmentSlot = this.handleSetAppointmentSlot.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.checkDisableDate = this.checkDisableDate.bind(this)
+    this.renderConfirmationString = this.renderConfirmationString.bind(this)
   }
 
   componentWillMount() {
@@ -60,23 +60,53 @@ class Appointment extends Component {
       console.log("response via db: ", response.data);
     });
   }
+
+   handleNext = () => {
+    const { stepIndex } = this.state
+    return (stepIndex < 3) ? this.setState({ stepIndex: stepIndex + 1}) : null
+  };
+
   handleSetAppointmentDate(date) {
+    this.handleNext()
     this.setState({ appointmentDate: date, confirmationTextVisible: true });
   }
 
-  handleSetAppointmentSlot(event) {
-     const newValue = event.target.value
-     this.setState({
-      appointmentSlot: newValue
-    })
+  handleSetAppointmentSlot(slot) {
+     this.handleNext()
+    this.setState({ appointmentSlot: slot })
   }
 
-  handleSetAppointmentMeridiem(event) {
-    const newValue = event.target.value
-    this.setState({
-      appointmentMeridiem: newValue
-    })
+handleChangePrestation(name, value) {
+  if(value==null)
+    return;
+  this.setState({[name]: value })
   }
+
+  handleDBReponse(response) {
+   const appointments = response;
+   const initSchedule = {}
+    const today = moment().startOf('day')
+    initSchedule[today.format('YYYY-DD-MM')] = true
+    const schedule = !appointments.length ? initSchedule : appointments.reduce((currentSchedule, appointment) => {
+      const { date, slot } = appointment
+      const dateString = moment(date, 'YYYY-DD-MM').format('YYYY-DD-MM')
+      !currentSchedule[date] ? currentSchedule[dateString] = Array(8).fill(false) : null
+      Array.isArray(currentSchedule[dateString]) ?
+        currentSchedule[dateString][slot] = true : null
+      return currentSchedule
+    }, initSchedule)
+
+    for (let day in schedule) {
+      let slots = schedule[day]
+      slots.length ? (slots.every(slot => slot === true)) ? schedule[day] = true : null : null
+    }
+
+    this.setState({
+      schedule,
+      loading: false
+    });
+  }
+
 
   handleSubmit() {
     this.setState({ confirmationModalOpen: false });
@@ -89,7 +119,7 @@ class Appointment extends Component {
       .post(API_BASE + "api/appointment/create", newAppointment)
       .then(response =>
         this.setState({
-          confirmationSnackbarMessage: "Appointment succesfully added!",
+          confirmationSnackbarMessage: "Rendez vous confirmé avec success!",
           confirmationSnackbarOpen: true,
           processed: true
         })
@@ -102,98 +132,24 @@ class Appointment extends Component {
         });
       });
   }
-  
-  handleNext = () => {
-    const { stepIndex } = this.state;
-    this.setState({
-      stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2
-    });
-  };
 
-  handlePrev = () => {
-    const { stepIndex } = this.state;
-    if (stepIndex > 0) {
-      this.setState({ stepIndex: stepIndex - 1 });
-    }
-  };
-
-  checkDisableDate(day) {
-    const dateString = moment(day).format("YYYY-DD-MM");
-   return (
-     this.state.schedule[dateString] === true ||
-     moment(day)
-       .startOf("day")
-       .diff(moment().startOf("day")) < 0
-   );
+   checkDisableDate(day) {
+    const dateString = moment(day).format('YYYY-DD-MM')
+    return this.state.schedule[dateString] === true || moment(day).startOf('day').diff(moment().startOf('day')) < 0
   }
 
-  handleDBReponse(response) {
-    const appointments = response;
-    const today = moment().startOf("day"); //start of today 12 am
-    const initialSchedule = {};
-    initialSchedule[today.format("YYYY-DD-MM")] = true;
-    const schedule = !appointments.length ? initialSchedule
-      : appointments.reduce((currentSchedule, appointment) => {
-          const { slot_date, slot_time } = appointment;
-          const dateString = moment(slot_date, "YYYY-DD-MM").format(
-            "YYYY-DD-MM"
-          );
-          
-          // eslint-disable-next-line no-unused-expressions
-          !currentSchedule[slot_date]
-            ? (currentSchedule[dateString] = Array(8).fill(false))
-            : null;
-          // eslint-disable-next-line no-unused-expressions
-          Array.isArray(currentSchedule[dateString])
-            ? (currentSchedule[dateString][slot_time] = true)
-            : null;
 
-          return currentSchedule;
-        }, initialSchedule);
-
-    for (let day in schedule) {
-      let slots = schedule[day];
-      // eslint-disable-next-line no-unused-expressions
-      slots.length ? slots.every(slot => slot === true) ? (schedule[day] = true) : null : null;
-    }
-
-    this.setState({
-      schedule: schedule
-    });
-  }
   renderAppointmentConfirmation() {
-    const spanStyle = { color: "#00C853" };
-    return (
-      <section>
-        <p>
-          Prestation:{" "}
-          <span style={spanStyle}>
-            {this.state.prestation}
-          </span>
-        </p>
-      
-        <p>
-          Appointment:{" "}
-          <span style={spanStyle}>
-            {moment(this.state.appointmentDate).format(
-              "dddd[,] MMMM Do[,] YYYY"
-            )}
-          </span>{" "}
-          at{" "}
-          <span style={spanStyle}>
-            {moment()
-              .hour(9)
-              .minute(0)
-              .add(this.state.appointmentSlot, "hours")
-              .format("h:mm a")}
-          </span>
-        </p>
-      </section>
-    );
+    const spanStyle = { color: '#00bcd4' }
+    return <section>
+      <p> Prestation choisie: <span style={spanStyle}>{this.state.prestation}</span></p>
+      <p> Rendez vous: <span style={spanStyle}>{moment(this.state.appointmentDate).format('dddd[,] MMMM Do[,] YYYY')} </span> 
+       à <span style={spanStyle}>{moment().hour(9).minute(0).add(this.state.appointmentSlot, 'hours').format('h:mm a')}</span></p>
+    </section>
   }
 
-    renderConfirmationString() {
+
+  renderConfirmationString() {
     const spanStyle = {color: '#00bcd4'}
     return this.state.confirmationTextVisible ? <h2 style={{ textAlign: this.state.smallScreen ? 'center' : 'left', color: '#bdbdbd', lineHeight: 1.5, padding: '0 10px', fontFamily: 'Roboto'}}>
       { <span>
@@ -209,18 +165,20 @@ class Appointment extends Component {
   }
   
   renderAppointmentTimes() {
-    if (!this.state.loading) {
+    if (this.state.loading) {
       const slots = [...Array(8).keys()]
+     
       return slots.map(slot => {
         const appointmentDateString = moment(this.state.appointmentDate).format('YYYY-DD-MM')
         const t1 = moment().hour(9).minute(0).add(slot, 'hours')
+
+        console.log(t1)
         const t2 = moment().hour(9).minute(0).add(slot + 1, 'hours')
         const scheduleDisabled = this.state.schedule[appointmentDateString] ? this.state.schedule[moment(this.state.appointmentDate).format('YYYY-DD-MM')][slot] : false
-        const meridiemDisabled = this.state.appointmentMeridiem ? t1.format('a') === 'am' : t1.format('a') === 'pm'
         return  <FormControlLabel control={<Radio />} value={slot} key={slot}
-                                  label={t1.format('h:mm a') + ' - ' + t2.format('h:mm a')} 
-                                  style={{marginBottom: 15, display: meridiemDisabled ? 'none' : 'inherit'}}
-                                  disabled={scheduleDisabled || meridiemDisabled}
+                                  labelPlacement="end"
+                                  label={t1.format('h:mm a') + ' - ' + t2.format('h:mm a')}
+                                  disabled={scheduleDisabled}
                  />
       })
     } else {
@@ -228,47 +186,14 @@ class Appointment extends Component {
     }
   }
 
-  renderStepActions(step) {
-    const { stepIndex } = this.state;
-
-    return (
-      <div style={{ margin: "12px 0" }}>
-        <Button
-          variant="contained"
-          disableTouchRipple={true}
-          disableFocusRipple={true}
-          primary="true"
-          onClick={this.handleNext}
-          style={{ marginRight: 12, backgroundColor: "#394d5b", color: "white" }}
-        >
-        {stepIndex === 2 ? "Valider" : "Suivant"}
-        </Button>
-       
-        {step > 0 && (
-          <Button
-            
-            disabled={stepIndex === 0}
-            disableTouchRipple={true}
-            disableFocusRipple={true}
-            onClick={this.handlePrev}
-          >
-          Retour
-          </Button>
-        )}
-      </div>
-    );
+  resize() {
+    this.setState({ smallScreen: window.innerWidth < 768 })
   }
 
 
   render() {
     const {
-      finished,
-      isLoading,
-      smallScreen,
-      stepIndex,
-      confirmationModalOpen,
-      confirmationSnackbarOpen,
-      ...data
+     stepIndex, loading, navOpen, smallScreen, confirmationModalOpen, confirmationSnackbarOpen, ...data
     } = this.state;
 
     const contactFormFilled = data.prestation
@@ -278,6 +203,7 @@ class Appointment extends Component {
      <div>
       <MuiPickersUtilsProvider utils={MomentUtils}  locale='fr'>
         <DatePicker
+        style={{ marginTop: 10, marginLeft: 10 }}
         value={data.appointmentDate}
         mode={smallScreen ? "portrait" : "landscape"}
         onChange={(date) => this.handleSetAppointmentDate(date)}
@@ -288,131 +214,120 @@ class Appointment extends Component {
       </div>
     );
     const modalActions = [
+      
       <Button
-        label="Cancel"
         primary="false"
         onClick={() => this.setState({ confirmationModalOpen: false })}
-      />,
+      > Annuler </Button>,
       <Button
-        label="Confirm"
         style={{ backgroundColor: "#00C853 !important" }}
         primary="true"
         onClick={() => this.handleSubmit()}
-      />
+      >
+       Confirmer </Button>
+      
     ];
     return (
       <div>
         <section
           style={{
-            maxWidth: !smallScreen ? "80%" : "100%",
-            margin: "auto",
-            marginTop: !smallScreen ? 20 : 0
+            maxWidth: !smallScreen ? '80%' : '100%',
+            margin: 'auto',
+            marginTop: !smallScreen ? 20 : 0,
           }}
         >
+        {this.renderConfirmationString()}
           <Card
-            style={{
-              padding: "12px 12px 25px 12px",
-              height: smallScreen ? "100vh" : null
+           style={{
+              padding: '10px 10px 25px 10px',
+              height: smallScreen ? '100vh' : null
             }}
           >
             <Stepper
-              activeStep={stepIndex}
-              orientation="vertical"
+             activeStep={stepIndex}
               linear="false"
+              orientation="vertical"
             >
-              <Step>
-                <StepLabel>
-                  Choisir une date de rendez-vous
-                </StepLabel>
+              <Step disabled={loading}>
+                 <StepButton onClick={() => this.setState({ stepIndex: 0 })}>
+                   Choisir une date de rendez-vous
+                </StepButton>
                 <StepContent>
                   {DatePickerExampleSimple()}
-                  {this.renderStepActions(0)}
+                  
                 </StepContent>
               </Step>
               <Step disabled={!data.appointmentDate}>
-                <StepLabel>
-                  Choisir l'heure de rendez-vous
-                </StepLabel>
+                <StepButton  onClick={() => this.setState({ stepIndex: 1 })}>
+                   Choisir l'heure de rendez-vous
+                </StepButton>
                 <StepContent>
-                <FormControl>
-                   <Select
-                    value={data.appointmentMeridiem}
-                    onChange={this.handleSetAppointmentMeridiem }>
-                    <MenuItem value={0}>AM</MenuItem>
-                    <MenuItem value={1}>PM</MenuItem>
-                  </Select>
-                  
-                  </FormControl>
-                  <div> selected : {data.appointmentMeridiem}</div>
-                    <FormControl>
+                <FormControl component="fieldset">
                   <RadioGroup
-                    name="value"
-                    value={data.appointmentSlot }
-                    onChange={this.handleSetAppointmentSlot}>
+                    style={{
+                      marginTop: 15,
+                      marginLeft: 15
+                    }}
+                    name="appointmentTimes"
+                    value={data.appointmentSlot}
+                    onChange={(evt, val) => this.handleSetAppointmentSlot(val)}
+                    >
                     {this.renderAppointmentTimes()}
                   </RadioGroup>
                   </FormControl>
-                   <div> selected: {data.appointmentSlot}</div>
-                  
+                   <div>selected slots: {data.appointmentSlot}</div>
                 </StepContent>
               </Step>
-              <Step>
-                <StepLabel>
+              <Step disabled={ !Number.isInteger(this.state.appointmentSlot) }>
+               <StepButton onClick={() => this.setState({ stepIndex: 2 })}>
                   Choisir la prestation
-                </StepLabel>
+                </StepButton>
                 <StepContent>
-                  <p>
-                    <section>
+              
                     <TextField
                       style={{ display: 'block' }}
                       name="prestation"
-                      onChange={(evt, newValue) => this.setState({ prestation: newValue })}/>
-                
+                      onChange={(event) => this.handleChangePrestation("prestation", event.target.value)}
+                     
+                     />
+                   
                       <Button
                         style={{ display: "block", backgroundColor: "#00C853",
                                  marginTop: 20, maxWidth: 100 }}
                         variant="contained"
-                        labelPosition="before"
                         primary="true"
-                        fullWidth={true}
-                        onClick={() =>
-                          this.setState({
-                            confirmationModalOpen: !this.state
-                              .confirmationModalOpen
-                          })
-                        }
-                        disabled={!contactFormFilled || data.processed}
+                        fullWidth="true"
+                        onClick={() => this.setState({ confirmationModalOpen: !this.state.confirmationModalOpen })}
+                        disabled={!contactFormFilled || data.processed }
                       >
                       {
                           contactFormFilled
-                            ? "Schedule"
-                            : "Fill out your information to schedule"
+                            ? "Valdier"
+                            : "Choisir la prestation"
                       }
                       </Button>
-                    </section>
-                  </p>
-                  {this.renderStepActions(2)}
                 </StepContent>
               </Step>
             </Stepper>
-          </Card>
+            </Card>
           <Dialog
-            modal={true}
+            modal="true"
             open={confirmationModalOpen}
-            actions={modalActions}
-            title="Confirm your appointment"
-          >
-            {this.renderAppointmentConfirmation()}
+            title="Confirmer votre rendez vous">
+            
+            <DialogContent>
+             {this.renderAppointmentConfirmation()}  
+             </DialogContent>
+
+            <DialogActions>
+            {modalActions}
+            </DialogActions>
           </Dialog>
           <SnackBar
-            open={confirmationSnackbarOpen || isLoading}
-            message={
-              isLoading ? "Loading... " : data.confirmationSnackbarMessage || ""
-            }
+            open={confirmationSnackbarOpen || loading}
+            message={loading ? 'Loading... ' : data.confirmationSnackbarMessage || ''}
             autoHideDuration={10000}
-            onRequestClose={() =>
-              this.setState({ confirmationSnackbarOpen: false })
-            }
+            onClose={() => this.setState({ confirmationSnackbarOpen: false })} 
           />
         </section>
       </div>
