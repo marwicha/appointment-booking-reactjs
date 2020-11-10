@@ -133,11 +133,12 @@ handleChangePrestation(name, value) {
       });
   }
 
-   checkDisableDate(day) {
-    const dateString = moment(day).format('YYYY-DD-MM')
-    return this.state.schedule[dateString] === true || moment(day).startOf('day').diff(moment().startOf('day')) < 0
-  }
+   checkDisableDate(current) {
+    const dateString = moment(current).format('YYYY-DD-MM') 
 
+    return this.state.schedule[dateString] === true || moment(current).startOf('day').diff(moment().startOf('day')) < 0 
+    || current.day() === 0 || current.day() === 6
+  }
 
   renderAppointmentConfirmation() {
     const spanStyle = { color: '#00bcd4' }
@@ -148,14 +149,13 @@ handleChangePrestation(name, value) {
     </section>
   }
 
-
   renderConfirmationString() {
     const spanStyle = {color: '#00bcd4'}
     return this.state.confirmationTextVisible ? <h2 style={{ textAlign: this.state.smallScreen ? 'center' : 'left', color: '#bdbdbd', lineHeight: 1.5, padding: '0 10px', fontFamily: 'Roboto'}}>
       { <span>
         Scheduling a
 
-          <span style={spanStyle}> 1 hour </span>
+        <span style={spanStyle}> 1 hour </span>
 
         appointment {this.state.appointmentDate && <span>
           on <span style={spanStyle}>{moment(this.state.appointmentDate).format('dddd[,] MMMM Do')}</span>
@@ -190,24 +190,23 @@ handleChangePrestation(name, value) {
     this.setState({ smallScreen: window.innerWidth < 768 })
   }
 
-
   render() {
     const {
      stepIndex, loading, navOpen, smallScreen, confirmationModalOpen, confirmationSnackbarOpen, ...data
     } = this.state;
 
     const contactFormFilled = data.prestation
-    console.log(data)
 
     const DatePickerExampleSimple = () => (
      <div>
       <MuiPickersUtilsProvider utils={MomentUtils}  locale='fr'>
         <DatePicker
-        style={{ marginTop: 10, marginLeft: 10 }}
+        style={{ marginTop: 20, marginLeft: 20 }}
         value={data.appointmentDate}
         mode={smallScreen ? "portrait" : "landscape"}
         onChange={(date) => this.handleSetAppointmentDate(date)}
-        shouldDisableDate={day => this.checkDisableDate(day)}
+        shouldDisableDate={day => this.checkDisableDate(day) }
+        variant="dialog"
         />
         
       </MuiPickersUtilsProvider>
