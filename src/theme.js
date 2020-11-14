@@ -1,13 +1,10 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import indigo from "@material-ui/core/colors/indigo";
-import orange from "@material-ui/core/colors/orange";
 import red from "@material-ui/core/colors/red";
 
 const themeOptions = {
   palette: {
     type: "light",
-    primary: indigo,
-    secondary: orange,
+    primary: { main : "#394d5b" },
     first: '#182732' ,
     second: '#394d5b',
     third: '#dfe5e6',

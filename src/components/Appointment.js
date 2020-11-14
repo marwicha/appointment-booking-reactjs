@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
 import {
-  Dialog,
-  TextField, Card,
+  Dialog, Card,
   Button, Radio, 
   RadioGroup, FormControlLabel,
   FormControl,StepButton, DialogActions,
-  DialogContent
+  DialogContent, Select, MenuItem
 
 } from "@material-ui/core";
+
+import TopBar from "../../src/home/sections/TopBar";
 
 
 import SnackBar from '@material-ui/core/SnackBar'
@@ -79,6 +80,7 @@ class Appointment extends Component {
 handleChangePrestation(name, value) {
   if(value==null)
     return;
+  this.handleNext()
   this.setState({[name]: value })
   }
 
@@ -119,7 +121,7 @@ handleChangePrestation(name, value) {
       .post(API_BASE + "api/appointment/create", newAppointment)
       .then(response =>
         this.setState({
-          confirmationSnackbarMessage: "Rendez vous confirmé avec success!",
+          confirmationSnackbarMessage: "Le rendez-vous est confirmé!",
           confirmationSnackbarOpen: true,
           processed: true
         })
@@ -127,17 +129,17 @@ handleChangePrestation(name, value) {
       .catch(err => {
         console.log(err);
         return this.setState({
-          confirmationSnackbarMessage: "Appointment failed to save.",
+          confirmationSnackbarMessage: "Le rendez-vous n'a pas pu être enregistré.",
           confirmationSnackbarOpen: true
         });
       });
   }
 
-   checkDisableDate(current) {
-    const dateString = moment(current).format('YYYY-DD-MM') 
+   checkDisableDate(currentDay) {
+    const dateString = moment(currentDay).format('YYYY-DD-MM') 
 
-    return this.state.schedule[dateString] === true || moment(current).startOf('day').diff(moment().startOf('day')) < 0 
-    || current.day() === 0 || current.day() === 6
+    return this.state.schedule[dateString] === true || moment(currentDay).startOf('day').diff(moment().startOf('day')) < 0 
+    || currentDay.day() === 0 || currentDay.day() === 6 || currentDay.week() === 3
   }
 
   renderAppointmentConfirmation() {
@@ -153,7 +155,7 @@ handleChangePrestation(name, value) {
     const spanStyle = {color: '#00bcd4'}
     return this.state.confirmationTextVisible ? <h2 style={{ textAlign: this.state.smallScreen ? 'center' : 'left', color: '#bdbdbd', lineHeight: 1.5, padding: '0 10px', fontFamily: 'Roboto'}}>
       { <span>
-        Scheduling a
+        prise de rendez-vous d'une
 
         <span style={spanStyle}> 1 hour </span>
 
@@ -195,7 +197,7 @@ handleChangePrestation(name, value) {
      stepIndex, loading, navOpen, smallScreen, confirmationModalOpen, confirmationSnackbarOpen, ...data
     } = this.state;
 
-    const contactFormFilled = data.prestation
+    const contactFormFilled = data.appointmentSlot
 
     const DatePickerExampleSimple = () => (
      <div>
@@ -227,7 +229,8 @@ handleChangePrestation(name, value) {
       
     ];
     return (
-      <div>
+       <div>
+      <TopBar />
         <section
           style={{
             maxWidth: !smallScreen ? '80%' : '100%',
@@ -247,8 +250,29 @@ handleChangePrestation(name, value) {
               linear="false"
               orientation="vertical"
             >
-              <Step disabled={loading}>
-                 <StepButton onClick={() => this.setState({ stepIndex: 0 })}>
+
+             <Step disabled={loading}>
+                <StepButton onClick={() => this.setState({ stepIndex: 0 })}>
+                  Choisir la prestation
+                </StepButton>
+                <StepContent>
+
+                <FormControl>
+                  <Select
+                    fullWidth
+                    value={data.prestation}
+                    onChange={(event) => this.handleChangePrestation("prestation", event.target.value)}>
+                    <MenuItem value="Massage 9 sens"> Massage 9 sens </MenuItem>
+                    <MenuItem value="Méditation"> Méditation </MenuItem>
+                  </Select>
+                  </FormControl>
+
+                </StepContent>
+              </Step>
+
+
+              <Step>
+                 <StepButton onClick={() => this.setState({ stepIndex: 1 })}>
                    Choisir une date de rendez-vous
                 </StepButton>
                 <StepContent>
@@ -257,7 +281,7 @@ handleChangePrestation(name, value) {
                 </StepContent>
               </Step>
               <Step disabled={!data.appointmentDate}>
-                <StepButton  onClick={() => this.setState({ stepIndex: 1 })}>
+                <StepButton  onClick={() => this.setState({ stepIndex: 2 })}>
                    Choisir l'heure de rendez-vous
                 </StepButton>
                 <StepContent>
@@ -274,39 +298,23 @@ handleChangePrestation(name, value) {
                     {this.renderAppointmentTimes()}
                   </RadioGroup>
                   </FormControl>
-                   <div>selected slots: {data.appointmentSlot}</div>
-                </StepContent>
-              </Step>
-              <Step disabled={ !Number.isInteger(this.state.appointmentSlot) }>
-               <StepButton onClick={() => this.setState({ stepIndex: 2 })}>
-                  Choisir la prestation
-                </StepButton>
-                <StepContent>
-              
-                    <TextField
-                      style={{ display: 'block' }}
-                      name="prestation"
-                      onChange={(event) => this.handleChangePrestation("prestation", event.target.value)}
-                     
-                     />
                    
+                </StepContent>
+                
                       <Button
-                        style={{ display: "block", backgroundColor: "#00C853",
+                        style={{ display: "block", backgroundColor: "#f5f5f8",
                                  marginTop: 20, maxWidth: 100 }}
                         variant="contained"
-                        primary="true"
                         fullWidth="true"
                         onClick={() => this.setState({ confirmationModalOpen: !this.state.confirmationModalOpen })}
                         disabled={!contactFormFilled || data.processed }
                       >
                       {
-                          contactFormFilled
-                            ? "Valdier"
-                            : "Choisir la prestation"
+                          contactFormFilled && "Valider"
                       }
                       </Button>
-                </StepContent>
               </Step>
+             
             </Stepper>
             </Card>
           <Dialog

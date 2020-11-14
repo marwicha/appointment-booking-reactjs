@@ -41,7 +41,7 @@ function App() {
               <Route path="/Inscription" component={Inscription}/>
               <Route path="/Authentification" component={Authentification} />
 
-              <Route path="/Appointment" component={Appointment} />
+              <Route path="/prendre-rendez-vous" component={Appointment} />
 
               {/* After authentication */}
               <Route path="/profile" component={Profile} />

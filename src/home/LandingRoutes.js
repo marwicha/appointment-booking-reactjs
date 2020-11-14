@@ -29,7 +29,13 @@ const IKDORoutes = [
   {
     path: "/Authentification",
     component: React.lazy(() => import("./Authentification")),
-  }
+  },
+
+  {
+    path: "/prendre-rendez-vous",
+    component: React.lazy(() => import("./Appointment")),
+  },
+  
 ];
 
 export default IKDORoutes;
