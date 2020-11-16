@@ -3,14 +3,14 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import AuthService from "../services/auth.service";
-import { Typography,Box, Grid, Button, Card, Avatar, TextField, CssBaseline, FormControlLabel, Checkbox, Link}
+import { Typography,Box, Grid, Button, Card, Avatar, CssBaseline, TextField, Checkbox, Link}
  from "@material-ui/core";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import Alert from '@material-ui/lab/Alert';
 
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import PersonOutlineOutlined from '@material-ui/icons/PersonOutlineOutlined';
+import LockOutlined from '@material-ui/icons/LockOutlined';
 import Lock from '@material-ui/icons/Lock';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -124,8 +124,14 @@ const Authentification = (props) => {
           window.location.reload();
         },
         (error) => {
-          const responseMessage = "Email ou mot de passe incorrect"
-          error.response.status === 401 && setMessage(responseMessage)
+           const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+          setMessage(resMessage);
         }
       );
     } else {
@@ -141,10 +147,9 @@ const Authentification = (props) => {
       <CssBaseline />
       <Card className={classes.paper}>
         <Avatar  className={clsx(classes.avatar, "md-48")}>
-          <LockOutlinedIcon />
+          <LockOutlined />
         </Avatar>
-        <br></br>
-
+    
         <h5 className={classes.title}>
           Se connecter
         </h5>
@@ -166,10 +171,11 @@ const Authentification = (props) => {
           <Grid container spacing={1} alignItems="flex-end">
         
           <Grid item>
-            <AccountCircle />
+            <PersonOutlineOutlined />
           </Grid>
 
            <Grid item>
+         
             <TextField
               className={classes.input}
               fullWidth
@@ -178,6 +184,7 @@ const Authentification = (props) => {
               onChange={onChangeUsername}
               validations={[required]}
             />
+          
             </Grid>
 
             </Grid>
@@ -193,6 +200,7 @@ const Authentification = (props) => {
             <Lock />
           </Grid>
            <Grid item>
+          
             <TextField
              className={classes.input}
              name="password"
@@ -202,6 +210,7 @@ const Authentification = (props) => {
              onChange={onChangePassword}
              validations={[required]}
             />
+           
              </Grid>
             </Grid>
           </div>
@@ -221,20 +230,18 @@ const Authentification = (props) => {
 
             <Grid container>
             <Grid item xs>
-              <Link>
-                Mot de passe oubliée?
-              </Link>
+              <NavLink to="">
+                <p> Mot de passe oubliée? </p>
+              </NavLink>
             </Grid>
             <Grid item>
-              <Link>
-                S'inscrire
-              </Link>
+              <NavLink to="/Inscription">
+                <p> S'inscrire </p>
+              </NavLink>
             </Grid>
           </Grid>
 
           </div>
-
-       
           
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
         </Form>
