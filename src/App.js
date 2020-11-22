@@ -18,8 +18,6 @@ import Authentification from "./components/Authentification";
 import Appointment from "./components/Appointment";
 import Inscription from "./components/Inscription";
 import Profile from "./components/Profile";
-import BoardUser from "./components/BoardUser";
-import BoardAdmin from "./components/BoardAdmin";
 
 
 function App() {
@@ -45,8 +43,6 @@ function App() {
 
               {/* After authentication */}
               <Route path="/profile" component={Profile} />
-              <Route path="/user" component={BoardUser} />
-              <Route path="/admin" component={BoardAdmin} />
               
               <Redirect path="/" exact to="Accueil" />
               {/* <Route component={Error} /> */}

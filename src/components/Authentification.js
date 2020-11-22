@@ -1,9 +1,6 @@
 import React, { useState, useRef } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
 import AuthService from "../services/auth.service";
-import { Typography,Box, Grid, Button, Card, Avatar, CssBaseline, TextField, Checkbox, Link}
+import { Typography,Box, Grid, Button, Card, Avatar, CssBaseline, TextField, Link}
  from "@material-ui/core";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
@@ -92,16 +89,15 @@ const Authentification = (props) => {
 
   const classes = useStyles()
   const form = useRef();
-  const checkBtn = useRef();
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
   };
 
   const onChangePassword = (e) => {
@@ -115,10 +111,7 @@ const Authentification = (props) => {
     setMessage("");
     setLoading(true);
 
-    form.current.validateAll();
-
-    if (checkBtn.current.context._errors.length === 0) {
-      AuthService.login(username, password).then(
+      AuthService.login(email, password).then(
         () => {
           props.history.push("/prendre-rendez-vous");
           window.location.reload();
@@ -134,9 +127,6 @@ const Authentification = (props) => {
           setMessage(resMessage);
         }
       );
-    } else {
-      setLoading(false);
-    }
   };
 
   return (
@@ -154,7 +144,7 @@ const Authentification = (props) => {
           Se connecter
         </h5>
 
-        <Form onSubmit={handleLogin} ref={form} className={classes.form}>
+        <form onSubmit={handleLogin} ref={form} className={classes.form}>
 
           <div>
            {message && (
@@ -179,9 +169,9 @@ const Authentification = (props) => {
             <TextField
               className={classes.input}
               fullWidth
-              name="username"
-              value={username}
-              onChange={onChangeUsername}
+              name="email"
+              value={email}
+              onChange={onChangeEmail}
               validations={[required]}
             />
           
@@ -221,10 +211,7 @@ const Authentification = (props) => {
              fullWidth
              variant="contained" color="primary"
              className={classes.submit} 
-             disabled={loading}>
-              {loading && (
-                <span className="spinner-border spinner-border-sm"></span>
-              )}
+             >
               <span> Connecter </span>
             </Button>
 
@@ -243,8 +230,7 @@ const Authentification = (props) => {
 
           </div>
           
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+        </form>
      </Card>
 
       <Box mt={8}>

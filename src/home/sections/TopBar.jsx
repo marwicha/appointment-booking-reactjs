@@ -51,7 +51,7 @@ const TopBar = (props) => {
 
     if (user) {
       setCurrentUser(user);
-      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+     // setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
     }
   }, []);
 
@@ -121,13 +121,7 @@ Praticien
    </ul>
         <div className="m-auto" />
         <ul className="navigation flex">
-         <li>
-          <NavLink to="/Inscription">
-           
-              Inscription
-          </NavLink>
-          </li>
-
+    
           {currentUser && (
             <li>
               <NavLink to="/user">
@@ -149,7 +143,7 @@ Praticien
             <div>
               <li>
                 <NavLink to="/profile">
-                  {currentUser.username}
+                  {currentUser.email}
                 </NavLink>
               </li>
 
@@ -165,16 +159,9 @@ Praticien
             <div>
               <li>
                 <NavLink to="/Authentification" >
-                  Login
+                  Se connecter
                 </NavLink>
               </li>
-  
-              <li>
-                <NavLink to="/Inscription">
-                  Sign Up
-                </NavLink>
-              </li>
-
               </div>
               )}
 

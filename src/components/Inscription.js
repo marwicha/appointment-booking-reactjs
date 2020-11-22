@@ -1,7 +1,4 @@
 import React, { useState, useRef } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import Container from '@material-ui/core/Container';
 import TopBar from "../../src/home/sections/TopBar";
@@ -14,13 +11,15 @@ import { NavLink } from "react-router-dom";
 import Alert from '@material-ui/lab/Alert';
 import clsx from "clsx";
 
+//React Hooks Form validation
+import { ErrorMessage } from "@hookform/error-message";
+import { useForm } from "react-hook-form";
+
 import { 
    Typography,Box,
    Grid, Button, 
    Card, Avatar,
-   TextField, CssBaseline, 
-   Checkbox, Link 
-  
+   TextField, CssBaseline, Link 
   }
 
 
@@ -89,12 +88,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 }))
 
-
 const required = (value) => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Ce champ est requis!
       </div>
     );
   }
@@ -104,46 +102,64 @@ const validEmail = (value) => {
   if (!isEmail(value)) {
     return (
       <div className="alert alert-danger" role="alert">
-        This is not a valid email.
+       Ce n'est pas un email valide.
       </div>
     );
   }
 };
 
-const vusername = (value) => {
+const validateName = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
+        Le nom et prénom doivent comprendre entre 3 et 20 caractères.
       </div>
     );
   }
 };
 
-const vpassword = (value) => {
+const validatePhone = (value) => {
+  if (value.length > 8) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        Le numéro de téléphone ne doit pas dépasser 8 caractères.
+      </div>
+    );
+  }
+};
+
+
+const validatePassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
+        Le mot de passe doit comporter entre 6 et 40 caractères.
       </div>
     );
   }
 };
 
 const Inscription = (props) => {
-  const form = useRef();
-  const checkBtn = useRef();
   const classes = useStyles();
+  const { errors, register } = useForm({
+    criteriaMode: "all"
+  });
 
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
 
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
+  const onChangeName = (e) => {
+    const name = e.target.value;
+    setName(name);
+  };
+
+   const onChangePhone = (e) => {
+    const phone = e.target.value;
+    setPhone(phone);
   };
 
   const onChangeEmail = (e) => {
@@ -162,10 +178,7 @@ const Inscription = (props) => {
     setMessage("");
     setSuccessful(false);
 
-    form.current.validateAll();
-
-    if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(username, email, password).then(
+      AuthService.register(name, phone, email, password).then(
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
@@ -182,7 +195,6 @@ const Inscription = (props) => {
           setSuccessful(false);
         }
       );
-    }
   };
 
   return (
@@ -200,22 +212,27 @@ const Inscription = (props) => {
           S'inscrire
         </h5>
 
-        <Form onSubmit={handleRegister} ref={form} className={classes.form}>
+        <form onSubmit={handleRegister} className={classes.form}>
 
-            <div>
-           {message && (
-            <Alert severity={successful ? "success" : "error" }>
-                {message}
-                
-                </Alert>
-          )}
+           <ErrorMessage
+             errors={errors}
+             name="multipleErrorInput"
+               render={({ messages }) => {
+                 console.log("messages", messages);
+                 return messages
+                   ? Object.entries(messages).map(([type, message]) => (
+                   <p key={type}>{message}</p>
+                   ))
+                    : null;
+                     }}
+                   />
 
-          </div>
+      
 
           {!successful && (
             <div>
               <div className="form-group">
-                <label>Nom et Prenom</label>
+                <label>Nom et Prénom</label>
                  <Grid container spacing={1} alignItems="flex-end">
         
           <Grid item>
@@ -227,11 +244,16 @@ const Inscription = (props) => {
              <TextField
                   className={classes.input}
                   fullWidth
-                  required
-                  name="username"
-                  value={username}
-                  onChange={onChangeUsername}
-                  validations={[required, vusername]}
+                  name="multipleErrorInput"
+                  value={name}
+                  onChange={onChangeName}
+                  ref={register({
+                        required: "Ce champ est obligatoire.",
+                        maxLength: {
+                        value: 20,
+                        message: "Nom et Prénom ne doit pas dépasser 20 caractères."
+                       }
+                       })}
               />
 
             </Grid>
@@ -254,9 +276,9 @@ const Inscription = (props) => {
                   className={classes.input}
                   fullWidth
                   name="phone"
-                  value={username}
-                  onChange={onChangeUsername}
-                  validations={[required, vusername]}
+                  value={phone}
+                  onChange={onChangePhone}
+                  validations={[required, validatePhone]}
               />
 
             </Grid>
@@ -302,11 +324,11 @@ const Inscription = (props) => {
           <Grid item>
                 <TextField
                   className={classes.input}
-                  name="password"
                   fullWidth
+                  name="password"
                   value={password}
                   onChange={onChangePassword}
-                  validations={[required, vpassword]}
+                  validations={[required, validatePassword]}
                 />
 
                 </Grid>
@@ -328,14 +350,13 @@ const Inscription = (props) => {
            <Grid container>
             <Grid item xs align="right">
               <NavLink to="/Authentification">
-                <p> <a> Se connecter </a> </p>
+                <p> Se connecter </p>
               </NavLink>
             </Grid>
           </Grid>
           
 
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+        </form>
         </Card>
 
       <Box mt={8}>

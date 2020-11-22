@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 
 import TopBar from "../../src/home/sections/TopBar";
-
+import AppointmentService from '../services/appointment.service'
 
 import SnackBar from '@material-ui/core/SnackBar'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
@@ -110,15 +110,15 @@ handleChangePrestation(name, value) {
   }
 
 
-  handleSubmit() {
+   handleSubmit() {
     this.setState({ confirmationModalOpen: false });
     const newAppointment = {
       prestation: this.state.prestation,
       slot_date: moment(this.state.appointmentDate).format("YYYY-DD-MM"),
       slot_time: this.state.appointmentSlot
     };
-    axios
-      .post(API_BASE + "api/appointment/create", newAppointment)
+
+    AppointmentService.createAppointment(newAppointment)
       .then(response =>
         this.setState({
           confirmationSnackbarMessage: "Le rendez-vous est confirmé!",

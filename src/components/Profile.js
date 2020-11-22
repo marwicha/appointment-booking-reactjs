@@ -8,7 +8,7 @@ const Profile = () => {
     <div className="container">
       <header className="jumbotron">
         <h3>
-          <strong>{currentUser.username}</strong> Profile
+          <strong>{currentUser.email}</strong> Profile
         </h3>
       </header>
       <p>
