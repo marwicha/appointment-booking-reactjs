@@ -8,7 +8,6 @@ import {
   DialogContent, Select, MenuItem
 
 } from "@material-ui/core";
-
 import TopBar from "../../src/home/sections/TopBar";
 import AppointmentService from '../services/appointment.service'
 
@@ -24,6 +23,7 @@ import {
   StepContent
 } from "@material-ui/core"
 import axios from "axios";
+
 
 const API_BASE = "http://localhost:8082/";
 
@@ -43,7 +43,6 @@ class Appointment extends Component {
       smallScreen: window.innerWidth < 768,
       stepIndex: 0
     };
-
     
     this.renderAppointmentTimes = this.renderAppointmentTimes.bind(this)
     this.renderConfirmationString = this.renderConfirmationString.bind(this)
@@ -143,7 +142,7 @@ handleChangePrestation(name, value) {
   }
 
   renderAppointmentConfirmation() {
-    const spanStyle = { color: '#00bcd4' }
+    const spanStyle = { color: 'green' }
     return <section>
       <p> Prestation choisie: <span style={spanStyle}>{this.state.prestation}</span></p>
       <p> Rendez vous: <span style={spanStyle}>{moment(this.state.appointmentDate).format('dddd[,] MMMM Do[,] YYYY')} </span> 
@@ -152,16 +151,19 @@ handleChangePrestation(name, value) {
   }
 
   renderConfirmationString() {
-    const spanStyle = {color: '#00bcd4'}
-    return this.state.confirmationTextVisible ? <h2 style={{ textAlign: this.state.smallScreen ? 'center' : 'left', color: '#bdbdbd', lineHeight: 1.5, padding: '0 10px', fontFamily: 'Roboto'}}>
+    const spanStyle = {color: 'green'}
+    return this.state.confirmationTextVisible ?
+     <h2 style={{ textAlign: this.state.smallScreen ? 'center' : 'left', color: '#bdbdbd', lineHeight: 1.5, padding: '0 10px', fontFamily: 'Roboto'}}>
       { <span>
         prise de rendez-vous d'une
 
-        <span style={spanStyle}> 1 hour </span>
+        <span style={spanStyle}> 1 heure </span>
 
-        appointment {this.state.appointmentDate && <span>
-          on <span style={spanStyle}>{moment(this.state.appointmentDate).format('dddd[,] MMMM Do')}</span>
-      </span>} {Number.isInteger(this.state.appointmentSlot) && <span>at <span style={spanStyle}>{moment().hour(9).minute(0).add(this.state.appointmentSlot, 'hours').format('h:mm a')}</span></span>}
+        de rendez-vous {this.state.appointmentDate && <span>
+          le <span style={spanStyle}>{moment(this.state.appointmentDate).format('dddd[,] MMMM Do')}</span>
+      </span>} {Number.isInteger(this.state.appointmentSlot) && 
+        
+        <span> à <span style={spanStyle}>{moment().hour(9).minute(0).add(this.state.appointmentSlot, 'hours').format('h:mm a')}</span></span>}
       </span>}
     </h2> : null
   }
@@ -231,7 +233,7 @@ handleChangePrestation(name, value) {
     return (
        <div>
       <TopBar />
-        <section
+        <section className= "section"
           style={{
             maxWidth: !smallScreen ? '80%' : '100%',
             margin: 'auto',

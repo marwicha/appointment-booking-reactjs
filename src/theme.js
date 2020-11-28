@@ -4,7 +4,7 @@ import red from "@material-ui/core/colors/red";
 const themeOptions = {
   palette: {
     type: "light",
-    primary: { main : "#394d5b" },
+    primary: { main : "#78b9dc" },
     first: '#182732' ,
     second: '#394d5b',
     third: '#dfe5e6',

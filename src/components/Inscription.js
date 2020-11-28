@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import { isEmail } from "validator";
+import React, { useState } from "react";
 import Container from '@material-ui/core/Container';
 import TopBar from "../../src/home/sections/TopBar";
 import PersonOutlineOutlined from '@material-ui/icons/PersonOutlineOutlined';
@@ -22,8 +21,7 @@ import {
    TextField, CssBaseline, Link 
   }
 
-
- from "@material-ui/core";
+from "@material-ui/core";
 
 import AuthService from "../services/auth.service";
 
@@ -42,10 +40,6 @@ function Copyright() {
 
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-
-"containerSection": {
-   //backgroundColor: "#f5f5f8"
-},
 
  title: {
   fontFamily: "LEMON MILK"
@@ -88,59 +82,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 }))
 
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Ce champ est requis!
-      </div>
-    );
-  }
-};
-
-const validEmail = (value) => {
-  if (!isEmail(value)) {
-    return (
-      <div className="alert alert-danger" role="alert">
-       Ce n'est pas un email valide.
-      </div>
-    );
-  }
-};
-
-const validateName = (value) => {
-  if (value.length < 3 || value.length > 20) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Le nom et prénom doivent comprendre entre 3 et 20 caractères.
-      </div>
-    );
-  }
-};
-
-const validatePhone = (value) => {
-  if (value.length > 8) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Le numéro de téléphone ne doit pas dépasser 8 caractères.
-      </div>
-    );
-  }
-};
-
-
-const validatePassword = (value) => {
-  if (value.length < 6 || value.length > 40) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Le mot de passe doit comporter entre 6 et 40 caractères.
-      </div>
-    );
-  }
-};
 
 const Inscription = (props) => {
   const classes = useStyles();
+
   const { errors, register } = useForm({
     criteriaMode: "all"
   });
@@ -227,8 +172,6 @@ const Inscription = (props) => {
                      }}
                    />
 
-      
-
           {!successful && (
             <div>
               <div className="form-group">
@@ -278,7 +221,6 @@ const Inscription = (props) => {
                   name="phone"
                   value={phone}
                   onChange={onChangePhone}
-                  validations={[required, validatePhone]}
               />
 
             </Grid>
@@ -304,7 +246,6 @@ const Inscription = (props) => {
                   fullWidth
                   value={email}
                   onChange={onChangeEmail}
-                  validations={[required, validEmail]}
                 />
           </Grid>
           </Grid>
@@ -328,7 +269,6 @@ const Inscription = (props) => {
                   name="password"
                   value={password}
                   onChange={onChangePassword}
-                  validations={[required, validatePassword]}
                 />
 
                 </Grid>
