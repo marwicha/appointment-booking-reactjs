@@ -97,12 +97,6 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       transition: "padding 0.3s linear",
       zIndex: "999999"
     },
-    // ".header.header-fixed": {
-    //   padding: "10px 0",
-    //   background: "#ffffff",
-    //   boxShadow: "0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28)",
-    //   zIndex: "999",
-    // },
     ".header .header-container": {
       padding: "10px 0 16px 0",
       display: "flex",
@@ -126,15 +120,12 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       display: "flex",
       alignItems: "center",
       padding: "6px 10px",
-      borderRadius: "4px",
       transition: "all 0.3s ease-in",
 	    fontSize: "14px",
 	    color: "rgba(112,112,112,1)"
     },
     ".header .header-container ul.navigation li a:hover": {
-      boxShadow: "0 2px 0 0 #394d5b !important",
-      padding: "0 0 5px 0",
-      opacity: "0.8 !important"
+      textDecoration: "underline !important"
     },
     ".header .header-container .header__toggle": { display: "none" },
     "@media only screen and (max-width: 767px)": {

@@ -112,23 +112,10 @@ Praticien
 </NavLink>
 
 </li>
-     
-     <li>
-       <ScrollTo to="contact" onScroll={close}>
-         Contact
-       </ScrollTo>
-     </li>
+    
    </ul>
         <div className="m-auto" />
         <ul className="navigation flex">
-    
-          {currentUser && (
-            <li>
-              <NavLink to="/user">
-                User
-              </NavLink>
-            </li>
-          )}
 
           {showAdminBoard && (
             <li>
@@ -142,12 +129,6 @@ Praticien
           {currentUser ? (
             <div>
               <li>
-                <NavLink to="/profile">
-                  {currentUser.email}
-                </NavLink>
-              </li>
-
-              <li>
                 <NavLink to="/Authentification"
                  onClick={logOut}>
                   LogOut
@@ -158,16 +139,18 @@ Praticien
 
             <div>
               <li>
-                <NavLink to="/Authentification" >
-                  Se connecter
+                <NavLink to="/Inscription" >
+                  S'inscrire
                 </NavLink>
               </li>
               </div>
               )}
 
           <li>
+          <a href="https://www.facebook.com/ikdobienetre">
         
-          <Icon  style={{ fontSize: 30, marginLeft: "6px" }}> facebook </Icon>
+          <Icon  style={{ fontSize: 20, marginLeft: "2px" }}> facebook </Icon>
+          </a>
           </li>
 
         </ul>
