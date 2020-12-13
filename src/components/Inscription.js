@@ -10,9 +10,7 @@ import { NavLink } from "react-router-dom";
 import Alert from '@material-ui/lab/Alert';
 import clsx from "clsx";
 
-//React Hooks Form validation
-import { ErrorMessage } from "@hookform/error-message";
-import { useForm } from "react-hook-form";
+import {useForm} from 'react-hook-form'
 
 import { 
    Typography,Box,
@@ -54,25 +52,19 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     background: "#fff",
     borderRadius: "6px",
     width: "100%",
-    border: "solid 1px #DDD"
+    border: "solid 2px #DDD"
   },
 
    input: {
     margin: theme.spacing(1),
     fontSize: "1.25em",
     color: "#217093",
-    fontWeight: "700",
-    fontFamily: "inherit"
+    fontWeight: "500",
   },
 
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "red",
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-    padding: "3.5em"
+    backgroundColor: "#78b9dc",
   },
 
   submit: {
@@ -82,13 +74,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 }))
 
-
 const Inscription = (props) => {
   const classes = useStyles();
-
-  const { errors, register } = useForm({
-    criteriaMode: "all"
-  });
+  const { handleSubmit, register, errors } = useForm();
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -118,7 +106,7 @@ const Inscription = (props) => {
   };
 
   const handleRegister = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
 
     setMessage("");
     setSuccessful(false);
@@ -146,35 +134,34 @@ const Inscription = (props) => {
     <div className="landing">
     <TopBar />
     <div className="section-intro-formations">
-    <Container component="main" maxWidth="xs" className={classes.containerSection}>
+    <Container maxWidth="sm">
       <CssBaseline />
       <Card className={classes.paper}>
-        <Avatar  className={clsx(classes.avatar, "md-48")}>
+        <Avatar  className={clsx(classes.avatar)}>
           <LockOutlined />
         </Avatar>
     
         <h5 className={classes.title}>
-          S'inscrire
+          S'inscrire afin de prendre un rendez-vous
         </h5>
+        
+        <form onSubmit={handleSubmit(handleRegister)} noValidate className="mt-5" >
 
-        <form onSubmit={handleRegister} className={classes.form}>
+        { successful && <Alert severity="success"> Vous êtes bien inscrit </Alert> } 
 
-           <ErrorMessage
-             errors={errors}
-             name="multipleErrorInput"
-               render={({ messages }) => {
-                 console.log("messages", messages);
-                 return messages
-                   ? Object.entries(messages).map(([type, message]) => (
-                   <p key={type}>{message}</p>
-                   ))
-                    : null;
-                     }}
-                   />
-
-          {!successful && (
+         { errors.name && <Alert severity="error"> {errors.name && "Nom et Prénom sont obligatoire"}  </Alert> } 
+               
+         { errors.phone && <Alert severity="error"> {errors.phone && "Numéro de téléphone est obligatoire"}  </Alert> }
+               
+         { errors.email && <Alert severity="error"> {errors.email && "Adresse email invalide"} </Alert> }
+                
+         { errors.password && <Alert severity="error"> {errors.password && "Mot de passe est obligatoire"}  </Alert> }
+                
+           
+           
             <div>
-              <div className="form-group">
+  
+              <div>
                 <label>Nom et Prénom</label>
                  <Grid container spacing={1} alignItems="flex-end">
         
@@ -184,28 +171,24 @@ const Inscription = (props) => {
 
            <Grid item>
 
-             <TextField
-                  className={classes.input}
-                  fullWidth
-                  name="multipleErrorInput"
-                  value={name}
-                  onChange={onChangeName}
-                  ref={register({
-                        required: "Ce champ est obligatoire.",
-                        maxLength: {
-                        value: 20,
-                        message: "Nom et Prénom ne doit pas dépasser 20 caractères."
-                       }
-                       })}
-              />
-
+        <TextField
+          className={classes.input}
+          margin="normal"
+          fullWidth
+          value={name}
+          name="name"
+          onChange={onChangeName}
+          error={!!errors.name}
+          inputRef={register({ required: true })}
+       
+        />
             </Grid>
 
             </Grid>
               
               </div>
 
-                <div className="form-group">
+                <div>
                 <label>Téléphone</label>
                  <Grid container spacing={1} alignItems="flex-end">
         
@@ -221,8 +204,11 @@ const Inscription = (props) => {
                   name="phone"
                   value={phone}
                   onChange={onChangePhone}
+                  error={!!errors.phone}
+                  inputRef={register({ required: true })}
               />
 
+            
             </Grid>
 
             </Grid>
@@ -231,22 +217,29 @@ const Inscription = (props) => {
 
                <br></br>
 
-              <div className="form-group">
-               <label>Email</label>
-          <Grid container spacing={1} alignItems="flex-end">
+              <div>
+               <label>E-mail</label>
+               <Grid container spacing={1} alignItems="flex-end">
         
           <Grid item>
             <AlternateEmail />
           </Grid>
 
           <Grid item>
-                <TextField
-                  className={classes.input}
-                  name="email"
-                  fullWidth
-                  value={email}
-                  onChange={onChangeEmail}
-                />
+
+        <TextField
+          className={classes.input}
+          margin="normal"
+          fullWidth
+          name="email"
+          value={email}
+          onChange={onChangeEmail}
+          error={!!errors.email}
+          inputRef={register({
+            pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          })}
+        />
+
           </Grid>
           </Grid>
          </div>
@@ -254,7 +247,7 @@ const Inscription = (props) => {
 
           <br></br>
 
-              <div className="form-group">
+              <div>
                 <label>Mot de passe</label>
           <Grid container spacing={1} alignItems="flex-end">
         
@@ -269,6 +262,8 @@ const Inscription = (props) => {
                   name="password"
                   value={password}
                   onChange={onChangePassword}
+                   error={!!errors.password}
+                  inputRef={register({ required: true })}
                 />
 
                 </Grid>
@@ -285,7 +280,6 @@ const Inscription = (props) => {
             </Button>
 
             </div>
-          )}
 
            <Grid container>
             <Grid item xs align="right">
@@ -297,9 +291,10 @@ const Inscription = (props) => {
           
 
         </form>
+
         </Card>
 
-      <Box mt={8}>
+      <Box mt={2}>
         <Copyright />
       </Box>
 

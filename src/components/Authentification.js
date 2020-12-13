@@ -60,7 +60,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "red",
+    backgroundColor: "#78b9dc",
   },
   form: {
     width: '100%',
@@ -233,7 +233,7 @@ const Authentification = (props) => {
         </form>
      </Card>
 
-      <Box mt={8}>
+      <Box mt={2}>
         <Copyright />
       </Box>
      </Container>
