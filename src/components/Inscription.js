@@ -149,16 +149,16 @@ const Inscription = (props) => {
 
         { successful && <Alert severity="success"> Vous êtes bien inscrit </Alert> } 
 
-         { errors.name && <Alert severity="error"> {errors.name && "Nom et Prénom sont obligatoire"}  </Alert> } 
+        { errors.name && <Alert severity="error"> {errors.name && "Nom et Prénom sont obligatoire"}  </Alert> } 
                
          { errors.phone && <Alert severity="error"> {errors.phone && "Numéro de téléphone est obligatoire"}  </Alert> }
                
          { errors.email && <Alert severity="error"> {errors.email && "Adresse email invalide"} </Alert> }
+
+         { errors.email.message && <Alert severity="error"> {errors.email.message && "Adresse email est obligatoire"} </Alert> }
                 
          { errors.password && <Alert severity="error"> {errors.password && "Mot de passe est obligatoire"}  </Alert> }
-                
-           
-           
+
             <div>
   
               <div>
@@ -236,7 +236,12 @@ const Inscription = (props) => {
           onChange={onChangeEmail}
           error={!!errors.email}
           inputRef={register({
-            pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            required: "Obligatoire",
+            pattern:
+            {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Adresse email invalide"
+            } 
           })}
         />
 
