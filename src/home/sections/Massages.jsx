@@ -1,40 +1,23 @@
 import React from "react";
-import { Grid, Avatar, Button } from "@material-ui/core";
+import { Grid, Button, Box, Container, Typography } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  card: {
-    border: "1px solid transparent",
-    transition: "all 250ms ease-in-out"
-  },
-  button: {
-    fontSize: 14,
-    fontFamily: theme.typography.fontFamily,
-    borderRadius: "0 50px",
-    background: `${palette.second} !important`,
-    color: "white !important",
-    width: "163px",
-    height: "50px",
-    textAlign: "left"
+ 
+   img: {
+    maxWidth: 230,
+    marginBottom: theme.spacing(2)
   },
 
-  center: {
-   justifyContent: "center",
-   alignItems: "center",
-   height: "100px",
-   fontSize: "14px"
+   title: {
+    color: "#4b9fbc"
   },
 
-  p: {
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: "0.90rem",
-    lineHeight: "1.66",
-    textAlign: "left",
-    margin: "0 auto"
+  btn: {
+    color: "white",
+    backgroundColor: "#4b9fbc"
   }
 
 }));
@@ -46,15 +29,18 @@ const Massages = () => {
   const massagesList = [
 
     {
-      name: "Chaise assise",
+      name: "Massage chaise assise",
       imgUrl: "/assets/images/massage-assis.png",
-      text: "Profitez de 15 minutes d'un massage sur chaise assise Amma, le massage le plus adapté en entreprise.",
+      text: "Profitez de 15 minutes d'un massage sur chaise assise Amma,",
+      text1: "le massage le plus adapté en entreprise.",
       buttonTitle: "En savoir plus"
     },
+
     {
-      name: "9 sens",
+      name: "Massage des 9 sens",
       imgUrl: "/assets/images/massage-9sens.png",
-      text: "Profitez d'une heure d'un massage de 9 sens, un ressourcement garantis qui recentre votre énergie.",
+      text: "Profitez d'une heure d'un massage de 9 sens,",
+      text1: "un ressourcement garantis qui recentre votre énergie.",
       buttonTitle: "En savoir plus"
     },
 
@@ -63,60 +49,48 @@ const Massages = () => {
   return (
     <section className= "section">
 
-      <div className="container-AllServices text-center">
-      
-      <h1 className="font-bold text-32 text-second">
-        IKDO
-      </h1>
+      <Container maxWidth="lg">
 
-      <p className="mx-auto text-18 pb-6">
-        Massages
-      </p>
+       <Box py={5} textAlign="center">
 
-      <div className="container">
+        <Box mb={8}>
+        <Container maxWidth="sm">
+         
+          <Typography variant="h4" component="span" color="primary" className="text-fourth"> IKDO </Typography>
+          <Typography variant="subtitle1" color="textSecondary" paragraph={true}> prestations de massages </Typography>
+        </Container>
+       </Box>
 
-        <Grid container spacing={0} sm={12} md={12} lg={12} xs={12} justify="center" alignItems="center">
+        <Grid container spacing={6}>
+
           {massagesList.map((item, ind) => (
             
-            <Grid key={ind} item sm={4} md={4} lg={4} xs={12}>
-              <div
-                className={clsx(
-                  "text-center max-w-600",
-                  classes.card
-                )}
-              >
-                <div className="mb-6 ml-1 relative">
-                  <Avatar
-                    src={item.imgUrl}
-                    className="h-220 w-220 inline-block"
-                  ></Avatar>
-                  
-                </div>
+            <Grid key={ind} item xs={12} md={6}>
 
-                <h5 className="m-0 font-medium text-20">Massage</h5>
+             <Box p={3} pb={4}>
 
-                <h5 className="m-0 font-medium text-20 pt-3">{item.name}</h5>
+                <img  src={item.imgUrl} alt="" className={classes.img} />
 
-                <p className={clsx(classes.p, "max-w-220 mt-5")}>
-                    {item.text}
-                </p>
-                <div className={classes.center}>
-                
-                 <Button className={clsx(classes.button,"mt-6")} size="medium"> 
-                 
-                 {item.buttonTitle}
 
-                 </Button>
+               <Typography variant="subtitle1" component="h6" gutterBottom={true} className={classes.title}>{item.name}</Typography>
 
-                 </div>
-                
-              </div>
+               <Typography variant="body2" component="p" gutterBottom={true}> {item.text}</Typography>
+               <Typography variant="body2" component="p" gutterBottom={true}> {item.text1}</Typography>
+
+          <Box mt={3} >
+            <Button variant="contained" className={classes.btn} >
+              <NavLink to="/Formations"> 
+                 En savoir plus 
+              </NavLink>
+            </Button> 
+          </Box>
+
+                </Box>
             </Grid>
           ))}
         </Grid>
-      </div>
-      
-      </div>
+        </Box>
+        </Container>
     </section>
   );
 };

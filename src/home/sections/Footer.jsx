@@ -32,7 +32,7 @@ const Footer = () => {
                 </Avatar>
               </Box>
               <Typography variant="h6" gutterBottom={true}>Adresse</Typography>
-              <Typography variant="body2" color="textSecondary">446 Bis Av De Dunkerque</Typography>
+              <Typography variant="body2" color="textSecondary"> 446 Bis Av De Dunkerque </Typography>
               <Typography variant="body2" color="textSecondary"> Lambersart, 59130 </Typography>
             </Box>
           </div>
@@ -45,8 +45,8 @@ const Footer = () => {
                   <EmailIcon color="primary" fontSize="small" />
                 </Avatar>
               </Box>
-              <Typography variant="h6" gutterBottom={true}>Email</Typography>
-              <Typography variant="body2" color="textSecondary">patrick.caillier@hotmail.fr</Typography>
+              <Typography variant="h6" gutterBottom={true}> Email </Typography>
+              <Typography variant="body2" color="textSecondary"> patrick.caillier@hotmail.fr </Typography>
               <br />
             </Box>
           </div>
@@ -59,7 +59,7 @@ const Footer = () => {
                   <PhoneIcon color="primary" fontSize="small" />
                 </Avatar>
               </Box>
-              <Typography variant="h6" gutterBottom={true}>Téléphone</Typography>
+              <Typography variant="h6" gutterBottom={true}> Téléphone </Typography>
               <Typography variant="body2" color="textSecondary">(33) 555555555</Typography>
               <br />
             </Box>

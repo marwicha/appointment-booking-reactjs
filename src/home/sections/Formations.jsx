@@ -36,15 +36,13 @@ const Massages = () => {
     {
       title: "Massage 9 sens",
       imgUrl: "/assets/images/logos/a.png",
-      text: "Apprenez le massage pour les entreprises et les particuliers.",
-      buttonTitle: "En savoir plus"
+      text: "Apprenez le massage pour les entreprises et les particuliers."
     },
 
     {
       title: "Meditation pleine consciense",
       imgUrl: "/assets/images/logos/z.png",
-      text: "Retrouver du sens et de l'énergie pour entreprendre.",
-      buttonTitle: "En savoir plus"
+      text: "Retrouver du sens et de l'énergie pour entreprendre."
     },
   ];
 
@@ -69,7 +67,6 @@ const Massages = () => {
     <Grid item xs={12} md={4}>
 
     <Box p={3} pb={4}>
-
     
     <img  src={item.imgUrl} alt="" className={classes.img} />
 

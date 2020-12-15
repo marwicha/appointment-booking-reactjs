@@ -1,31 +1,22 @@
 import React from "react";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Container, Box, Typography } from "@material-ui/core";
 import clsx from "clsx";
-
+import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  button: {
-    //marginTop: "2rem !important",
-    //padding: "1rem 2rem 1rem 2rem",
-    //fontSize: 14,
-    //fontFamily: theme.typography.fontFamily,
-    //backgroundColor: palette.third,
-    //background: "#EBF0FF",
-    //borderRadius: "50px"
-
-      fontSize: 14,
-      fontFamily: theme.typography.fontFamily,
-      borderRadius: "0 50px",
-      background: `${palette.second} !important`,
-      color: "white !important",
-      width: "163px",
-      height: "60px",
-      textAlign: "left"
-
+    img: {
+    maxWidth: 150,
+    marginBottom: theme.spacing(2)
   },
-  image: {
-    maxWidth: "150px"
+
+   title: {
+    color: "#4b9fbc"
+  },
+
+  btn: {
+    color: "white",
+    backgroundColor: "#4b9fbc"
   }
 }));
 
@@ -53,6 +44,7 @@ const AllServices = () => {
   ];
   
 const getImgSrc = (id,imgSrc,imageClass) => {
+
   if (id==="2")
   return <img src={imgSrc} className={ clsx(imageClass,"mt--6")} alt=""/>
   else if (id === "1")
@@ -63,32 +55,42 @@ const getImgSrc = (id,imgSrc,imageClass) => {
   return (
     
     <section className= "section">
-    <div className="container-AllServices">
 
-      <h4 className="font-bold text-center text-26 text-second">
-        IKDO
-      </h4>
+     <Container maxWidth="lg">
 
-      <p className="text-center text-18 pb-6">
-      Services
-      </p>
+    <Box py={5} textAlign="center">
+
+  <Box mb={8}>
+        <Container maxWidth="sm">
+         
+          <Typography variant="h4" component="span" color="primary" className="text-fourth"> IKDO </Typography>
+          <Typography variant="subtitle1" color="textSecondary" paragraph={true}> Services </Typography>
+
+        </Container>
+  </Box>
 
     <Grid container spacing={6} justify="center">
     {serviceList.map((item, ind) => (
-      <Grid key={ind} item sm={3} xs={12}>
-        <div className="text-center max-w-120 mx-auto">
+      <Grid key={ind} item md={4} xs={12}>
 
-           {getImgSrc(item.id,item.imgSrc,classes.image)}
+      
+        {getImgSrc(item.id, item.imgSrc, classes.img)}
 
-          <Button className={ classes.button }> 
-          {item.title}
-          </Button>
 
-        </div>
+         <Box mt={3} >
+            <Button variant="contained" className={classes.btn} >
+              <NavLink to="/Formations"> 
+                 {item.title} 
+              </NavLink>
+            </Button> 
+        </Box>
+
+       
       </Grid>
     ))}
   </Grid>
-    </div>
+  </Box>
+    </Container>
     </section>
 
   );
