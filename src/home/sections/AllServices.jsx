@@ -78,7 +78,7 @@ const getImgSrc = (id,imgSrc,imageClass) => {
 
 
          <Box mt={3} >
-            <Button variant="contained" className={classes.btn} >
+            <Button variant="contained" color="primary" className={classes.btn} >
               <NavLink to="/Formations"> 
                  {item.title} 
               </NavLink>

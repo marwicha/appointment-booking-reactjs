@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Typography, Button, Box, Container} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
@@ -29,8 +30,7 @@ const Massages = () => {
     {
       title: "Massage chaise assise",
       imgUrl: "/assets/images/logos/e.png",
-      text: "Devenez praticien en massage sur chaise assise Amma. ",
-      buttonTitle: "En savoir plus"
+      text: "Devenez praticien en massage sur chaise assise Amma."
 
     },
     {
@@ -69,13 +69,13 @@ const Massages = () => {
     <Box p={3} pb={4}>
     
     <img  src={item.imgUrl} alt="" className={classes.img} />
-
+    
     <Typography variant="subtitle1" component="h6" gutterBottom={true} className={classes.title}>{item.title}</Typography>
-
     <Typography variant="body2" component="p" gutterBottom={true}> {item.text}</Typography>
+    
 
-       <Box mt={3} >
-            <Button variant="contained" className={classes.btn} >
+       <Box mt={3}>
+            <Button variant="contained" color="primary" className={classes.btn} >
               <NavLink to="/Formations"> 
                  En savoir plus 
               </NavLink>

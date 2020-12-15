@@ -1,53 +1,25 @@
 import React from "react";
-import { Grid, Avatar, Button } from "@material-ui/core";
+import { Grid, Box, Container, Button, Typography } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  card: {
-    border: "1px solid transparent",
-    transition: "all 250ms ease-in-out"
-  },
-
-  button: {
-    marginTop: "1rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 12,
-    background: `${palette.second} !important`,
+  
+  buttonAction: {
+    marginRight: theme.spacing(2),
     color: "white",
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: 300,
-    borderRadius: "50px",
-    alignItems: "center",
-    textAlign: "center"
-},
-
-  p: {
-    fontFamily: "Lato",
-    fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: "20px",
-    lineHeight: "30px",
-    padding: "1rem 1rem 1rem 1rem",
-    alignItems: "center",
-    textAlign: "left",
-    paddingTop: "8rem",
-    maxWidth: "400px",
-    margin: "0 auto"
+    backgroundColor: "#4b9fbc",
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      marginRight: theme.spacing(0),
+      marginBottom: theme.spacing(2),
+    }
   },
 
-  h1: {
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: "32px",
-    lineHeight: "21px",
-    textAlign: "center",
-    color: "#384C5A",
-    paddingTop: "2rem"
-  },
+  img: {
+    maxWidth: '100%'
+  }
 
 }));
 
@@ -55,59 +27,48 @@ const Somathoterapie = () => {
 
   const classes = useStyles();
 
-
   return (
-    <section className= "section">
+    <section className="section">
 
-      <div className="container text-center">
-     
-        <Grid container lg={12} md={12} sm={12} xs={12} justifyContent="flex-start" alignItems="flex-start">
+  <Container maxWidth="lg">
+    <Box pt={4} pb={4}>
+      <Grid container spacing={6}>
 
-            <Grid lg={6} md={6} sm={6} xs={12}>
-              <div
-                className={clsx(
-                  "text-center",
-                  classes.card
-                )}
-              >
-                
-                  <img
-                    src="./assets/images/somato.png"
-                    className="full-h full-w"
-                    alt=""
-                  />
-                  
-                
-              </div>
-            </Grid>
+        <Grid item xs={12} md={6}>
+          <Box display="flex" height="80%">
+            <Box my="auto">
+              <Container maxWidth="sm">
+                <Typography variant="h6" component="h6" color="primary" mt={4}> Somathotérapie </Typography>
 
+                <Typography variant="subtitle1" component="p">
 
-            <Grid lg={6} md={6} sm={6} xs={12} >
-              
-            <h1 className={classes.h1} >Somatothérapie</h1>
+                C’est une pratique qui instaure une relation d’aide par un toucher psycho-corporel.
+                <br></br>
+                Le praticien prend en compte vos ressentis corporels et permet de replacer 
+                votre corps au centre de votre attention.
+                <br></br>
+                Cette approche vous invite à entrer en contact avec ce que vous ressentez, 
+                avec votre vécu corporel et intérieur de la situation que vous vivez.</Typography>
 
-            <p className={classes.p} >
-            
-            C’est une pratique qui instaure une relation d’aide par un toucher psycho-corporel.
+                <Box mt={3}>
+                  <Button variant="contained" color="primary" 
+                          className={classes.buttonAction}>
+                      <NavLink to="/Somatothérapie"> 
+                         En savoir plus 
+                     </NavLink>
+                  </Button>
+                </Box>
 
-            <br></br>
-            <br></br>
-
-            Le praticien prend en compte vos ressentis corporels et permet de replacer 
-            votre corps au centre de votre attention.
-            
-            Cette approche vous invite à entrer en contact avec ce que vous ressentez, 
-            avec votre vécu corporel et intérieur de la situation que vous vivez.
-
-            </p>
-
-            <Button className={classes.button}> En savoir plus</Button>
-            </Grid>
-
-
-        
+              </Container>
+            </Box>
+          </Box>
         </Grid>
-      </div>
+        <Grid item xs={12} md={6}>
+          <img src="./assets/images/somato.png" alt="" className={classes.img} />
+        </Grid>
+      </Grid>
+    </Box>
+  </Container>
       
     </section>
   );
