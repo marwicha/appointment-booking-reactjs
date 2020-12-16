@@ -56,7 +56,7 @@ const getImgSrc = (id,imgSrc,imageClass) => {
     
     <section className= "section">
 
-     <Container maxWidth="lg">
+     <Container maxWidth="lg" className="container-formations">
 
     <Box py={5} textAlign="center">
 

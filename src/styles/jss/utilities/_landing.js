@@ -11,7 +11,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
     ".section-programme-formation": { paddingTop: "2rem !important" },
     ".section-intro-massages": { paddingTop: "2rem !important" },
     ".section": {
-      paddingTop: "7rem !important",
+      paddingTop: "5rem !important",
 
       "& .section__header": {
         margin: "0 0 32px",
@@ -26,12 +26,6 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
           margin: 0,
         },
       },
-    },
-
-    ".container": {
-      padding: "0 0 0 0",
-      maxWidth: "1700px",
-      margin: "0 auto"
     },
 
     ".container-formations": {
@@ -55,14 +49,6 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       padding: "2rem 0 0 0",
       width: "1164px",
       margin: "0 auto"
-    },
-
-    ".container-AllServices": {
-      padding: "2rem 0 0 0",
-      width: "1700px",
-      margin: "0 auto",
-      background: "rgba(var(--primary),0.05)",
-      //border: "1px solid #EBF0FF",
     },
 
     ".container-formation": {

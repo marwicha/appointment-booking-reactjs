@@ -8,7 +8,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
  
    img: {
     maxWidth: 230,
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(4)
   },
 
    title: {
@@ -32,16 +32,14 @@ const Massages = () => {
       name: "Massage chaise assise",
       imgUrl: "/assets/images/massage-assis.png",
       text: "Profitez de 15 minutes d'un massage sur chaise assise Amma,",
-      text1: "le massage le plus adapté en entreprise.",
-      buttonTitle: "En savoir plus"
+      text1: "le massage le plus adapté en entreprise."
     },
 
     {
       name: "Massage des 9 sens",
       imgUrl: "/assets/images/massage-9sens.png",
       text: "Profitez d'une heure d'un massage de 9 sens,",
-      text1: "un ressourcement garantis qui recentre votre énergie.",
-      buttonTitle: "En savoir plus"
+      text1: "un ressourcement garantis qui recentre votre énergie."
     },
 
   ];
@@ -49,11 +47,11 @@ const Massages = () => {
   return (
     <section className= "section">
 
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="container-formations">
 
-       <Box py={5} textAlign="center">
+       <Box py={5} textAlign="center" justify="center">
 
-        <Box mb={8}>
+        <Box mb={4}>
         <Container maxWidth="sm">
          
           <Typography variant="h4" component="span" color="primary" className="text-fourth"> IKDO </Typography>
@@ -71,7 +69,6 @@ const Massages = () => {
 
                 <img  src={item.imgUrl} alt="" className={classes.img} />
 
-
                <Typography variant="subtitle1" component="h6" gutterBottom={true} className={classes.title}>{item.name}</Typography>
 
                <Typography variant="body2" component="p" gutterBottom={true}> {item.text}</Typography>
@@ -79,7 +76,7 @@ const Massages = () => {
 
           <Box mt={3} >
             <Button variant="contained" color="primary" className={classes.btn} >
-              <NavLink to="/Formations"> 
+              <NavLink to="/Massages"> 
                  En savoir plus 
               </NavLink>
             </Button> 

@@ -28,7 +28,7 @@ const Somathoterapie = () => {
   const classes = useStyles();
 
   return (
-    <section className="section">
+<section className="section">
 
   <Container maxWidth="lg">
     <Box pt={4} pb={4}>
@@ -37,21 +37,26 @@ const Somathoterapie = () => {
         <Grid item xs={12} md={6}>
           <Box display="flex" height="80%">
             <Box my="auto">
-              <Container maxWidth="sm">
-                <Typography variant="h6" component="h6" color="primary" mt={4}> Somathotérapie </Typography>
+              <Container maxWidth="md">
+                <Typography variant="h4" component="h4" color="second" mt={4}> Somathotérapie </Typography>
 
-                <Typography variant="subtitle1" component="p">
-
+                <Box mt={8}>
+               <p>
                 C’est une pratique qui instaure une relation d’aide par un toucher psycho-corporel.
-                <br></br>
+               <br></br>
+               <br></br>
                 Le praticien prend en compte vos ressentis corporels et permet de replacer 
                 votre corps au centre de votre attention.
                 <br></br>
+                <br></br>
                 Cette approche vous invite à entrer en contact avec ce que vous ressentez, 
-                avec votre vécu corporel et intérieur de la situation que vous vivez.</Typography>
+                avec votre vécu corporel et intérieur de la situation que vous vivez.
+                </p>
+                </Box>
+                
 
-                <Box mt={3}>
-                  <Button variant="contained" color="primary" 
+                <Box mt={6}>
+                  <Button variant="contained" color="primary"
                           className={classes.buttonAction}>
                       <NavLink to="/Somatothérapie"> 
                          En savoir plus 
