@@ -1,27 +1,31 @@
 import React from "react";
-import { Grid, Avatar, Button } from "@material-ui/core";
+import { Grid, Avatar, Button, Container, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
-  center: {
-   justifyContent: "center",
-   alignItems: "center",
-   height: "127px",
-   width: "1164px",
-   position: "relative",
-   top: "0",
-   left: "0",
-   margin: "0 auto",
+  container: {
+  position: "relative",
   textAlign: "center"
   },
 
-  avatar: {
+  containerImg: {
+    width: "100%",
+    backgroundRepeat: 'no-repeat'
+  },
+
+  contentCenter: {
     position: "absolute",
-    bottom: "54%",
-    left: "44%",
-    border: "2px solid #394d5b"
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)"
+  },
+
+   contentLeft: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
   },
 
   h1: {
@@ -61,31 +65,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     lineHeight: "30px",
     textAlign: "left",
     padding: "1rem 1rem 1rem 1rem"
-  },
-
-  bg: {
-    backgroundImage: "url('./assets/images/bgPatrick.png')",
-    borderRadius: 16,
-     width: "100%",
-    backgroundRepeat: "no-repeat",
-    height: "460px",
-    backgroundSize: "contain",
-    border: `1px solid ${palette.third}`
-  },
-
-  button: {
-    margin: "0 1rem 1rem 0 !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 10,
-    background: `${palette.second} !important`,
-    color: "white",
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: 300,
-    borderRadius: "50px",
-    alignItems: "center",
-    textAlign: "center"
-},
+  }
 
 }));
 
@@ -93,18 +73,14 @@ const IntroPatrick = () => {
   const classes = useStyles();
 
   return (
-    <section className= "section">
+    <section className="section">
 
-      <div className="container-intro-patrick text-center">
+                <Container maxWidth="lg" className={classes.container}>
 
-                <div className={classes.bg}>
+                 <img src="./assets/images/bgPatrick.png" alt="" className={classes.containerImg } />
 
-                <div className={clsx( classes.center , "text-center" )}>
-
-                <Avatar
-                  src="/assets/images/patrick.png"
-                  className={clsx ("h-140 w-140", classes.avatar)}
-                ></Avatar>
+               <Box className={classes.contentCenter}>
+                <Avatar src="/assets/images/patrick.png"></Avatar>
 
                 <span>
                 <h1 className={classes.h1}> PATRICK </h1>
@@ -112,11 +88,8 @@ const IntroPatrick = () => {
                 <h1 className={classes.h2}> CAILLER </h1>
 
                 </span>
-          
-              </div>
-
-                  <Grid container lg={5} md={5} sm={5} xs={12} justify="center" alignItems="center">
-                   
+                </Box>
+                   <Box className={classes.contentLeft}>
                   <p className={classes.p}>
 
                   En 1997 j’ai vécu de l’intérieur ce qu’on appelle un burn-out, 
@@ -124,17 +97,14 @@ const IntroPatrick = () => {
                   Je ressentais de l’aversion envers mon physique et ma personne ;
                   j’avais parallèlement des soucis d’addictions (tabac alcool) pour compenser mon mal être.
                   Pour sortir de ces problèmes j’ai du me faire accompagner par de nombreux thérapeutes..
-                  
-                                         
+                                   
                   </p>
 
-                  <Button className={classes.button}> En savoir plus</Button>
+                  <Button> En savoir plus</Button>
+                  </Box>
                       
-                  </Grid>
-
-                  </div>
-
-      </div>
+              
+                  </Container>
     </section>
   );
 };

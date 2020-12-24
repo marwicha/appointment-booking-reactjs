@@ -78,6 +78,17 @@ const Inscription = (props) => {
   const classes = useStyles();
   const { handleSubmit, register, errors } = useForm();
 
+  // Error Messages
+const required = "Veuillez remplir tous les champs";
+const patternPhone = "Numéro de téléphone doit être un chiffre"
+const patternEmail = "Adresse email invalide"
+
+
+// Error Component
+const errorMessage = error => {
+  return <Alert severity="error">{error} </Alert>;
+};
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -147,22 +158,20 @@ const Inscription = (props) => {
         
         <form onSubmit={handleSubmit(handleRegister)} noValidate className="mt-5" >
 
-        { successful && <Alert severity="success"> Vous êtes bien inscrit </Alert> } 
+        { successful && <Alert severity="success"> Vous êtes inscrit avec success </Alert> } 
 
-        { errors.name && <Alert severity="error"> {errors.name && "Nom et Prénom sont obligatoire"}  </Alert> } 
-               
-         { errors.phone && <Alert severity="error"> {errors.phone && "Numéro de téléphone est obligatoire"}  </Alert> }
-               
-         { errors.email && <Alert severity="error"> {errors.email && "Adresse email invalide"} </Alert> }
+        { ((errors.name && errors.name.type === "required" ) || (errors.email && errors.email.type === "required" ) || (errors.phone && errors.phone.type === "required") || (errors.password && errors.password.type === "required")
+         ) && errorMessage(required)
+        }
 
-         { errors.email.message && <Alert severity="error"> {errors.email.message && "Adresse email est obligatoire"} </Alert> }
-                
-         { errors.password && <Alert severity="error"> {errors.password && "Mot de passe est obligatoire"}  </Alert> }
+        { errors.phone && errorMessage(patternPhone)}
+
+        {errors.email && errorMessage(patternEmail)}
 
             <div>
   
               <div>
-                <label>Nom et Prénom</label>
+                <label> Nom et Prénom </label>
                  <Grid container spacing={1} alignItems="flex-end">
         
           <Grid item>
@@ -202,10 +211,14 @@ const Inscription = (props) => {
                   className={classes.input}
                   fullWidth
                   name="phone"
+                  margin="normal"
                   value={phone}
                   onChange={onChangePhone}
                   error={!!errors.phone}
-                  inputRef={register({ required: true })}
+                  inputRef={register(
+                    { required: true ,
+                      pattern: /\d+/
+                    })}
               />
 
             
@@ -236,12 +249,8 @@ const Inscription = (props) => {
           onChange={onChangeEmail}
           error={!!errors.email}
           inputRef={register({
-            required: "Obligatoire",
-            pattern:
-            {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "Adresse email invalide"
-            } 
+            required: true,
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
           })}
         />
 
@@ -263,7 +272,8 @@ const Inscription = (props) => {
           <Grid item>
                 <TextField
                   className={classes.input}
-                  fullWidth
+                  fullWidth 
+                  margin="normal"
                   name="password"
                   value={password}
                   onChange={onChangePassword}

@@ -49,17 +49,17 @@ const Massages = () => {
   return (
     <section className="section">
 
-    <Container maxWidth="lg">
-
-    <Box py={5} textAlign="center">
-
-  <Box mb={8}>
+     <Box mb={8} textAlign="center">
         <Container maxWidth="sm">
          
           <Typography variant="h4" component="span" color="primary" className="text-fourth"> Zen workshop </Typography>
           <Typography variant="subtitle1" color="textSecondary" paragraph={true}>Centre de formation</Typography>
         </Container>
-  </Box>
+   </Box>
+    <Container maxWidth="lg" className="container-formations">
+
+    <Box py={5} textAlign="center">
+
 
     <Grid container spacing={6}>
     {formationsList.map((item) => (

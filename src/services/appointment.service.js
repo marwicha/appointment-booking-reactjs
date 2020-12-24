@@ -1,17 +1,20 @@
 import axios from "axios";
-import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8082/api/appointment/create";
 
 const createAppointment =  (data) => {
 
+  const token = JSON.parse(localStorage.getItem('user'));
+
   const response =  axios({
     method: 'POST',
     url: API_URL,
-    headers: authHeader(),
+     headers : 
+       {'authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+       }, 
     data: data });
 
-   console.log(data)
    return response
   };
 

@@ -47,11 +47,7 @@ const Massages = () => {
   return (
     <section className= "section">
 
-      <Container maxWidth="lg" className="container-formations">
-
-       <Box py={5} textAlign="center" justify="center">
-
-        <Box mb={4}>
+     <Box mb={4} textAlign="center">
         <Container maxWidth="sm">
          
           <Typography variant="h4" component="span" color="primary" className="text-fourth"> IKDO </Typography>
@@ -59,6 +55,12 @@ const Massages = () => {
         </Container>
        </Box>
 
+
+      <Container maxWidth="lg" className="container-formations">
+
+       <Box py={5} textAlign="center">
+
+       
         <Grid container spacing={6}>
 
           {massagesList.map((item, ind) => (
