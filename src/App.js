@@ -31,20 +31,21 @@ function App() {
         >
           <Router basename="/">
             <Switch>
-              <Route path={["/", "/Accueil"]} component={Accueil} exact />
-              <Route path="/Formations" component={Formations} />
-              <Route path="/Massages" component={Massages} />
+              <Route path={["/", "/accueil"]} component={Accueil} exact />
+              <Route path="/formations" component={Formations} />
+              <Route path="/massages" component={Massages} />
             { /* <Route path="/Praticien" component={Praticien} /> */}
 
-              <Route path="/Inscription" component={Inscription}/>
-              <Route path="/Authentification" component={Authentification} />
+              <Route path="/inscription" component={Inscription}/>
+              
+              <Route path="/authentification" component={Authentification} />
 
               <Route path="/prendre-rendez-vous" component={Appointment} />
 
               {/* After authentication */}
               <Route path="/profile" component={Profile} />
               
-              <Redirect path="/" exact to="Accueil" />
+              <Redirect path="/" exact to="accueil" />
               {/* <Route component={Error} /> */}
 
             </Switch>

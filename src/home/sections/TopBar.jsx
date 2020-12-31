@@ -76,22 +76,22 @@ const TopBar = (props) => {
      
      <ul className="navigation">
      <li>
-       <NavLink to="/Accueil">Accueil</NavLink>
+       <NavLink to="/accueil">Accueil</NavLink>
      </li>
      <li>
-       <NavLink to="/Massages">
+       <NavLink to="/massages">
        Massages
        </NavLink>
      </li>
 
      <li>
-       <NavLink to="/Formations">
+       <NavLink to="/formations">
          Formations
        </NavLink>
      </li>
 
      <li>
-<NavLink to="/Coaching">
+<NavLink to="/coaching">
 Coaching
 </NavLink>
 
@@ -99,7 +99,7 @@ Coaching
 
 
 <li>
-<NavLink to="/Somatothérapie">
+<NavLink to="/somatothérapie">
 Somatothérapie
 </NavLink>
 
@@ -107,7 +107,7 @@ Somatothérapie
 
 
 <li>
-<NavLink to="/Praticien">
+<NavLink to="/praticien">
 Praticien
 </NavLink>
 
@@ -129,7 +129,7 @@ Praticien
           {currentUser ? (
             <div>
               <li>
-                <NavLink to="/Authentification"
+                <NavLink to="/authentification"
                  onClick={logOut}>
                   LogOut
                 </NavLink>
@@ -139,7 +139,7 @@ Praticien
 
             <div>
               <li>
-                <NavLink to="/Inscription" >
+                <NavLink to="/inscription" >
                   S'inscrire
                 </NavLink>
               </li>

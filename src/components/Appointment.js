@@ -128,7 +128,7 @@ handleChangePrestation(name, value) {
       .catch(err => {
         console.log(err);
         return this.setState({
-          confirmationSnackbarMessage: "Le rendez-vous n'a pas pu être enregistré.",
+          confirmationSnackbarMessage: "Vous devez vous connecter pour prendre un rendez vous.",
           confirmationSnackbarOpen: true
         });
       });
@@ -175,8 +175,6 @@ handleChangePrestation(name, value) {
       return slots.map(slot => {
         const appointmentDateString = moment(this.state.appointmentDate).format('YYYY-DD-MM')
         const t1 = moment().hour(9).minute(0).add(slot, 'hours')
-
-        console.log(t1)
         const t2 = moment().hour(9).minute(0).add(slot + 1, 'hours')
         const scheduleDisabled = this.state.schedule[appointmentDateString] ? this.state.schedule[moment(this.state.appointmentDate).format('YYYY-DD-MM')][slot] : false
         return  <FormControlLabel control={<Radio />} value={slot} key={slot}
@@ -333,8 +331,8 @@ handleChangePrestation(name, value) {
             </DialogActions>
           </Dialog>
           <SnackBar
-            open={confirmationSnackbarOpen || loading}
-            message={loading ? 'Loading... ' : data.confirmationSnackbarMessage || ''}
+            open={confirmationSnackbarOpen}
+            message={data.confirmationSnackbarMessage || ''}
             autoHideDuration={10000}
             onClose={() => this.setState({ confirmationSnackbarOpen: false })} 
           />

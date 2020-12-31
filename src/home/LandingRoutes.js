@@ -3,31 +3,41 @@ import React from "react";
 const IKDORoutes = [
   {
     path: "/Accueil",
-    component: React.lazy(() => import("./AccueuseStateil")),
+    component: React.lazy(() => import("./Accueil")),
   },
 
   {
-    path: "/Praticien",
+    path: "/praticien",
     component: React.lazy(() => import("./Praticien")),
   },
   
   {
-    path: "/Formations",
+    path: "/formations",
     component: React.lazy(() => import("./Formations")),
   },
 
   {
-    path: "/Massages",
+    path: "/massages",
     component: React.lazy(() => import("./Massages")),
   },
 
   {
-    path: "/Inscription",
+    path: "/somatotherapie",
+    component: React.lazy(() => import("./Somathoterapie")),
+  },
+
+   {
+    path: "/coaching",
+    component: React.lazy(() => import("./Coaching")),
+  },
+
+  {
+    path: "/inscription",
     component: React.lazy(() => import("./Inscription")),
   },
 
   {
-    path: "/Authentification",
+    path: "/authentification",
     component: React.lazy(() => import("./Authentification")),
   },
 
