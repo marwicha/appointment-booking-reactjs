@@ -26,66 +26,94 @@ import {
 } from "@material-ui/core"
 import axios from "axios";
 
-
 const API_BASE = "http://localhost:8082/";
 
-class Appointment extends Component {
-  constructor() {
-    super();
+const useStyles = makeStyles(({ palette, ...theme }) => ({
 
-    this.state = {
-      loading: true,
-      prestation: "",
-      schedule: [],
-      confirmationModalOpen: false,
-      confirmationSnackbarOpen: false,
-      appointmentDateSelected: false,
-      confirmationTextVisible: false,
-      finished: false,
-      smallScreen: window.innerWidth < 768,
-      stepIndex: 0
-    };
+}))
+
+ const Appointment = (props) => {
+ 
+   const [loading, setLoading] = useState(true);
+   const [prestation, setPrestation] = useState("");
+   const [schedule, setSchedule] = useState([]);
+   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
+   const [confirmationSnackbarOpen, setConfirmationSnackbarOpen] = useState(false);
+   const [appointmentDateSelected, setAppointmentDateSelected] = useState(false);
+   const [confirmationTextVisible, setConfirmationTextVisible] = useState(false);
+
+   const [appointmentDate, setAppointmentDate] = useState("");
+   const [appointmentSlot, setAppointmentSlot] = useState("");
+
+
+   const [finished, setFinished] = useState(false);
+   const [stepIndex, setStepIndex] = useState(0);
+   const [appointments, setAppointments] = useState([]);
+   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 768);
+
+    // this.state = {
+    //   loading: true,
+    //   prestation: "",
+    //   schedule: [],
+    //   confirmationModalOpen: false,
+    //   confirmationSnackbarOpen: false,
+    //   appointmentDateSelected: false,
+    //   confirmationTextVisible: false,
+    //   finished: false,
+    //   smallScreen: window.innerWidth < 768,
+    //   stepIndex: 0,
+    //   appointments :[]
+    // };
     
-    this.renderAppointmentTimes = this.renderAppointmentTimes.bind(this)
-    this.renderConfirmationString = this.renderConfirmationString.bind(this)
-    this.renderAppointmentConfirmation = this.renderAppointmentConfirmation.bind(this)
-    this.handleNext = this.handleNext.bind(this)
-    this.handleSetAppointmentDate = this.handleSetAppointmentDate.bind(this)
-    this.handleSetAppointmentSlot = this.handleSetAppointmentSlot.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.checkDisableDate = this.checkDisableDate.bind(this)
-    this.renderConfirmationString = this.renderConfirmationString.bind(this)
-  }
+    // this.renderAppointmentTimes = this.renderAppointmentTimes.bind(this)
+    // this.renderConfirmationString = this.renderConfirmationString.bind(this)
+    // this.renderAppointmentConfirmation = this.renderAppointmentConfirmation.bind(this)
+    // this.handleNext = this.handleNext.bind(this)
+    // this.handleSetAppointmentDate = this.handleSetAppointmentDate.bind(this)
+    // this.handleSetAppointmentSlot = this.handleSetAppointmentSlot.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
+    // this.checkDisableDate = this.checkDisableDate.bind(this)
+    // this.renderConfirmationString = this.renderConfirmationString.bind(this)
+    
 
-  componentWillMount() {
+
+  useEffect(() => {
     axios.get(API_BASE + `api/slots/all`).then(response => {
-      console.log("response via db: ", response.data);
     });
-  }
+    });
 
-   handleNext = () => {
-    const { stepIndex } = this.state
-    return (stepIndex < 3) ? this.setState({ stepIndex: stepIndex + 1}) : null
+  useEffect(() => {
+   
+    AppointmentService.getUserAppointments().then(response => {
+
+    setAppointments(response.data);
+
+    })
+  })
+
+   const handleNext = () => {
+    return (stepIndex < 3) ? this.setStepIndex(stepIndex + 1) : null
   };
 
-  handleSetAppointmentDate(date) {
-    this.handleNext()
-    this.setState({ appointmentDate: date, confirmationTextVisible: true });
+  const handleSetAppointmentDate = date => {
+    handleNext()
+    setAppointmentDate(date)
+    setConfirmationTextVisible(true );
   }
 
-  handleSetAppointmentSlot(slot) {
-     this.handleNext()
-    this.setState({ appointmentSlot: slot })
+  const handleSetAppointmentSlot = slot => {
+    handleNext()
+    setAppointmentSlot(slot)
   }
 
-handleChangePrestation(name, value) {
+const handleChangePrestation = (name, value) => {
   if(value==null)
     return;
-  this.handleNext()
+  handleNext()
   this.setState({[name]: value })
   }
 
-  handleDBReponse(response) {
+  const handleDBReponse = response => {
    const appointments = response;
    const initSchedule = {}
     const today = moment().startOf('day')
@@ -111,12 +139,12 @@ handleChangePrestation(name, value) {
   }
 
 
-   handleSubmit() {
+   const handleSubmit = () => {
     this.setState({ confirmationModalOpen: false });
     const newAppointment = {
-      prestation: this.state.prestation,
-      slot_date: moment(this.state.appointmentDate).format("YYYY-DD-MM"),
-      slot_time: this.state.appointmentSlot
+      prestation: prestation,
+      slot_date: moment(appointmentDate).format("YYYY-DD-MM"),
+      slot_time: appointmentSlot
     };
 
     AppointmentService.createAppointment(newAppointment)
@@ -128,57 +156,57 @@ handleChangePrestation(name, value) {
         })
       )
       .catch(err => {
-        console.log(err);
         return this.setState({
           confirmationSnackbarMessage: "Vous devez vous connecter pour prendre un rendez vous.",
           confirmationSnackbarOpen: true
         });
       });
+
   }
 
-   checkDisableDate(currentDay) {
+   const checkDisableDate = currentDay => {
     const dateString = moment(currentDay).format('YYYY-DD-MM') 
 
-    return this.state.schedule[dateString] === true || moment(currentDay).startOf('day').diff(moment().startOf('day')) < 0 
+    return schedule[dateString] === true || moment(currentDay).startOf('day').diff(moment().startOf('day')) < 0 
     || currentDay.day() === 0 || currentDay.day() === 6 || currentDay.week() === 3
   }
 
-  renderAppointmentConfirmation() {
+  const renderAppointmentConfirmation = () => {
     const spanStyle = { color: 'green' }
     return <section>
-      <p> Prestation choisie: <span style={spanStyle}>{this.state.prestation}</span></p>
-      <p> Rendez vous: <span style={spanStyle}>{moment(this.state.appointmentDate).format('dddd[,] MMMM Do[,] YYYY')} </span> 
-       à <span style={spanStyle}>{moment().hour(9).minute(0).add(this.state.appointmentSlot, 'hours').format('h:mm a')}</span></p>
+      <p> Prestation choisie: <span style={spanStyle}>{prestation}</span></p>
+      <p> Rendez vous: <span style={spanStyle}>{moment(appointmentDate).format('dddd[,] MMMM Do[,] YYYY')} </span> 
+       à <span style={spanStyle}>{moment().hour(9).minute(0).add(appointmentSlot, 'hours').format('h:mm a')}</span></p>
     </section>
   }
 
-  renderConfirmationString() {
+  const renderConfirmationString = () => {
     const spanStyle = {color: 'green'}
-    return this.state.confirmationTextVisible ?
-     <h2 style={{ textAlign: this.state.smallScreen ? 'center' : 'left', color: '#bdbdbd', lineHeight: 1.5, padding: '0 10px', fontFamily: 'Roboto'}}>
+    return confirmationTextVisible ?
+     <h2 style={{ textAlign: smallScreen ? 'center' : 'left', color: '#bdbdbd', lineHeight: 1.5, padding: '0 10px', fontFamily: 'Roboto'}}>
       { <span>
         prise de rendez-vous d'une
 
         <span style={spanStyle}> 1 heure </span>
 
-        de rendez-vous {this.state.appointmentDate && <span>
-          le <span style={spanStyle}>{moment(this.state.appointmentDate).format('dddd[,] MMMM Do')}</span>
-      </span>} {Number.isInteger(this.state.appointmentSlot) && 
+        de rendez-vous {appointmentDate && <span>
+          le <span style={spanStyle}>{moment(appointmentDate).format('dddd[,] MMMM Do')}</span>
+      </span>} {Number.isInteger(appointmentSlot) && 
         
-        <span> à <span style={spanStyle}>{moment().hour(9).minute(0).add(this.state.appointmentSlot, 'hours').format('h:mm a')}</span></span>}
+        <span> à <span style={spanStyle}>{moment().hour(9).minute(0).add(appointmentSlot, 'hours').format('h:mm a')}</span></span>}
       </span>}
     </h2> : null
   }
   
-  renderAppointmentTimes() {
-    if (this.state.loading) {
+  const renderAppointmentTimes = () => {
+    if (loading) {
       const slots = [...Array(8).keys()]
      
       return slots.map(slot => {
-        const appointmentDateString = moment(this.state.appointmentDate).format('YYYY-DD-MM')
+        const appointmentDateString = moment(appointmentDate).format('YYYY-DD-MM')
         const t1 = moment().hour(9).minute(0).add(slot, 'hours')
         const t2 = moment().hour(9).minute(0).add(slot + 1, 'hours')
-        const scheduleDisabled = this.state.schedule[appointmentDateString] ? this.state.schedule[moment(this.state.appointmentDate).format('YYYY-DD-MM')][slot] : false
+        const scheduleDisabled = schedule[appointmentDateString] ? schedule[moment(appointmentDate).format('YYYY-DD-MM')][slot] : false
         return  <FormControlLabel control={<Radio />} value={slot} key={slot}
                                   labelPlacement="end"
                                   label={t1.format('h:mm a') + ' - ' + t2.format('h:mm a')}
@@ -190,16 +218,23 @@ handleChangePrestation(name, value) {
     }
   }
 
-  resize() {
+  const resize = () => {
     this.setState({ smallScreen: window.innerWidth < 768 })
   }
 
-  render() {
+   const classes = useStyles()
     const {
-     stepIndex, loading, navOpen, smallScreen, confirmationModalOpen, confirmationSnackbarOpen, ...data
+     ...data
     } = this.state;
 
     const contactFormFilled = data.appointmentSlot
+
+    const displayAppointmenthis = appointments.map((app, index) =>
+    <div key={index}>
+      <p>{app.prestation}</p>
+    </div>
+  );
+
 
     const DatePickerExampleSimple = () => (
      <div>
@@ -208,8 +243,8 @@ handleChangePrestation(name, value) {
         style={{ marginTop: 20, marginLeft: 20 }}
         value={data.appointmentDate}
         mode={smallScreen ? "portrait" : "landscape"}
-        onChange={(date) => this.handleSetAppointmentDate(date)}
-        shouldDisableDate={day => this.checkDisableDate(day) }
+        onChange={(date) => handleSetAppointmentDate(date)}
+        shouldDisableDate={day => checkDisableDate(day) }
         variant="dialog"
         />
         
@@ -225,25 +260,25 @@ handleChangePrestation(name, value) {
       <Button
         style={{ backgroundColor: "#00C853 !important" }}
         primary="true"
-        onClick={() => this.handleSubmit()}
+        onClick={() => handleSubmit()}
       >
        Confirmer </Button>
       
     ];
     return (
-       <div>
+      <div>
       <TopBar />
         <section className= "section"
           style={{
-            maxWidth: !smallScreen ? '80%' : '100%',
+            maxWidth: !smallScreen ? '50%' : '100%',
             margin: 'auto',
             marginTop: !smallScreen ? 20 : 0,
           }}
         >
-        {this.renderConfirmationString()}
+        {renderConfirmationString()}
           <Card
            style={{
-              padding: '10px 10px 25px 10px',
+              padding: '70px 10px 25px 10px',
               height: smallScreen ? '100vh' : null
             }}
           >
@@ -263,7 +298,7 @@ handleChangePrestation(name, value) {
                   <Select
                     fullWidth
                     value={data.prestation}
-                    onChange={(event) => this.handleChangePrestation("prestation", event.target.value)}>
+                    onChange={(event) => handleChangePrestation("prestation", event.target.value)}>
                     <MenuItem value="Massage 9 sens"> Massage 9 sens </MenuItem>
                     <MenuItem value="Méditation"> Méditation </MenuItem>
                   </Select>
@@ -295,9 +330,9 @@ handleChangePrestation(name, value) {
                     }}
                     name="appointmentTimes"
                     value={data.appointmentSlot}
-                    onChange={(evt, val) => this.handleSetAppointmentSlot(val)}
+                    onChange={(evt, val) => handleSetAppointmentSlot(val)}
                     >
-                    {this.renderAppointmentTimes()}
+                    {renderAppointmentTimes()}
                   </RadioGroup>
                   </FormControl>
                    
@@ -308,7 +343,7 @@ handleChangePrestation(name, value) {
                                  marginTop: 20, maxWidth: 100 }}
                         variant="contained"
                         fullWidth="true"
-                        onClick={() => this.setState({ confirmationModalOpen: !this.state.confirmationModalOpen })}
+                        onClick={() => this.setState({ confirmationModalOpen: !confirmationModalOpen })}
                         disabled={!contactFormFilled || data.processed }
                       >
                       {
