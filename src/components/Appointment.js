@@ -14,7 +14,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TopBar from "../../src/home/sections/TopBar";
 import AppointmentService from '../services/appointment.service'
 
-import SnackBar from '@material-ui/core/SnackBar'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment';
 import moment from 'moment'
@@ -333,15 +332,9 @@ handleChangePrestation(name, value) {
             {modalActions}
             </DialogActions>
           </Dialog>
-          <SnackBar
-            open={confirmationSnackbarOpen}
-            message={data.confirmationSnackbarMessage || ''}
-            autoHideDuration={10000}
-            onClose={() => this.setState({ confirmationSnackbarOpen: false })} 
-          />
+         
         </section>
       </div>
     );
-  }
 }
 export default Appointment;
