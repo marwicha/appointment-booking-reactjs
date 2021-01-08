@@ -9,6 +9,7 @@ import {
   Grid, Typography, Box, Chip
 
 } from "@material-ui/core";
+import SnackBar from '@material-ui/core/SnackBar'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { makeStyles } from '@material-ui/core/styles';
 import TopBar from "../../src/home/sections/TopBar";
@@ -35,52 +36,26 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
  const Appointment = (props) => {
  
    const [loading, setLoading] = useState(true);
-   const [prestation, setPrestation] = useState("");
    const [schedule, setSchedule] = useState([]);
    const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
    const [confirmationSnackbarOpen, setConfirmationSnackbarOpen] = useState(false);
-   const [appointmentDateSelected, setAppointmentDateSelected] = useState(false);
+   const [confirmationSnackbarMessage, setConfirmationSnackbarMessage] = useState(false);
    const [confirmationTextVisible, setConfirmationTextVisible] = useState(false);
 
-   const [appointmentDate, setAppointmentDate] = useState("");
+   const [appointmentDate, setAppointmentDate] = useState(new Date());
    const [appointmentSlot, setAppointmentSlot] = useState("");
-
+   const [prestation, setPrestation] = useState("");
 
    const [finished, setFinished] = useState(false);
    const [stepIndex, setStepIndex] = useState(0);
    const [appointments, setAppointments] = useState([]);
    const [smallScreen, setSmallScreen] = useState(window.innerWidth < 768);
-
-    // this.state = {
-    //   loading: true,
-    //   prestation: "",
-    //   schedule: [],
-    //   confirmationModalOpen: false,
-    //   confirmationSnackbarOpen: false,
-    //   appointmentDateSelected: false,
-    //   confirmationTextVisible: false,
-    //   finished: false,
-    //   smallScreen: window.innerWidth < 768,
-    //   stepIndex: 0,
-    //   appointments :[]
-    // };
-    
-    // this.renderAppointmentTimes = this.renderAppointmentTimes.bind(this)
-    // this.renderConfirmationString = this.renderConfirmationString.bind(this)
-    // this.renderAppointmentConfirmation = this.renderAppointmentConfirmation.bind(this)
-    // this.handleNext = this.handleNext.bind(this)
-    // this.handleSetAppointmentDate = this.handleSetAppointmentDate.bind(this)
-    // this.handleSetAppointmentSlot = this.handleSetAppointmentSlot.bind(this)
-    // this.handleSubmit = this.handleSubmit.bind(this)
-    // this.checkDisableDate = this.checkDisableDate.bind(this)
-    // this.renderConfirmationString = this.renderConfirmationString.bind(this)
-    
-
+   const [processed, setProcessed] = useState(false);
 
   useEffect(() => {
     axios.get(API_BASE + `api/slots/all`).then(response => {
     });
-    });
+    }, []);
 
   useEffect(() => {
    
@@ -89,16 +64,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     setAppointments(response.data);
 
     })
-  })
+  }, [appointments] )
 
    const handleNext = () => {
-    return (stepIndex < 3) ? this.setStepIndex(stepIndex + 1) : null
+    return (stepIndex < 3) ? setStepIndex(stepIndex + 1) : null
   };
 
   const handleSetAppointmentDate = date => {
     handleNext()
     setAppointmentDate(date)
-    setConfirmationTextVisible(true );
+    setConfirmationTextVisible(true);
   }
 
   const handleSetAppointmentSlot = slot => {
@@ -106,11 +81,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     setAppointmentSlot(slot)
   }
 
-const handleChangePrestation = (name, value) => {
-  if(value==null)
-    return;
+ const handleChangePrestation = (prestation) => {
   handleNext()
-  this.setState({[name]: value })
+  setPrestation(prestation)
+
   }
 
   const handleDBReponse = response => {
@@ -131,16 +105,13 @@ const handleChangePrestation = (name, value) => {
       let slots = schedule[day]
       slots.length ? (slots.every(slot => slot === true)) ? schedule[day] = true : null : null
     }
-
-    this.setState({
-      schedule,
-      loading: false
-    });
+    setSchedule(schedule)
+    setLoading(false)
   }
 
 
    const handleSubmit = () => {
-    this.setState({ confirmationModalOpen: false });
+    setConfirmationModalOpen(false)
     const newAppointment = {
       prestation: prestation,
       slot_date: moment(appointmentDate).format("YYYY-DD-MM"),
@@ -148,20 +119,15 @@ const handleChangePrestation = (name, value) => {
     };
 
     AppointmentService.createAppointment(newAppointment)
-      .then(response =>
-        this.setState({
-          confirmationSnackbarMessage: "Le rendez-vous est confirmé!",
-          confirmationSnackbarOpen: true,
-          processed: true
-        })
-      )
+      .then(response => {
+        setConfirmationSnackbarMessage("Le rendez-vous est confirmé!")
+        setConfirmationSnackbarOpen(true);
+        setProcessed(true);
+      })
       .catch(err => {
-        return this.setState({
-          confirmationSnackbarMessage: "Vous devez vous connecter pour prendre un rendez vous.",
-          confirmationSnackbarOpen: true
-        });
+        setConfirmationSnackbarMessage("Vous devez vous connecter pour prendre un rendez vous")
+        setConfirmationSnackbarOpen(true)
       });
-
   }
 
    const checkDisableDate = currentDay => {
@@ -219,29 +185,26 @@ const handleChangePrestation = (name, value) => {
   }
 
   const resize = () => {
-    this.setState({ smallScreen: window.innerWidth < 768 })
+
+    setSmallScreen(window.innerWidth < 768 )
   }
+  
+    const classes = useStyles()
 
-   const classes = useStyles()
-    const {
-     ...data
-    } = this.state;
+    const contactFormFilled = appointmentSlot
 
-    const contactFormFilled = data.appointmentSlot
-
-    const displayAppointmenthis = appointments.map((app, index) =>
+    const displayUserAppointments = appointments.map((app, index) =>
     <div key={index}>
       <p>{app.prestation}</p>
     </div>
   );
-
 
     const DatePickerExampleSimple = () => (
      <div>
       <MuiPickersUtilsProvider utils={MomentUtils}  locale='fr'>
         <DatePicker
         style={{ marginTop: 20, marginLeft: 20 }}
-        value={data.appointmentDate}
+        value={appointmentDate}
         mode={smallScreen ? "portrait" : "landscape"}
         onChange={(date) => handleSetAppointmentDate(date)}
         shouldDisableDate={day => checkDisableDate(day) }
@@ -255,7 +218,7 @@ const handleChangePrestation = (name, value) => {
       
       <Button
         primary="false"
-        onClick={() => this.setState({ confirmationModalOpen: false })}
+        onClick={() => setConfirmationModalOpen(false) }
       > Annuler </Button>,
       <Button
         style={{ backgroundColor: "#00C853 !important" }}
@@ -289,7 +252,7 @@ const handleChangePrestation = (name, value) => {
             >
 
              <Step disabled={loading}>
-                <StepButton onClick={() => this.setState({ stepIndex: 0 })}>
+                <StepButton onClick={() => setStepIndex(0)}>
                   Choisir la prestation
                 </StepButton>
                 <StepContent>
@@ -297,8 +260,8 @@ const handleChangePrestation = (name, value) => {
                 <FormControl>
                   <Select
                     fullWidth
-                    value={data.prestation}
-                    onChange={(event) => handleChangePrestation("prestation", event.target.value)}>
+                    value={prestation}
+                    onChange={(event) => handleChangePrestation(event.target.value)}>
                     <MenuItem value="Massage 9 sens"> Massage 9 sens </MenuItem>
                     <MenuItem value="Méditation"> Méditation </MenuItem>
                   </Select>
@@ -309,7 +272,7 @@ const handleChangePrestation = (name, value) => {
 
 
               <Step>
-                 <StepButton onClick={() => this.setState({ stepIndex: 1 })}>
+                 <StepButton onClick={() => setStepIndex(1)}>
                    Choisir une date de rendez-vous
                 </StepButton>
                 <StepContent>
@@ -317,8 +280,8 @@ const handleChangePrestation = (name, value) => {
                   
                 </StepContent>
               </Step>
-              <Step disabled={!data.appointmentDate}>
-                <StepButton  onClick={() => this.setState({ stepIndex: 2 })}>
+              <Step disabled={!appointmentDate}>
+                <StepButton  onClick={() => setStepIndex(2)}>
                    Choisir l'heure de rendez-vous
                 </StepButton>
                 <StepContent>
@@ -329,7 +292,7 @@ const handleChangePrestation = (name, value) => {
                       marginLeft: 15
                     }}
                     name="appointmentTimes"
-                    value={data.appointmentSlot}
+                    value={appointmentSlot}
                     onChange={(evt, val) => handleSetAppointmentSlot(val)}
                     >
                     {renderAppointmentTimes()}
@@ -343,8 +306,8 @@ const handleChangePrestation = (name, value) => {
                                  marginTop: 20, maxWidth: 100 }}
                         variant="contained"
                         fullWidth="true"
-                        onClick={() => this.setState({ confirmationModalOpen: !confirmationModalOpen })}
-                        disabled={!contactFormFilled || data.processed }
+                        onClick={() => setConfirmationModalOpen(!confirmationModalOpen)}
+                        disabled={!contactFormFilled || processed }
                       >
                       {
                           contactFormFilled && "Valider"
@@ -354,19 +317,30 @@ const handleChangePrestation = (name, value) => {
              
             </Stepper>
             </Card>
+
+           
+            <div>{displayUserAppointments}</div>
           <Dialog
             modal="true"
             open={confirmationModalOpen}
             title="Confirmer votre rendez vous">
             
             <DialogContent>
-             {this.renderAppointmentConfirmation()}  
+             {renderAppointmentConfirmation()}  
              </DialogContent>
 
             <DialogActions>
             {modalActions}
             </DialogActions>
           </Dialog>
+
+           <SnackBar	
+            open={confirmationSnackbarOpen}	
+            message={confirmationSnackbarMessage || ''}	
+            autoHideDuration={10000}	
+            onClose={() => setConfirmationSnackbarOpen(false)} 	
+          />
+
          
         </section>
       </div>
