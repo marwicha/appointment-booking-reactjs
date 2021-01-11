@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
+ import { NavLink } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -180,9 +181,11 @@ const SecondSection = () => {
               <h4 className={clsx(classes.h4, "text-center")}> Prendre un rendez vous </h4>
 
               <div className="text-center">
+              <NavLink to="/prendre-rendez-vous"> 
               <Button className={clsx(classes.button, "text-center") } >
                   Réserver maintenant
               </Button>
+              </NavLink>
 
               <Button className={ clsx(classes.button2, "text-center") } >
                   Méditation pleine consciense

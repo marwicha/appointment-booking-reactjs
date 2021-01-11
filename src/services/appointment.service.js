@@ -18,11 +18,11 @@ const createAppointment =  (data) => {
    return response
   };
 
-  const getUserAppointments =  () => {
+  const getUserAppointments = async () => {
 
   const user = JSON.parse(localStorage.getItem('user'));
 
-  const response =  axios({
+  const response = await axios({
     method: 'GET',
     url: `${API_URL}/${user.id}`,
      headers : 
@@ -30,7 +30,7 @@ const createAppointment =  (data) => {
         'Content-Type': 'application/json'
        }});
 
-   return response
+   return response.data
   };
 
 export default {

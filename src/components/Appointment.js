@@ -6,7 +6,7 @@ import {
   RadioGroup, FormControlLabel,
   FormControl,StepButton, DialogActions,
   DialogContent, Select, MenuItem, Container,
-  Grid, Typography, Box, Chip
+  Grid, Typography, Box, Chip, InputLabel
 
 } from "@material-ui/core";
 import SnackBar from '@material-ui/core/SnackBar'
@@ -14,7 +14,7 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { makeStyles } from '@material-ui/core/styles';
 import TopBar from "../../src/home/sections/TopBar";
 import AppointmentService from '../services/appointment.service'
-
+import AuthService from "../services/auth.service";
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment';
 import moment from 'moment'
@@ -82,14 +82,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   }
 
  const handleChangePrestation = (prestation) => {
-  handleNext()
-  setPrestation(prestation)
-
+    handleNext()
+    setPrestation(prestation)
   }
 
-  const handleDBReponse = response => {
-   const appointments = response;
-   const initSchedule = {}
+  
+  const handleFetch = (response) => {
+    const { appointments } = response
+    const initSchedule = {}
     const today = moment().startOf('day')
     initSchedule[today.format('YYYY-DD-MM')] = true
     const schedule = !appointments.length ? initSchedule : appointments.reduce((currentSchedule, appointment) => {
@@ -101,12 +101,20 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       return currentSchedule
     }, initSchedule)
 
+    //Imperative x 100, but no regrets
     for (let day in schedule) {
       let slots = schedule[day]
       slots.length ? (slots.every(slot => slot === true)) ? schedule[day] = true : null : null
     }
+
     setSchedule(schedule)
     setLoading(false)
+  }
+
+  const handleFetchError = (err) => {
+    console.log(err)
+    setConfirmationSnackbarMessage("Error fetching data")
+    setConfirmationSnackbarOpen(true)
   }
 
 
@@ -125,16 +133,18 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
         setProcessed(true);
       })
       .catch(err => {
-        setConfirmationSnackbarMessage("Vous devez vous connecter pour prendre un rendez vous")
+        setConfirmationSnackbarMessage("Vous devez vous connecter afin de prendre un rendez vous")
         setConfirmationSnackbarOpen(true)
       });
   }
+
+
 
    const checkDisableDate = currentDay => {
     const dateString = moment(currentDay).format('YYYY-DD-MM') 
 
     return schedule[dateString] === true || moment(currentDay).startOf('day').diff(moment().startOf('day')) < 0 
-    || currentDay.day() === 0 || currentDay.day() === 6 || currentDay.week() === 3
+    || currentDay.day() === 0 || currentDay.day() === 6 || currentDay.week() === 3 || fullDays.includes(dateString);
   }
 
   const renderAppointmentConfirmation = () => {
@@ -163,39 +173,44 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       </span>}
     </h2> : null
   }
-  
-  const renderAppointmentTimes = () => {
+
+
+   const renderAppointmentTimes = () => {
     if (loading) {
       const slots = [...Array(8).keys()]
-     
       return slots.map(slot => {
         const appointmentDateString = moment(appointmentDate).format('YYYY-DD-MM')
         const t1 = moment().hour(9).minute(0).add(slot, 'hours')
         const t2 = moment().hour(9).minute(0).add(slot + 1, 'hours')
         const scheduleDisabled = schedule[appointmentDateString] ? schedule[moment(appointmentDate).format('YYYY-DD-MM')][slot] : false
-        return  <FormControlLabel control={<Radio />} value={slot} key={slot}
+       
+        let slotFilled;   
+        for (let bookedDay in bookedDatesObject) {
+          let obj = bookedDatesObject[bookedDay];
+          (bookedDay === appointmentDateString) 
+          && (slotFilled = 
+            Object.values(obj).map(Number).includes(slot));
+        }
+
+        return <FormControlLabel control={<Radio />} value={slot} key={slot}
                                   labelPlacement="end"
                                   label={t1.format('h:mm a') + ' - ' + t2.format('h:mm a')}
-                                  disabled={scheduleDisabled}
-                 />
+                                  disabled={scheduleDisabled || slotFilled }/>
+
       })
     } else {
       return null
     }
   }
 
-  const resize = () => {
-
-    setSmallScreen(window.innerWidth < 768 )
-  }
-  
     const classes = useStyles()
 
     const contactFormFilled = appointmentSlot
 
     const displayUserAppointments = appointments.map((app, index) =>
     <div key={index}>
-      <p>{app.prestation}</p>
+      <p> {app.prestation} </p>
+      <p> {app.slots.slot_date} </p>
     </div>
   );
 
@@ -258,11 +273,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
                 <StepContent>
 
                 <FormControl>
+                
                   <Select
                     fullWidth
                     value={prestation}
-                    onChange={(event) => handleChangePrestation(event.target.value)}>
-                    <MenuItem value="Massage 9 sens"> Massage 9 sens </MenuItem>
+                    onChange={(event) => handleChangePrestation(event.target.value)}
+                    >
+
+                    <MenuItem selected value="Massage 9 sens"> Massage 9 sens </MenuItem>
                     <MenuItem value="Méditation"> Méditation </MenuItem>
                   </Select>
                   </FormControl>
@@ -318,12 +336,17 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
             </Stepper>
             </Card>
 
-           
-            <div>{displayUserAppointments}</div>
+            { currentUser && 
+            <div>
+             Vos rendez vous:
+            {displayUserAppointments} 
+            </div>
+            }
+
           <Dialog
             modal="true"
             open={confirmationModalOpen}
-            title="Confirmer votre rendez vous">
+            title="Vous confirmer votre rendez vous ?">
             
             <DialogContent>
              {renderAppointmentConfirmation()}  
@@ -341,7 +364,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
             onClose={() => setConfirmationSnackbarOpen(false)} 	
           />
 
-         
         </section>
       </div>
     );

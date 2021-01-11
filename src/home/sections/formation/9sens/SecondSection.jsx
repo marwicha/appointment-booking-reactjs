@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
-
+import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
@@ -179,9 +179,11 @@ const SecondSection = () => {
 
 
               <div className="text-center">
+              <NavLink to="/prendre-rendez-vous"> 
               <Button className={clsx(classes.button, "text-center") } >
                   Réserver maintenant
               </Button>
+              </NavLink>
 
               <Button className={ clsx(classes.button2, "text-center") } >
                   Massage des 9 sens

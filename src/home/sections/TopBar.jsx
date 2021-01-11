@@ -42,8 +42,6 @@ const TopBar = (props) => {
     };
   }, [scrollableElement, handleScrollRef]);
 
-
-  const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -116,14 +114,6 @@ Praticien
    </ul>
         <div className="m-auto" />
         <ul className="navigation flex">
-
-          {showAdminBoard && (
-            <li>
-              <NavLink to="/admin">
-                Admin Board
-              </NavLink>
-            </li>
-          )}
 
 
           {currentUser ? (

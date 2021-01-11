@@ -298,7 +298,7 @@ const errorMessage = error => {
 
            <Grid container>
             <Grid item xs align="right">
-              <NavLink to="/Authentification">
+              <NavLink to="/authentification">
                 <p> Se connecter </p>
               </NavLink>
             </Grid>
