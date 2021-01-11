@@ -73,35 +73,55 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     
   }, [])
 
+  useEffect(() => {	 
+
+    AppointmentService.getUserAppointments().then(response => {	
+
+    setAppointments(response);
+
+    })
+  }, [appointments])
+
 
   useEffect(() => {
 
     const saveResults = async() => {
-      const appointments = await AppointmentService.getUserAppointments()
-      const appointmentData = appointments.data;
-      setBookedAppointments(appointmentData);
+
+      const appointments = await AppointmentService.getAllAppointments()
+      const appointmentData = appointments;
+      console.log(appointments)
+      setBookedAppointments({appointmentData});
 
       //added logic to exclude booked slots and fully booked dates.
+
       let bookedDates=[];
       let bookedDatesObj = {};
       let bookedSlots = []
+
       appointmentData.map(appointment=> {
-        return (!bookedDates.includes(appointment.date)) 
-        && (bookedDates.push(appointment.date),
-            bookedSlots.push(appointment.slot))
+
+        return (!bookedDates.includes(appointment.slots.slot_date)) 
+
+        && (bookedDates.push(appointment.slots.slot_date),
+            bookedSlots.push(appointment.slots.slot_time))
           })
 
       bookedDates.map(bookedDate => {
+
         let newArray=[]
-        appointmentData.map(appointment=> { return (appointment.date === bookedDate) && newArray.push(appointment.slot)})
+
+        appointmentData.map(appointment => { return (appointment.slots.slot_date === bookedDate) && newArray.push(appointment.slots.slot_time)})
+
         return bookedDatesObj[bookedDate] = newArray
       })
-      
+
       for (let bookedDay in bookedDatesObj) {
+        
         let obj = bookedDatesObj[bookedDay];
         (obj.length === 8) && setFullDays([...fullDays, bookedDay])
       }
       setBookedDatesObject(bookedDatesObj) 
+      console.log(appointmentData)
       return {appointmentData};
     }
 
@@ -109,7 +129,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     .then(result => {handleFetch(result)})
     .catch(err=> handleFetchError(err));
 
-  }, [fullDays])
+  })
   
    const handleNext = () => {
     return (stepIndex < 3) ? setStepIndex(stepIndex + 1) : null

@@ -18,6 +18,16 @@ const createAppointment =  (data) => {
    return response
   };
 
+  const getAllAppointments = async () => {
+    const response = await axios({
+    method: 'GET',
+    url: `${API_URL}/all`,
+    });
+
+   return response.data
+
+  }
+
   const getUserAppointments = async () => {
 
   const user = JSON.parse(localStorage.getItem('user'));
@@ -35,5 +45,6 @@ const createAppointment =  (data) => {
 
 export default {
   createAppointment,
-  getUserAppointments
+  getUserAppointments,
+  getAllAppointments
 };
