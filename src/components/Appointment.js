@@ -46,26 +46,71 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
    const [appointmentSlot, setAppointmentSlot] = useState("");
    const [prestation, setPrestation] = useState("");
 
-   const [finished, setFinished] = useState(false);
    const [stepIndex, setStepIndex] = useState(0);
    const [appointments, setAppointments] = useState([]);
    const [smallScreen, setSmallScreen] = useState(window.innerWidth < 768);
    const [processed, setProcessed] = useState(false);
+
+   const [currentUser, setCurrentUser] = useState("")
+
+   const [bookedAppointments, setBookedAppointments] = useState([]) //to track booked appointments
+   const [bookedDatesObject, setBookedDatesObject] = useState({}) //tracks dates coupled to their slots
+   const [fullDays, setFullDays] = useState([]) //to track full days
+ 
 
   useEffect(() => {
     axios.get(API_BASE + `api/slots/all`).then(response => {
     });
     }, []);
 
+  useEffect( () => {
+   const user = AuthService.getCurrentUser();
+
+   console.log(user)
+    if(user) {
+       setCurrentUser(user)
+    }
+    
+  }, [])
+
+
   useEffect(() => {
-   
-    AppointmentService.getUserAppointments().then(response => {
 
-    setAppointments(response.data);
+    const saveResults = async() => {
+      const appointments = await AppointmentService.getUserAppointments()
+      const appointmentData = appointments.data;
+      setBookedAppointments(appointmentData);
 
-    })
-  }, [appointments] )
+      //added logic to exclude booked slots and fully booked dates.
+      let bookedDates=[];
+      let bookedDatesObj = {};
+      let bookedSlots = []
+      appointmentData.map(appointment=> {
+        return (!bookedDates.includes(appointment.date)) 
+        && (bookedDates.push(appointment.date),
+            bookedSlots.push(appointment.slot))
+          })
 
+      bookedDates.map(bookedDate => {
+        let newArray=[]
+        appointmentData.map(appointment=> { return (appointment.date === bookedDate) && newArray.push(appointment.slot)})
+        return bookedDatesObj[bookedDate] = newArray
+      })
+      
+      for (let bookedDay in bookedDatesObj) {
+        let obj = bookedDatesObj[bookedDay];
+        (obj.length === 8) && setFullDays([...fullDays, bookedDay])
+      }
+      setBookedDatesObject(bookedDatesObj) 
+      return {appointmentData};
+    }
+
+     saveResults()
+    .then(result => {handleFetch(result)})
+    .catch(err=> handleFetchError(err));
+
+  }, [fullDays])
+  
    const handleNext = () => {
     return (stepIndex < 3) ? setStepIndex(stepIndex + 1) : null
   };
