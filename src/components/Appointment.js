@@ -80,19 +80,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     setAppointments(response);
 
     })
+  
   }, [appointments])
 
 
   useEffect(() => {
-
     const saveResults = async() => {
-
-      const appointments = await AppointmentService.getAllAppointments()
-      const appointmentData = appointments;
-      console.log(appointments)
+      
+      const appointmentData = await AppointmentService.getAllAppointments()
+  
       setBookedAppointments({appointmentData});
-
-      //added logic to exclude booked slots and fully booked dates.
 
       let bookedDates=[];
       let bookedDatesObj = {};
@@ -100,11 +97,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
       appointmentData.map(appointment=> {
 
+        
         return (!bookedDates.includes(appointment.slots.slot_date)) 
 
         && (bookedDates.push(appointment.slots.slot_date),
             bookedSlots.push(appointment.slots.slot_time))
           })
+
 
       bookedDates.map(bookedDate => {
 
@@ -112,24 +111,26 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
         appointmentData.map(appointment => { return (appointment.slots.slot_date === bookedDate) && newArray.push(appointment.slots.slot_time)})
 
+
         return bookedDatesObj[bookedDate] = newArray
       })
 
       for (let bookedDay in bookedDatesObj) {
         
+
         let obj = bookedDatesObj[bookedDay];
+
         (obj.length === 8) && setFullDays([...fullDays, bookedDay])
       }
       setBookedDatesObject(bookedDatesObj) 
-      console.log(appointmentData)
       return {appointmentData};
     }
 
      saveResults()
     .then(result => {handleFetch(result)})
-    .catch(err=> handleFetchError(err));
+    .catch(err=> console.log(err));
 
-  })
+  },[fullDays])
   
    const handleNext = () => {
     return (stepIndex < 3) ? setStepIndex(stepIndex + 1) : null
@@ -356,7 +357,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
               <Step>
                  <StepButton onClick={() => setStepIndex(1)}>
-                   Choisir une date de rendez-vous
+                   Sélectionnez votre date de rendez-vous
                 </StepButton>
                 <StepContent>
                   {DatePickerExampleSimple()}
@@ -365,7 +366,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
               </Step>
               <Step disabled={!appointmentDate}>
                 <StepButton  onClick={() => setStepIndex(2)}>
-                   Choisir l'heure de rendez-vous
+                   Sélectionnez une heure de rendez-vous
                 </StepButton>
                 <StepContent>
                 <FormControl component="fieldset">
