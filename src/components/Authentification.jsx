@@ -11,7 +11,7 @@ import LockOutlined from '@material-ui/icons/LockOutlined';
 import Lock from '@material-ui/icons/Lock';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import TopBar from "../../src/home/sections/TopBar";
+import TopBar from "../home/sections/TopBar";
 
 
 function Copyright() {
@@ -113,7 +113,7 @@ const Authentification = (props) => {
 
       AuthService.login(email, password).then(
         () => {
-          props.history.push("/prendre-rendez-vous");
+          props.history.push("/compte");
           window.location.reload();
         },
         (error) => {

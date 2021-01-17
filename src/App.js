@@ -17,9 +17,8 @@ import Formations from "./home/Formations";
 import Massages from "./home/Massages";
 
 import Authentification from "./components/Authentification";
-import Appointment from "./components/Appointment";
 import Inscription from "./components/Inscription";
-import Profile from "./components/Profile";
+import UserAccount from "./home/UserAccount";
 
 import AuthService from "./services/auth.service";
 
@@ -59,7 +58,7 @@ const PublicRoute = ({component: Component, ...rest}) => {
     return (
         <Route {...rest} render={props => (
             showAppointmentPage ?
-                <Redirect to="/prendre-rendez-vous" />
+                <Redirect to="/compte" />
             : <Component {...props} />
         )} />
     );
@@ -85,7 +84,7 @@ const PublicRoute = ({component: Component, ...rest}) => {
 
               {/* After authentication */}
 
-              <PrivateRoute path="/prendre-rendez-vous" exact component={Appointment} />
+              <PrivateRoute path="/compte" exact component={UserAccount} />
               
               <Redirect path="/" exact to="accueil" />
               {/* <Route component={Error} /> */}

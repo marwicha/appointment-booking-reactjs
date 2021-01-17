@@ -6,13 +6,12 @@ import {
   RadioGroup, FormControlLabel,
   FormControl,StepButton, DialogActions,
   DialogContent, Select, MenuItem, Container,
-  Grid, Typography, Box, Chip, InputLabel
+  Grid, Typography, Box, Chip, InputLabel,CardHeader
 
 } from "@material-ui/core";
 import SnackBar from '@material-ui/core/SnackBar'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { makeStyles } from '@material-ui/core/styles';
-import TopBar from "../../src/home/sections/TopBar";
 import AppointmentService from '../services/appointment.service'
 import AuthService from "../services/auth.service";
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
@@ -30,6 +29,10 @@ import axios from "axios";
 const API_BASE = "http://localhost:8082/";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
+
+  root: {
+    width: "100%"
+  }
 
 }))
 
@@ -73,16 +76,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     
   }, [])
 
-  useEffect(() => {	 
-
-    AppointmentService.getUserAppointments().then(response => {	
-
-    setAppointments(response);
-
-    })
-  
-  }, [appointments])
-
 
   useEffect(() => {
     const saveResults = async() => {
@@ -103,7 +96,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
         && (bookedDates.push(appointment.slots.slot_date),
             bookedSlots.push(appointment.slots.slot_time))
           })
-
 
       bookedDates.map(bookedDate => {
 
@@ -273,13 +265,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
     const contactFormFilled = appointmentSlot
 
-    const displayUserAppointments = appointments.map((app, index) =>
-    <div key={index}>
-      <p> {app.prestation} </p>
-      <p> {app.slots.slot_date} </p>
-    </div>
-  );
-
     const DatePickerExampleSimple = () => (
      <div>
       <MuiPickersUtilsProvider utils={MomentUtils}  locale='fr'>
@@ -289,6 +274,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
         mode={smallScreen ? "portrait" : "landscape"}
         onChange={(date) => handleSetAppointmentDate(date)}
         shouldDisableDate={day => checkDisableDate(day) }
+        minDate={new Date()}
         variant="dialog"
         />
         
@@ -305,27 +291,30 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
         style={{ backgroundColor: "#00C853 !important" }}
         primary="true"
         onClick={() => handleSubmit()}
-      >
-       Confirmer </Button>
+      > Confirmer </Button>
       
     ];
     return (
-      <div>
-      <TopBar />
-        <section className= "section"
-          style={{
-            maxWidth: !smallScreen ? '50%' : '100%',
+      <div style={{
+            width: !smallScreen ? '80%' : '100%',
             margin: 'auto',
-            marginTop: !smallScreen ? 20 : 0,
-          }}
-        >
+            marginTop: 0
+          }}>
+        
         {renderConfirmationString()}
           <Card
            style={{
-              padding: '70px 10px 25px 10px',
+              padding: '20px 10px 25px 10px',
               height: smallScreen ? '100vh' : null
             }}
           >
+            <CardHeader 
+              style={{
+               backgroundColor: "#dfe5e6",
+               color: "#000000"
+              }}
+              subheader="Prendre un rendez vous"
+            />
             <Stepper
              activeStep={stepIndex}
               linear="false"
@@ -333,9 +322,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
             >
 
              <Step disabled={loading}>
+             
                 <StepButton onClick={() => setStepIndex(0)}>
-                  Choisir la prestation
+                  Choisir UNE OU PLUSIEURS PRESTATIONS
                 </StepButton>
+
                 <StepContent>
 
                 <FormControl>
@@ -344,20 +335,20 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
                     fullWidth
                     value={prestation}
                     onChange={(event) => handleChangePrestation(event.target.value)}
-                    >
+                  >
 
-                    <MenuItem selected value="Massage 9 sens"> Massage 9 sens </MenuItem>
+                    <MenuItem selected value="Massage 9 sens"> Massage 9 sens (1h) </MenuItem>
                     <MenuItem value="Méditation"> Méditation </MenuItem>
+
                   </Select>
                   </FormControl>
 
                 </StepContent>
               </Step>
 
-
               <Step>
                  <StepButton onClick={() => setStepIndex(1)}>
-                   Sélectionnez votre date de rendez-vous
+                   Choisir votre date de rendez-vous
                 </StepButton>
                 <StepContent>
                   {DatePickerExampleSimple()}
@@ -366,7 +357,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
               </Step>
               <Step disabled={!appointmentDate}>
                 <StepButton  onClick={() => setStepIndex(2)}>
-                   Sélectionnez une heure de rendez-vous
+                   Choisir une heure de rendez-vous
                 </StepButton>
                 <StepContent>
                 <FormControl component="fieldset">
@@ -402,13 +393,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
             </Stepper>
             </Card>
 
-            { currentUser && 
-            <div>
-             Vos rendez vous:
-            {displayUserAppointments} 
-            </div>
-            }
-
           <Dialog
             modal="true"
             open={confirmationModalOpen}
@@ -430,7 +414,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
             onClose={() => setConfirmationSnackbarOpen(false)} 	
           />
 
-        </section>
       </div>
     );
 }

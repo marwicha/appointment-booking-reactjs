@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Container from '@material-ui/core/Container';
-import TopBar from "../../src/home/sections/TopBar";
+import TopBar from "../home/sections/TopBar";
 import PersonOutlineOutlined from '@material-ui/icons/PersonOutlineOutlined';
 import AlternateEmail from "@material-ui/icons/AlternateEmail"
 import PhoneOutlined from '@material-ui/icons/PhoneOutlined'

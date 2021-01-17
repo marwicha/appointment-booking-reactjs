@@ -45,6 +45,10 @@ const IKDORoutes = [
     path: "/prendre-rendez-vous",
     component: React.lazy(() => import("./Appointment")),
   },
+   {
+    path: "/compte",
+    component: React.lazy(() => import("./UserAccount")),
+  },
   
 ];
 
