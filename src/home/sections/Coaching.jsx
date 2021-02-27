@@ -1,25 +1,25 @@
 import React from "react";
-import clsx from "clsx";
 import { Container, Box, Typography, Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { NavLink } from "react-router-dom";
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
-  containerImg: {
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    paddingTop: theme.spacing(12),
-    paddingBottom: theme.spacing(12),
-    [theme.breakpoints.up('md')]: {
-      paddingTop: theme.spacing(30),
-      paddingBottom: theme.spacing(30),
-  },
+  buttonAction: {
+    marginRight: theme.spacing(2),
+    color: "white",
+    backgroundColor: "#4b9fbc",
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      marginRight: theme.spacing(0),
+      marginBottom: theme.spacing(2),
+    }
   },
 
-  btn: {
-    color: "white",
-    backgroundColor: "#4b9fbc"
+  img: {
+    maxWidth: '100%',
+    height: '70%'
   }
+
 }));
 
 const Coaching = () => {
@@ -28,46 +28,54 @@ const Coaching = () => {
   
   return (
 
-    <section  className="section">
+   <section className="section">
 
-     <Container maxWidth="lg" className={classes.containerImg} 
-     style={{ backgroundImage: 'url("./assets/images/coach.png")' }}>
-
-     <Box px={6}>
-
-      <Grid container spacing={6} display="flex" justifyContent="flex-start" alignItems="flex-start">
+  <Container maxWidth="lg">
+    <Box pt={4} pb={4}>
+      <Grid container spacing={6}>
 
         <Grid item xs={12} md={6}>
-   
-       <Typography color="second" variant="h3" component="span"> Coaching </Typography>
+          <Box display="flex" height="80%">
+            <Box my="auto">
+              <Container maxWidth="md">
+                <Typography variant="h4" component="h4" color="second" mt={4}> Coaching </Typography>
 
-        <Typography variant="subtitle1" color="textSecondary" paragraph={true}>
+                <Box mt={8}>
+               <p>
+                C’est une pratique qui instaure une relation d’aide par un toucher psycho-corporel.
+               <br></br>
+               <br></br>
+                Le praticien prend en compte vos ressentis corporels et permet de replacer 
+                votre corps au centre de votre attention.
+                <br></br>
+                <br></br>
+                Cette approche vous invite à entrer en contact avec ce que vous ressentez, 
+                avec votre vécu corporel et intérieur de la situation que vous vivez.
+                </p>
+                </Box>
+                
 
-         C’est une pratique qui instaure une relation d’aide par un toucher psycho-corporel.
+                <Box mt={6}>
+                  <Button variant="contained" color="primary"
+                          className={classes.buttonAction}>
+                      <NavLink to="/Coaching"> 
+                         En savoir plus 
+                     </NavLink>
+                  </Button>
+                </Box>
 
-          Le praticien prend en compte vos ressentis corporels et permet de replacer votre corps au centre de votre attention.
-          Cette approche vous invite à entrer en contact avec ce que vous ressentez, 
-          avec votre vécu corporel et intérieur de la situation que vous vivez..</Typography>
-  
-      <Box mt={3}>
-        <Button variant="contained" color="primary" className={classes.btn}> En savoir plus </Button>
-        
-      </Box>
+              </Container>
+            </Box>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <img src="./assets/images/coach.png" alt="" className={classes.img} />
+        </Grid>
       </Grid>
-
-      <Grid item xs={12} md={6}>
+    </Box>
+  </Container>
       
-      </Grid>
-
-
-      </Grid>
-
-      </Box>
-        
-     </Container>
-
     </section>
- 
   );
 };
 

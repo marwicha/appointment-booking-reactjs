@@ -45,7 +45,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       margin: "0 auto",
     },
 
-    ".container-intro-patrick" :{
+    ".container-intro-patrick": {
       padding: "2rem 0 0 0",
       width: "1164px",
       margin: "0 auto"

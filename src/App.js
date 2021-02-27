@@ -15,6 +15,7 @@ import GlobalCss from "./styles/jss/GlobalCss";
 import Accueil from "./home/Accueil";
 import Formations from "./home/Formations";
 import Massages from "./home/Massages";
+import Patrick from "./home/Patrick";
 
 import Authentification from "./components/Authentification";
 import Inscription from "./components/Inscription";
@@ -77,7 +78,7 @@ const PublicRoute = ({component: Component, ...rest}) => {
               <Route path={["/", "/accueil"]} component={Accueil} exact />
               <Route path="/formations" component={Formations} />
               <Route path="/massages" component={Massages} />
-            { /* <Route path="/Praticien" component={Praticien} /> */}
+              <Route path="/praticien" component={Patrick} />
 
               <PublicRoute path="/authentification"  exact component={Authentification} />
               <PublicRoute path="/inscription"  exact component={Inscription} />

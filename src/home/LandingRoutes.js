@@ -8,7 +8,7 @@ const IKDORoutes = [
 
   {
     path: "/praticien",
-    component: React.lazy(() => import("./Praticien")),
+    component: React.lazy(() => import("./Patrick")),
   },
   
   {

@@ -1,6 +1,6 @@
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import { Box , Card } from '@material-ui/core';
+import { Box , Card, CardHeader, CardContent, Grid, Container} from '@material-ui/core';
 import React , { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
@@ -81,12 +81,36 @@ const UserAccount = () => {
     setValue(newValue);
   };
 
-
     const displayUserAppointments = appointments.map((app, index) =>
-    <div key={index}>
-      <p> {app.prestation} </p>
-      <p> {app.slots.slot_date} </p>
-    </div>
+     
+    <section>
+    <Container maxWidth="md">
+    <Grid container spacing={4} lg={12} sm={12} md={12} xs={12} justify="center" align="center" >
+    
+        <Grid item lg={4} sm={4} md={4} xs={12}>
+        <Card>
+            <CardHeader 
+              style={{
+               backgroundColor: "#dfe5e6",
+               color: "black"
+              }}
+              subheader="Mes rendez vous"
+            />
+
+            <CardContent>
+           
+             <Typography variant="body2" color="textSecondary" component="p">
+            {app.prestation} 
+
+            </Typography>
+           
+            </CardContent>
+
+        </Card>
+        </Grid>
+        </Grid>
+        </Container>
+        </section>
   );
 
   return (
@@ -109,18 +133,11 @@ const UserAccount = () => {
         <Appointment />
       </TabPanel>
       <TabPanel style={{width: '100%'}} value={value} index={1}>
-        <Card>
-      
-            { currentUser && 
-            <div>
-            {displayUserAppointments} 
-            </div>
-            }
-        
-        </Card>
+      sdfgjg
       </TabPanel>
       <TabPanel style={{width: '100%'}} value={value} index={2}>
-        Mes reservations
+        
+        {displayUserAppointments}
       </TabPanel>
       </div>
     </div>

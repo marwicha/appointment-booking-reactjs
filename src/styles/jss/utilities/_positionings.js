@@ -7,6 +7,7 @@ export const positioningStyles = makeStyles(({ palette, ...theme }) => ({
     ".inline-block": { display: "inline-block !important" },
     ".flex": { display: "flex" },
     ".flex-column": { display: "flex", flexDirection: "column" },
+    ".flex-row": { display: "flex", flexDirection: "row" },
     ".flex-wrap": { flexWrap: "wrap" },
     ".justify-start": { justifyContent: "flex-start !important" },
     ".justify-center": { justifyContent: "center" },

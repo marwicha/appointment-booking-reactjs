@@ -28,7 +28,7 @@ const Footer = () => {
             <Box textAlign="center" py={4}>
               <Box display="flex" justifyContent="center" mb={3}>
                 <Avatar className={classes.iconWrapper}>
-                  <RoomIcon color="primary" fontSize="small" />
+                  <RoomIcon color="primary" fontSize="large" />
                 </Avatar>
               </Box>
               <Typography variant="h6" gutterBottom={true}>Adresse</Typography>
@@ -42,7 +42,7 @@ const Footer = () => {
             <Box textAlign="center" py={4}>
               <Box display="flex" justifyContent="center" mb={3}>
                 <Avatar className={classes.iconWrapper}>
-                  <EmailIcon color="primary" fontSize="small" />
+                  <EmailIcon color="primary" fontSize="large" />
                 </Avatar>
               </Box>
               <Typography variant="h6" gutterBottom={true}> Email </Typography>
@@ -56,7 +56,7 @@ const Footer = () => {
             <Box textAlign="center" py={4}>
               <Box display="flex" justifyContent="center" mb={3}>
                 <Avatar className={classes.iconWrapper}>
-                  <PhoneIcon color="primary" fontSize="small" />
+                  <PhoneIcon color="primary" fontSize="large" />
                 </Avatar>
               </Box>
               <Typography variant="h6" gutterBottom={true}> Téléphone </Typography>

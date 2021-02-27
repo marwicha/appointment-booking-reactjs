@@ -1,11 +1,11 @@
 import React from "react";
-import { Grid, Avatar, Button, Container, Box } from "@material-ui/core";
+import { Grid, Avatar, Button, Container, Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
-  container: {
+container: {
   position: "relative",
   textAlign: "center"
   },
@@ -15,82 +15,132 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     backgroundRepeat: 'no-repeat'
   },
 
-  contentCenter: {
+  contentText: {
     position: "absolute",
-    top: "50%",
+    left: "5%",
+    top: "24%",
+    maxWidth: "36em",
+
+     [theme.breakpoints.down('xs')]: {
+        width: "40%",
+        height: "49%",
+        overflow: "hidden",
+        /* white-space: nowrap; */
+        textOverflow: "ellipsis",
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        width: "40%",
+        height: "49%",
+        overflow: "hidden",
+        /* white-space: nowrap; */
+        textOverflow: "ellipsis",
+      },
+
+      [theme.breakpoints.down('md')]: {
+        width: "40%",
+        height: "49%",
+        overflow: "hidden",
+        /* white-space: nowrap; */
+        textOverflow: "ellipsis",
+      },
+
+  },
+
+  containerAvatar: {
+    position: "absolute",
+    top: "0%",
     left: "50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
   },
 
-   contentLeft: {
+  containerName: {
     position: "absolute",
-    top: "50%",
+    top: "15%",
     left: "50%",
+    transform: "translate(-50%, -50%)",
+
+     [theme.breakpoints.down('xs')]: {
+       top: "38%",
+    },
+
+    [theme.breakpoints.down('sm')]: {
+       top: "32%",
+    },
+
+    [theme.breakpoints.down('md')]: {
+       top: "32%",
+    }
   },
 
-  h1: {
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "26px",
-    lineHeight: "21px",
-    alignItems: "center",
-    textAlign: "center",
-    position: "absolute",
-    bottom: "18%",
-    left: "38%",
-    color: "#384C5A"
+   avatar: {
+    width: theme.spacing(14),
+    height: theme.spacing(14),
+    
+    [theme.breakpoints.down('xs')]: {
+      width: theme.spacing(3),
+      height: theme.spacing(3),
+    },
 
+    [theme.breakpoints.down('sm')]: {
+      width: theme.spacing(10),
+      height: theme.spacing(10),
+    }
   },
 
-  h2: {
-    fontFamily: "LEMON MILK Light",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "26px",
-    lineHeight: "21px",
-    alignItems: "center",
-    textAlign: "center",
-    position: "absolute",
-    bottom: "18%",
-    left: "49%",
-    color: "#384C5A"
+  typo: {
+      [theme.breakpoints.down('sm')]: {
+        fontSize: "1.5rem",
   },
+       [theme.breakpoints.down('xs')]: {
+        fontSize: "1rem",
+  }
+},
   
   p: {
     fontFamily: "Lato",
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "16px",
+    fontSize: "1rem",
     lineHeight: "30px",
-    textAlign: "left",
-    padding: "1rem 1rem 1rem 1rem"
-  }
+    textAlign: "left"
+  },
+
+   buttonAction: {
+    position: "absolute",
+    top: "83%",
+    left: "13%",
+    transform: "translate(-50%, -50%)"
+  },
 
 }));
 
 const IntroPatrick = () => {
   const classes = useStyles();
 
-  return (
+  return (<>
+    
     <section className="section">
 
-                <Container maxWidth="lg" className={classes.container}>
+               <Container maxWidth="lg" className={classes.container}>
+               
+               <img src="./assets/images/bgPatrick.png" alt="" className={classes.containerImg } />
 
-                 <img src="./assets/images/bgPatrick.png" alt="" className={classes.containerImg } />
+                <Box textAlign="center" className={classes.containerAvatar}>
 
-               <Box className={classes.contentCenter}>
-                <Avatar src="/assets/images/patrick.png"></Avatar>
-
-                <span>
-                <h1 className={classes.h1}> PATRICK </h1>
-                
-                <h1 className={classes.h2}> CAILLER </h1>
-
-                </span>
+                  <Avatar alt="" src="/assets/images/patrick.png" className={classes.avatar}/>
                 </Box>
-                   <Box className={classes.contentLeft}>
-                  <p className={classes.p}>
+
+                 <Box textAlign="center" className={classes.containerName}>
+                  <Typography  className={classes.typo} variant="h4" component="span"> PATRICK </Typography>
+                  <Typography className={classes.typo} variant="h4" color="textSecondary" component="span" > CAILLIER </Typography> 
+                
+                 </Box>
+                  
+    
+            <Box className={classes.contentText} align="left">
+
+                   <p className={classes.p}>
 
                   En 1997 j’ai vécu de l’intérieur ce qu’on appelle un burn-out, 
                   après un épuisement total physique et intellectuel j’avais du mal à cette époque à assumer mon corps. 
@@ -99,13 +149,15 @@ const IntroPatrick = () => {
                   Pour sortir de ces problèmes j’ai du me faire accompagner par de nombreux thérapeutes..
                                    
                   </p>
+                
+             </Box>
 
-                  <Button> En savoir plus</Button>
-                  </Box>
-                      
-              
-                  </Container>
+               <Button className={classes.buttonAction} size="small"> En savoir plus</Button>
+       
+  </Container>
     </section>
+
+    </>
   );
 };
 

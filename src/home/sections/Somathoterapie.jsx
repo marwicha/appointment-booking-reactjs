@@ -38,7 +38,7 @@ const Somathoterapie = () => {
           <Box display="flex" height="80%">
             <Box my="auto">
               <Container maxWidth="md">
-                <Typography variant="h4" component="h4" color="second" mt={4}> Somathotérapie </Typography>
+                <Typography variant="h5" component="h5" color="second" mt={4}> Somathotérapie </Typography>
 
                 <Box mt={8}>
                <p>
