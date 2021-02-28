@@ -48,7 +48,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       fontWeight: "700",
       fontSize: "16px",
       lineHeight: "19px",
-      color: "#FFFFFF",
+      color: "white",
       margin: "auto",
       textAlign: "left",
       maxWidth: "70%"
@@ -76,7 +76,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 
   firstGrid: {
-    background: "#DFE6E7",
+    background: "#EBF0FF",
     padding: "2rem"
   },
 
@@ -174,12 +174,19 @@ Une attestation vous sera fournie après chaque module effectué.
       <h1 className={classes.h1RQ}> <Icon className={classes.icon}> exclamation-circle  </Icon> Remarques </h1>
 
       <p className={classes.aaaa}>
-
+      
       Les techniques prodiguées sont dans une éthique de bon sens, loin de tout endoctrinement.
 
-      Il s’agit d’un savoir être avec beaucoup de tact, et de communication par un toucher juste et progressif.
-      
-      Aucun lien avec la pratique de la kinésithérapie ni de soins médicaux occidentaux et ne remplace aucunement la visite chez le médecin.
+      <br></br>
+
+       Il s’agit d’un savoir être avec beaucoup de tact, et de communication par un toucher juste et progressif.
+
+       <br></br>
+
+       Aucun lien avec la pratique de la kinésithérapie ni de soins médicaux occidentaux 
+       et ne remplace aucunement la visite chez le médecin.
+
+       <br></br>
       </p>
 
 

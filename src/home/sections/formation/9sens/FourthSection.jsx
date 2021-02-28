@@ -1,22 +1,14 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Container, Box } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  button: {
-    marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 15,
-    fontFamily: theme.typography.fontFamily,
-    backgroundColor: "white",
-    borderRadius: "100px"
-  },
 
-  h5: {
+  title: {
     fontFamily: "LEMON MILK",
-    width: "50%",
+    width: "100%",
     margin: "auto"
   },
 
@@ -24,27 +16,23 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#434343",
     fontFamily: "Lato Medium",
     fontSize: "18px",
-    width: "50%",
+    width: "100%",
     margin: "auto"
   },
 
-  textContainer: {
-    position: "relative",
-    overflow: "hidden",
-    marginTop: "4rem",
-    justifyContent: "center",
-    textAlign: "center",
+  imgShadow: {
+    boxShadow: "0px 7px 10px rgba(0, 0, 0, 0.25)",
+    borderRadius: "0 50px",
+    width: "10em",
+    padding: "12px",
+    background: "#FFFFFF",
   },
 
-  imgShadow: {
-    boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.25)",
-    borderRadius: "30px 0px",
-    width: "150px",
-    //height: "130px",
-    padding: "18px",
-    background: "#FFFFFF",
-    justifyContent: "center",
-    textAlign: "center",
+  img: {
+    maxHeight: "6em",
+    marginLeft: 'auto',
+    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(4)
   }
  
 }));
@@ -112,25 +100,26 @@ const FourthSection = () => {
   ]
   
   const getImgSrc = (id,imgSrc) => {
-    if (id ==="2")
-    return <img src={imgSrc} className="mb--4" alt=""/>
-    else if (id === "4") {
-      return <img src={imgSrc} className="mb--5" alt=""/>
-    }
-    return <img src={imgSrc} alt=""/>
+ 
+  
+    return <img src={imgSrc} alt="" className={classes.img}/>
   }
 
   return (
   
-    <div className="section">
-    <div className="container text-center">
+    <section className="section">
+    
+    <Container maxWidth="lg">
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
+     <Box textAlign="center">
+
+
+    <Grid container justify="space-between" alignItems="center">
+
    
-
     {imgList.map(item => (
-      <Grid key sm={2} md={2} xs={12}>
-
+      <Grid key item md={2} xs={12}>
+  
       <div className={classes.imgShadow}>
         <img src={item.link} alt=""/>
 
@@ -139,25 +128,32 @@ const FourthSection = () => {
         </div>
       </Grid>
     ))}
+</Grid>
+
+<Grid container justify="space-between" alignItems="center">
 
     {imgList2.map(item => (
-      <Grid key sm={3} md={3} xs={12}>
-       <div className={classes.textContainer}>
-
+      <Grid key item md={3} xs={12}>
+    
        {getImgSrc(item.id,item.link)}
 
-        <h5 className={clsx(classes.h5, "absolute mt-6")}> {item.title} </h5>
+       <Box mt={4}>
 
-        <p className={clsx(classes.paragraph, "absolute mt-6")} > {item.text} </p>
+        <h5 className={classes.title}> {item.title} </h5>
 
-       </div>
+        <p className={classes.paragraph} > {item.text} </p>
+
+        </Box>
+       
       </Grid>
     ))}
    
   
   </Grid>
-  </div>
-  </div>
+
+  </Box>
+  </Container>
+  </section>
  
 
   );

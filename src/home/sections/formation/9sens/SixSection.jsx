@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Container, Box } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -176,17 +176,17 @@ const SixSection = () => {
 
   return (
   
-    <div className="section-programme-formation">
-    <div className="container">
+    <section className="section">
+
+    <Container maxWidth="lg">
 
     <h1 className={clsx(classes.h1, "text-center mt-5 mb-12")}> Programme </h1>
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
+    <Grid  container spacing={2} justify="space-between" alignItems="center">
    
     {programList1.map(item => (
-
     
-    <Grid sm={3} md={3} xs={12}>
+    <Grid md={3} xs={12}>
 
     <div className={clsx(classes.imgShadow, "mt-5")} >
 
@@ -207,11 +207,13 @@ const SixSection = () => {
 
     </Grid>
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
+     <Box mt={5}>
+
+    <Grid container spacing={2} justify="space-between" alignItems="center">
    
     {programList2.map(item => (
 
-    <Grid sm={3} md={3} xs={12}>
+    <Grid md={3} xs={12}>
 
     <div className={clsx(classes.imgShadow, "mt-5")} onClick={handleClickOpen} >
 
@@ -252,15 +254,19 @@ const SixSection = () => {
    </Grid>
     ))}
 
+
     </Grid>
 
+    </Box>
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
+
+    <Box mt={5}>
+    <Grid container spacing={2} justify="space-between" alignItems="center">
    
     {programList3.map(item => (
 
     
-    <Grid sm={3} md={3} xs={12}>
+    <Grid md={3} xs={12}>
 
     <div className={clsx(classes.imgShadow, "mt-5")} >
 
@@ -280,10 +286,11 @@ const SixSection = () => {
     ))}
 
     </Grid>
+    </Box>
 
 
-  </div>
-  </div>
+  </Container>
+  </section>
  
 
   );

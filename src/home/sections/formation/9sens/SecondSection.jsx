@@ -44,8 +44,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "500",
     color: "#182731",
     fontSize: "22px",
-    lineHeight: "30px",
-    marginTop: "3rem"
+    lineHeight: "30px"
   },
 
   h2: {
@@ -83,7 +82,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "Lato",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "14px",
+    fontSize: "16px",
     lineHeight: "22px",
     alignItems: "center",
     color: "#182731",
