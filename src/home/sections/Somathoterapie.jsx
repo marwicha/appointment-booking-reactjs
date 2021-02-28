@@ -58,7 +58,7 @@ const Somathoterapie = () => {
                 <Box mt={6}>
                   <Button variant="contained" color="primary"
                           className={classes.buttonAction}>
-                      <NavLink to="/Somatothérapie"> 
+                      <NavLink to="/somatotherapie"> 
                          En savoir plus 
                      </NavLink>
                   </Button>

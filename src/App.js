@@ -16,6 +16,7 @@ import Accueil from "./home/Accueil";
 import Formations from "./home/Formations";
 import Massages from "./home/Massages";
 import Patrick from "./home/Patrick";
+import CoachingSomatho from "./home/CoachingSomatho";
 
 import Authentification from "./components/Authentification";
 import Inscription from "./components/Inscription";
@@ -79,6 +80,7 @@ const PublicRoute = ({component: Component, ...rest}) => {
               <Route path="/formations" component={Formations} />
               <Route path="/massages" component={Massages} />
               <Route path="/praticien" component={Patrick} />
+              <Route path="/somatotherapie" component={CoachingSomatho} />
 
               <PublicRoute path="/authentification"  exact component={Authentification} />
               <PublicRoute path="/inscription"  exact component={Inscription} />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container, Box, Card, CardActionArea, CardMedia } from "@material-ui/core";
+import { Grid, Container, Box, Typography, Card, CardActionArea, CardMedia } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -8,7 +8,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       padding: "0 0 0 0",
       maxWidth: "1400px",
       margin: "0 auto",
-      background: "black"
+      background: "#182731"
   },
 
   p: {
@@ -17,13 +17,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "500",
     fontSize: "2vh",
     lineHeight: "40px",
-
-  },
-
-  box: {
     color: "white",
-    alignItems: "center",
-    textAlign: "center"
+    paddingRight: "15em",
+    paddingLeft: "15em"
+
   }
 }));
 
@@ -34,16 +31,17 @@ const SectionFour = () => {
   return (
     <section className="section">
     
-  <Container maxWidth="lg" className={classes.container} >
+  <Container maxWidth="md" className={classes.container} >
 
-    <Box className={classes.box}>
-      <p  className={classes.p}>
+       <Box py={8} textAlign="center">
 
-        A 60 ans je souhaite continuer à partager mes connaissances et transmettre mon savoir.
-
-      </p> 
+      <Typography variant="h5" component="h5" className={classes.p}>
+      A 60 ans je souhaite continuer à partager mes connaissances et transmettre mon savoir.
+      </Typography>
+      
     </Box>
-     
+
+
   </Container>
 
     </section>

@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     media: {
-     height: '300px'
+     height: '320px'
   },
 }));
 const SectionThree = () => {
@@ -17,7 +17,7 @@ const SectionThree = () => {
     
   <Container maxWidth="lg">
 
-    <Grid container spacing={2}  justify="space-between" alignItems= "center" alignContent ="space-evenly">
+    <Grid container spacing={4}  alignItems= "center" alignContent ="space-evenly">
 
       <Grid item xs={12} md={3}>
         <Card>
@@ -51,7 +51,7 @@ const SectionThree = () => {
        </Grid>
 
 
-        <Grid container spacing={2} justify="space-between" alignItems= "center" alignContent ="space-evenly">
+        <Grid container spacing={4}  alignItems= "center" alignContent ="space-evenly">
       <Grid item xs={12} md={3}>
         <Card>
           <CardActionArea href="#">

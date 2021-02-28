@@ -16,7 +16,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   img: {
-    maxWidth: '100%',
+    maxWidth: '93%',
     height: '70%'
   }
 
@@ -31,16 +31,13 @@ const Coaching = () => {
    <section className="section">
 
   <Container maxWidth="lg">
-    <Box pt={4} pb={4}>
+    
       <Grid container spacing={6}>
 
         <Grid item xs={12} md={6}>
-          <Box display="flex" height="80%">
-            <Box my="auto">
-              <Container maxWidth="md">
+        
                 <Typography variant="h4" component="h4" color="second" mt={4}> Coaching </Typography>
 
-                <Box mt={8}>
                <p>
                 C’est une pratique qui instaure une relation d’aide par un toucher psycho-corporel.
                <br></br>
@@ -52,27 +49,23 @@ const Coaching = () => {
                 Cette approche vous invite à entrer en contact avec ce que vous ressentez, 
                 avec votre vécu corporel et intérieur de la situation que vous vivez.
                 </p>
-                </Box>
-                
 
-                <Box mt={6}>
+                <Box mt={3}>
                   <Button variant="contained" color="primary"
                           className={classes.buttonAction}>
-                      <NavLink to="/Coaching"> 
+                      <NavLink to="/somatotherapie"> 
                          En savoir plus 
                      </NavLink>
                   </Button>
                 </Box>
 
-              </Container>
-            </Box>
-          </Box>
-        </Grid>
+                </Grid>
         <Grid item xs={12} md={6}>
           <img src="./assets/images/coach.png" alt="" className={classes.img} />
         </Grid>
+
       </Grid>
-    </Box>
+
   </Container>
       
     </section>

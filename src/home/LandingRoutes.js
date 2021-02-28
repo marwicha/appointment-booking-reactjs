@@ -2,8 +2,8 @@ import React from "react";
 
 const IKDORoutes = [
   {
-    path: "/Accueil",
-    component: React.lazy(() => import("./Accueil")),
+    path: "/accueil",
+    component: React.lazy(() => import("./Aaccueil")),
   },
 
   {
@@ -24,11 +24,6 @@ const IKDORoutes = [
   {
     path: "/somatotherapie",
     component: React.lazy(() => import("./Somathoterapie")),
-  },
-
-   {
-    path: "/coaching",
-    component: React.lazy(() => import("./Coaching")),
   },
 
   {
