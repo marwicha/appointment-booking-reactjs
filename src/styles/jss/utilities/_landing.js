@@ -39,6 +39,17 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       boxSizing: "border-box"
     },
 
+    
+ ".zoom": {
+  padding: "50px",
+  transition: "transform .2s",
+  margin: "0 auto"
+},
+
+".zoom:hover": {
+   transform: "scale(1.5)"
+},
+
     ".container-final-formation": {
       padding: "2rem 0 0 0",
       maxWidth: "1700px",

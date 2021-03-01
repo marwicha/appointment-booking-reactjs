@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container, Box, Card, CardActionArea, CardMedia, Typography } from "@material-ui/core";
+import { Card, Grid, Container, Box, Typography, CardMedia} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -7,18 +7,18 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
     media: {
      height: 300,
-     width: 400,
+     width: 370,
      border: "6px solid #182731",
      boxSizing: "border-box"
   },
 
      media2: {
-       width: "100%",
+       width: 228,
+       height: 364,
        border: "6px solid #182731",
-       height: "100%",
        boxSizing: "border-box",
-       marginLeft: "4em",
-       marginTop:"2em"
+       marginLeft: "6em",
+       marginTop:"0"
   },
 
 
@@ -31,7 +31,7 @@ const SectionTwo = () => {
   return (
     <section className="section">
 
-  <Container maxWidth="lg" className="container-formations" >
+  <Container maxWidth="lg">
 
      <Box mb={8} textAlign="center">
      
@@ -39,65 +39,76 @@ const SectionTwo = () => {
 
       </Box>
 
-    <Grid  container spacing={2} justify="space-between" alignItems= "center" alignContent ="space-evenly">
+        <Box mb={8} textAlign="center">
+    <Grid  container spacing={2} justify="space-between" alignItems= "center">
 
       <Grid item xs={12} md={3}>
-       
-       <img className={classes.media} src="/assets/images/patrick/diplomes/bien-etre.png" alt="" />
-       
+      
+       <CardMedia className={clsx(classes.media, "zoom")} image="/assets/images/patrick/diplomes/bien-etre.png" alt="" />
+    
       </Grid>
 
       <Grid item xs={12} md={3}>
        
-            <img className={classes.media} src="/assets/images/patrick/diplomes/soin-visage.png" alt="" />
+            <CardMedia className={clsx(classes.media, "zoom")} image="/assets/images/patrick/diplomes/soin-visage.png" alt="" />
       
       </Grid>
       <Grid item xs={12} md={3}>
       
-            <img className={classes.media} src="/assets/images/patrick/diplomes/shiatsu.png" alt=""/>
-      
-      </Grid>
- 
-    </Grid>
-
-
-      <Grid container spacing={2} justify="space-between" alignItems= "center" alignContent ="space-evenly">
-
-      <Grid item xs={12} md={3}>
-       
-       <img className={classes.media} src="/assets/images/patrick/diplomes/anti-stress.png" alt="" />
-       
-      </Grid>
-
-      <Grid item xs={12} md={3}>
-       
-            <img className={classes.media2}  justify-items="center" src="/assets/images/patrick/diplomes/psycho-travail.png" alt="" />
-      
-      </Grid>
-      <Grid item xs={12} md={3}>
-      
-            <img className={classes.media} src="/assets/images/patrick/diplomes/reflexologie.png" alt=""/>
+            <CardMedia className={clsx(classes.media, "zoom")} image="/assets/images/patrick/diplomes/shiatsu.png" alt=""/>
       
       </Grid>
  
     </Grid>
 
+</Box>
 
-       <Grid container spacing={2} justify="space-between" alignItems= "center" alignContent ="space-evenly">
+
+<Box mb={8} textAlign="center">
+
+
+      <Grid container spacing={2} justify="space-between" alignItems= "center">
 
       <Grid item xs={12} md={3}>
        
-       <img className={classes.media} src="/assets/images/patrick/diplomes/soins-corps.png" alt="" />
+       <CardMedia className={clsx(classes.media, "zoom")} image="/assets/images/patrick/diplomes/anti-stress.png" alt="" />
        
       </Grid>
 
       <Grid item xs={12} md={3}>
+       
+            <CardMedia className={clsx(classes.media2, "zoom")}  justify-items="center" image="/assets/images/patrick/diplomes/psycho-travail.png" alt="" />
       
-            <img className={classes.media} src="/assets/images/patrick/diplomes/sono.png" alt=""/>
+      </Grid>
+      <Grid item xs={12} md={3}>
+      
+            <CardMedia className={clsx(classes.media, "zoom")} image="/assets/images/patrick/diplomes/reflexologie.png" alt=""/>
       
       </Grid>
  
     </Grid>
+
+    </Box>
+
+
+    <Box mb={8} textAlign="center">
+       <Grid container spacing={2} justify="space-between" alignItems= "center">
+
+      <Grid item xs={12} md={3}>
+       
+       <CardMedia className={clsx(classes.media, "zoom")} image="/assets/images/patrick/diplomes/soins-corps.png" alt="" />
+       
+      </Grid>
+
+      <Grid item xs={12} md={3}>
+      
+            <CardMedia className={clsx(classes.media, "zoom")} image="/assets/images/patrick/diplomes/sono.png" alt=""/>
+      
+      </Grid>
+ 
+    </Grid>
+    </Box>
+
 
   </Container>
     </section>
