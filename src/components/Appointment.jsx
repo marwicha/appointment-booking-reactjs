@@ -9,7 +9,8 @@ import {
   Grid, Typography, Box, Chip, InputLabel,CardHeader
 
 } from "@material-ui/core";
-import SnackBar from '@material-ui/core/SnackBar'
+
+import Snackbar from '@material-ui/core/Snackbar';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { makeStyles } from '@material-ui/core/styles';
 import AppointmentService from '../services/appointment.service'
@@ -407,7 +408,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
             </DialogActions>
           </Dialog>
 
-           <SnackBar	
+           <Snackbar	
             open={confirmationSnackbarOpen}	
             message={confirmationSnackbarMessage || ''}	
             autoHideDuration={10000}	
