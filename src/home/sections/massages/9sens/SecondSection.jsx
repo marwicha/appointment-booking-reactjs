@@ -15,16 +15,14 @@ const SecondSection = () => {
   
   return (
 
-    <section className="section">
-
+    <div className="section-intro-formations">
     
-
-    <Container className="section-intro-formations">
+    <div className="container-formation text-center">
     
     <img src='/assets/images/massages/9sens.png' alt="" />
-    </Container>
+    </div>
 
-    </section>
+    </div>
  
 
   );

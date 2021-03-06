@@ -3,6 +3,7 @@ import { scrollTo } from "utils";
 import SecondSection from "./SecondSection";
 import ThirdSection from './ThirdSection';
 import FourthSection from './FourthSection';
+import FiveSection from './FiveSection';
 
 const IndexRouteMassage9sens = () => {
 
@@ -13,6 +14,9 @@ const IndexRouteMassage9sens = () => {
   return (
     <div>
       <SecondSection />
+      <ThirdSection />
+      <FourthSection />
+      <FiveSection />
      
     </div>
   );
