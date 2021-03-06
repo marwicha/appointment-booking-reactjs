@@ -79,7 +79,7 @@ const ThirdSection = () => {
       <Grid sm={5} md={5} xs={12}>
         <div className="pt-8">
 
-        <h1 className={clsx(classes.h1)}> Formation </h1>
+        <h1 className={clsx(classes.h1)}> Prestation </h1>
         <h2 className={clsx(classes.h2)}> Massage Des 9 SENS </h2>
       </div>
 

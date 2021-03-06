@@ -29,42 +29,38 @@ const FiveSection = () => {
           <CardContent>
             <Box pt={2} pb={1} px={1} align="left">
               <Typography variant="body1" component="p" gutterBottom={true}>
-              1  LE BON 
-              DÉVELOPPEMENT DU BÉBÉ
+              1 Redonne estime et confiance en soi
               </Typography>
 
               <br></br>
 
               <Typography variant="body1" component="p">
-              2  PSYCHO-CORPORELS
+              2  La conscience corporelle
               </Typography>
               <br></br>
 
               <Typography variant="body1" component="p" color="primary">
-              3  L’ACCOMPAGNEMENT 
-              DE FIN DE VIE
+              3  Le rapport avec soi et autrui
               </Typography>
               <br></br>
 
               <Typography variant="body1" component="p">
-              4  LA RELATION AVEC SOI
-              ET LES AUTRES
+              4  L'épuisement professionnel
               </Typography>
               <br></br>
 
               <Typography variant="body1" component="p">
-              5  L’ÉPUISEMENT 
-              PROFESSIONNEL 
+              5  Le handicap et la maladie
               </Typography>
               <br></br>
 
               <Typography variant="body1" component="p">
-              6  STRESS QUOTIDIEN
+              6   L'accompagnement de fin de vie
               </Typography>
               <br></br>
 
               <Typography variant="body1" component="p">
-              7  LE BON dÉVELOPPEMENT DU BÉBÉ
+              7  Libère la peur du contact
               </Typography>
               <br></br>
 
