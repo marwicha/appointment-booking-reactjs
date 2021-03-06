@@ -31,9 +31,6 @@ function Copyright() {
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
-"containerSection": {
-   //backgroundColor: "#f5f5f8"
-},
 
  title: {
   fontFamily: "LEMON MILK"
@@ -134,7 +131,7 @@ const Authentification = (props) => {
     <div className="landing">
     <TopBar />
     <div className="section-intro-formations">
-    <Container component="main" maxWidth="xs" className={classes.containerSection}>
+    <Container component="main" maxWidth="xs" >
       <CssBaseline />
       <Card className={classes.paper}>
         <Avatar  className={clsx(classes.avatar, "md-48")}>

@@ -4,7 +4,7 @@ import SecondSection from "./SecondSection";
 import ThirdSection from './ThirdSection';
 import FourthSection from './FourthSection';
 import FithSection from './FithSection';
-import SixSection from './SixSection';
+import FinalSection from "./FinalSection";
 
 const IndexRouteMeditation = () => {
 
@@ -12,14 +12,13 @@ const IndexRouteMeditation = () => {
     scrollTo("root");
     });
 
-
   return (
     <div>
       <SecondSection />
       <ThirdSection />
       <FourthSection />
       <FithSection />
-      <SixSection />
+      <FinalSection />
     </div>
   );
 };

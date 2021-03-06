@@ -25,7 +25,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     borderRadius: "0 50px",
     width: "10em",
     padding: "12px",
-    background: "#FFFFFF",
+    background: "#FFFFFF"
   },
 
   img: {
@@ -137,7 +137,7 @@ const FourthSection = () => {
     
        {getImgSrc(item.id,item.link)}
 
-       <Box mt={4}>
+        <Box mt={4}>
 
         <h5 className={classes.title}> {item.title} </h5>
 

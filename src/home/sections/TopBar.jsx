@@ -76,25 +76,6 @@ const TopBar = (props) => {
      <li>
        <NavLink to="/accueil">Accueil</NavLink>
      </li>
-     <li>
-       <NavLink to="/massages">
-       Massages
-       </NavLink>
-     </li>
-
-     <li>
-       <NavLink to="/formations">
-         Formations
-       </NavLink>
-     </li>
-
-
-<li>
-<NavLink to="/somatotherapie">
-Somatothérapie et coaching
-</NavLink>
-
-</li>
 
 
 <li>
@@ -103,6 +84,29 @@ Praticien
 </NavLink>
 
 </li>
+
+
+<li>
+<NavLink to="/formations">
+  Formations
+</NavLink>
+</li>
+
+
+<li>
+<NavLink to="/somatotherapie">
+Somatothérapie et coaching
+</NavLink>
+
+</li>
+     <li>
+       <NavLink to="/massages">
+       Massages
+       </NavLink>
+     </li>
+
+
+
     
    </ul>
         <div className="m-auto" />

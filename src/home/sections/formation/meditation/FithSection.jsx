@@ -44,11 +44,6 @@ const FithSection = () => {
       <h4 className={classes.title}> Bon Moyen </h4>
 
       <p className={clsx(classes.p, "mt-6")}>
-      Vous apprendrez les bases de différentes techniques de massage telles que le shiatsu, le massage californien, suédois et le massage aux pierres chaudes. 
-
-      </p> 
-
-      <p className={clsx(classes.p, "mt-6")}>
       De découvrir cette méthode avant de vous engager dans cette formation est de profiter d'un soin au sein
       de notre institut.</p>
 

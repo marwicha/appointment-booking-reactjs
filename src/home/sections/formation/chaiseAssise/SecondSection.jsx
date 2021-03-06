@@ -83,7 +83,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "Lato",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "14px",
+    fontSize: "16px",
     lineHeight: "22px",
     alignItems: "center",
     color: "#182731",

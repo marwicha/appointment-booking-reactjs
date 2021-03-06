@@ -70,8 +70,20 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     background: "#FFFFFF",
     padding: "2rem",
     width: "326px",
-    height: "150px",
+    height: "10em",
     borderRadius: "0px 50px"
+  },
+
+  imgShadowLast: {
+    boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
+    background: "#FFFFFF",
+    padding: "2rem",
+    height: "10em",
+    borderRadius: "0px 50px",
+
+    "@media screen and (max-width: 767px)": {
+      height: "16em",
+    }
   }
 }));
 
@@ -160,19 +172,6 @@ const SixSection = () => {
 
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
-
-  const theme = useTheme();
-
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
   
@@ -215,7 +214,7 @@ const SixSection = () => {
 
     <Grid md={3} xs={12}>
 
-    <div className={clsx(classes.imgShadow, "mt-5")} onClick={handleClickOpen} >
+    <div className={clsx(classes.imgShadow, "mt-5")} >
 
     <h1 className={classes.number}> {item.id} </h1>
 
@@ -226,28 +225,6 @@ const SixSection = () => {
    {item.title2}
    
    </h4> 
-
-   <Dialog
-        fullScreen={fullScreen}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <DialogTitle id="responsive-dialog-title">{"Use Google's location service?"}
-
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-        </DialogActions>
-      </Dialog>
 
    </div>
      
@@ -286,6 +263,30 @@ const SixSection = () => {
     ))}
 
     </Grid>
+    </Box>
+
+    <Box mt={5}>
+
+    <Grid container className={clsx(classes.imgShadowLast, "mt-5")} lg={12} md={12} xs={12}>
+
+    <Grid item md={4} xs={12}>
+    <h1 className={classes.number}> 10 </h1>
+
+   <h1 className={classes.title}>  9 SENS (rappel) </h1>
+
+ 
+   </Grid>
+   <Grid item md={8} xs={12}>
+   <h4 className={classes.title2}>
+   
+    Dans le module 9 nous terminerons par des mouvement de californien fluide et 
+    lent en massant délicatement la tête et le visage. Nous verrons également des mouvements Indiens 
+    sur ces mêmes partis du corps.
+   </h4> 
+     
+   </Grid>
+   </Grid>
+
     </Box>
 
 

@@ -1,22 +1,15 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Container, Box } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  button: {
-    marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 15,
-    fontFamily: theme.typography.fontFamily,
-    backgroundColor: "white",
-    borderRadius: "100px"
-  },
+ 
 
-  h5: {
+  title: {
     fontFamily: "LEMON MILK",
-    width: "70%",
+    width: "100%",
     margin: "auto"
   },
 
@@ -24,17 +17,25 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#434343",
     fontFamily: "Lato Medium",
     fontSize: "18px",
-    width: "70%",
+    width: "100%",
     margin: "auto"
   },
 
-  textContainer: {
-    position: "relative",
-    overflow: "hidden",
-    marginTop: "4rem",
-    justifyContent: "center",
-    textAlign: "center",
+  imgShadow: {
+    boxShadow: "0px 7px 10px rgba(0, 0, 0, 0.25)",
+    borderRadius: "0 50px",
+    width: "10em",
+    padding: "12px",
+    background: "#FFFFFF"
+  },
+
+  img: {
+    maxHeight: "6em",
+    marginLeft: 'auto',
+    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(4)
   }
+ 
 }));
 
 const FourthSection = () => {
@@ -43,59 +44,63 @@ const FourthSection = () => {
 
   const imgList = [ 
     {
-     title: "La pleine consciense",
-     link: "/assets/images/formations/1.png",
-     description:"La pleine conscience est une approche méditative qui consiste à vivre pleinement l’instant présent"
+     title: "Plus énergie",
+     link: "/assets/images/formations/energie.png",
+     description:"Un employé détendu est plus énergique, plus concentré. Il offre une meilleure performance. Il gagne en motivation, en créativité, bref en efficacité et en savoir être."
     },
 
     {
-      title: "L'intelligence émotionnelle",
-      link: "/assets/images/formations/2.png",
-      description:"Une meilleure intelligence émotionnelle (L’impulsivité, les accès de colère)"
+      title: "Un climat social",
+      link: "/assets/images/formations/environement.png",
+      description:"Le massage-bien-être renforce également le sentiment d’appartenance à l’organisation et améliore le climat social."
     },
 
     {
-      title: "Les troubles psychologiques",
-      link: "/assets/images/formations/3.png",
-      description:"Réduit le stress, l'anxiété chronique, la dépression, et l’insomnie"
-    },
-
-    {
-      title: "les douleurs chroniques",
-      link: "/assets/images/formations/4.png",
-      description:"Les troubles de l'alimentation (La boulimie, l’anorexie) et Prévention santé au travail (éviter le surmenage et burnout)"
+      title: "Le travail",
+      link: "/assets/images/formations/work.png",
+      description:"Il est un moyen efficace de renforcer votre image auprès de vos collaborateurs, clients et partenaires."
     }
   ]
 
+  const getImgSrc = (id,imgSrc) => {
+ 
+  
+    return <img src={imgSrc} alt="" className={classes.img}/>
+  }
+
   return (
   
-    <div className="section">
-    <div className="container text-center">
+    <section className="section">
+    
+    <Container maxWidth="lg">
 
-    <Grid sm={12} md={12} xs={12} lg={12} container justify="center" alignItems="center">
-   
+     <Box textAlign="center">
 
-    {imgList.map(item => (
-      <Grid key lg ={3} sm={2} md={2} xs={12}>
+     <Grid container justify="space-between" alignItems="center">
 
-      <div> <img src={item.link} alt="" /></div>
-        
-<div> 
-
-<h6 className={clsx(classes.h5, "absolute mt-6")}> {item.title} </h6></div>
-       
-
-        <div><p className={clsx(classes.paragraph, "absolute mt-6")} > {item.description} </p></div>
-
-      </Grid>
-    ))}
-   
-  
-  </Grid>
-  </div>
-  </div>
+     {imgList.map(item => (
+       <Grid key item md={3} xs={12}>
+     
+        {getImgSrc(item.id,item.link)}
  
+         <Box mt={2}>
+ 
+         <h5 className={classes.title}> {item.title} </h5>
+ 
+         <p className={classes.paragraph} > {item.description} </p>
+ 
+         </Box>
+        
+       </Grid>
+     ))}
+    
+   
+   </Grid>
 
+  </Box>
+  </Container>
+  </section>
+ 
   );
 };
 

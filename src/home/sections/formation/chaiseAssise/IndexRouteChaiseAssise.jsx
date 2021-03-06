@@ -5,6 +5,7 @@ import ThirdSection from './ThirdSection';
 import FourthSection from './FourthSection';
 import FithSection from './FithSection';
 import SixSection from './SixSection';
+import FinalSection from "./FinalSection";
 
 const IndexRouteChaiseAssise = () => {
 
@@ -20,6 +21,7 @@ const IndexRouteChaiseAssise = () => {
       <FourthSection />
       <FithSection />
       <SixSection />
+      <FinalSection />
     </div>
   );
 };

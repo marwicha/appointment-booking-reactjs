@@ -48,10 +48,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
       fontWeight: "700",
       fontSize: "16px",
       lineHeight: "19px",
-      color: "white",
-      margin: "auto",
       textAlign: "left",
-      maxWidth: "70%"
+      maxWidth: "100%",
+      marginBottom: "2em",
+      color: "#FFFFFF"
      },
 
   h1: {
@@ -77,12 +77,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   firstGrid: {
     background: "#EBF0FF",
-    padding: "2rem"
+    padding: "3rem",
+    paddingTop: "34px"
   },
 
   thirdGrid: {
     background: '#FF6150',
-    padding: "2rem"
+    padding: "4rem",
+    height: "35em"
   },
 
   icon: {
@@ -100,9 +102,6 @@ const FinalSection = () => {
     <div className="section">
     <div className="container-final-formation text-center p-12">
   
-      <div container>
-
-     
       <Grid lg={12} xl={12} sm={12} md={12} xs={12} container spacing={0} alignItems="center" justify="center" >
 
       <Grid lg={4} xl={4} sm={4} md={4} xs={12} >
@@ -173,35 +172,30 @@ Une attestation vous sera fournie après chaque module effectué.
 
       <h1 className={classes.h1RQ}> <Icon className={classes.icon}> exclamation-circle  </Icon> Remarques </h1>
 
-      <p className={classes.aaaa}>
-      
+      <span className={classes.aaaa}>
+      <br></br>
       Les techniques prodiguées sont dans une éthique de bon sens, loin de tout endoctrinement.
 
       <br></br>
+      <br></br>
+      Il s’agit d’un savoir être avec beaucoup de tact, et de communication par un toucher juste et progressif.
+      
+      <br></br>
+      <br></br>
+      <br></br>
+      Aucun lien avec la pratique de la kinésithérapie ni de soins médicaux occidentaux 
 
-       Il s’agit d’un savoir être avec beaucoup de tact, et de communication par un toucher juste et progressif.
-
-       <br></br>
-
-       Aucun lien avec la pratique de la kinésithérapie ni de soins médicaux occidentaux 
-       et ne remplace aucunement la visite chez le médecin.
-
-       <br></br>
-      </p>
-
+      et ne remplace aucunement la visite chez le médecin.
+      </span>
 
       </div>
       </Grid>
-
-
 
       </Grid>
   
   </div>
   </div>
-  </div>
  
-
   );
 };
 
