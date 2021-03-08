@@ -56,11 +56,11 @@ const FirstSection = () => {
     </Box>
     </Container>
   
-  <Container maxWidth="md" className="container-formations">
+  <Container maxWidth="lg" className="container-formations">
     <Box pt={8} pb={10} >
 
       <Grid container spacing={2} textAlign="center" justify="center" alignItems="center">
-        <Grid item xs={12} md={6} >
+        <Grid item xs={12} md={4} >
             <img alt="" className={classes.media} src="/assets/images/coaching/coach.png" />
         </Grid>
 
@@ -75,8 +75,10 @@ const FirstSection = () => {
                Le coaching individuel vous apporte une véritable réponse à vos questions d’ordre professionnels 
                ou privé pour révéler le meilleur de vous-même. 
 
+               <br></br>
+
                Ceci pour vous permettre également de fixer de nouveaux objectifs, une direction à suivre. 
-               Et, trouver ou retrouver de l’énergie et la motivation pour révéler votre potentiel !.</p>
+               Et de trouver ou retrouver de l’énergie et la motivation pour révéler votre potentiel.</p>
 
             </Box>
           </Box>

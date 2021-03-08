@@ -45,7 +45,7 @@ const SecondSection = () => {
   return (
     <section className="section">
 
-       <Container maxWidth="md">
+       <Container maxWidth="lg">
        <Box textAlign="left">
 
     <h3 className={classes.title}>
@@ -57,7 +57,7 @@ const SecondSection = () => {
     </Box>
     </Container>
   
-  <Container maxWidth="md" className="container-formations">
+  <Container maxWidth="lg" className="container-formations">
     <Box pt={8} pb={10}>
 
       <Grid container spacing={5} justify="center" alignItems="center">

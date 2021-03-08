@@ -1,19 +1,19 @@
 import React from "react";
-import { Grid, Typography, Box, Container } from "@material-ui/core";
+import { Grid, Box, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   media: {
     height: '320px',
-    width: "80%"
+    width: "70%"
   },
 
   p: {
       fontFamily: "Lato",
       fontStyle: "normal",
       fontWeight: "normal",
-      fontSize: "16px",
+      fontSize: "18px",
       lineHeight: "22px",
       textAlign: "justify",
   },
@@ -51,11 +51,11 @@ const FirstSection = () => {
     </Box>
     </Container>
   
-  <Container maxWidth="md" className="container-formations">
+  <Container maxWidth="lg" className="container-formations">
     <Box pt={8} pb={10}>
 
       <Grid container spacing={2} textAlign="center" justify="center" alignItems="center">
-        <Grid item xs={12} md={6} >
+        <Grid item xs={12} md={4} >
             <img alt="" className={classes.media} src="/assets/images/coaching/somato.png" />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -67,14 +67,21 @@ const FirstSection = () => {
 
 
               <p className={classes.p}>
-               Le praticien prend en compte vos ressentis corporels et permet de replacer votre corps au centre de votre attention.
-                Cette approche vous invite à entrer en contact avec ce que vous ressentez, avec votre vécu corporel et intérieur de la situation que vous vivez. 
+               Le praticien prend en compte vos ressentis corporels et permet de replacer votre corps
+                au centre de votre attention.
+                <br></br>
+                Cette approche vous invite à entrer en contact avec ce que vous ressentez, 
+                avec votre vécu corporel et intérieur de la situation que vous vivez. 
 
-Accompagné par le praticien, vous découvrez comment cette situation vous affecte, comment elle vous touche intérieurement. 
+                <br></br>
+Accompagné par le praticien, vous découvrez comment cette situation vous affecte, comment elle vous touche intérieurement.
+<br></br> 
 La traversée de ce ressenti modifie la perception que vous avez de vous-même,
  des autres et de la situation et vous découvrez de nouvelles possibilités d’être, de vous positionner et de réagir. 
+ <br></br>
 
 Cette médiation corporelle n’est pas un traitement mais un accompagnement pour votre mieux être. 
+<br></br>
 Ces séances permettent de dénouer des blocages émotionnels, sources de souffrances d’ordre psychosomatique.</p>
             </Box>
           </Box>

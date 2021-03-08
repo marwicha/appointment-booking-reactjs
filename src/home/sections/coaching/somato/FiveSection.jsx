@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   media: {
-    width: "80%",
+    width: "85%",
     height: "385px"
 
   },
@@ -59,13 +59,12 @@ const FiveSection = () => {
   
   return (
     <section className="section">
-
   
-  <Container maxWidth="md" className="container-formations">
+  <Container maxWidth="lg" className="container-formations">
     <Box pt={8} pb={10}>
 
-      <Grid container spacing={2} textAlign="center" justify="center" alignItems="center">
-        <Grid item xs={12} md={6} >
+      <Grid container spacing={0} textAlign="center" justify="center" alignItems="center">
+        <Grid item xs={12} md={4} >
             <img alt="" className={classes.media} src="/assets/images/coaching/somato3.png" />
         </Grid>
         <Grid item xs={12} md={6}>

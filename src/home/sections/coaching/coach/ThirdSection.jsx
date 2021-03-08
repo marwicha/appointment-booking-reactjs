@@ -50,12 +50,12 @@ const ThirdSection = () => {
 
     <section className="section">
 
-    <Container maxWidth="md" className="container-icon-formation text-center">
+    <Container maxWidth="lg" className="container-icon-formation text-center">
   
     <Grid container spacing={4}>
    
 
-      <Grid sm={6} md={6} xs={12}>
+      <Grid md={5} xs={12}>
         <div className="pt-8">
 
         <h4 className={clsx(classes.h2)}> Comment se passent les séances? </h4>
@@ -64,14 +64,15 @@ const ThirdSection = () => {
       </Grid>
 
 
-      <Grid sm={6} md={6} xs={12}>
+      <Grid md={7} xs={12}>
       
       <div className={classes.verticalLine}>
 
       <p className={classes.p}>
     
-     Je vous propose un accompagnement professionnel et personnalisé vous permettant d’atteindre vos objectifs
+     Je vous propose un <strong>accompagnement professionnel et personnalisé</strong> vous permettant d’atteindre vos objectifs
       et de révéler votre potentiel. 
+      
      
 <br></br>
 Cette aide peut se faire également dans le but de surmonter ou de résoudre une difficulté. 

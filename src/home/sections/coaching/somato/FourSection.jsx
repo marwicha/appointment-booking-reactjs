@@ -1,32 +1,24 @@
 import React from "react";
-import { Grid, Container, Box, Card, Typography, Stepper, Step, StepLabel, CardActionArea, CardMedia, Button } from "@material-ui/core";
-import clsx from "clsx";
-
+import { Grid, Container, Box, Card } from "@material-ui/core";
+import LooksTwoIcon from '@material-ui/icons/LooksTwo';
+import LooksOneIcon from '@material-ui/icons/LooksOne';
+import Looks3Icon from '@material-ui/icons/Looks3';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
- 
-   stepper: {
-    [theme.breakpoints.down('sm')]: {
-      paddingTop: theme.spacing(4),
-      paddingBottom: 0,
-      flexDirection: 'column',
-      alignItems: 'start'
-    }
+
+  icon: {
+    marginBottom: theme.spacing(1),
   },
-  step: {
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: theme.spacing(2)
-    }
-  },
-  container: {
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(2)
-    }
-  },
-  media: {
-    height: '256px',
-  }
+
+  p: {
+    fontFamily: "Lato",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "18px",
+    lineHeight: "22px",
+    textAlign: "justify",
+ }
 
 }));
 
@@ -37,56 +29,83 @@ const FourSection = () => {
   return (
 
     <section className="section">
+  <Container maxWidth="lg">
+    <Box py={6}>
+      <Grid container spacing={4}>
+        <Grid item xs={12} md={4}>
 
-    <Box pt={8} pb={10}>
-    <Container maxWidth="lg">
-      
-       <Box textAlign="center" >
-
-    <h3 className="font-bold text-28 text-center text-second mt-5 mb-10">
-      Programme
-    </h3>
-    </Box>
-      <Box bgcolor="background.paper" className={classes.container}>
-        <Stepper activeStep={0} className={classes.stepper}>
-          <Step key="Move Data" className={classes.step}>
-            <StepLabel></StepLabel>
-          </Step>
-          <Step key="Ongoing qsjdjh" className={classes.step}>
-            <StepLabel></StepLabel>
-          </Step>
-          <Step key="Ongoing Support">
-            <StepLabel></StepLabel>
-          </Step>
-        </Stepper>
-        <Box p={4}>
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
-              <Box display="flex" height="100%">
-                <Box my="auto">
-                 
-                  <Typography variant="body1" color="textSecondary" paragraph={true}>
-                La première phase est verbale,  
-                en début de séance vous faites le point sur le vécu et les tensions corporelles depuis la séance précédente..
-                </Typography>
-                  <Button variant="contained" color="primary" className={classes.primaryAction}> Suivant!</Button>
-                </Box>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Card>
-                <CardActionArea href="#">
-                  <CardMedia className={classes.media} image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80" />
-                </CardActionArea>
-              </Card>
-            </Grid>
-          </Grid>
+        <Box textAlign="center">
+          <LooksOneIcon color="primary" fontSize="large" className={classes.icon} />
         </Box>
-      </Box>
-    </Container>
-  </Box>
 
-    </section>
+        <Box textAlign="left">
+          <p className={classes.p}>
+          
+          La première séance est <strong>verbale</strong>.
+          <br></br>
+          <br></br>
+        
+          en début de séance vous faites le point sur le vécu et les tensions corporelles.
+
+          </p>
+
+          </Box>
+
+        </Grid>
+        <Grid item xs={12} md={4}>
+        <Box textAlign="center">
+          <LooksTwoIcon color="primary" fontSize="large" className={classes.icon} />
+          </Box>
+
+          <Box textAlign="left">
+          <p className={classes.p}>
+          
+           La deuxieme est concentrée sur le <strong>soin</strong>.
+           <br></br>
+           <br></br>
+            Cette phase intègre l’utilisation de différentes techniques de toucher-massages® 
+            en fonction de chaque personne, pouvant utiliser le massage californien, shiatsu, énergétique,
+            relaxation, réflexologie plantaire mais aussi fait appel aux sons et aux vibrations 
+            avec la sonothérapie (Bols tibétains et autres instruments musicaux). 
+
+            <br></br>
+            <br></br>
+            Ces techniques de relaxation ancestrale dénouent les tensions et rétablissent le bon fonctionnement 
+            des organes internes, en rééquilibrant vos énergies.
+            <br></br>
+            <br></br>
+            La conséquence de ce soin engendre un autre ressenti de vous-même.
+            </p>
+            </Box>
+        </Grid>
+
+
+        <Grid item xs={12} md={4}>
+
+           <Box textAlign="center">
+          <Looks3Icon color="primary" fontSize="large" className={classes.icon} />
+          </Box>
+
+          <Box textAlign="left">
+          <p className={classes.p}>
+          La troisième phase <strong> dite d’intégration</strong>: 
+          <br></br>
+          <br></br>
+          c’est la partie la plus importante réalisée entre vous et l’accompagnateur. 
+          Tout en étant aidé vous exprimez vos ressentis et vos pensées.
+
+          En clarifiant celles-ci grâce à la relaxation vous pourrez envisager de dépasser vos difficultés. 
+          <br></br>
+          <br></br>
+          Vous pourrez ainsi vous baser sur chaque séance pour induire le changement en vous 
+          et à trouver vos propres solutions.
+          </p>
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
+  </Container>
+</section>
  
 
   );
