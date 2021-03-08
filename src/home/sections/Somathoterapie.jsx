@@ -18,7 +18,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   img: {
-    maxWidth: '100%'
+    maxWidth: '65%'
   }
 
 }));
