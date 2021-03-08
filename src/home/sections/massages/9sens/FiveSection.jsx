@@ -25,7 +25,7 @@ const FiveSection = () => {
         <Grid container spacing={6}>
         <Grid item xs={12} md={6}>
         <Card>
-          <CardHeader title="Effets psychologiques" className={classes.cardHeader}></CardHeader>
+          <CardHeader subheader="Effets psychologiques" className={classes.cardHeader}></CardHeader>
           <CardContent>
             <Box pt={2} pb={1} px={1} align="left">
               <Typography variant="body1" component="p" gutterBottom={true}>
@@ -71,7 +71,7 @@ const FiveSection = () => {
       </Grid>
           <Grid item xs={12} md={6}>
             <Card>
-              <CardHeader title="Effets physiologiques" className={classes.cardHeader}></CardHeader>
+              <CardHeader subheader="Effets physiologiques" className={classes.cardHeader}></CardHeader>
               <CardContent>
                 <Box pt={2} pb={1} px={1} align="left">
                   <Typography variant="body1" component="p" gutterBottom={true}>
