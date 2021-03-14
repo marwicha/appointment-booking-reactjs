@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import AuthService from "../services/auth.service";
-import AppointmentService from "../services/appointment.service";
 import { Typography,Box, Grid, Button, Card, Avatar, CssBaseline, TextField, Link}
  from "@material-ui/core";
 import clsx from "clsx";

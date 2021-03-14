@@ -1,13 +1,14 @@
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import { Box , Card, CardHeader, CardContent, Grid, Container} from '@material-ui/core';
+import { Box} from '@material-ui/core';
 import React , { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import TopBar from './sections/TopBar';
-import Appointment from "../components/Appointment";
-import AppointmentService from '../services/appointment.service'
+import Appointment from "../components/User/Appointment";
+import AllUserAppointments from "../components/User/AllUserAppointments";
 import AuthService from "../services/auth.service";
+import Profile from 'components/User/Profile';
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -41,8 +42,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     flexGrow: 1,
     display: 'flex',
     height: "100%",
-    marginTop: "8%",
-    margin: 'auto'
+    marginTop: "10%",
+    marginLeft: "2%"
   },
   tabs: {
     borderRight: `1px solid`,
@@ -53,7 +54,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 const UserAccount = () => {
   
    const [currentUser, setCurrentUser] = useState("")
-   const [appointments, setAppointments] = useState([]);
 
    useEffect( () => {
    const user = AuthService.getCurrentUser();
@@ -65,53 +65,12 @@ const UserAccount = () => {
     
   }, [])
 
-    useEffect(() => {	 
-
-    AppointmentService.getUserAppointments().then(response => {	
-
-    setAppointments(response);
-    })
-  
-  }, [appointments])
-
   const classes = useStyles();
   const [value, setValue] = useState(0);
   
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-    const displayUserAppointments = appointments.map((app, index) =>
-     
-    <section>
-    <Container maxWidth="md">
-    <Grid container spacing={4} lg={12} sm={12} md={12} xs={12} justify="center" align="center" >
-    
-        <Grid item lg={4} sm={4} md={4} xs={12}>
-        <Card>
-            <CardHeader 
-              style={{
-               backgroundColor: "#dfe5e6",
-               color: "black"
-              }}
-              subheader="Mes rendez vous"
-            />
-
-            <CardContent>
-           
-             <Typography variant="body2" color="textSecondary" component="p">
-            {app.prestation} 
-
-            </Typography>
-           
-            </CardContent>
-
-        </Card>
-        </Grid>
-        </Grid>
-        </Container>
-        </section>
-  );
 
   return (
     <div>
@@ -122,22 +81,20 @@ const UserAccount = () => {
         variant="scrollable"
         value={value}
         onChange={handleChange}
-        aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Mon Profil" {...a11yProps(0)} />
-        <Tab label="Mes Rendez vous" {...a11yProps(1)} />
-        <Tab label="Prendre un rendez vous" {...a11yProps(2)} />
+        <Tab label="Mes informations" {...a11yProps(0)} />
+        <Tab label="Prendre un rendez vous" {...a11yProps(1)} />
+        <Tab label="Afficher mes rendez vous" {...a11yProps(2)} />
       </Tabs>
       <TabPanel style={{width: '100%'}} value={value} index={0}>
-        <Appointment />
+       <Profile />
       </TabPanel>
       <TabPanel style={{width: '100%'}} value={value} index={1}>
-      sdfgjg
+      <Appointment />
       </TabPanel>
       <TabPanel style={{width: '100%'}} value={value} index={2}>
-        
-        {displayUserAppointments}
+        <AllUserAppointments />
       </TabPanel>
       </div>
     </div>

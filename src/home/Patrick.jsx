@@ -17,7 +17,6 @@ const Patrick = () => {
     <div className="landing">
 
       <TopBar />
-
       <SectionOne />
       <SectionTwo />
       <SectionThree />

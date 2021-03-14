@@ -13,8 +13,8 @@ import {
 import Snackbar from '@material-ui/core/Snackbar';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { makeStyles } from '@material-ui/core/styles';
-import AppointmentService from '../services/appointment.service'
-import AuthService from "../services/auth.service";
+import AppointmentService from '../../services/appointment.service'
+import AuthService from "../../services/auth.service";
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment';
 import moment from 'moment'
@@ -150,10 +150,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     const { appointments } = response
     const initSchedule = {}
     const today = moment().startOf('day')
-    initSchedule[today.format('YYYY-DD-MM')] = true
+    initSchedule[today.format('DD-MM-YYYY')] = true
     const schedule = !appointments.length ? initSchedule : appointments.reduce((currentSchedule, appointment) => {
       const { date, slot } = appointment
-      const dateString = moment(date, 'YYYY-DD-MM').format('YYYY-DD-MM')
+      const dateString = moment(date, 'DD-MM-YYYY').format('DD-MM-YYYY')
       !currentSchedule[date] ? currentSchedule[dateString] = Array(8).fill(false) : null
       Array.isArray(currentSchedule[dateString]) ?
         currentSchedule[dateString][slot] = true : null
@@ -181,7 +181,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     setConfirmationModalOpen(false)
     const newAppointment = {
       prestation: prestation,
-      slot_date: moment(appointmentDate).format("YYYY-DD-MM"),
+      slot_date: moment(appointmentDate).format("DD-MM-YYYY"),
       slot_time: appointmentSlot
     };
 
@@ -200,7 +200,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 
    const checkDisableDate = currentDay => {
-    const dateString = moment(currentDay).format('YYYY-DD-MM') 
+    const dateString = moment(currentDay).format('DD-MM-YYYY') 
 
     return schedule[dateString] === true || moment(currentDay).startOf('day').diff(moment().startOf('day')) < 0 
     || currentDay.day() === 0 || currentDay.day() === 6 || currentDay.week() === 3 || fullDays.includes(dateString);
@@ -238,10 +238,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     if (loading) {
       const slots = [...Array(8).keys()]
       return slots.map(slot => {
-        const appointmentDateString = moment(appointmentDate).format('YYYY-DD-MM')
+        const appointmentDateString = moment(appointmentDate).format('DD-MM-YYYY')
         const t1 = moment().hour(9).minute(0).add(slot, 'hours')
         const t2 = moment().hour(9).minute(0).add(slot + 1, 'hours')
-        const scheduleDisabled = schedule[appointmentDateString] ? schedule[moment(appointmentDate).format('YYYY-DD-MM')][slot] : false
+        const scheduleDisabled = schedule[appointmentDateString] ? schedule[moment(appointmentDate).format('DD-MM-YYYY')][slot] : false
        
         let slotFilled;   
         for (let bookedDay in bookedDatesObject) {
