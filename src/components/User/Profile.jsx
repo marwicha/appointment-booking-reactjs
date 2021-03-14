@@ -1,54 +1,38 @@
 import React, {useState, useEffect} from "react";
 import AuthService from "../../services/auth.service";
-import UserService from "../../services/user.service";
+
+import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import { Grid, Container, Card, CardHeader, CardContent, TextField, Button} from '@material-ui/core';
+import { Grid, Container, Card, CardHeader, CardContent, Button, Box} from '@material-ui/core';
+
+const useStyles = makeStyles(({ palette, ...theme }) => ({
+
+  btn: {
+    color: "white",
+    backgroundColor: "#4b9fbc"
+  }
+
+}));
 
 const Profile = () => {
+  const classes = useStyles();
 
-  const initialTutorialState = {
-    id: null,
-    name: "",
-    email: "",
-    phone: ""
-  };
-
-  const [currentUser, setcurrentUser] = useState(initialTutorialState)
-  const [message, setMessage] = useState("");
-
-
-  useEffect(() => {
-    getUser();
-  }, [currentUser]);
+  const [currentUser, setcurrentUser] = useState([])
 
   const getUser = () => {
      const user = AuthService.getCurrentUser()
+     if(user) {
      setcurrentUser(user);
+     }
   };
-
-
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setcurrentUser({ ...setcurrentUser, [name]: value });
-  };
-
-  const update = () => {
-
-    UserService.updateAccount(currentUser.id, currentUser)
-      .then(response => {
-        setcurrentUser( response.data);
-        setMessage("ok");
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
+  
+  useEffect(() => {
+    getUser();
+  }, []);
 
 
   return (
    
-    <section>
     <Container maxWidth="md">
     <Grid container justify="flex-start" align="center" >
     
@@ -59,46 +43,27 @@ const Profile = () => {
                backgroundColor: "#dfe5e6",
                color: "black"
               }}
-              subheader="Modifier vos informations"
+              subheader="Vos informations personnelles"
             />
 
             <CardContent>
+
+            <Box align="left">
            
-          <TextField
-            name="name"
-            value={currentUser.name}
-            onChange={handleInputChange}
-           />
+            <p> {currentUser.name} </p>
 
-           <br></br>
-           <br></br>
+             <p> {currentUser.email} </p>
+ 
+             <p> {currentUser.phone} </p>
 
-             <TextField
-             name="email"
-             value={currentUser.email}
-             onChange={handleInputChange}
-            />
+             </Box>
+            <Link
+            to={"/compte/" + currentUser.id}
 
-            <br></br>
-            <br></br>
-
-            <TextField
-             name="phone"
-             value={currentUser.phone}
-             onChange={handleInputChange}
-            />
-
-            <br></br>
-      
-            <button
-            type="submit"
-            className="badge badge-success"
-            onClick={update}
-          >
-            Update
-          </button>
-
-          <p>{message}</p>
+            className="badge badge-warning"
+            >
+            <Button variant="contained" color="primary"  className={classes.btn}> Modifier </Button>
+          </Link>
             
             </CardContent>
 
@@ -106,7 +71,6 @@ const Profile = () => {
         </Grid>
         </Grid>
         </Container>
-        </section>
 
   );
 };

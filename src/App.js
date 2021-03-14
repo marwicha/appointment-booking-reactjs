@@ -23,6 +23,7 @@ import Inscription from "./components/Inscription";
 import UserAccount from "./home/UserAccount";
 
 import AuthService from "./services/auth.service";
+import UpdateProfile from "components/User/UpdateProfile";
 
 const App = () => {
 
@@ -88,6 +89,7 @@ const PublicRoute = ({component: Component, ...rest}) => {
               {/* After authentication */}
 
               <PrivateRoute path="/compte" exact component={UserAccount} />
+              <PrivateRoute path="/compte/:id" exact component={UpdateProfile} />
               
               <Redirect path="/" exact to="accueil" />
               {/* <Route component={Error} /> */}

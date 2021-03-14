@@ -127,9 +127,8 @@ const Authentification = (props) => {
   };
 
   return (
-    <div className="landing">
+    <section className="section">
     <TopBar />
-    <div className="section-intro-formations">
     <Container component="main" maxWidth="xs" >
       <CssBaseline />
       <Card className={classes.paper}>
@@ -234,8 +233,7 @@ const Authentification = (props) => {
         <Copyright />
       </Box>
      </Container>
-     </div>
-     </div>
+     </section>
   );
 };
 

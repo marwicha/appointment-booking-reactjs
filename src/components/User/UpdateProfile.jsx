@@ -1,71 +1,54 @@
 import React, { useState, useEffect } from "react";
-import TutorialDataService from "../services/TutorialService";
+import UserService from "../../services/user.service";
+import AuthService from "../../services/auth.service";
+import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Container, Card, CardHeader, CardContent, TextField, Button, Box, Typography} from '@material-ui/core';
+import TopBar from "home/sections/TopBar";
+
+const useStyles = makeStyles(({ palette, ...theme }) => ({
+
+  btn: {
+    color: "white",
+    backgroundColor: "#4b9fbc"
+  },
+
+  root: {
+    paddingTop:"5%"
+  }
+
+}));
+
 
 const UpdateProfile = props => {
 
-  const initialTutorialState = {
-    id: null,
-    title: "",
-    description: "",
-    published: false
-  };
+  const classes = useStyles();
+  const userTest = AuthService.getCurrentUser()
 
-  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
+  const initialState = { 
+    id: userTest.id,
+    name: userTest.name,
+    email: userTest.email, 
+    phone: userTest.phone,
+}
+
+  const [user, setUser] = useState(initialState);
   const [message, setMessage] = useState("");
 
-  const getTutorial = id => {
-    const user = AuthService.getCurrentUser()
-    setCurrentTutorial(response.data);
-    console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  useEffect(() => {
-    getTutorial(props.match.params.id);
-  }, [props.match.params.id]);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
-    setCurrentTutorial({ ...currentTutorial, [name]: value });
+    setUser({ ...user, [name]: value });
   };
 
-  const updatePublished = status => {
-    var data = {
-      id: currentTutorial.id,
-      title: currentTutorial.title,
-      description: currentTutorial.description,
-      published: status
-    };
+  const update = () => {
 
-    TutorialDataService.update(currentTutorial.id, data)
+    UserService.updateAccount(user.id, user)
       .then(response => {
-        setCurrentTutorial({ ...currentTutorial, published: status });
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  const updateTutorial = () => {
-    TutorialDataService.update(currentTutorial.id, currentTutorial)
-      .then(response => {
-        console.log(response.data);
-        setMessage("The tutorial was updated successfully!");
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  const deleteTutorial = () => {
-    TutorialDataService.remove(currentTutorial.id)
-      .then(response => {
-        console.log(response.data);
-        props.history.push("/tutorials");
+        setUser({...user});
+        localStorage.setItem('user', JSON.stringify(user))
+        props.history.push("/compte");
+        
+        setMessage("ok");
       })
       .catch(e => {
         console.log(e);
@@ -73,78 +56,68 @@ const UpdateProfile = props => {
   };
 
   return (
-    <div>
-      {currentTutorial ? (
-        <div className="edit-form">
-          <h4>Tutorial</h4>
-          <form>
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                className="form-control"
-                id="title"
-                name="title"
-                value={currentTutorial.title}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                className="form-control"
-                id="description"
-                name="description"
-                value={currentTutorial.description}
-                onChange={handleInputChange}
-              />
-            </div>
+ <>
+   <TopBar />
+    <Container maxWidth="md" className={classes.root}>
+  <Grid container justify="center" align="center" >
+    
+  <Grid item md={6} xs={12}>
+  <Card>
+      <CardHeader 
+        style={{
+         backgroundColor: "#dfe5e6",
+         color: "black"
+        }}
+        subheader="Modifier vos informations"
+      />
 
-            <div className="form-group">
-              <label>
-                <strong>Status:</strong>
-              </label>
-              {currentTutorial.published ? "Published" : "Pending"}
-            </div>
-          </form>
+      <CardContent>
+     
+      <Box align="left">
+    <TextField
+      name="name"
+      value={user.name}
+      onChange={handleInputChange}
+     />
 
-          {currentTutorial.published ? (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(false)}
-            >
-              UnPublish
-            </button>
-          ) : (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(true)}
-            >
-              Publish
-            </button>
-          )}
+     <br></br>
+     <br></br>
 
-          <button className="badge badge-danger mr-2" onClick={deleteTutorial}>
-            Delete
-          </button>
+       <TextField
+       name="email"
+       value={user.email}
+       onChange={handleInputChange}
+      />
 
-          <button
-            type="submit"
-            className="badge badge-success"
-            onClick={updateTutorial}
-          >
-            Update
-          </button>
-          <p>{message}</p>
-        </div>
-      ) : (
-        <div>
-          <br />
-          <p>Please click on a Tutorial...</p>
-        </div>
-      )}
-    </div>
+      <br></br>
+      <br></br>
+
+      <TextField
+       name="phone"
+       value={user.phone}
+       onChange={handleInputChange}
+      />
+
+      </Box>
+      <br></br>
+      <br></br>
+
+
+      <Button variant="contained" color="primary"  className={classes.btn}
+      type="submit"
+      onClick={update} >
+      Valider</Button>
+
+    <p>{message}</p>
+      
+      </CardContent>
+
+  </Card>
+  </Grid>
+  </Grid>
+        </Container>
+        </>
+       
   );
 };
 

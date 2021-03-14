@@ -26,7 +26,7 @@ const login = (email, password) => {
     });
 };
 
-const logout = () => {
+const logout = (props) => {
   localStorage.removeItem("user");
 };
 

@@ -55,6 +55,7 @@ const TopBar = (props) => {
 
   const logOut = () => {
     AuthService.logout();
+    window.location.reload();
   };
 
 
@@ -115,10 +116,16 @@ Somatothérapie et coaching
 
           {currentUser ? (
             <div>
+            <li>
+            <NavLink to="/compte">
+              {currentUser.name}
+            </NavLink>
+          </li>
+
               <li>
                 <NavLink to="/authentification"
                  onClick={logOut}>
-                  LogOut
+                  déconnecter
                 </NavLink>
               </li>
               </div>

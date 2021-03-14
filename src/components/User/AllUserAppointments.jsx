@@ -35,19 +35,19 @@ const AllUserAppointments = () => {
       case "7": return '16h';
       case "8": return '17h';
       default:
-       return "invalide"
+       return "date invalide"
     } 
     
   }
 
 
   return (
-    <section>
+    
     <Container maxWidth="lg">
     <Grid container spacing={2} md={12} xs={12} justify="flex-start" align="center" >
     
     { appointments.map((app, index) => 
-        <Grid item key={index} md={3} xs={12}>
+        <Grid item key={index} md={4} xs={12}>
         <Card>
             <CardHeader 
               style={{
@@ -60,6 +60,7 @@ const AllUserAppointments = () => {
             <CardContent>
            
              <Typography variant="body2" color="textSecondary" component="p" align="left"> Date: {app.slots.slot_date} </Typography>
+             <br></br>
              <Typography variant="body2" color="textSecondary" component="p" align="left"> Heure: {displayHeure(app.slots.slot_time)} </Typography>
            
             </CardContent>
@@ -69,7 +70,6 @@ const AllUserAppointments = () => {
         ) }
         </Grid>
         </Container>
-        </section>
    ) }
 
 

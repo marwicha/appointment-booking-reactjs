@@ -5,6 +5,7 @@ const themeOptions = {
   palette: {
     type: "light",
     primary: { main : "#78b9dc" },
+    danger: { main : "red" },
     first: '#182732' ,
     second: '#394d5b',
     third: '#dfe5e6',
