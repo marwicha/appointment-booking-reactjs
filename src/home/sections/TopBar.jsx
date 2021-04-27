@@ -6,7 +6,6 @@ import { NavLink } from "react-router-dom";
 import ScrollTo from "../common/ScrollTo";
 import AuthService from "../../services/auth.service";
 
-
 const TopBar = (props) => {
   const [isTop, setIsTop] = useState(true);
   const [isClosed, setIsClosed] = useState(true);
@@ -43,13 +42,14 @@ const TopBar = (props) => {
   }, [scrollableElement, handleScrollRef]);
 
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [showAdminProfile, setShowAdminProfile] = useState(false);
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
 
     if (user) {
       setCurrentUser(user);
-     // setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+      setShowAdminProfile(user.roles.includes("ROLE_ADMIN"));
     }
   }, []);
 
@@ -57,7 +57,6 @@ const TopBar = (props) => {
     AuthService.logout();
     window.location.reload();
   };
-
 
   return (
     <section
@@ -68,85 +67,66 @@ const TopBar = (props) => {
       })}
     >
       <div className="container header-container">
-       
-      <div className="brand">
-      <img src="./assets/images/logos/logo@2x.png" alt="" />
-     </div>
-     
-     <ul className="navigation">
-     <li>
-       <NavLink to="/accueil">Accueil</NavLink>
-     </li>
+        <div className="brand">
+          <img src="./assets/images/logos/logo@2x.png" alt="" />
+        </div>
 
-
-<li>
-<NavLink to="/praticien">
-Praticien
-</NavLink>
-
-</li>
-
-
-<li>
-<NavLink to="/formations">
-  Formations
-</NavLink>
-</li>
-
-
-<li>
-<NavLink to="/somatotherapie">
-Somatothérapie et coaching
-</NavLink>
-
-</li>
-     <li>
-       <NavLink to="/massages">
-       Massages
-       </NavLink>
-     </li>
-
-
-
-    
-   </ul>
-        <div className="m-auto" />
-        <ul className="navigation flex">
-
-
-          {currentUser ? (
-            <div>
-            <li>
-            <NavLink to="/compte">
-              {currentUser.name}
-            </NavLink>
+        <ul className="navigation">
+          <li>
+            <NavLink to="/accueil">Accueil</NavLink>
           </li>
 
+          <li>
+            <NavLink to="/praticien">Praticien</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/formations">Formations</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/somatotherapie">Somatothérapie et coaching</NavLink>
+          </li>
+          <li>
+            <NavLink to="/massages">Massages</NavLink>
+          </li>
+        </ul>
+        <div className="m-auto" />
+        <ul className="navigation flex">
+          {currentUser ? (
+            <div>
               <li>
-                <NavLink to="/authentification"
-                 onClick={logOut}>
+                <NavLink to="/compte">{currentUser.name}</NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/authentification" onClick={logOut}>
                   déconnecter
                 </NavLink>
               </li>
-              </div>
+            </div>
           ) : (
-
             <div>
               <li>
-                <NavLink to="/inscription" >
-                  S'inscrire
-                </NavLink>
+                <NavLink to="/inscription">S'inscrire</NavLink>
               </li>
-              </div>
-              )}
+            </div>
+          )}
+
+          {showAdminProfile && (
+            <li>
+              <NavLink to={"/admin"}>Admin</NavLink>
+            </li>
+          )}
 
           <li>
-          <a href="https://www.facebook.com/ikdobienetre">
-        
-          <Icon  style={{ fontSize: 20, marginLeft: "2px" }}> facebook </Icon>
-          </a>
+            <a href="https://www.facebook.com/ikdobienetre">
+              <Icon style={{ fontSize: 20, marginLeft: "2px" }}>
+                {" "}
+                facebook{" "}
+              </Icon>
+            </a>
           </li>
-
         </ul>
         <IconButton
           className="header__toggle"

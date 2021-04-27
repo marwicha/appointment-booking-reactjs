@@ -5,91 +5,105 @@ import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
- 
-   img: {
+  img: {
     maxWidth: 230,
-    marginBottom: theme.spacing(4)
+    marginBottom: theme.spacing(4),
   },
 
-   title: {
-    color: "#4b9fbc"
+  title: {
+    color: "#4b9fbc",
   },
 
   btn: {
     color: "white",
-    backgroundColor: "#4b9fbc"
-  }
-
+    backgroundColor: "#4b9fbc",
+  },
 }));
 
 const Massages = () => {
-
   const classes = useStyles();
 
   const massagesList = [
-
     {
       name: "Massage chaise assise",
       imgUrl: "/assets/images/massage-assis.png",
       text: "Profitez de 15 minutes d'un massage sur chaise assise Amma,",
-      text1: "le massage le plus adapté en entreprise."
+      text1: "le massage le plus adapté en entreprise.",
     },
 
     {
       name: "Massage des 9 sens",
       imgUrl: "/assets/images/massage-9sens.png",
       text: "Profitez d'une heure d'un massage de 9 sens,",
-      text1: "un ressourcement garantis qui recentre votre énergie."
+      text1: "un ressourcement garantis qui recentre votre énergie.",
     },
-
   ];
 
   return (
-    <section className= "section">
-
-     <Box mb={4} textAlign="center">
+    <section className="section">
+      <Box mb={4} textAlign="center">
         <Container maxWidth="sm">
-         
-          <Typography variant="h4" component="span" color="primary" className="text-fourth"> IKDO </Typography>
-          <Typography variant="subtitle1" color="textSecondary" paragraph={true}> prestations de massages </Typography>
+          <Typography
+            variant="h4"
+            component="span"
+            color="primary"
+            className="text-fourth"
+          >
+            {" "}
+            IKDO{" "}
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            color="textSecondary"
+            paragraph={true}
+          >
+            {" "}
+            prestations de massages{" "}
+          </Typography>
         </Container>
-       </Box>
-
+      </Box>
 
       <Container maxWidth="lg" className="container-formations">
+        <Box py={5} textAlign="center">
+          <Grid container spacing={6}>
+            {massagesList.map((item, ind) => (
+              <Grid key={ind} item xs={12} md={6}>
+                <Box p={3} pb={4}>
+                  <img src={item.imgUrl} alt="" className={classes.img} />
 
-       <Box py={5} textAlign="center">
+                  <Typography
+                    variant="subtitle1"
+                    component="h6"
+                    gutterBottom={true}
+                    className={classes.title}
+                  >
+                    {item.name}
+                  </Typography>
 
-       
-        <Grid container spacing={6}>
+                  <Typography variant="body2" component="p" gutterBottom={true}>
+                    {" "}
+                    {item.text}
+                  </Typography>
+                  <Typography variant="body2" component="p" gutterBottom={true}>
+                    {" "}
+                    {item.text1}
+                  </Typography>
 
-          {massagesList.map((item, ind) => (
-            
-            <Grid key={ind} item xs={12} md={6}>
-
-             <Box p={3} pb={4}>
-
-                <img  src={item.imgUrl} alt="" className={classes.img} />
-
-               <Typography variant="subtitle1" component="h6" gutterBottom={true} className={classes.title}>{item.name}</Typography>
-
-               <Typography variant="body2" component="p" gutterBottom={true}> {item.text}</Typography>
-               <Typography variant="body2" component="p" gutterBottom={true}> {item.text1}</Typography>
-
-          <Box mt={3} >
-            <Button variant="contained" color="primary" className={classes.btn} >
-              <NavLink to="/Massages"> 
-                 En savoir plus 
-              </NavLink>
-            </Button> 
-          </Box>
-
+                  <Box mt={3}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.btn}
+                    >
+                      <NavLink to="/Massages">En savoir plus</NavLink>
+                    </Button>
+                  </Box>
                 </Box>
-            </Grid>
-          ))}
-        </Grid>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
-        </Container>
+      </Container>
     </section>
   );
 };

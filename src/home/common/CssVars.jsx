@@ -1,18 +1,18 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
 
-const generateFontProperty = fontObject => {
+const generateFontProperty = (fontObject) => {
   return `${fontObject.fontWeight} ${fontObject.fontSize}/${fontObject.lineHeight} ${fontObject.fontFamily}`;
 };
 
-const generateShadowVars = theme => {
-  return theme.shadows.reduce(function(result, item, index, array) {
+const generateShadowVars = (theme) => {
+  return theme.shadows.reduce(function (result, item, index, array) {
     result[`--elevation-z${index}`] = item;
     return result;
   }, {});
 };
 
-const convertHexToRGB = hex => {
+const convertHexToRGB = (hex) => {
   let c;
   if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
     c = hex.substring(1).split("");
@@ -24,7 +24,7 @@ const convertHexToRGB = hex => {
   }
 };
 
-const styles = theme => ({
+const styles = (theme) => ({
   "@global": {
     ":root": {
       ...{
@@ -56,11 +56,11 @@ const styles = theme => ({
         "--font-display-1": "400 34px/40px var(--font)",
         "--font-display-2": "400 45px/48px var(--font)",
         "--font-display-3": "400 56px/56px var(--font)",
-        "--font-display-4": "300 112px/112px var(--font)"
+        "--font-display-4": "300 112px/112px var(--font)",
       },
-      ...generateShadowVars(theme)
-    }
-  }
+      ...generateShadowVars(theme),
+    },
+  },
 });
 
 const CssVars = ({ children }) => {

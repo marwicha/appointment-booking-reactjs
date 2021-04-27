@@ -11,27 +11,27 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     overflow: "hidden",
   },
 
-text: {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)"
+  text: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
   },
 
-p: {
-  letterSpacing: "0.72px",
-  lineHeight: "40px",
-  textAlign: "center",
-  fontSize: "22px",
-  fontFamily: "LEMON MILK Light",
-  maxWidth:"387px"
+  p: {
+    letterSpacing: "0.72px",
+    lineHeight: "40px",
+    textAlign: "center",
+    fontSize: "22px",
+    fontFamily: "LEMON MILK Light",
+    maxWidth: "387px",
   },
 
   h1: {
     color: palette.second,
     fontSize: "40px",
     lineHeight: "64px",
-    textAlign: "center"
+    textAlign: "center",
   },
 
   h2: {
@@ -39,18 +39,18 @@ p: {
     fontFamily: "LEMON MILK Light",
     fontSize: "30px",
     lineHeight: "40px",
-    textAlign: "center"
+    textAlign: "center",
   },
 
   button: {
-  width: "200px",
-  height: "60px",
-  borderRadius: "100px",
-  //backgroundColor: "#182731",
-  background: palette.second,
-  color: "white",
-  fontSize: "1rem",
-  fontFamily: "LEMON MILK Light",
+    width: "200px",
+    height: "60px",
+    borderRadius: "100px",
+    //backgroundColor: "#182731",
+    background: palette.second,
+    color: "white",
+    fontSize: "1rem",
+    fontFamily: "LEMON MILK Light",
   },
 
   center: {
@@ -59,9 +59,7 @@ p: {
     justifyContent: "center",
     alignItems: "center",
     marginTop: "1rem",
-   }
-
-
+  },
 }));
 
 const IntroFinal = () => {
@@ -73,61 +71,57 @@ const IntroFinal = () => {
       h1: "IKDO",
       h2: " By Zen Workshop",
       text: "Détentez vous et prenez votre temps",
-      buttonText:"Massages"
+      buttonText: "Massages",
     },
     {
       img: "./assets/images/2.png",
       h1: "IKDO",
       h2: " By Zen Workshop",
       text: "Plusieurs formations sont accessibles",
-      buttonText:"Formations"
+      buttonText: "Formations",
     },
     {
       img: "./assets/images/3.jpg",
       h1: "IKDO",
       h2: " By Zen Workshop",
       text: "Détentez vous et prenez votre temps",
-      buttonText: "Somathotérapie"
-    }
+      buttonText: "Somathotérapie",
+    },
   ];
 
   return (
     <div className="section-intro">
-    <div className={classes.introWrapper}>
-      <div className="container">
-        <Carousel
-          carouselId="swiper-11"
-          paginationClass="mt-16"
-          slidesPerView={1}
-        >
-          {ikdoList.map((item, index) => (
-          <div key={index}>
-            
-          <img container className="h-full w-full" src={item.img} alt="" />
+      <div className={classes.introWrapper}>
+        <div className="container">
+          <Carousel
+            carouselId="swiper-11"
+            paginationClass="mt-16"
+            slidesPerView={1}
+          >
+            {ikdoList.map((item, index) => (
+              <div key={index}>
+                <img
+                  container
+                  className="h-full w-full"
+                  src={item.img}
+                  alt=""
+                />
 
-        
-           <div className={clsx(classes.text)}>
-                <h1 className={classes.h1}>
-                {item.h1}
-              </h1>
-              <h2 className={classes.h2}>
-              {item.h2}
-              </h2>
+                <div className={clsx(classes.text)}>
+                  <h1 className={classes.h1}>{item.h1}</h1>
+                  <h2 className={classes.h2}>{item.h2}</h2>
 
-              <p className={classes.p}>
-              {item.text}
-              </p>
-              <div className={classes.center}>
-              <button className={clsx(classes.button)}>
-              {item.buttonText}
-              </button>
+                  <p className={classes.p}>{item.text}</p>
+                  <div className={classes.center}>
+                    <button className={clsx(classes.button)}>
+                      {item.buttonText}
+                    </button>
+                  </div>
+                </div>
               </div>
-
-            </div>
-            </div>
-          ))}
-        </Carousel>
-      </div>
+            ))}
+          </Carousel>
+        </div>
       </div>
     </div>
   );

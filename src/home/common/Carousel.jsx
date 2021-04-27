@@ -17,7 +17,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     display: "inline-block",
     borderRadius: "100%",
     cursor: "pointer",
-    margin: "0 4px"
+    margin: "0 4px",
   },
   bulletActiveClass: {
     transform: "scale(1.8)",
@@ -48,10 +48,7 @@ const Carousel = (props) => {
 
   globalBulletColor = bulletColor;
 
-  let {
-    bulletClass,
-    bulletActiveClass,
-  } = useStyles();
+  let { bulletClass, bulletActiveClass } = useStyles();
 
   const swiperOptions = {
     direction: "horizontal",
@@ -83,16 +80,20 @@ const Carousel = (props) => {
       bulletClass,
       bulletActiveClass,
       clickable: true,
-    }
+    },
   };
 
   useEffect(() => {
     new Swiper(`#${carouselId}`, swiperOptions);
-  }, [swiperOptions]);
+  }, [carouselId, swiperOptions]);
 
   return (
     <div className="relative w-full">
-      <div className="swiper-container"  style={{height: "100%"}} id={carouselId}>
+      <div
+        className="swiper-container"
+        style={{ height: "100%" }}
+        id={carouselId}
+      >
         <div className="swiper-wrapper">
           {Children.map(children, (child, index) => (
             <div className="swiper-slide h-auto">{child}</div>
@@ -100,8 +101,7 @@ const Carousel = (props) => {
         </div>
 
         {/* pagination */}
-        <div className={clsx("swiper-pagination")} style={{bottom: "50px"}}/> 
-        
+        <div className={clsx("swiper-pagination")} style={{ bottom: "50px" }} />
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
+import userService from "../../services/user.service";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   btn: {
@@ -20,13 +21,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 }));
 
-const Profile = () => {
+const ProfileAdmin = () => {
   const classes = useStyles();
 
   const [currentUser, setcurrentUser] = useState([]);
 
   const getUser = () => {
-    const user = AuthService.getCurrentUser();
+    const user = userService.getAdminProfile();
     if (user) {
       setcurrentUser(user);
     }
@@ -51,25 +52,15 @@ const Profile = () => {
 
             <CardContent>
               <Box align="left">
-                <p> {currentUser.name} </p>
-
                 <p> {currentUser.email} </p>
 
-                <p> {currentUser.phone} </p>
+                <ul>
+                  {currentUser.roles &&
+                    currentUser.roles.map((role, index) => (
+                      <li key={index}>{role}</li>
+                    ))}
+                </ul>
               </Box>
-              <Link
-                to={"/compte/" + currentUser.id}
-                className="badge badge-warning"
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.btn}
-                >
-                  {" "}
-                  Modifier{" "}
-                </Button>
-              </Link>
             </CardContent>
           </Card>
         </Grid>
@@ -78,4 +69,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileAdmin;

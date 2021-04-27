@@ -4,27 +4,17 @@ import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(({ palette, ...theme }) => ({
-
-
-}));
+const useStyles = makeStyles(({ palette, ...theme }) => ({}));
 
 const SecondSection = () => {
-
   const classes = useStyles();
-  
+
   return (
-
     <div className="section-intro-formations">
-    
-    <div className="container-formation text-center">
-    
-    <img src='/assets/images/massages/chaiseAssise.png' alt="" />
+      <div className="container-formation text-center">
+        <img src="/assets/images/massages/chaiseAssise.png" alt="" />
+      </div>
     </div>
-
-    </div>
- 
-
   );
 };
 

@@ -7,20 +7,17 @@ import SecondSection from "./coach/SecondSection";
 import ThirdSection from "./coach/ThirdSection";
 
 const IndexRouteCoaching = () => {
-
- useEffect(() => {
+  useEffect(() => {
     scrollTo("root");
-    });
-
+  });
 
   return (
-     <div className="landing">
-
-     <FirstSection />
-     <SecondSection />
-     <ThirdSection />
-     <FourSection />
-     <FiveSection />
+    <div className="landing">
+      <FirstSection />
+      <SecondSection />
+      <ThirdSection />
+      <FourSection />
+      <FiveSection />
     </div>
   );
 };

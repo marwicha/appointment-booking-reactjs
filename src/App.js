@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   Route,
   Switch,
@@ -24,50 +24,76 @@ import UserAccount from "./home/UserAccount";
 
 import AuthService from "./services/auth.service";
 import UpdateProfile from "components/User/UpdateProfile";
+import ProfileAdmin from "components/Admin/ProfileAdmin";
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState(undefined);
+  const [showAdminProfile, setShowAdminProfile] = useState(false);
+  const [showUserProfile, setShowUserProfile] = useState(false);
 
-     const [showAppointmentPage, setShowAppointmentPage] = useState(false);
-
-   useEffect(() => {
-    const currentUser = AuthService.getCurrentUser();
-
-    if (currentUser) {
-      setShowAppointmentPage(currentUser);
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+    if (user) {
+      setCurrentUser(user);
+      setShowAdminProfile(user.roles.includes("ROLE_ADMIN"));
+      setShowUserProfile(user.roles.includes("ROLE_USER"));
     }
-  
   }, []);
 
-  const PrivateRoute = ({ component: Component, ...rest }) => {
-
-  return (
-    <Route
-      {...rest}
-      render={ props =>
-        showAppointmentPage ? 
-          <Component {...props} />
-         : 
-          <Redirect
-            to={{
-              pathname: "/inscription",
-            }}
-          />
-      }
-    />
-  );
-}
-
-const PublicRoute = ({component: Component, ...rest}) => {
+  const PrivateAdminRoute = ({ component: Component, ...rest }) => {
     return (
-        <Route {...rest} render={props => (
-            showAppointmentPage ?
-                <Redirect to="/compte" />
-            : <Component {...props} />
-        )} />
+      <Route
+        {...rest}
+        render={(props) =>
+          showAdminProfile ? (
+            <Component {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/inscription",
+              }}
+            />
+          )
+        }
+      />
     );
-};
+  };
 
+  const PrivateUserRoute = ({ component: Component, ...rest }) => {
+    return (
+      <Route
+        {...rest}
+        render={(props) =>
+          showUserProfile ? (
+            <Component {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/inscription",
+              }}
+            />
+          )
+        }
+      />
+    );
+  };
 
+  const PublicRoute = ({ component: Component, ...rest }) => {
+    return (
+      <Route
+        {...rest}
+        render={(props) => {
+          if (showAdminProfile) {
+            return <Redirect to="/admin" />;
+          } else if (showUserProfile) {
+            return <Redirect to="/compte" />;
+          } else {
+            return <Component {...props} />;
+          }
+        }}
+      />
+    );
+  };
   return (
     <MuiThemeProvider theme={Theme}>
       <GlobalCss>
@@ -82,24 +108,33 @@ const PublicRoute = ({component: Component, ...rest}) => {
               <Route path="/massages" component={Massages} />
               <Route path="/praticien" component={Patrick} />
               <Route path="/somatotherapie" component={CoachingSomatho} />
-
-              <PublicRoute path="/authentification"  exact component={Authentification} />
-              <PublicRoute path="/inscription"  exact component={Inscription} />
-
+              <PublicRoute
+                path="/authentification"
+                exact
+                component={Authentification}
+              />
+              <PublicRoute path="/inscription" exact component={Inscription} />
               {/* After authentication */}
 
-              <PrivateRoute path="/compte" exact component={UserAccount} />
-              <PrivateRoute path="/compte/:id" exact component={UpdateProfile} />
-              
-              <Redirect path="/" exact to="accueil" />
-              {/* <Route component={Error} /> */}
+              <PrivateUserRoute path="/compte" component={UserAccount} />
 
+              <PrivateUserRoute
+                path="/compte/:id"
+                exact
+                component={UpdateProfile}
+              />
+
+              <PrivateAdminRoute path="/admin" component={ProfileAdmin} />
+
+              <Redirect path="/" exact to="accueil" />
+
+              {/* <Route component={Error} /> */}
             </Switch>
           </Router>
         </Scrollbar>
       </GlobalCss>
     </MuiThemeProvider>
   );
-}
+};
 
 export default App;

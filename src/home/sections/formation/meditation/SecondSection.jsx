@@ -1,42 +1,40 @@
 import React from "react";
 import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
- import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-
   wrapperAll: {
     flexWrap: "wrap",
     marginRight: "-1rem",
     marginLeft: "-1rem",
     paddingRight: "0",
     paddingLeft: "0",
-    paddingTop: "7rem"
+    paddingTop: "7rem",
   },
 
   containerTextWrapper: {
     position: "relative",
     maxWidth: "97%",
     marginRight: "3%",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
   textWrapper: {
-
     maxWidth: "60%",
     marginRight: "0",
-    marginLeft: "auto", 
+    marginLeft: "auto",
     marginTop: "-6rem",
     padding: "0 2rem 2rem 2rem",
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "90%",
       marginRight: "0",
-      marginLeft: "auto", 
-      padding: "2rem 2rem 2rem 2rem"
-    }
+      marginLeft: "auto",
+      padding: "2rem 2rem 2rem 2rem",
+    },
   },
 
   h1: {
@@ -46,7 +44,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#182731",
     fontSize: "22px",
     lineHeight: "30px",
-    marginTop: "3rem"
+    marginTop: "3rem",
   },
 
   h2: {
@@ -58,7 +56,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#182731",
   },
 
-
   h22: {
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
@@ -66,18 +63,18 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "16px",
     lineHeight: "30px",
     color: "#182731",
-    marginTop: "2rem"
+    marginTop: "2rem",
   },
 
   img: {
-     minHeight: "36rem",
-     position: "relative",
-     maxWidth: "67%",
-     borderRadius: 16,
+    minHeight: "36rem",
+    position: "relative",
+    maxWidth: "67%",
+    borderRadius: 16,
 
-     [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("xs")]: {
       maxWidth: "100%",
-     }
+    },
   },
 
   p: {
@@ -98,7 +95,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "16px",
     lineHeight: "30px",
     textAlign: "center",
-    margin: "2rem 0 0 0"
+    margin: "2rem 0 0 0",
   },
 
   button: {
@@ -112,109 +109,104 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: 300,
     borderRadius: "50px",
     alignItems: "center",
-    textAlign: "center"
-},
+    textAlign: "center",
+  },
 
-button2: {
-  marginTop: "1rem !important",
-  padding: "1rem 2rem 1rem 2rem",
-  fontSize: 9,
-  fontFamily: "LEMON MILK",
-  fontStyle: "normal",
-  fontWeight: 300,
-  borderRadius: "50px",
-  alignItems: "center",
-  textAlign: "center",
-  background: "#FAFBFF !important",
-  border: "3px solid #384C5A",
-  boxSizing: "border-box",
-  color: "#384C5A"
-},
+  button2: {
+    marginTop: "1rem !important",
+    padding: "1rem 2rem 1rem 2rem",
+    fontSize: 9,
+    fontFamily: "LEMON MILK",
+    fontStyle: "normal",
+    fontWeight: 300,
+    borderRadius: "50px",
+    alignItems: "center",
+    textAlign: "center",
+    background: "#FAFBFF !important",
+    border: "3px solid #384C5A",
+    boxSizing: "border-box",
+    color: "#384C5A",
+  },
 }));
 
 const SecondSection = () => {
-
   const classes = useStyles();
-  
+
   return (
     <div className={clsx(classes.container, "container")}>
-      
-    <h3 className="font-bold text-28 text-center text-second mt-10">
-      IKDO
-    </h3>
-    <h3 className={clsx(classes.h2, "text-center text-26 text-second")}>
-      Formation
-    </h3>
+      <h3 className="font-bold text-28 text-center text-second mt-10">IKDO</h3>
+      <h3 className={clsx(classes.h2, "text-center text-26 text-second")}>
+        Formation
+      </h3>
 
+      <div className={classes.wrapperAll}>
+        <Grid container alignItems="center">
+          <Grid lg={6} xl={6} sm={6} md={6} xs={12}>
+            <div className={classes.containerTextWrapper}>
+              <div className={classes.textWrapper}>
+                <h1 className={classes.h1}>
+                  {" "}
+                  IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS
+                  D'INITIATIONS:{" "}
+                </h1>
 
-    <div className= {classes.wrapperAll}>
+                <h2 className={classes.h2}>
+                  {" "}
+                  Pour acquérir des notions en Toucher-Massage® Ikdo{" "}
+                </h2>
 
-        <Grid container alignItems="center" >
+                <h3 className={classes.p}>
+                  Ikdo est doté d’un centre de formation qui a pour but de vous
+                  faire acquérir les notions de bases en toucher-massage®, et
+                  sur les autres techniques associées aux autres sens tels que
+                  la vue, l'utilisation des huiles essentielles et la
+                  respiration (odorat), utilisation des bols chantants (ouïe).
+                </h3>
 
-            <Grid  lg={6} xl={6} sm={6} md={6} xs={12}>
+                <h2 className={classes.h22}>
+                  Déplacements possible chez vous avec les équipements
+                  nécessaires : Tables ou chaise de massage, musique relaxante,
+                  huiles essentielles... (*):
+                </h2>
 
-            <div className={classes.containerTextWrapper} >
+                <h3 className={classes.p}>
+                  {" "}
+                  "Massages" non thérapeutiques, ne s'apparentant à aucune
+                  pratique médicale ni paramédicale occidentale.
+                </h3>
 
-            <div className={classes.textWrapper}>
+                <h4 className={clsx(classes.h4, "text-center")}>
+                  {" "}
+                  Prendre un rendez vous{" "}
+                </h4>
 
-             <h1 className={classes.h1}> IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS D'INITIATIONS: </h1>
+                <div className="text-center">
+                  <NavLink to="/prendre-rendez-vous">
+                    <Button className={clsx(classes.button, "text-center")}>
+                      Réserver maintenant
+                    </Button>
+                  </NavLink>
 
-             <h2 className={classes.h2}> Pour acquérir des notions en Toucher-Massage® Ikdo </h2>
-
-              <h3 className={classes.p}>
-               Ikdo est doté d’un centre de formation qui a pour but de vous faire acquérir les notions de bases en toucher-massage®,
-               et sur les autres techniques associées aux autres sens tels que la vue, 
-              l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).
-              
-              </h3>
-
-              
-              <h2 className={classes.h22}>
-              Déplacements possible chez vous avec les équipements nécessaires : Tables ou chaise de massage,
-              musique relaxante, huiles essentielles... (*):
-
-              </h2>
-
-              <h3 className={classes.p}> "Massages" non thérapeutiques, ne s'apparentant à aucune pratique médicale ni paramédicale occidentale.
-              </h3>
-
-              <h4 className={clsx(classes.h4, "text-center")}> Prendre un rendez vous </h4>
-
-              <div className="text-center">
-              <NavLink to="/prendre-rendez-vous"> 
-              <Button className={clsx(classes.button, "text-center") } >
-                  Réserver maintenant
-              </Button>
-              </NavLink>
-
-              <Button className={ clsx(classes.button2, "text-center") } >
-                  Méditation pleine consciense
-              </Button>
+                  <Button className={clsx(classes.button2, "text-center")}>
+                    Méditation pleine consciense
+                  </Button>
+                </div>
               </div>
-              
-              </div>
+            </div>
+          </Grid>
 
-              </div>
-            </Grid>
-
-            <Grid  sm={5} md={5} xs={12}>
-
-              <div className="mb-6 ml-1 relative">
-
-               <img src="/assets/images/formations/meditation.png" className={classes.img} alt="" />
-
-              </div>
-           
-            </Grid>
-
+          <Grid sm={5} md={5} xs={12}>
+            <div className="mb-6 ml-1 relative">
+              <img
+                src="/assets/images/formations/meditation.png"
+                className={classes.img}
+                alt=""
+              />
+            </div>
+          </Grid>
         </Grid>
       </div>
-      
-
-      
-  </div>
- 
-
+    </div>
   );
 };
 

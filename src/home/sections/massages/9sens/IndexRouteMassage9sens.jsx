@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { scrollTo } from "utils";
 import SecondSection from "./SecondSection";
-import ThirdSection from './ThirdSection';
-import FourthSection from './FourthSection';
-import FiveSection from './FiveSection';
+import ThirdSection from "./ThirdSection";
+import FourthSection from "./FourthSection";
+import FiveSection from "./FiveSection";
 
 const IndexRouteMassage9sens = () => {
-
   useEffect(() => {
     scrollTo("root");
-    });
+  });
 
   return (
     <div>
@@ -17,7 +16,6 @@ const IndexRouteMassage9sens = () => {
       <ThirdSection />
       <FourthSection />
       <FiveSection />
-     
     </div>
   );
 };

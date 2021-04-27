@@ -8,20 +8,17 @@ import FourSection from "./somato/FourSection";
 import FiveSection from "./somato/FiveSection";
 
 const IndexRouteSomato = () => {
-
   useEffect(() => {
     scrollTo("root");
-    });
-
+  });
 
   return (
-     <div className="landing">
-
-     <FirstSection />
-     <SecondSection />
-     <ThirdSection />
-     <FourSection />
-     <FiveSection />
+    <div className="landing">
+      <FirstSection />
+      <SecondSection />
+      <ThirdSection />
+      <FourSection />
+      <FiveSection />
     </div>
   );
 };

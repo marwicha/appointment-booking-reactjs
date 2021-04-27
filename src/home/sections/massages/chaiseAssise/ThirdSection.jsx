@@ -12,7 +12,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: theme.typography.fontFamily,
     backgroundColor: palette.second,
     color: "white",
-    borderRadius: "100px"
+    borderRadius: "100px",
   },
 
   h1: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "30px",
     marginBottom: "20px",
     alignItems: "center",
-    textAlign: "justify"
+    textAlign: "justify",
   },
 
   h2: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "500",
     fontSize: "30px",
     alignItems: "center",
-    textAlign: "justify"
+    textAlign: "justify",
   },
 
   benefice: {
@@ -40,12 +40,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "18px",
     alignItems: "center",
     textAlign: "left",
-    color: "#182731"
+    color: "#182731",
   },
 
   verticalLine: {
     borderLeft: "3px solid",
-    paddingLeft: "20px"
+    paddingLeft: "20px",
   },
 
   p: {
@@ -56,62 +56,45 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     lineHeight: "30px",
     alignItems: "center",
     textAlign: "justify",
-    color: "#182731"
-
-  }
+    color: "#182731",
+  },
 }));
 
 const ThirdSection = () => {
-
   const classes = useStyles();
-  
+
   return (
-
     <div className="section">
-    <div className="container-icon-formation text-center">
-  
-    <Grid container>
-   
-    <Grid sm={1} md={1} xs={12}>
-        
-      </Grid>
+      <div className="container-icon-formation text-center">
+        <Grid container>
+          <Grid sm={1} md={1} xs={12}></Grid>
 
-      <Grid sm={5} md={5} xs={12}>
-        <div className="pt-8">
+          <Grid sm={5} md={5} xs={12}>
+            <div className="pt-8">
+              <h1 className={clsx(classes.h1)}> Formation </h1>
+              <h2 className={clsx(classes.h2)}> Massage des 9 SENS </h2>
+            </div>
+          </Grid>
 
-        <h1 className={clsx(classes.h1)}> Formation </h1>
-        <h2 className={clsx(classes.h2)}> Massage des 9 SENS </h2>
+          <Grid sm={5} md={5} xs={12}>
+            <div className={classes.verticalLine}>
+              <p className={classes.benefice}> Les bénéfices </p>
+
+              <p className={classes.p}>
+                Les Bénefices Ikdo est doté d’un centre de formation qui a pour
+                but de vous faire acquérir les notions de bases en
+                toucher-massage®, et sur les autres techniques associées aux
+                autres sens tels que la vue, l'utilisation des huiles
+                essentielles et la respiration (odorat), utilisation des bols
+                chantants (ouïe).
+              </p>
+            </div>
+          </Grid>
+
+          <Grid sm={1} md={1} xs={12}></Grid>
+        </Grid>
       </div>
-
-      </Grid>
-
-
-      <Grid sm={5} md={5} xs={12}>
-      <div className={classes.verticalLine}>
-
-      <p className={classes.benefice}> Les bénéfices </p>
-
-      <p className={classes.p}>
-    
-      Les Bénefices Ikdo est doté d’un centre de formation qui a pour but de vous faire acquérir les notions de bases en toucher-massage®, 
-      et sur les autres techniques associées aux autres sens tels que la vue,
-      l'utilisation des huiles essentielles et la respiration (odorat), utilisation des bols chantants (ouïe).
-      
-      </p> 
-      
-      </div>
-    </Grid>
-
-    <Grid sm={1} md={1} xs={12}>
-        
-
-    </Grid>
-  
-  </Grid>
-  </div>
-  </div>
- 
-
+    </div>
   );
 };
 

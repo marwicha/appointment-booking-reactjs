@@ -5,94 +5,95 @@ import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-    img: {
+  img: {
     maxWidth: 150,
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
 
-   title: {
-    color: "#4b9fbc"
+  title: {
+    color: "#4b9fbc",
   },
 
   btn: {
     color: "white",
-    backgroundColor: "#4b9fbc"
-  }
+    backgroundColor: "#4b9fbc",
+  },
 }));
 
-
 const AllServices = () => {
-
   const classes = useStyles();
   const serviceList = [
     {
-      id:"1",
+      id: "1",
       title: "Somathotérapie",
-      imgSrc: "/assets/images/coaching.png"
+      imgSrc: "/assets/images/coaching.png",
     },
     {
-      id:"3",
+      id: "3",
       title: "Formations",
-      imgSrc: "/assets/images/formation.png"
+      imgSrc: "/assets/images/formation.png",
     },
 
     {
-      id:"2",
+      id: "2",
       title: "Massages",
-      imgSrc: "/assets/images/massage.png"
+      imgSrc: "/assets/images/massage.png",
     },
   ];
-  
-const getImgSrc = (id,imgSrc,imageClass) => {
 
-  if (id==="2")
-  return <img src={imgSrc} className={ clsx(imageClass,"mt--6")} alt=""/>
-  else if (id === "1")
-  return <img src={imgSrc} className={ clsx(imageClass,"mt--6")} alt=""/>
-  else
-  return <img src={imgSrc} className={ imageClass} alt=""/>
-}
+  const getImgSrc = (id, imgSrc, imageClass) => {
+    if (id === "2")
+      return <img src={imgSrc} className={clsx(imageClass, "mt--6")} alt="" />;
+    else if (id === "1")
+      return <img src={imgSrc} className={clsx(imageClass, "mt--6")} alt="" />;
+    else return <img src={imgSrc} className={imageClass} alt="" />;
+  };
   return (
-    
-    <section className= "section">
-
+    <section className="section">
       <Box mb={8} textAlign="center">
         <Container maxWidth="sm">
-         
-          <Typography variant="h4" component="span" color="primary" className="text-fourth"> IKDO </Typography>
-          <Typography variant="subtitle1" color="textSecondary" paragraph={true}> Services </Typography>
-
+          <Typography
+            variant="h4"
+            component="span"
+            color="primary"
+            className="text-fourth"
+          >
+            {" "}
+            IKDO{" "}
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            color="textSecondary"
+            paragraph={true}
+          >
+            {" "}
+            Services{" "}
+          </Typography>
         </Container>
       </Box>
 
-     <Container maxWidth="lg" className="container-formations">
+      <Container maxWidth="lg" className="container-formations">
+        <Box py={5} textAlign="center">
+          <Grid container spacing={6} justify="center">
+            {serviceList.map((item, ind) => (
+              <Grid key={ind} item md={4} xs={12}>
+                {getImgSrc(item.id, item.imgSrc, classes.img)}
 
-    <Box py={5} textAlign="center">
-
-    <Grid container spacing={6} justify="center">
-    {serviceList.map((item, ind) => (
-      <Grid key={ind} item md={4} xs={12}>
-
-      
-        {getImgSrc(item.id, item.imgSrc, classes.img)}
-
-
-         <Box mt={3} >
-            <Button variant="contained" color="primary" className={classes.btn} >
-              <NavLink to="/Formations"> 
-                 {item.title} 
-              </NavLink>
-            </Button> 
+                <Box mt={3}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.btn}
+                  >
+                    <NavLink to="/Formations">{item.title}</NavLink>
+                  </Button>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
-
-       
-      </Grid>
-    ))}
-  </Grid>
-  </Box>
-    </Container>
+      </Container>
     </section>
-
   );
 };
 

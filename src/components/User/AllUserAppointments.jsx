@@ -40,7 +40,6 @@ const AllUserAppointments = () => {
     
   }
 
-
   return (
     
     <Container maxWidth="lg">

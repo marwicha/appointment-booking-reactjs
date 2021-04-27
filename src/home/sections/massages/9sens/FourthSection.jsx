@@ -5,11 +5,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-
   title: {
     fontFamily: "LEMON MILK",
     width: "100%",
-    margin: "auto"
+    margin: "auto",
   },
 
   paragraph: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "Lato Medium",
     fontSize: "18px",
     width: "100%",
-    margin: "auto"
+    margin: "auto",
   },
 
   imgShadow: {
@@ -25,26 +24,24 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     borderRadius: "0 50px",
     width: "10em",
     padding: "12px",
-    background: "#FFFFFF"
+    background: "#FFFFFF",
   },
 
   img: {
     maxHeight: "6em",
-    marginLeft: 'auto',
+    marginLeft: "auto",
     marginBottom: theme.spacing(2),
-    marginTop: theme.spacing(4)
-  }
- 
+    marginTop: theme.spacing(4),
+  },
 }));
 
 const FourthSection = () => {
-
   const classes = useStyles();
 
-  const imgList = [ 
+  const imgList = [
     {
-     title: "L’ouïe",
-     link: "/assets/images/formations/image1.png",
+      title: "L’ouïe",
+      link: "/assets/images/formations/image1.png",
     },
 
     {
@@ -65,97 +62,77 @@ const FourthSection = () => {
     {
       title: "Le toucher",
       link: "/assets/images/formations/toucher.png",
-    }
-  ]
+    },
+  ];
 
-  const imgList2 = [ 
+  const imgList2 = [
     {
-     id:'1',
-     link: "/assets/images/formations/proprioception.png",
-     title: "La proprioception",
-     text: "Qui est le fait de localiser ses différentes parties du corps dans l’espace."
+      id: "1",
+      link: "/assets/images/formations/proprioception.png",
+      title: "La proprioception",
+      text:
+        "Qui est le fait de localiser ses différentes parties du corps dans l’espace.",
     },
 
     {
-      id:"2",
+      id: "2",
       link: "/assets/images/formations/equilibrioception.png",
       title: "L'équilibrioception",
-      text: "Aide à prévenir toute chute chez les humains et animaux en équilibre"
+      text:
+        "Aide à prévenir toute chute chez les humains et animaux en équilibre",
     },
 
     {
-      id:'3',
+      id: "3",
       link: "/assets/images/formations/nociception.png",
       title: "La nociception",
-      text: "Qui est le fait d’avoir le sens de la douleur."
+      text: "Qui est le fait d’avoir le sens de la douleur.",
     },
 
     {
-      id:'4',
+      id: "4",
       link: "/assets/images/formations/thermo.png",
       title: "La thermoception",
-      text: " Qui est le fait d’avoir la perception du chaud / froid."
-  
+      text: " Qui est le fait d’avoir la perception du chaud / froid.",
     },
-  ]
-  
-  const getImgSrc = (id,imgSrc) => {
- 
-  
-    return <img src={imgSrc} alt="" className={classes.img}/>
-  }
+  ];
+
+  const getImgSrc = (id, imgSrc) => {
+    return <img src={imgSrc} alt="" className={classes.img} />;
+  };
 
   return (
-  
     <section className="section">
-    
-    <Container maxWidth="lg">
+      <Container maxWidth="lg">
+        <Box textAlign="center">
+          <Grid container justify="space-between" alignItems="center">
+            {imgList.map((item) => (
+              <Grid key item md={2} xs={12}>
+                <div className={classes.imgShadow}>
+                  <img src={item.link} alt="" />
 
-     <Box textAlign="center">
+                  <h6 className="mt-3"> {item.title} </h6>
+                </div>
+              </Grid>
+            ))}
+          </Grid>
 
+          <Grid container justify="space-between" alignItems="center">
+            {imgList2.map((item) => (
+              <Grid key item md={3} xs={12}>
+                {getImgSrc(item.id, item.link)}
 
-    <Grid container justify="space-between" alignItems="center">
+                <Box mt={4}>
+                  <h5 className={classes.title}> {item.title} </h5>
 
-   
-    {imgList.map(item => (
-      <Grid key item md={2} xs={12}>
-  
-      <div className={classes.imgShadow}>
-        <img src={item.link} alt=""/>
-
-        <h6 className="mt-3"> {item.title} </h6>
-
-        </div>
-      </Grid>
-    ))}
-</Grid>
-
-<Grid container justify="space-between" alignItems="center">
-
-    {imgList2.map(item => (
-      <Grid key item md={3} xs={12}>
-    
-       {getImgSrc(item.id,item.link)}
-
-        <Box mt={4}>
-
-        <h5 className={classes.title}> {item.title} </h5>
-
-        <p className={classes.paragraph} > {item.text} </p>
-
+                  <p className={classes.paragraph}> {item.text} </p>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
-       
-      </Grid>
-    ))}
-   
-  
-  </Grid>
-
-  </Box>
-  </Container>
-  </section>
- 
-
+      </Container>
+    </section>
   );
 };
 

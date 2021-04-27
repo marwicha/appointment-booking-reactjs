@@ -11,13 +11,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: 15,
     fontFamily: theme.typography.fontFamily,
     backgroundColor: "white",
-    borderRadius: "100px"
+    borderRadius: "100px",
   },
 
   h5: {
     fontFamily: "LEMON MILK",
     fontSize: "16px",
-    width: "100%"
+    width: "100%",
   },
 
   paragraph: {
@@ -27,84 +27,70 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     width: "100%",
     //flexDirection: "column",
     //justifyContent: "center"
-
   },
 
   Container: {
     display: "flex",
     flexDirection: "row",
     //height: "100px",
-    padding: "10px 0"
+    padding: "10px 0",
   },
 
   textContainer: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 }));
 
 const FourthSection = () => {
-
   const classes = useStyles();
 
-  const imgList = [ 
+  const imgList = [
     {
-     title: "",
-     link: "/assets/images/formations/1.png",
-     description:"La pleine conscience est une approche méditative qui consiste à vivre pleinement l’instant présent"
+      title: "",
+      link: "/assets/images/formations/1.png",
+      description:
+        "La pleine conscience est une approche méditative qui consiste à vivre pleinement l’instant présent",
     },
 
     {
       title: "",
       link: "/assets/images/formations/2.png",
-      description:""
+      description: "",
     },
 
     {
       title: "",
       link: "/assets/images/formations/3.png",
-      description:""
+      description: "",
     },
 
     {
       title: "",
       link: "/assets/images/formations/4.png",
-      description:""
-    }
-  ]
-
+      description: "",
+    },
+  ];
 
   return (
-  
     <section className="section">
-    
-    <Container maxWidth="lg">
+      <Container maxWidth="lg">
+        <Box textAlign="center">
+          <Grid container justify="space-between" alignItems="center">
+            {imgList.map((item) => (
+              <Grid key item md={2} xs={12}>
+                <div className={classes.imgShadow}>
+                  <img src={item.link} alt="" />
 
-     <Box textAlign="center">
-
-
-    <Grid container justify="space-between" alignItems="center">
-
-   
-    {imgList.map(item => (
-      <Grid key item md={2} xs={12}>
-  
-      <div className={classes.imgShadow}>
-        <img src={item.link} alt=""/>
-
-        <h6 className="mt-3"> {item.title} </h6>
-
-        </div>
-      </Grid>
-    ))}
-</Grid>
-
-  </Box>
-  </Container>
-  </section>
- 
-
+                  <h6 className="mt-3"> {item.title} </h6>
+                </div>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+    </section>
   );
 };
 

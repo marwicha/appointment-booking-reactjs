@@ -4,13 +4,13 @@ import red from "@material-ui/core/colors/red";
 const themeOptions = {
   palette: {
     type: "light",
-    primary: { main : "#78b9dc" },
-    danger: { main : "red" },
-    first: '#182732' ,
-    second: '#394d5b',
-    third: '#dfe5e6',
-    fourth: 'rgba(242,104,90,1)',
-    five: 'rgb(245, 245, 245)',
+    primary: { main: "#78b9dc" },
+    danger: { main: "red" },
+    first: "#182732",
+    second: "#394d5b",
+    third: "#dfe5e6",
+    fourth: "rgba(242,104,90,1)",
+    five: "rgb(245, 245, 245)",
     error: red,
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -23,7 +23,7 @@ const themeOptions = {
     },
     p: {
       fontFamily: "LEMON MILK",
-    }
+    },
   },
   overrides: {
     MuiButton: {
