@@ -71,7 +71,7 @@ const FourthSection = () => {
         <Box textAlign="center">
           <Grid container justify="space-between" alignItems="center">
             {imgList.map((item) => (
-              <Grid key item md={3} xs={12}>
+              <Grid item md={3} xs={12}>
                 {getImgSrc(item.id, item.link)}
 
                 <Box mt={2}>

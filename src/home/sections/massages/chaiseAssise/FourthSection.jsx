@@ -131,7 +131,7 @@ const FourthSection = () => {
           alignItems="center"
         >
           {imgList.map((item) => (
-            <Grid key sm={2} md={2} xs={12}>
+            <Grid sm={2} md={2} xs={12}>
               <div className={classes.imgShadow}>
                 <img src={item.link} alt="" />
 
@@ -141,18 +141,16 @@ const FourthSection = () => {
           ))}
 
           {imgList2.map((item) => (
-            <Grid key sm={3} md={3} xs={12}>
+            <Grid sm={3} md={3} xs={12}>
               <div className={classes.textContainer}>
                 {getImgSrc(item.id, item.link)}
 
                 <h5 className={clsx(classes.h5, "absolute mt-6")}>
-                  {" "}
-                  {item.title}{" "}
+                  {item.title}
                 </h5>
 
                 <p className={clsx(classes.paragraph, "absolute mt-6")}>
-                  {" "}
-                  {item.text}{" "}
+                  {item.text}
                 </p>
               </div>
             </Grid>

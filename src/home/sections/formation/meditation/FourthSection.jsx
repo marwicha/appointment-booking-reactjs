@@ -79,7 +79,7 @@ const FourthSection = () => {
         <Box textAlign="center">
           <Grid container justify="space-between" alignItems="center">
             {imgList.map((item) => (
-              <Grid key item md={2} xs={12}>
+              <Grid item md={2} xs={12}>
                 <div className={classes.imgShadow}>
                   <img src={item.link} alt="" />
 

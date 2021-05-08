@@ -194,7 +194,7 @@ const Appointment = (props) => {
     setConfirmationModalOpen(false);
     const newAppointment = {
       prestation: prestation,
-      slot_date: moment(appointmentDate).format("DD-MM-YYYY"),
+      slot_date: moment(appointmentDate).format("YYYY-MM-DD"),
       slot_time: appointmentSlot,
     };
 
@@ -213,7 +213,7 @@ const Appointment = (props) => {
   };
 
   const checkDisableDate = (currentDay) => {
-    const dateString = moment(currentDay).format("DD-MM-YYYY");
+    const dateString = moment(currentDay).format("YYYY-MM-DD");
 
     return (
       schedule[dateString] === true ||
@@ -301,7 +301,7 @@ const Appointment = (props) => {
       const slots = [...Array(8).keys()];
       return slots.map((slot) => {
         const appointmentDateString = moment(appointmentDate).format(
-          "DD-MM-YYYY"
+          "YYYY-MM-DD"
         );
         const t1 = moment().hour(9).minute(0).add(slot, "hours");
         const t2 = moment()
@@ -309,7 +309,7 @@ const Appointment = (props) => {
           .minute(0)
           .add(slot + 1, "hours");
         const scheduleDisabled = schedule[appointmentDateString]
-          ? schedule[moment(appointmentDate).format("DD-MM-YYYY")][slot]
+          ? schedule[moment(appointmentDate).format("YYYY-MM-DD")][slot]
           : false;
 
         let slotFilled;
