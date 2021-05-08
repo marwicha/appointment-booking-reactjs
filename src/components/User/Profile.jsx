@@ -66,8 +66,7 @@ const Profile = () => {
                   color="primary"
                   className={classes.btn}
                 >
-                  {" "}
-                  Modifier{" "}
+                  Modifier
                 </Button>
               </Link>
             </CardContent>

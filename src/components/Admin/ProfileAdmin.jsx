@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import AuthService from "../../services/auth.service";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
 import {
   Grid,
   Container,
@@ -12,7 +11,8 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
-import userService from "../../services/user.service";
+
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   btn: {
@@ -27,7 +27,7 @@ const ProfileAdmin = () => {
   const [currentUser, setcurrentUser] = useState([]);
 
   const getUser = () => {
-    const user = userService.getAdminProfile();
+    const user = AuthService.getCurrentUser();
     if (user) {
       setcurrentUser(user);
     }
@@ -53,14 +53,19 @@ const ProfileAdmin = () => {
             <CardContent>
               <Box align="left">
                 <p> {currentUser.email} </p>
-
-                <ul>
-                  {currentUser.roles &&
-                    currentUser.roles.map((role, index) => (
-                      <li key={index}>{role}</li>
-                    ))}
-                </ul>
               </Box>
+              <Link
+                to={"/admin/" + currentUser.id}
+                className="badge badge-warning"
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.btn}
+                >
+                  Modifier
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </Grid>

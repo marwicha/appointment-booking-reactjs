@@ -42,14 +42,12 @@ const TopBar = (props) => {
   }, [scrollableElement, handleScrollRef]);
 
   const [currentUser, setCurrentUser] = useState(undefined);
-  const [showAdminProfile, setShowAdminProfile] = useState(false);
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
 
     if (user) {
       setCurrentUser(user);
-      setShowAdminProfile(user.roles.includes("ROLE_ADMIN"));
     }
   }, []);
 
@@ -111,12 +109,6 @@ const TopBar = (props) => {
                 <NavLink to="/inscription">S'inscrire</NavLink>
               </li>
             </div>
-          )}
-
-          {showAdminProfile && (
-            <li>
-              <NavLink to={"/admin"}>Admin</NavLink>
-            </li>
           )}
 
           <li>

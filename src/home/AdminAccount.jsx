@@ -4,11 +4,8 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import TopBar from "./sections/TopBar";
-import Appointment from "../components/User/Appointment";
-import AllUserAppointments from "../components/User/AllUserAppointments";
-import AuthService from "../services/auth.service";
-import Profile from "components/User/Profile";
-import UserService from "../services/user.service";
+import ProfileAdmin from "components/Admin/ProfileAdmin";
+import RendezVous from "components/Admin/RendezVous";
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -50,29 +47,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 }));
 
-const UserAccount = () => {
-  const userTest = AuthService.getCurrentUser();
-
-  const [currentUser, setcurrentUser] = useState(userTest);
-
+const AdminAccount = () => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-
-  const deleteAccount = () => {
-    UserService.deleteAccount(currentUser.id)
-      .then((response) => {
-        setcurrentUser({ ...currentUser });
-
-        localStorage.removeItem("user");
-        window.location.reload();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
   };
 
   return (
@@ -87,27 +67,17 @@ const UserAccount = () => {
           className={classes.tabs}
         >
           <Tab label="Mes informations" {...a11yProps(0)} />
-          <Tab label="Prendre un rendez vous" {...a11yProps(1)} />
-          <Tab label="Afficher mes rendez vous" {...a11yProps(2)} />
-          <Tab label="Supprimer mon compte" {...a11yProps(3)} />
+          <Tab label="Mes rendez vous" {...a11yProps(1)} />
         </Tabs>
         <TabPanel style={{ width: "100%" }} value={value} index={0}>
-          <Profile />
+          <ProfileAdmin />
         </TabPanel>
-        <TabPanel style={{ width: "100%" }} value={value} index={1}>
-          <Appointment />
-        </TabPanel>
-        <TabPanel style={{ width: "100%" }} value={value} index={2}>
-          <AllUserAppointments />
-        </TabPanel>
-        <TabPanel style={{ width: "100%" }} value={value} index={3}>
-          <Button align="center" color="primary" onClick={deleteAccount}>
-            cliquer pour supprimer votre compte
-          </Button>
+        <TabPanel>
+          <RendezVous style={{ width: "100%" }} value={value} index={1} />
         </TabPanel>
       </Container>
     </section>
   );
 };
 
-export default UserAccount;
+export default AdminAccount;

@@ -17,14 +17,14 @@ import Formations from "./home/Formations";
 import Massages from "./home/Massages";
 import Patrick from "./home/Patrick";
 import CoachingSomatho from "./home/CoachingSomatho";
+import UserAccount from "./home/UserAccount";
+import AdminAccount from "./home/AdminAccount";
 
 import Authentification from "./components/Authentification";
 import Inscription from "./components/Inscription";
-import UserAccount from "./home/UserAccount";
-
 import AuthService from "./services/auth.service";
 import UpdateProfile from "components/User/UpdateProfile";
-import ProfileAdmin from "components/Admin/ProfileAdmin";
+import UpdateProfileAdmin from "components/Admin/UpdateProfileAdmin";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -116,15 +116,20 @@ const App = () => {
               <PublicRoute path="/inscription" exact component={Inscription} />
               {/* After authentication */}
 
-              <PrivateUserRoute path="/compte" component={UserAccount} />
+              <PrivateUserRoute exact path="/compte" component={UserAccount} />
 
               <PrivateUserRoute
-                path="/compte/:id"
                 exact
+                path="/compte/:id"
                 component={UpdateProfile}
               />
 
-              <PrivateAdminRoute path="/admin" component={ProfileAdmin} />
+              <PrivateAdminRoute exact path="/admin" component={AdminAccount} />
+              <PrivateAdminRoute
+                exact
+                path="/admin/:id"
+                component={UpdateProfileAdmin}
+              />
 
               <Redirect path="/" exact to="accueil" />
 

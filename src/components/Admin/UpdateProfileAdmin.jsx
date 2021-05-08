@@ -25,11 +25,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 }));
 
-const UpdateProfile = (props) => {
+const UpdateProfileAdmin = (props) => {
   const classes = useStyles();
   const userTest = AuthService.getCurrentUser();
 
-  const [user, setUser] = useState(userTest);
+  const initialState = {
+    id: userTest.id,
+    email: userTest.email,
+  };
+
+  const [user, setUser] = useState(initialState);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -39,19 +44,16 @@ const UpdateProfile = (props) => {
   const update = () => {
     const data = {
       id: user.id,
-      name: user.name,
       email: user.email,
-      phone: user.phone,
     };
-
     UserService.updateAccount(data.id, data)
       .then((response) => {
-        setUser({ ...data });
+        setUser({ ...user });
         localStorage.setItem(
           "user",
           JSON.stringify({ ...data, roles: user.roles })
         );
-        props.history.push("/compte");
+        props.history.push("/admin");
       })
       .catch((e) => {
         console.log(e);
@@ -76,26 +78,8 @@ const UpdateProfile = (props) => {
               <CardContent>
                 <Box align="left">
                   <TextField
-                    name="name"
-                    value={user.name}
-                    onChange={handleInputChange}
-                  />
-
-                  <br></br>
-                  <br></br>
-
-                  <TextField
                     name="email"
                     value={user.email}
-                    onChange={handleInputChange}
-                  />
-
-                  <br></br>
-                  <br></br>
-
-                  <TextField
-                    name="phone"
-                    value={user.phone}
                     onChange={handleInputChange}
                   />
                 </Box>
@@ -120,4 +104,4 @@ const UpdateProfile = (props) => {
   );
 };
 
-export default UpdateProfile;
+export default UpdateProfileAdmin;

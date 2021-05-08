@@ -406,8 +406,7 @@ const Appointment = (props) => {
                   }
                 >
                   <MenuItem selected value="Massage 9 sens">
-                    {" "}
-                    Massage 9 sens (1h){" "}
+                    Massage 9 sens (1h)
                   </MenuItem>
                   <MenuItem value="Méditation"> Méditation </MenuItem>
                 </Select>
