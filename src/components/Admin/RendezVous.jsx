@@ -23,7 +23,6 @@ const RendezVous = () => {
     axios
       .get("http://localhost:8082/getAll")
       .then((response) => {
-        console.log(response.data);
         let appointments = response.data;
 
         let tmpAppointment = [];

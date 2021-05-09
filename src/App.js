@@ -25,6 +25,8 @@ import Inscription from "./components/Inscription";
 import AuthService from "./services/auth.service";
 import UpdateProfile from "components/User/UpdateProfile";
 import UpdateProfileAdmin from "components/Admin/UpdateProfileAdmin";
+import AddPrestation from "components/Admin/AddPrestation";
+import AllPrestations from "components/Admin/AllPrestation";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -115,24 +117,30 @@ const App = () => {
               />
               <PublicRoute path="/inscription" exact component={Inscription} />
               {/* After authentication */}
-
               <PrivateUserRoute exact path="/compte" component={UserAccount} />
-
               <PrivateUserRoute
                 exact
                 path="/compte/:id"
                 component={UpdateProfile}
               />
-
               <PrivateAdminRoute exact path="/admin" component={AdminAccount} />
               <PrivateAdminRoute
                 exact
                 path="/admin/:id"
                 component={UpdateProfileAdmin}
               />
+              <PrivateAdminRoute
+                exact
+                path="/prestation/ajout"
+                component={AddPrestation}
+              />
+              <PrivateAdminRoute
+                exact
+                path="/prestations"
+                component={AllPrestations}
+              />
 
               <Redirect path="/" exact to="accueil" />
-
               {/* <Route component={Error} /> */}
             </Switch>
           </Router>

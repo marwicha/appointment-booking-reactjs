@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8082/api/appointment";
+const API_URL = "http://localhost:8082/api/prestation";
 
-const token = JSON.parse(localStorage.getItem("token"));
 const user = JSON.parse(localStorage.getItem("user"));
+const token = JSON.parse(localStorage.getItem("token"));
 
-const createAppointment = (data) => {
+const createPrestation = (data) => {
   const response = axios({
     method: "POST",
     url: `${API_URL}/create`,
@@ -19,19 +19,10 @@ const createAppointment = (data) => {
   return response;
 };
 
-const getAllAppointments = async () => {
+const getAllPrestations = async () => {
   const response = await axios({
     method: "GET",
     url: `${API_URL}/all`,
-  });
-
-  return response.data;
-};
-
-const getUserAppointments = async () => {
-  const response = await axios({
-    method: "GET",
-    url: `${API_URL}/${user.id}`,
     headers: {
       authorization: "Bearer " + token,
       "Content-Type": "application/json",
@@ -42,7 +33,6 @@ const getUserAppointments = async () => {
 };
 
 export default {
-  createAppointment,
-  getUserAppointments,
-  getAllAppointments,
+  createPrestation,
+  getAllPrestations,
 };

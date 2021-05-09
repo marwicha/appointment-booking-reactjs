@@ -6,6 +6,8 @@ import Tabs from "@material-ui/core/Tabs";
 import TopBar from "./sections/TopBar";
 import ProfileAdmin from "components/Admin/ProfileAdmin";
 import RendezVous from "components/Admin/RendezVous";
+import AddPrestation from "components/Admin/AddPrestation";
+import AllPrestations from "components/Admin/AllPrestation";
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -68,12 +70,22 @@ const AdminAccount = () => {
         >
           <Tab label="Mes informations" {...a11yProps(0)} />
           <Tab label="Mes rendez vous" {...a11yProps(1)} />
+          <Tab label="Ajout prestation" {...a11yProps(2)} />
+          <Tab label="Les prestations" {...a11yProps(3)} />
         </Tabs>
         <TabPanel style={{ width: "100%" }} value={value} index={0}>
           <ProfileAdmin />
         </TabPanel>
         <TabPanel>
           <RendezVous style={{ width: "100%" }} value={value} index={1} />
+        </TabPanel>
+
+        <TabPanel>
+          <AddPrestation style={{ width: "100%" }} value={value} index={2} />
+        </TabPanel>
+
+        <TabPanel>
+          <AllPrestations style={{ width: "100%" }} value={value} index={3} />
         </TabPanel>
       </Container>
     </section>

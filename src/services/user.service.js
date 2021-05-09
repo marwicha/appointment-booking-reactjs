@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const API_URL = "http://localhost:8082/api";
+const token = JSON.parse(localStorage.getItem("token"));
 
 const updateAccount = async (id, data) => {
-  const token = JSON.parse(localStorage.getItem("token"));
-
   const response = await axios({
     method: "PUT",
     url: `${API_URL}/compte/${id}`,
@@ -19,8 +18,6 @@ const updateAccount = async (id, data) => {
 };
 
 const deleteAccount = async (id) => {
-  const token = JSON.parse(localStorage.getItem("token"));
-
   const response = await axios({
     method: "DELETE",
     url: `${API_URL}/compte/${id}`,
@@ -34,7 +31,6 @@ const deleteAccount = async (id) => {
 };
 
 const getAdminProfile = async () => {
-  const token = JSON.parse(localStorage.getItem("token"));
   const response = await axios({
     method: "GET",
     url: API_URL + "/test/admin",
