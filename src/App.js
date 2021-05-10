@@ -26,7 +26,6 @@ import AuthService from "./services/auth.service";
 import UpdateProfile from "components/User/UpdateProfile";
 import UpdateProfileAdmin from "components/Admin/UpdateProfileAdmin";
 import AddPrestation from "components/Admin/AddPrestation";
-import AllPrestations from "components/Admin/AllPrestation";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -133,11 +132,6 @@ const App = () => {
                 exact
                 path="/prestation/ajout"
                 component={AddPrestation}
-              />
-              <PrivateAdminRoute
-                exact
-                path="/prestations"
-                component={AllPrestations}
               />
 
               <Redirect path="/" exact to="accueil" />

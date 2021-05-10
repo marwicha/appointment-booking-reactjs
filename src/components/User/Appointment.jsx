@@ -32,6 +32,7 @@ import MomentUtils from "@date-io/moment";
 import moment from "moment";
 import fr from "moment/locale/fr";
 
+import PrestationService from "../../services/prestation.service";
 import { Step, Stepper, StepContent } from "@material-ui/core";
 import axios from "axios";
 
@@ -54,6 +55,7 @@ const Appointment = (props) => {
     confirmationSnackbarMessage,
     setConfirmationSnackbarMessage,
   ] = useState(false);
+
   const [confirmationTextVisible, setConfirmationTextVisible] = useState(false);
 
   const [appointmentDate, setAppointmentDate] = useState(new Date());
@@ -71,6 +73,9 @@ const Appointment = (props) => {
   const [bookedDatesObject, setBookedDatesObject] = useState({}); //tracks dates coupled to their slots
   const [fullDays, setFullDays] = useState([]); //to track full days
 
+  const [selectedPrestation, setSelectedPrestation] = useState("");
+  const [prestations, setPrestations] = useState([]);
+
   useEffect(() => {
     axios.get(API_BASE + `api/slots/all`).then((response) => {});
   }, []);
@@ -82,6 +87,12 @@ const Appointment = (props) => {
     if (user) {
       setCurrentUser(user);
     }
+  }, []);
+
+  useEffect(() => {
+    PrestationService.getAllPrestations().then((response) => {
+      setPrestations(response);
+    });
   }, []);
 
   useEffect(() => {
@@ -356,16 +367,14 @@ const Appointment = (props) => {
   );
   const modalActions = [
     <Button primary="false" onClick={() => setConfirmationModalOpen(false)}>
-      {" "}
-      Annuler{" "}
+      Annuler
     </Button>,
     <Button
       style={{ backgroundColor: "#00C853 !important" }}
       primary="true"
       onClick={() => handleSubmit()}
     >
-      {" "}
-      Confirmer{" "}
+      Confirmer
     </Button>,
   ];
   return (
@@ -393,22 +402,24 @@ const Appointment = (props) => {
         <Stepper activeStep={stepIndex} linear="false" orientation="vertical">
           <Step disabled={loading}>
             <StepButton onClick={() => setStepIndex(0)}>
-              Choisir UNE OU PLUSIEURS PRESTATIONS
+              Choisir UNE PRESTATION
             </StepButton>
 
             <StepContent>
               <FormControl>
                 <Select
                   fullWidth
-                  value={prestation}
                   onChange={(event) =>
                     handleChangePrestation(event.target.value)
                   }
                 >
-                  <MenuItem selected value="Massage 9 sens">
-                    Massage 9 sens (1h)
-                  </MenuItem>
-                  <MenuItem value="Méditation"> Méditation </MenuItem>
+                  {prestations.map((prestation, index) => {
+                    return (
+                      <MenuItem key={index} value={prestation.name}>
+                        {prestation.name}
+                      </MenuItem>
+                    );
+                  })}
                 </Select>
               </FormControl>
             </StepContent>
