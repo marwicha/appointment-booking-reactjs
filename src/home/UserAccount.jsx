@@ -9,6 +9,7 @@ import AllUserAppointments from "../components/User/AllUserAppointments";
 import AuthService from "../services/auth.service";
 import Profile from "components/User/Profile";
 import UserService from "../services/user.service";
+import UserFormations from "components/User/UserFormations";
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -63,16 +64,19 @@ const UserAccount = () => {
   };
 
   const deleteAccount = () => {
-    UserService.deleteAccount(currentUser.id)
-      .then((response) => {
-        setcurrentUser({ ...currentUser });
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm("Etes vous sûre de vouloir supprimer votre compte ?")) {
+      UserService.deleteAccount(currentUser.id)
+        .then((response) => {
+          setcurrentUser({ ...currentUser });
 
-        localStorage.removeItem("user");
-        window.location.reload();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+          localStorage.removeItem("user");
+          window.location.reload();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   };
 
   return (
@@ -88,8 +92,9 @@ const UserAccount = () => {
         >
           <Tab label="Mes informations" {...a11yProps(0)} />
           <Tab label="Prendre un rendez vous" {...a11yProps(1)} />
-          <Tab label="Afficher mes rendez vous" {...a11yProps(2)} />
-          <Tab label="Supprimer mon compte" {...a11yProps(3)} />
+          <Tab label="Mes rendez vous" {...a11yProps(2)} />
+          <Tab label="Prochaines formations" {...a11yProps(3)} />
+          <Tab label="Supprimer mon compte" {...a11yProps(4)} />
         </Tabs>
         <TabPanel style={{ width: "100%" }} value={value} index={0}>
           <Profile />
@@ -100,7 +105,12 @@ const UserAccount = () => {
         <TabPanel style={{ width: "100%" }} value={value} index={2}>
           <AllUserAppointments />
         </TabPanel>
+
         <TabPanel style={{ width: "100%" }} value={value} index={3}>
+          <UserFormations />
+        </TabPanel>
+
+        <TabPanel style={{ width: "100%" }} value={value} index={4}>
           <Button align="center" color="primary" onClick={deleteAccount}>
             cliquer pour supprimer votre compte
           </Button>

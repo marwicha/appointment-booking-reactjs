@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import { toast } from "react-toastify";
-import PrestationService from "../../services/prestation.service";
+import AdminService from "../../services/admin.service";
 
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
@@ -21,32 +22,39 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "white",
     backgroundColor: "#4b9fbc",
   },
+  textArea: {
+    maxWidth: 200,
+  },
 }));
 
-const AddPrestation = () => {
+const AddFormation = () => {
   const classes = useStyles();
 
-  const [prestations, setPrestations] = useState([]);
-  const [prestation, setPrestation] = useState("");
+  const [formations, setFormations] = useState([]);
+  const [name, setName] = useState("");
+  const [dateText, setDateText] = useState("");
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
-    PrestationService.getAllPrestations().then((response) => {
-      setPrestations(response);
+    AdminService.getAllFormations().then((response) => {
+      setFormations(response);
     });
   }, []);
 
-  const addPrestation = () => {
+  const addFormation = () => {
     const data = {
-      name: prestation,
+      name: name,
+      dateText: dateText,
+      description: description,
     };
 
-    PrestationService.createPrestation(data)
+    AdminService.createFormation(data)
       .then((response) => {
         toast.success("Crée avec success!");
       })
       .then(() => {
-        PrestationService.getAllPrestations().then((response) => {
-          setPrestations(response);
+        AdminService.getAllFormations().then((response) => {
+          setFormations(response);
         });
       })
       .catch((e) => {
@@ -55,12 +63,12 @@ const AddPrestation = () => {
       });
   };
 
-  const deletePrestation = (id) => {
+  const deleteFormation = (id) => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm("Etes vous sûre de vouloir supprimer cette prestation ?")) {
-      PrestationService.deletePrestation(id).then(() => {
-        PrestationService.getAllPrestations().then((response) => {
-          setPrestations(response);
+      AdminService.deleteFormation(id).then(() => {
+        AdminService.getAllFormations().then((response) => {
+          setFormations(response);
         });
       });
     }
@@ -76,16 +84,25 @@ const AddPrestation = () => {
                 backgroundColor: "#dfe5e6",
                 color: "black",
               }}
-              subheader="Ajouter une prestation"
+              subheader="Ajouter une formation"
             />
 
             <CardContent>
               <Box align="center">
                 <TextField
-                  placeholder="Nom de la prestation"
-                  name="prestation"
-                  value={prestation}
-                  onChange={(e) => setPrestation(e.target.value)}
+                  placeholder="Nom de la formation"
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+
+                <br></br>
+                <br></br>
+                <TextField
+                  placeholder="Date de la formation"
+                  name="dateText"
+                  value={dateText}
+                  onChange={(e) => setDateText(e.target.value)}
                 />
               </Box>
               <br></br>
@@ -94,7 +111,7 @@ const AddPrestation = () => {
                 variant="contained"
                 color="primary"
                 className={classes.btn}
-                onClick={addPrestation}
+                onClick={addFormation}
               >
                 Valider
               </Button>
@@ -111,7 +128,7 @@ const AddPrestation = () => {
         md={12}
         xs={12}
       >
-        {prestations.map((prestation, index) => (
+        {formations.map((formation, index) => (
           <Grid item md={3} xs={12}>
             <Box mt={2}>
               <Card>
@@ -119,13 +136,14 @@ const AddPrestation = () => {
                   style={{
                     color: "black",
                   }}
-                  subheader={prestation.name}
+                  subheader={formation.name}
                 />
                 <Divider />
+                <CardContent>{formation.dateText}</CardContent>
 
                 <Button
                   color="secondary"
-                  onClick={() => deletePrestation(prestation.id)}
+                  onClick={() => deleteFormation(formation.id)}
                 >
                   Supprimer
                 </Button>
@@ -138,4 +156,4 @@ const AddPrestation = () => {
   );
 };
 
-export default AddPrestation;
+export default AddFormation;

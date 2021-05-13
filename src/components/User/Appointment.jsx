@@ -48,13 +48,10 @@ const Appointment = (props) => {
   const [loading, setLoading] = useState(true);
   const [schedule, setSchedule] = useState([]);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
-  const [confirmationSnackbarOpen, setConfirmationSnackbarOpen] = useState(
-    false
-  );
-  const [
-    confirmationSnackbarMessage,
-    setConfirmationSnackbarMessage,
-  ] = useState(false);
+  const [confirmationSnackbarOpen, setConfirmationSnackbarOpen] =
+    useState(false);
+  const [confirmationSnackbarMessage, setConfirmationSnackbarMessage] =
+    useState(false);
 
   const [confirmationTextVisible, setConfirmationTextVisible] = useState(false);
 
@@ -311,9 +308,8 @@ const Appointment = (props) => {
     if (loading) {
       const slots = [...Array(8).keys()];
       return slots.map((slot) => {
-        const appointmentDateString = moment(appointmentDate).format(
-          "YYYY-MM-DD"
-        );
+        const appointmentDateString =
+          moment(appointmentDate).format("YYYY-MM-DD");
         const t1 = moment().hour(9).minute(0).add(slot, "hours");
         const t2 = moment()
           .hour(9)

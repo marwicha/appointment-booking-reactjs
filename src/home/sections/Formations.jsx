@@ -80,7 +80,6 @@ const Massages = () => {
                     {item.title}
                   </Typography>
                   <Typography variant="body2" component="p" gutterBottom={true}>
-                    {" "}
                     {item.text}
                   </Typography>
 
