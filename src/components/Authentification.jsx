@@ -41,6 +41,7 @@ function Copyright() {
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   title: {
     fontFamily: "LEMON MILK",
+    marginTop: "3em",
   },
 
   paper: {
@@ -50,7 +51,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     alignItems: "center",
     justifyContent: "center",
     background: "#fff",
-    borderRadius: "6px",
+    borderRadius: "10px",
     width: "100%",
     border: "solid 1px #DDD",
   },
@@ -137,10 +138,6 @@ const Authentification = (props) => {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Card className={classes.paper}>
-          <Avatar className={clsx(classes.avatar, "md-48")}>
-            <LockOutlined />
-          </Avatar>
-
           <h5 className={classes.title}>Se connecter</h5>
 
           <form onSubmit={handleLogin} ref={form} className={classes.form}>
@@ -201,11 +198,6 @@ const Authentification = (props) => {
 
               <Grid container>
                 <Grid item xs>
-                  <NavLink to="">
-                    <p> Mot de passe oubliée? </p>
-                  </NavLink>
-                </Grid>
-                <Grid item>
                   <NavLink to="/Inscription">
                     <p> S'inscrire </p>
                   </NavLink>

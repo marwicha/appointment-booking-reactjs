@@ -55,6 +55,8 @@ const Profile = () => {
 
                 <p> {currentUser.email} </p>
 
+                <p> {currentUser.password} </p>
+
                 <p> {currentUser.phone} </p>
               </Box>
               <Link

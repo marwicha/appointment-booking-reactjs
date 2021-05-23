@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API_URL = "http://localhost:8082/api/formation";
+const API_URL_app = "http://localhost:8082/api";
 
 const token = JSON.parse(localStorage.getItem("token"));
 
@@ -44,6 +45,19 @@ const getAllFormations = async () => {
   return response.data;
 };
 
+const getAllAppointments = async () => {
+  const response = await axios({
+    method: "GET",
+    url: `${API_URL_app}/getAll`,
+    headers: {
+      authorization: "Bearer " + token,
+      "Content-Type": "application/json",
+    },
+  });
+
+  return response.data;
+};
+
 const updateFormation = async (id, data) => {
   const response = await axios({
     method: "PUT",
@@ -63,4 +77,5 @@ export default {
   getAllFormations,
   deleteFormation,
   updateFormation,
+  getAllAppointments,
 };

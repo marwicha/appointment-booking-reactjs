@@ -8,7 +8,6 @@ import LockOutlined from "@material-ui/icons/LockOutlined";
 import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
-import clsx from "clsx";
 
 import { useForm } from "react-hook-form";
 
@@ -18,7 +17,6 @@ import {
   Grid,
   Button,
   Card,
-  Avatar,
   TextField,
   CssBaseline,
   Link,
@@ -35,9 +33,8 @@ function Copyright() {
         href="https://www.linkedin.com/in/marwa-rekik-06992169/"
       >
         Marwa
-      </Link>{" "}
+      </Link>
       {new Date().getFullYear()}
-      {"."}
     </Typography>
   );
 }
@@ -45,6 +42,8 @@ function Copyright() {
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   title: {
     fontFamily: "LEMON MILK",
+    margin: "3em",
+    width: "51%",
   },
 
   paper: {
@@ -54,7 +53,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     alignItems: "center",
     justifyContent: "center",
     background: "#fff",
-    borderRadius: "6px",
+    borderRadius: "10px",
     width: "100%",
     border: "solid 2px #DDD",
   },
@@ -146,14 +145,10 @@ const Inscription = (props) => {
   return (
     <div className="landing">
       <TopBar />
-      <div className="section-intro-formations">
+      <div className="section-box-inscription">
         <Container maxWidth="sm">
           <CssBaseline />
           <Card className={classes.paper}>
-            <Avatar className={clsx(classes.avatar)}>
-              <LockOutlined />
-            </Avatar>
-
             <h5 className={classes.title}>
               S'inscrire afin de prendre un rendez-vous
             </h5>

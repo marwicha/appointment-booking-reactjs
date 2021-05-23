@@ -8,6 +8,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
     ".landing div, .landing section": { boxSizing: "border-box" },
     ".section-intro": { paddingTop: "5rem !important" },
     ".section-intro-formations": { paddingTop: "6rem !important" },
+    ".section-box-inscription": { paddingTop: "4rem !important" },
     ".section-programme-formation": { paddingTop: "2rem !important" },
     ".section-intro-massages": { paddingTop: "2rem !important" },
     ".section": {
@@ -36,19 +37,18 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       background: "#FAFBFF",
       /* grey white */
       border: "1px solid #EBF0FF",
-      boxSizing: "border-box"
+      boxSizing: "border-box",
     },
 
-    
- ".zoom": {
-  padding: "50px",
-  transition: "transform .2s",
-  margin: "0 auto"
-},
+    ".zoom": {
+      padding: "50px",
+      transition: "transform .2s",
+      margin: "0 auto",
+    },
 
-".zoom:hover": {
-   transform: "scale(1.5)"
-},
+    ".zoom:hover": {
+      transform: "scale(1.5)",
+    },
 
     ".container-final-formation": {
       padding: "2rem 0 0 0",
@@ -59,7 +59,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
     ".container-intro-patrick": {
       padding: "2rem 0 0 0",
       width: "1164px",
-      margin: "0 auto"
+      margin: "0 auto",
     },
 
     ".container-formation": {
@@ -68,19 +68,18 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       margin: "0 auto",
     },
 
-
     ".container-icon-formation": {
       padding: "2rem 0 0 0",
       maxWidth: "1700px",
       margin: "0 auto",
-      background: "#FAFBFF"
+      background: "#FAFBFF",
     },
 
     ".container-program-formation": {
       padding: "2rem 0 0 0",
       maxWidth: "1700px",
       margin: "0 auto",
-      background: "#EBF0FF"
+      background: "#EBF0FF",
     },
 
     ".header": {
@@ -92,18 +91,18 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       right: "0",
       padding: "0 0 0 0",
       transition: "padding 0.3s linear",
-      zIndex: "999999"
+      zIndex: "999999",
     },
     ".header .header-container": {
       padding: "10px 0 16px 0",
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
-      boxShadow: "2px 5px 5px 2px #0404046e;"
+      boxShadow: "2px 5px 5px 2px #0404046e;",
     },
     ".header .header-container .brand": {
       margin: "0 5% 0 1%",
-      padding: "0"
+      padding: "0",
     },
     ".header .header-container .brand img": { maxHeight: "60px" },
 
@@ -118,11 +117,11 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       alignItems: "center",
       padding: "6px 10px",
       transition: "all 0.3s ease-in",
-	    fontSize: "14px",
-	    color: "rgba(112,112,112,1)"
+      fontSize: "14px",
+      color: "rgba(112,112,112,1)",
     },
     ".header .header-container ul.navigation li a:hover": {
-      textDecoration: "underline !important"
+      textDecoration: "underline !important",
     },
     ".header .header-container .header__toggle": { display: "none" },
     "@media only screen and (max-width: 767px)": {
@@ -138,7 +137,7 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       },
 
       "@media (max-width: 990px)": {
-          ".card": { margin: "20px"}
+        ".card": { margin: "20px" },
       },
 
       ".header.closed": {
@@ -161,11 +160,11 @@ export const landingStyles = makeStyles(({ palette, ...theme }) => ({
       ".header .header-container": {
         flexDirection: "column",
         padding: "0",
-        height: "100%"
+        height: "100%",
       },
       ".header .header-container .brand": {
         padding: "0 3px 0 0",
-        width: "100%"
+        width: "100%",
       },
       ".header .header-container ul.navigation": { margin: "0", width: "100%" },
       ".header .header-container ul.navigation li": { display: "block" },

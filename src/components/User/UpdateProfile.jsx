@@ -41,6 +41,7 @@ const UpdateProfile = (props) => {
       id: user.id,
       name: user.name,
       email: user.email,
+      password: user.password,
       phone: user.phone,
     };
 
@@ -92,7 +93,14 @@ const UpdateProfile = (props) => {
 
                   <br></br>
                   <br></br>
+                  <TextField
+                    name="password"
+                    value={user.password}
+                    onChange={handleInputChange}
+                  />
 
+                  <br></br>
+                  <br></br>
                   <TextField
                     name="phone"
                     value={user.phone}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import AdminService from "../../services/admin.service";
 
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -20,10 +21,9 @@ const RendezVous = () => {
   ]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/getAll")
+    AdminService.getAllAppointments()
       .then((response) => {
-        let appointments = response.data;
+        let appointments = response;
 
         let tmpAppointment = [];
         for (let i = 0; i < appointments.length; i++) {

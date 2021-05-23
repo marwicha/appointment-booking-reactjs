@@ -54,6 +54,8 @@ const ProfileAdmin = () => {
               <Box align="left">
                 <p> {currentUser.email} </p>
               </Box>
+              <br></br>
+
               <Link
                 to={"/admin/" + currentUser.id}
                 className="badge badge-warning"
