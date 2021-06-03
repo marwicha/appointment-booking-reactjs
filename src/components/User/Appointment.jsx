@@ -36,12 +36,6 @@ import Payement from "./Payment";
 
 const API_BASE = "https://ikdo-patrick-marwa.herokuapp.com/";
 
-const useStyles = makeStyles(({ palette, ...theme }) => ({
-  root: {
-    width: "100%",
-  },
-}));
-
 const stripePromise = loadStripe(
   "pk_test_51Iv0X0Idt2OtpHpwAsbJ5pQv2QCWfpaR9FS8aaxvgXb5DhfEXXbRVC1H4GMr7HaVL4pki2jjpTYbeIuEPyPpK3cJ00ygUHxsGY"
 );
@@ -59,7 +53,7 @@ const Appointment = (props) => {
 
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [appointmentSlot, setAppointmentSlot] = useState("");
-  const [prestation, setPrestation] = useState();
+  const [prestation, setPrestation] = useState("");
 
   const [stepIndex, setStepIndex] = useState(0);
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 768);
@@ -332,8 +326,6 @@ const Appointment = (props) => {
     }
   };
 
-  const classes = useStyles();
-
   const contactFormFilled = appointmentSlot;
 
   const DatePickerExampleSimple = () => (
@@ -351,6 +343,7 @@ const Appointment = (props) => {
       </MuiPickersUtilsProvider>
     </div>
   );
+
   const modalActions = [
     <Button primary="false" onClick={() => setConfirmationModalOpen(false)}>
       Annuler
@@ -387,18 +380,8 @@ const Appointment = (props) => {
           subheader="Prendre un rendez vous"
         />
         <Stepper activeStep={stepIndex} linear="false" orientation="vertical">
-          <Step>
-            <StepButton onClick={() => setStepIndex(0)}>
-              Payement de la pretation
-            </StepButton>
-            <StepContent>
-              <Elements stripe={stripePromise}>
-                <Payement />
-              </Elements>
-            </StepContent>
-          </Step>
           <Step disabled={loading}>
-            <StepButton onClick={() => setStepIndex(1)}>
+            <StepButton onClick={() => setStepIndex(0)}>
               Choisir une prestation
             </StepButton>
 
@@ -412,8 +395,8 @@ const Appointment = (props) => {
                 >
                   {prestations.map((prestation, index) => {
                     return (
-                      <MenuItem key={index} value={prestation.name}>
-                        {prestation.name} - {prestation.price}
+                      <MenuItem key={index} value={prestation.price}>
+                        {prestation.name} - {prestation.price + " eur"}
                       </MenuItem>
                     );
                   })}
@@ -423,14 +406,14 @@ const Appointment = (props) => {
           </Step>
 
           <Step>
-            <StepButton onClick={() => setStepIndex(2)}>
+            <StepButton onClick={() => setStepIndex(1)}>
               Choisir votre date de rendez-vous
             </StepButton>
             <StepContent>{DatePickerExampleSimple()}</StepContent>
           </Step>
           <Step disabled={!appointmentDate}>
-            <StepButton onClick={() => setStepIndex(3)}>
-              Choisir une heure de rendez-vous
+            <StepButton onClick={() => setStepIndex(2)}>
+              Choisir une heure disponible
             </StepButton>
             <StepContent>
               <FormControl component="fieldset">
@@ -446,6 +429,16 @@ const Appointment = (props) => {
                   {renderAppointmentTimes()}
                 </RadioGroup>
               </FormControl>
+            </StepContent>
+          </Step>
+          <Step>
+            <StepButton onClick={() => setStepIndex(3)}>
+              Payement de la pretation
+            </StepButton>
+            <StepContent>
+              <Elements stripe={stripePromise}>
+                <Payement amount={prestation} />
+              </Elements>
               <Button
                 style={{
                   display: "block",

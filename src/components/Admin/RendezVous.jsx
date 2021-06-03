@@ -56,7 +56,7 @@ const RendezVous = () => {
         for (let i = 0; i < appointments.length; i++) {
           tmpAppointment.push({
             id: appointments[i]._id,
-            title: appointments[i].prestation,
+            title: "PRESTATION1 " + appointments[i].prestation,
             start:
               appointments[i].slots.slot_date +
               displayHeure(appointments[i].slots.slot_time),

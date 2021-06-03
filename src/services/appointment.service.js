@@ -55,7 +55,7 @@ const deleteAppointment = async (id) => {
   return response.data;
 };
 
-const payment = async () => {
+const payment = async (data) => {
   const response = await axios({
     method: "POST",
     url: `${API_PAY}/create_payment_intent`,
@@ -63,10 +63,7 @@ const payment = async () => {
       authorization: "Bearer " + token,
       "Content-Type": "application/json",
     },
-    data: JSON.stringify({
-      paymentMethodType: "card",
-      currency: "eur",
-    }),
+    data: JSON.stringify(data),
   });
 
   return response.data;

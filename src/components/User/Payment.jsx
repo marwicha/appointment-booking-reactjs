@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 import AppointmentService from "../../services/appointment.service";
 
-const Payement = () => {
-  //Stripe payement
-
+const Payement = (props) => {
+  const { amount } = props;
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmitPayement = async (ev) => {
     ev.preventDefault();
-
-    // Step 3: Use clientSecret from PaymentIntent and the CardElement
-    // to confirm payment with stripe.confirmCardPayment()
 
     if (!stripe || !elements) {
       alert("Le Payement n'a pas encore chargé.");
@@ -22,7 +18,16 @@ const Payement = () => {
     }
 
     const { error: backendError, clientSecret } =
-      await AppointmentService.payment().then((response) => {
+      await AppointmentService.payment({
+        paymentMethodType: "card",
+        currency: "eur",
+        amount: amount,
+        //receipt_email: email,
+        // billing_details: {
+        //   name: name,
+        //   phone: phone,
+        // },
+      }).then((response) => {
         return response;
       });
 
@@ -35,14 +40,10 @@ const Payement = () => {
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
-          // billing_details: {
-          //   name: "Jenny Rosen",
-          // },
         },
       });
 
     if (stripeError) {
-      // Show error to your customer (e.g., insufficient funds)
       alert(stripeError.message);
       return;
     }
@@ -81,7 +82,7 @@ const Payement = () => {
             />
           </div>
         </div>
-        <button className="btn">Payer</button>
+        <button className="btn">Payer la prestation</button>
       </form>
     );
   };
