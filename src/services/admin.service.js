@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8082/api/formation";
-const API_URL_app = "http://localhost:8082/api";
+const API_URL = "https://ikdo-patrick-marwa.herokuapp.com/api/formation";
+const API_URL_app = "https://ikdo-patrick-marwa.herokuapp.com/api";
 
 const token = JSON.parse(localStorage.getItem("token"));
 

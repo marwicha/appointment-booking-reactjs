@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import AdminService from "../../services/admin.service";
 
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
@@ -33,7 +32,6 @@ const AddFormation = () => {
   const [formations, setFormations] = useState([]);
   const [name, setName] = useState("");
   const [dateText, setDateText] = useState("");
-  const [description, setDescription] = useState("");
 
   useEffect(() => {
     AdminService.getAllFormations().then((response) => {
@@ -45,7 +43,6 @@ const AddFormation = () => {
     const data = {
       name: name,
       dateText: dateText,
-      description: description,
     };
 
     AdminService.createFormation(data)
@@ -65,11 +62,9 @@ const AddFormation = () => {
 
   const deleteFormation = (id) => {
     // eslint-disable-next-line no-restricted-globals
-    if (confirm("Etes vous sûre de vouloir supprimer cette prestation ?")) {
+    if (confirm("Etes vous sûre de vouloir supprimer cette formation ?")) {
       AdminService.deleteFormation(id).then(() => {
-        AdminService.getAllFormations().then((response) => {
-          setFormations(response);
-        });
+        setFormations(formations.filter((element) => element._id !== id));
       });
     }
   };
@@ -143,7 +138,7 @@ const AddFormation = () => {
 
                 <Button
                   color="secondary"
-                  onClick={() => deleteFormation(formation.id)}
+                  onClick={() => deleteFormation(formation._id)}
                 >
                   Supprimer
                 </Button>

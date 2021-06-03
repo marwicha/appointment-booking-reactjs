@@ -1,6 +1,6 @@
 import Tab from "@material-ui/core/Tab";
-import { Typography, Container, Button, Box } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+import { Typography, Container, Box } from "@material-ui/core";
+import React, { useState } from "react";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

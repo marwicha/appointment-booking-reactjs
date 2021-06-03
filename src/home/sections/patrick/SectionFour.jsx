@@ -1,15 +1,6 @@
 import React from "react";
-import {
-  Grid,
-  Container,
-  Box,
-  Typography,
-  Card,
-  CardActionArea,
-  CardMedia,
-} from "@material-ui/core";
+import { Container, Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   container: {

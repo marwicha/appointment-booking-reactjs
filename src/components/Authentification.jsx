@@ -6,17 +6,14 @@ import {
   Grid,
   Button,
   Card,
-  Avatar,
   CssBaseline,
   TextField,
   Link,
 } from "@material-ui/core";
-import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 
 import PersonOutlineOutlined from "@material-ui/icons/PersonOutlineOutlined";
-import LockOutlined from "@material-ui/icons/LockOutlined";
 import Lock from "@material-ui/icons/Lock";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -31,9 +28,8 @@ function Copyright() {
         href="https://www.linkedin.com/in/marwa-rekik-06992169/"
       >
         Marwa
-      </Link>{" "}
+      </Link>
       {new Date().getFullYear()}
-      {"."}
     </Typography>
   );
 }

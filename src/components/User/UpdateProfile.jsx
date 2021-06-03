@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UserService from "../../services/user.service";
 import AuthService from "../../services/auth.service";
 import { makeStyles } from "@material-ui/core/styles";
@@ -29,7 +29,16 @@ const UpdateProfile = (props) => {
   const classes = useStyles();
   const userTest = AuthService.getCurrentUser();
 
-  const [user, setUser] = useState(userTest);
+  const initialState = {
+    id: userTest.id,
+    email: userTest.email,
+    name: userTest.name,
+    phone: userTest.phone,
+    //password: "",
+    roles: userTest.roles,
+  };
+
+  const [user, setUser] = useState(initialState);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -41,7 +50,7 @@ const UpdateProfile = (props) => {
       id: user.id,
       name: user.name,
       email: user.email,
-      password: user.password,
+      //password: user.password,
       phone: user.phone,
     };
 
@@ -75,8 +84,9 @@ const UpdateProfile = (props) => {
               />
 
               <CardContent>
-                <Box align="left">
+                <Box align="center">
                   <TextField
+                    fullWidth
                     name="name"
                     value={user.name}
                     onChange={handleInputChange}
@@ -86,6 +96,7 @@ const UpdateProfile = (props) => {
                   <br></br>
 
                   <TextField
+                    fullWidth
                     name="email"
                     value={user.email}
                     onChange={handleInputChange}
@@ -93,15 +104,11 @@ const UpdateProfile = (props) => {
 
                   <br></br>
                   <br></br>
-                  <TextField
-                    name="password"
-                    value={user.password}
-                    onChange={handleInputChange}
-                  />
 
                   <br></br>
                   <br></br>
                   <TextField
+                    fullWidth
                     name="phone"
                     value={user.phone}
                     onChange={handleInputChange}

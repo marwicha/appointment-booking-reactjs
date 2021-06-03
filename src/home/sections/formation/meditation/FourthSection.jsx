@@ -2,7 +2,6 @@ import React from "react";
 import { Grid, Box, Container } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {

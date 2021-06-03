@@ -27,7 +27,8 @@ const AddPrestation = () => {
   const classes = useStyles();
 
   const [prestations, setPrestations] = useState([]);
-  const [prestation, setPrestation] = useState("");
+  const [namePrestation, setNamePrestation] = useState("");
+  const [pricePrestation, setPricePrestation] = useState("");
 
   useEffect(() => {
     PrestationService.getAllPrestations().then((response) => {
@@ -37,7 +38,8 @@ const AddPrestation = () => {
 
   const addPrestation = () => {
     const data = {
-      name: prestation,
+      name: namePrestation,
+      price: pricePrestation,
     };
 
     PrestationService.createPrestation(data)
@@ -59,9 +61,7 @@ const AddPrestation = () => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm("Etes vous sûre de vouloir supprimer cette prestation ?")) {
       PrestationService.deletePrestation(id).then(() => {
-        PrestationService.getAllPrestations().then((response) => {
-          setPrestations(response);
-        });
+        setPrestations(prestations.filter((element) => element._id !== id));
       });
     }
   };
@@ -83,9 +83,19 @@ const AddPrestation = () => {
               <Box align="center">
                 <TextField
                   placeholder="Nom de la prestation"
-                  name="prestation"
-                  value={prestation}
-                  onChange={(e) => setPrestation(e.target.value)}
+                  name="namePrestation"
+                  value={namePrestation}
+                  onChange={(e) => setNamePrestation(e.target.value)}
+                />
+
+                <br></br>
+                <br></br>
+
+                <TextField
+                  placeholder="Prix de la prestation"
+                  name="pricePrestation"
+                  value={pricePrestation}
+                  onChange={(e) => setPricePrestation(e.target.value)}
                 />
               </Box>
               <br></br>
@@ -123,9 +133,11 @@ const AddPrestation = () => {
                 />
                 <Divider />
 
+                <CardContent>{prestation.price} EUR</CardContent>
+
                 <Button
                   color="secondary"
-                  onClick={() => deletePrestation(prestation.id)}
+                  onClick={() => deletePrestation(prestation._id)}
                 >
                   Supprimer
                 </Button>

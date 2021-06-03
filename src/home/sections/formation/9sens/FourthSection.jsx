@@ -2,7 +2,6 @@ import React from "react";
 import { Grid, Container, Box } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   title: {
@@ -70,16 +69,14 @@ const FourthSection = () => {
       id: "1",
       link: "/assets/images/formations/proprioception.png",
       title: "La proprioception",
-      text:
-        "Qui est le fait de localiser ses différentes parties du corps dans l’espace.",
+      text: "Qui est le fait de localiser ses différentes parties du corps dans l’espace.",
     },
 
     {
       id: "2",
       link: "/assets/images/formations/equilibrioception.png",
       title: "L'équilibrioception",
-      text:
-        "Aide à prévenir toute chute chez les humains et animaux en équilibre",
+      text: "Aide à prévenir toute chute chez les humains et animaux en équilibre",
     },
 
     {

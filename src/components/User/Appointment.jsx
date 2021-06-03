@@ -13,17 +13,10 @@ import {
   DialogContent,
   Select,
   MenuItem,
-  Container,
-  Grid,
-  Typography,
-  Box,
-  Chip,
-  InputLabel,
   CardHeader,
 } from "@material-ui/core";
 
 import Snackbar from "@material-ui/core/Snackbar";
-import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import { makeStyles } from "@material-ui/core/styles";
 import AppointmentService from "../../services/appointment.service";
 import AuthService from "../../services/auth.service";
@@ -36,13 +29,22 @@ import PrestationService from "../../services/prestation.service";
 import { Step, Stepper, StepContent } from "@material-ui/core";
 import axios from "axios";
 
-const API_BASE = "http://localhost:8082/";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+import Payement from "./Payment";
+
+const API_BASE = "https://ikdo-patrick-marwa.herokuapp.com/";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   root: {
     width: "100%",
   },
 }));
+
+const stripePromise = loadStripe(
+  "pk_test_51Iv0X0Idt2OtpHpwAsbJ5pQv2QCWfpaR9FS8aaxvgXb5DhfEXXbRVC1H4GMr7HaVL4pki2jjpTYbeIuEPyPpK3cJ00ygUHxsGY"
+);
 
 const Appointment = (props) => {
   const [loading, setLoading] = useState(true);
@@ -57,10 +59,9 @@ const Appointment = (props) => {
 
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [appointmentSlot, setAppointmentSlot] = useState("");
-  const [prestation, setPrestation] = useState("");
+  const [prestation, setPrestation] = useState();
 
   const [stepIndex, setStepIndex] = useState(0);
-  const [appointments, setAppointments] = useState([]);
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 768);
   const [processed, setProcessed] = useState(false);
 
@@ -70,7 +71,6 @@ const Appointment = (props) => {
   const [bookedDatesObject, setBookedDatesObject] = useState({}); //tracks dates coupled to their slots
   const [fullDays, setFullDays] = useState([]); //to track full days
 
-  const [selectedPrestation, setSelectedPrestation] = useState("");
   const [prestations, setPrestations] = useState([]);
 
   useEffect(() => {
@@ -80,7 +80,6 @@ const Appointment = (props) => {
   useEffect(() => {
     const user = AuthService.getCurrentUser();
 
-    console.log(user);
     if (user) {
       setCurrentUser(user);
     }
@@ -192,12 +191,6 @@ const Appointment = (props) => {
     setLoading(false);
   };
 
-  const handleFetchError = (err) => {
-    console.log(err);
-    setConfirmationSnackbarMessage("Error fetching data");
-    setConfirmationSnackbarOpen(true);
-  };
-
   const handleSubmit = () => {
     setConfirmationModalOpen(false);
     const newAppointment = {
@@ -238,16 +231,14 @@ const Appointment = (props) => {
     return (
       <section>
         <p>
-          {" "}
           Prestation choisie: <span style={spanStyle}>{prestation}</span>
         </p>
         <p>
-          {" "}
-          Rendez vous:{" "}
+          Rendez vous:
           <span style={spanStyle}>
-            {moment(appointmentDate).format("dddd[,] MMMM Do[,] YYYY")}{" "}
+            {moment(appointmentDate).format("dddd[,] MMMM Do[,] YYYY")}
           </span>
-          à{" "}
+          à
           <span style={spanStyle}>
             {moment()
               .hour(9)
@@ -276,19 +267,18 @@ const Appointment = (props) => {
           <span>
             prise de rendez-vous d'une
             <span style={spanStyle}> 1 heure </span>
-            de rendez-vous{" "}
+            de rendez-vous
             {appointmentDate && (
               <span>
-                le{" "}
+                le
                 <span style={spanStyle}>
                   {moment(appointmentDate).format("dddd[,] MMMM Do")}
                 </span>
               </span>
-            )}{" "}
+            )}
             {Number.isInteger(appointmentSlot) && (
               <span>
-                {" "}
-                à{" "}
+                à
                 <span style={spanStyle}>
                   {moment()
                     .hour(9)
@@ -373,6 +363,7 @@ const Appointment = (props) => {
       Confirmer
     </Button>,
   ];
+
   return (
     <div
       style={{
@@ -396,9 +387,19 @@ const Appointment = (props) => {
           subheader="Prendre un rendez vous"
         />
         <Stepper activeStep={stepIndex} linear="false" orientation="vertical">
-          <Step disabled={loading}>
+          <Step>
             <StepButton onClick={() => setStepIndex(0)}>
-              Choisir UNE PRESTATION
+              Payement de la pretation
+            </StepButton>
+            <StepContent>
+              <Elements stripe={stripePromise}>
+                <Payement />
+              </Elements>
+            </StepContent>
+          </Step>
+          <Step disabled={loading}>
+            <StepButton onClick={() => setStepIndex(1)}>
+              Choisir une prestation
             </StepButton>
 
             <StepContent>
@@ -412,7 +413,7 @@ const Appointment = (props) => {
                   {prestations.map((prestation, index) => {
                     return (
                       <MenuItem key={index} value={prestation.name}>
-                        {prestation.name}
+                        {prestation.name} - {prestation.price}
                       </MenuItem>
                     );
                   })}
@@ -422,13 +423,13 @@ const Appointment = (props) => {
           </Step>
 
           <Step>
-            <StepButton onClick={() => setStepIndex(1)}>
+            <StepButton onClick={() => setStepIndex(2)}>
               Choisir votre date de rendez-vous
             </StepButton>
             <StepContent>{DatePickerExampleSimple()}</StepContent>
           </Step>
           <Step disabled={!appointmentDate}>
-            <StepButton onClick={() => setStepIndex(2)}>
+            <StepButton onClick={() => setStepIndex(3)}>
               Choisir une heure de rendez-vous
             </StepButton>
             <StepContent>
@@ -445,22 +446,21 @@ const Appointment = (props) => {
                   {renderAppointmentTimes()}
                 </RadioGroup>
               </FormControl>
+              <Button
+                style={{
+                  display: "block",
+                  backgroundColor: "#f5f5f8",
+                  marginTop: 20,
+                  maxWidth: 100,
+                }}
+                variant="contained"
+                fullWidth="true"
+                onClick={() => setConfirmationModalOpen(!confirmationModalOpen)}
+                disabled={!contactFormFilled || processed}
+              >
+                {contactFormFilled && "Valider"}
+              </Button>
             </StepContent>
-
-            <Button
-              style={{
-                display: "block",
-                backgroundColor: "#f5f5f8",
-                marginTop: 20,
-                maxWidth: 100,
-              }}
-              variant="contained"
-              fullWidth="true"
-              onClick={() => setConfirmationModalOpen(!confirmationModalOpen)}
-              disabled={!contactFormFilled || processed}
-            >
-              {contactFormFilled && "Valider"}
-            </Button>
           </Step>
         </Stepper>
       </Card>

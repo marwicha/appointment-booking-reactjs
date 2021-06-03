@@ -1,8 +1,6 @@
 import React from "react";
 import { Grid, Icon } from "@material-ui/core";
 
-import clsx from "clsx";
-
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({

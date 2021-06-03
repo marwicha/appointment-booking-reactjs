@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8082/api";
+const API_URL = "https://ikdo-patrick-marwa.herokuapp.com/api";
 const token = JSON.parse(localStorage.getItem("token"));
 
 const updateAccount = async (id, data) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UserService from "../../services/user.service";
 import AuthService from "../../services/auth.service";
 import { makeStyles } from "@material-ui/core/styles";
@@ -32,7 +32,8 @@ const UpdateProfileAdmin = (props) => {
   const initialState = {
     id: userTest.id,
     email: userTest.email,
-    password: userTest.password,
+    //password: userTest.password,
+    roles: userTest.roles,
   };
 
   const [user, setUser] = useState(initialState);
@@ -46,7 +47,7 @@ const UpdateProfileAdmin = (props) => {
     const data = {
       id: user.id,
       email: user.email,
-      password: user.password,
+      //password: user.password,
     };
     UserService.updateAccount(data.id, data)
       .then((response) => {
@@ -88,13 +89,6 @@ const UpdateProfileAdmin = (props) => {
                 <br></br>
                 <br></br>
 
-                <Box align="left">
-                  <TextField
-                    name="password"
-                    value={user.password}
-                    onChange={handleInputChange}
-                  />
-                </Box>
                 <Button
                   variant="contained"
                   color="primary"
