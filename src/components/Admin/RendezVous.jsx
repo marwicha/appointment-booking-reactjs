@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+import ReactDOM from "react-dom";
 import AdminService from "../../services/admin.service";
 import AppointmentService from "../../services/appointment.service";
 
@@ -19,7 +21,8 @@ const RendezVous = () => {
       id: "",
       title: "",
       start: "",
-      userName: "",
+      description: "",
+      user: { name: "", email: "", phone: "" },
     },
   ]);
 
@@ -47,6 +50,7 @@ const RendezVous = () => {
         return "date invalide";
     }
   };
+
   useEffect(() => {
     AdminService.getAllAppointments()
       .then((response) => {
@@ -56,11 +60,15 @@ const RendezVous = () => {
         for (let i = 0; i < appointments.length; i++) {
           tmpAppointment.push({
             id: appointments[i]._id,
-            title: "PRESTATION1 " + appointments[i].prestation,
+            title: appointments[i].prestation,
             start:
               appointments[i].slots.slot_date +
               displayHeure(appointments[i].slots.slot_time),
-            userName: appointments[i].user.name,
+            user: {
+              name: appointments[i].user.name,
+              email: appointments[i].user.email,
+              phone: appointments[i].user.phone,
+            },
           });
         }
         setCalendarEvents(tmpAppointment);
@@ -75,13 +83,27 @@ const RendezVous = () => {
     if (
       // eslint-disable-next-line no-restricted-globals
       confirm(
-        `Are you sure you want to delete the event '${clickInfo.event.title}'`
+        `Êtes-vous sûr de vouloir supprimer le rendez vous '${clickInfo.event.title}', son numéro de telephone pour annuler:
+        ${clickInfo.event.extendedProps.user.phone}`
       )
     ) {
       AppointmentService.deleteAppointment(clickInfo.event.id).then(() => {
         clickInfo.event.remove();
       });
     }
+  };
+
+  const renderEventContent = ({ event, el }) => {
+    const content = (
+      <div>
+        {event.title}
+        <div>Nom :{event.extendedProps.user.name} </div>
+        <div>Email: {event.extendedProps.user.email} </div>
+        <div>Tél: {event.extendedProps.user.phone} </div>
+      </div>
+    );
+    ReactDOM.render(content, el);
+    return el;
   };
 
   return (
@@ -94,14 +116,16 @@ const RendezVous = () => {
             header={{
               left: "prev,next",
               center: "title",
-              right: "dayGridMonth,listMonth",
+              right: "dayGridMonth,listMonth, timeGridDay",
             }}
             views={{
               dayGridMonth: { buttonText: "Mois" },
               listMonth: { buttonText: "Détail mois" },
+              timeGridDay: { buttonText: "jour" },
             }}
             plugins={[dayGridPlugin, timeGridDay, listPlugin]}
             events={calendarEvents}
+            eventRender={renderEventContent}
             eventClick={handleEventClick}
           />
         </div>

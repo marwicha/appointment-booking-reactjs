@@ -20,7 +20,6 @@ import CoachingSomatho from "./home/CoachingSomatho";
 import UserAccount from "./home/UserAccount";
 import AdminAccount from "./home/AdminAccount";
 
-import Authentification from "./components/Authentification";
 import Inscription from "./components/Inscription";
 import AuthService from "./services/auth.service";
 import UpdateProfile from "components/User/UpdateProfile";
@@ -112,11 +111,7 @@ const App = () => {
               <Route path="/massages" component={Massages} />
               <Route path="/praticien" component={Patrick} />
               <Route path="/somatotherapie" component={CoachingSomatho} />
-              <PublicRoute
-                path="/authentification"
-                exact
-                component={Authentification}
-              />
+
               <PublicRoute path="/inscription" exact component={Inscription} />
 
               {/* After authentication */}

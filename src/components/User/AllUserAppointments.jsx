@@ -82,7 +82,7 @@ const AllUserAppointments = () => {
                   backgroundColor: "#dfe5e6",
                   color: "black",
                 }}
-                subheader={"PRESTATION 1 = " + app.prestation}
+                subheader={app.prestation}
               />
 
               <CardContent>

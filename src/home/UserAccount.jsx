@@ -90,20 +90,20 @@ const UserAccount = () => {
           onChange={handleChange}
           className={classes.tabs}
         >
-          <Tab label="Mes informations" {...a11yProps(0)} />
-          <Tab label="Prendre un rendez vous" {...a11yProps(1)} />
-          <Tab label="Mes rendez vous" {...a11yProps(2)} />
+          <Tab label="Prendre un rendez vous" {...a11yProps(0)} />
+          <Tab label="Mes rendez vous" {...a11yProps(1)} />
+          <Tab label="Mes informations" {...a11yProps(2)} />
           <Tab label="Prochaines formations" {...a11yProps(3)} />
           <Tab label="Supprimer mon compte" {...a11yProps(4)} />
         </Tabs>
         <TabPanel style={{ width: "100%" }} value={value} index={0}>
-          <Profile />
-        </TabPanel>
-        <TabPanel style={{ width: "100%" }} value={value} index={1}>
           <Appointment />
         </TabPanel>
-        <TabPanel style={{ width: "100%" }} value={value} index={2}>
+        <TabPanel style={{ width: "100%" }} value={value} index={1}>
           <AllUserAppointments />
+        </TabPanel>
+        <TabPanel style={{ width: "100%" }} value={value} index={2}>
+          <Profile />
         </TabPanel>
 
         <TabPanel style={{ width: "100%" }} value={value} index={3}>

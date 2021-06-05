@@ -98,7 +98,7 @@ const TopBar = (props) => {
               </li>
 
               <li>
-                <NavLink to="/authentification" onClick={logOut}>
+                <NavLink to="/inscription" onClick={logOut}>
                   déconnecter
                 </NavLink>
               </li>

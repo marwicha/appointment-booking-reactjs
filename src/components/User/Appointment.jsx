@@ -53,7 +53,7 @@ const Appointment = (props) => {
 
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [appointmentSlot, setAppointmentSlot] = useState("");
-  const [prestation, setPrestation] = useState("");
+  const [prestation, setPrestation] = useState({ name: "", price: "" });
 
   const [stepIndex, setStepIndex] = useState(0);
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 768);
@@ -147,11 +147,6 @@ const Appointment = (props) => {
     setAppointmentSlot(slot);
   };
 
-  const handleChangePrestation = (prestation) => {
-    handleNext();
-    setPrestation(prestation);
-  };
-
   const handleFetch = (response) => {
     const { appointments } = response;
     const initSchedule = {};
@@ -188,7 +183,7 @@ const Appointment = (props) => {
   const handleSubmit = () => {
     setConfirmationModalOpen(false);
     const newAppointment = {
-      prestation: prestation,
+      prestation: prestation.name,
       slot_date: moment(appointmentDate).format("YYYY-MM-DD"),
       slot_time: appointmentSlot,
     };
@@ -225,7 +220,7 @@ const Appointment = (props) => {
     return (
       <section>
         <p>
-          Prestation choisie: <span style={spanStyle}>{prestation}</span>
+          Prestation choisie: <span style={spanStyle}>{prestation.name}</span>
         </p>
         <p>
           Rendez vous:
@@ -389,13 +384,19 @@ const Appointment = (props) => {
               <FormControl>
                 <Select
                   fullWidth
-                  onChange={(event) =>
-                    handleChangePrestation(event.target.value)
-                  }
+                  onChange={(event) => {
+                    const newPrestationObj = {
+                      name: event.target.value.name,
+                      price: event.target.value.price,
+                    };
+                    setPrestation(newPrestationObj);
+
+                    handleNext();
+                  }}
                 >
                   {prestations.map((prestation, index) => {
                     return (
-                      <MenuItem key={index} value={prestation.price}>
+                      <MenuItem key={index} value={prestation}>
                         {prestation.name} - {prestation.price + " eur"}
                       </MenuItem>
                     );
@@ -437,7 +438,7 @@ const Appointment = (props) => {
             </StepButton>
             <StepContent>
               <Elements stripe={stripePromise}>
-                <Payement amount={prestation} />
+                <Payement amount={prestation.price} />
               </Elements>
               <Button
                 style={{
