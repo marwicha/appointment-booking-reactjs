@@ -106,7 +106,7 @@ const TopBar = (props) => {
           ) : (
             <div>
               <li>
-                <NavLink to="/inscription">S'inscrire</NavLink>
+                <NavLink to="/inscription">Prendre un rendez vous</NavLink>
               </li>
             </div>
           )}

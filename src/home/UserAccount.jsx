@@ -93,7 +93,7 @@ const UserAccount = () => {
           <Tab label="Prendre un rendez vous" {...a11yProps(0)} />
           <Tab label="Mes rendez vous" {...a11yProps(1)} />
           <Tab label="Mes informations" {...a11yProps(2)} />
-          <Tab label="Prochaines formations" {...a11yProps(3)} />
+          <Tab label="Les prochaines formations" {...a11yProps(3)} />
           <Tab label="Supprimer mon compte" {...a11yProps(4)} />
         </Tabs>
         <TabPanel style={{ width: "100%" }} value={value} index={0}>

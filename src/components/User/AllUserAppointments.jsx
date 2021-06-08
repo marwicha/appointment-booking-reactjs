@@ -7,6 +7,7 @@ import {
   CardContent,
   CardHeader,
   Button,
+  Box,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AppointmentService from "../../services/appointment.service";
@@ -104,16 +105,16 @@ const AllUserAppointments = () => {
                   Heure: {displayHeure(app.slots.slot_time)}
                 </Typography>
                 <br></br>
-
-                <Button
+              </CardContent>
+              <Box align="left">
+                <p
                   variant="contained"
                   color="secondary"
                   className={classes.btn}
-                  onClick={() => deleteAppoint(app.id)}
                 >
-                  Supprimer
-                </Button>
-              </CardContent>
+                  Appelez le 5445454 pour annuler et se faire rembourser
+                </p>
+              </Box>
             </Card>
           </Grid>
         ))}

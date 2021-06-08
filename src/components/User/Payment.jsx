@@ -5,12 +5,14 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import AppointmentService from "../../services/appointment.service";
 
 const Payement = (props) => {
-  const { amount } = props;
+  const { amount, parentCallback } = props;
+
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmitPayement = async (ev) => {
     ev.preventDefault();
+    parentCallback(false);
 
     if (!stripe || !elements) {
       alert("Le Payement n'a pas encore chargé.");
@@ -28,6 +30,7 @@ const Payement = (props) => {
         //   phone: phone,
         // },
       }).then((response) => {
+        parentCallback(true);
         return response;
       });
 
@@ -82,6 +85,7 @@ const Payement = (props) => {
             />
           </div>
         </div>
+
         <button className="btn">Payer la prestation</button>
       </form>
     );

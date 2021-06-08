@@ -14,6 +14,7 @@ import {
   Select,
   MenuItem,
   CardHeader,
+  Checkbox,
 } from "@material-ui/core";
 
 import Snackbar from "@material-ui/core/Snackbar";
@@ -41,7 +42,6 @@ const stripePromise = loadStripe(
 );
 
 const Appointment = (props) => {
-  const [loading, setLoading] = useState(true);
   const [schedule, setSchedule] = useState([]);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
   const [confirmationSnackbarOpen, setConfirmationSnackbarOpen] =
@@ -66,6 +66,12 @@ const Appointment = (props) => {
   const [fullDays, setFullDays] = useState([]); //to track full days
 
   const [prestations, setPrestations] = useState([]);
+  const [payed, setPayed] = useState(null);
+
+  const handleCallback = (childData) => {
+    console.log(childData);
+    setPayed(childData);
+  };
 
   useEffect(() => {
     axios.get(API_BASE + `api/slots/all`).then((response) => {});
@@ -133,7 +139,7 @@ const Appointment = (props) => {
   }, [fullDays]);
 
   const handleNext = () => {
-    return stepIndex < 3 ? setStepIndex(stepIndex + 1) : null;
+    return stepIndex < 4 ? setStepIndex(stepIndex + 1) : null;
   };
 
   const handleSetAppointmentDate = (date) => {
@@ -177,7 +183,6 @@ const Appointment = (props) => {
     }
 
     setSchedule(schedule);
-    setLoading(false);
   };
 
   const handleSubmit = () => {
@@ -284,41 +289,41 @@ const Appointment = (props) => {
   };
 
   const renderAppointmentTimes = () => {
-    if (loading) {
-      const slots = [...Array(8).keys()];
-      return slots.map((slot) => {
-        const appointmentDateString =
-          moment(appointmentDate).format("YYYY-MM-DD");
-        const t1 = moment().hour(9).minute(0).add(slot, "hours");
-        const t2 = moment()
-          .hour(9)
-          .minute(0)
-          .add(slot + 1, "hours");
-        const scheduleDisabled = schedule[appointmentDateString]
-          ? schedule[moment(appointmentDate).format("YYYY-MM-DD")][slot]
-          : false;
+    const slots = [...Array(9).keys()];
+    delete slots[3];
 
-        let slotFilled;
-        for (let bookedDay in bookedDatesObject) {
-          let obj = bookedDatesObject[bookedDay];
-          bookedDay === appointmentDateString &&
-            (slotFilled = Object.values(obj).map(Number).includes(slot));
-        }
+    return slots.map((slot) => {
+      const appointmentDateString =
+        moment(appointmentDate).format("YYYY-MM-DD");
 
-        return (
-          <FormControlLabel
-            control={<Radio />}
-            value={slot}
-            key={slot}
-            labelPlacement="end"
-            label={t1.format("h:mm a") + " - " + t2.format("h:mm a")}
-            disabled={scheduleDisabled || slotFilled}
-          />
-        );
-      });
-    } else {
-      return null;
-    }
+      const t1 = moment().hour(9).minute(0).add(slot, "hours");
+      const t2 = moment()
+        .hour(9)
+        .minute(0)
+        .add(slot + 1, "hours");
+
+      const scheduleDisabled = schedule[appointmentDateString]
+        ? schedule[moment(appointmentDate).format("YYYY-MM-DD")][slot]
+        : false;
+
+      let slotFilled;
+      for (let bookedDay in bookedDatesObject) {
+        let obj = bookedDatesObject[bookedDay];
+        bookedDay === appointmentDateString &&
+          (slotFilled = Object.values(obj).map(Number).includes(slot));
+      }
+
+      return (
+        <FormControlLabel
+          control={<Radio />}
+          value={slot}
+          key={slot}
+          labelPlacement="end"
+          label={t1.format("h:mm a") + " - " + t2.format("h:mm a")}
+          disabled={scheduleDisabled || slotFilled}
+        />
+      );
+    });
   };
 
   const contactFormFilled = appointmentSlot;
@@ -375,7 +380,7 @@ const Appointment = (props) => {
           subheader="Prendre un rendez vous"
         />
         <Stepper activeStep={stepIndex} linear="false" orientation="vertical">
-          <Step disabled={loading}>
+          <Step>
             <StepButton onClick={() => setStepIndex(0)}>
               Choisir une prestation
             </StepButton>
@@ -390,7 +395,6 @@ const Appointment = (props) => {
                       price: event.target.value.price,
                     };
                     setPrestation(newPrestationObj);
-
                     handleNext();
                   }}
                 >
@@ -438,23 +442,29 @@ const Appointment = (props) => {
             </StepButton>
             <StepContent>
               <Elements stripe={stripePromise}>
-                <Payement amount={prestation.price} />
+                <Payement
+                  amount={prestation.price}
+                  parentCallback={handleCallback}
+                />
               </Elements>
-              <Button
-                style={{
-                  display: "block",
-                  backgroundColor: "#f5f5f8",
-                  marginTop: 20,
-                  maxWidth: 100,
-                }}
-                variant="contained"
-                fullWidth="true"
-                onClick={() => setConfirmationModalOpen(!confirmationModalOpen)}
-                disabled={!contactFormFilled || processed}
-              >
-                {contactFormFilled && "Valider"}
-              </Button>
             </StepContent>
+          </Step>
+
+          <Step>
+            <Button
+              style={{
+                display: "block",
+                backgroundColor: "#f5f5f8",
+                marginTop: 20,
+                maxWidth: 100,
+              }}
+              variant="contained"
+              fullWidth="true"
+              onClick={() => setConfirmationModalOpen(!confirmationModalOpen)}
+              disabled={!contactFormFilled || processed || payed === false}
+            >
+              {contactFormFilled && "Valider"}
+            </Button>
           </Step>
         </Stepper>
       </Card>
