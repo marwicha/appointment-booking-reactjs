@@ -30,7 +30,6 @@ const Payement = (props) => {
         //   phone: phone,
         // },
       }).then((response) => {
-        parentCallback(true);
         return response;
       });
 
@@ -49,6 +48,10 @@ const Payement = (props) => {
     if (stripeError) {
       alert(stripeError.message);
       return;
+    }
+
+    if (paymentIntent.status === "succeeded") {
+      parentCallback(true);
     }
 
     alert(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);

@@ -66,10 +66,9 @@ const Appointment = (props) => {
   const [fullDays, setFullDays] = useState([]); //to track full days
 
   const [prestations, setPrestations] = useState([]);
-  const [payed, setPayed] = useState(null);
+  const [payed, setPayed] = useState(false);
 
   const handleCallback = (childData) => {
-    console.log(childData);
     setPayed(childData);
   };
 

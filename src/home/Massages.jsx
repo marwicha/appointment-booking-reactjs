@@ -68,7 +68,7 @@ const Formation = () => {
 
       <div className="section-intro-formations">
         <div className="container-formation text-center">
-          <h1 className={classes.h1}>Nos Massages</h1>
+          <h1 className={classes.h1}> Nos prestations de massages</h1>
 
           <p className="pb-8"> Choisir votre Massage </p>
 

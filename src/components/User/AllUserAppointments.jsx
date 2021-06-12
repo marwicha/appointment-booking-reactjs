@@ -106,14 +106,15 @@ const AllUserAppointments = () => {
                 </Typography>
                 <br></br>
               </CardContent>
-              <Box align="left">
-                <p
+              <Box align="center">
+                <Button
                   variant="contained"
                   color="secondary"
                   className={classes.btn}
+                  onClick={() => deleteAppoint(app._id)}
                 >
-                  Appelez le 5445454 pour annuler et se faire rembourser
-                </p>
+                  Annuler
+                </Button>
               </Box>
             </Card>
           </Grid>

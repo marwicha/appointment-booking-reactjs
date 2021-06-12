@@ -18,6 +18,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     borderRadius: "100%",
     cursor: "pointer",
     margin: "0 4px",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   bulletActiveClass: {
     transform: "scale(1.8)",
@@ -27,9 +33,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     top: "50%",
     transform: "translateY(calc(-50% - 50px))",
     zIndex: 1,
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
   },
 }));
 

@@ -12,37 +12,47 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   text: {
+    paddingBottom: "2rem",
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
+    "@media screen and (max-width: 767px)": {
+      top: "66%",
+    },
   },
 
   p: {
-    letterSpacing: "0.72px",
-    lineHeight: "40px",
     textAlign: "center",
-    fontSize: "22px",
+    fontSize: "18px",
     fontFamily: "LEMON MILK Light",
     maxWidth: "387px",
+    "@media screen and (max-width: 767px)": {
+      fontSize: "10px",
+    },
   },
 
   h1: {
     color: palette.second,
-    fontSize: "40px",
-    lineHeight: "64px",
+    fontSize: "30px",
     textAlign: "center",
+    "@media screen and (max-width: 767px)": {
+      fontSize: "12px",
+    },
   },
 
   h2: {
     color: palette.second,
     fontFamily: "LEMON MILK Light",
-    fontSize: "30px",
-    lineHeight: "40px",
+    fontSize: "20px",
     textAlign: "center",
+    "@media screen and (max-width: 767px)": {
+      fontSize: "12px",
+    },
   },
 
   button: {
+    marginTop: "1rem",
     width: "200px",
     height: "60px",
     borderRadius: "100px",
@@ -51,6 +61,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "white",
     fontSize: "1rem",
     fontFamily: "LEMON MILK Light",
+    "@media screen and (max-width: 767px)": {
+      width: "120px",
+      height: "30px",
+      fontSize: "10px",
+      marginTop: "0rem",
+    },
   },
 
   center: {
