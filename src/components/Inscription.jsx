@@ -108,6 +108,8 @@ const Inscription = (props) => {
   const [message, setMessage] = useState("");
   const [messageLogin, setMessageLogin] = useState("");
 
+  const [emailForgot, setEmailForgot] = useState("");
+
   const onChangeName = (e) => {
     const name = e.target.value;
     setName(name);
@@ -126,6 +128,11 @@ const Inscription = (props) => {
   const onChangePassword = (e) => {
     const password = e.target.value;
     setPassword(password);
+  };
+
+  const onChangeEmailForgot = (e) => {
+    const email = e.target.value;
+    setEmailForgot(email);
   };
 
   const handleRegister = (e) => {
@@ -194,6 +201,19 @@ const Inscription = (props) => {
     );
   };
 
+  const handleResetRequest = (e) => {
+    e.preventDefault();
+
+    AuthService.resetRequest(emailForgot).then(
+      () => {
+        alert("ok");
+      },
+      (error) => {
+        alert(error);
+      }
+    );
+  };
+
   return (
     <div className="landing">
       <TopBar />
@@ -212,11 +232,9 @@ const Inscription = (props) => {
                   noValidate
                   className="mt-5"
                 >
-                  {successful && (
-                    <Alert severity="success">
-                      Vous êtes inscrit avec success
-                    </Alert>
-                  )}
+                  <div>
+                    {message && <Alert severity="info">{message}</Alert>}
+                  </div>
 
                   {((errors.name && errors.name.type === "required") ||
                     (errors.email && errors.email.type === "required") ||
@@ -417,6 +435,27 @@ const Inscription = (props) => {
           <Box mt={2}>
             <Copyright />
           </Box>
+
+          <div>
+            <form onSubmit={handleResetRequest}>
+              <TextField
+                className={classes.input}
+                name="emailForgot"
+                fullWidth
+                value={emailForgot}
+                onChange={onChangeEmailForgot}
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                OK
+              </Button>
+            </form>
+          </div>
         </Container>
       </div>
     </div>
