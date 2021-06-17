@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://ikdo-patrick-marwa.herokuapp.com/api/auth/";
+const API_URL = "http://localhost:5000/api/auth/";
 
 const register = (name, phone, email, password, token) => {
   return axios.post(API_URL + "signup", {
@@ -36,6 +36,15 @@ const resetRequest = async (email) => {
   return response.data;
 };
 
+const resetPassword = async (userId, token, password) => {
+  const response = await axios.put(API_URL + "reset-password", {
+    userId,
+    token,
+    password,
+  });
+  return response.data;
+};
+
 const logout = () => {
   localStorage.removeItem("user");
   localStorage.removeItem("token");
@@ -46,6 +55,7 @@ const getCurrentUser = () => {
 };
 
 export default {
+  resetPassword,
   resetRequest,
   register,
   login,

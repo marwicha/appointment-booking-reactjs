@@ -108,8 +108,6 @@ const Inscription = (props) => {
   const [message, setMessage] = useState("");
   const [messageLogin, setMessageLogin] = useState("");
 
-  const [emailForgot, setEmailForgot] = useState("");
-
   const onChangeName = (e) => {
     const name = e.target.value;
     setName(name);
@@ -128,11 +126,6 @@ const Inscription = (props) => {
   const onChangePassword = (e) => {
     const password = e.target.value;
     setPassword(password);
-  };
-
-  const onChangeEmailForgot = (e) => {
-    const email = e.target.value;
-    setEmailForgot(email);
   };
 
   const handleRegister = (e) => {
@@ -197,19 +190,6 @@ const Inscription = (props) => {
 
         setMessageLogin(resMessage);
         setSuccessful(false);
-      }
-    );
-  };
-
-  const handleResetRequest = (e) => {
-    e.preventDefault();
-
-    AuthService.resetRequest(emailForgot).then(
-      () => {
-        alert("ok");
-      },
-      (error) => {
-        alert(error);
       }
     );
   };
@@ -430,32 +410,18 @@ const Inscription = (props) => {
                   </div>
                 </form>
               </Card>
+              <div>
+                <p>
+                  <NavLink to="/reinitialiser-mot-de-passe">
+                    Mot de passe oublié?
+                  </NavLink>
+                </p>
+              </div>
             </Grid>
           </Grid>
           <Box mt={2}>
             <Copyright />
           </Box>
-
-          <div>
-            <form onSubmit={handleResetRequest}>
-              <TextField
-                className={classes.input}
-                name="emailForgot"
-                fullWidth
-                value={emailForgot}
-                onChange={onChangeEmailForgot}
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                OK
-              </Button>
-            </form>
-          </div>
         </Container>
       </div>
     </div>

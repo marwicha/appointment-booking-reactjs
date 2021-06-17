@@ -28,6 +28,8 @@ import UserFormations from "components/User/UserFormations";
 import UpdateProfileAdmin from "components/Admin/UpdateProfileAdmin";
 import AddPrestation from "components/Admin/AddPrestation";
 import AddFormation from "components/Admin/AddFormation";
+import RequestResetPassword from "components/RequestResetPassword";
+import ResetPassword from "components/ResetPassword";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -111,24 +113,27 @@ const App = () => {
               <Route path="/massages" component={Massages} />
               <Route path="/praticien" component={Patrick} />
               <Route path="/somatotherapie" component={CoachingSomatho} />
-
               <PublicRoute path="/inscription" exact component={Inscription} />
+              <Route
+                path="/reinitialiser-mot-de-passe"
+                exact
+                component={RequestResetPassword}
+              />
+
+              <Route path="/passwordReset" exact component={ResetPassword} />
 
               {/* After authentication */}
               <PrivateUserRoute exact path="/compte" component={UserAccount} />
-
               <PrivateUserRoute
                 exact
                 path="/compte/:id"
                 component={UpdateProfile}
               />
-
               <PrivateUserRoute
                 exact
                 path="/compte/formations"
                 component={UserFormations}
               />
-
               <PrivateAdminRoute exact path="/admin" component={AdminAccount} />
               <PrivateAdminRoute
                 exact
@@ -140,13 +145,11 @@ const App = () => {
                 path="/prestation/ajout"
                 component={AddPrestation}
               />
-
               <PrivateAdminRoute
                 exact
                 path="/formation/ajout"
                 component={AddFormation}
               />
-
               <Redirect path="/" exact to="accueil" />
               {/* <Route component={Error} /> */}
             </Switch>
