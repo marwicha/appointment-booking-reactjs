@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Icon } from "@material-ui/core";
+import { Grid, Icon, Box } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -95,23 +95,12 @@ const FinalSection = () => {
   return (
     <div className="section">
       <div className="container-final-formation text-center p-12">
-        <Grid
-          lg={12}
-          xl={12}
-          sm={12}
-          md={12}
-          xs={12}
-          container
-          spacing={0}
-          alignItems="center"
-          justify="center"
-        >
-          <Grid lg={4} xl={4} sm={4} md={4} xs={12}>
+        <Grid container spacing={2} alignItems="center" justify="center">
+          <Grid md={4} xs={12}>
             <div className={classes.firstGrid}>
               <h1 className={classes.h1}>
-                {" "}
                 <Icon className={classes.icon}> check </Icon> Déroulement de la
-                formation:{" "}
+                formation:
               </h1>
               <p className={classes.p}>
                 Formation par petits groupes de 8 personnes. Plusieurs
@@ -119,7 +108,6 @@ const FinalSection = () => {
               </p>
               <p> En Initiale (3 mois) : </p>
               <p className={classes.p}>
-                {" "}
                 Attestation après 10 modules de 2h30 heures + 40 heures de
                 pratique en tant que Praticien en Relaxation "Relation et
                 Communication par les 9 sens ®"
@@ -134,12 +122,11 @@ const FinalSection = () => {
             </div>
           </Grid>
 
-          <Grid lg={4} xl={4} sm={4} md={4} xs={12}>
+          <Grid md={4} xs={12}>
             <div className={classes.firstGrid}>
               <h1 className={classes.h1}>
-                {" "}
                 <Icon className={classes.icon}> map-marker-alt </Icon> Lieu de
-                la formation:{" "}
+                la formation:
               </h1>
 
               <p className={classes.p}>
@@ -151,47 +138,17 @@ const FinalSection = () => {
               <hr />
 
               <h1 className={classes.h1}>
-                {" "}
                 <Icon className={classes.icon}> euro-sign </Icon> côut de la
-                formation:{" "}
+                formation:
               </h1>
 
-              <p className={classes.p}>
-                {" "}
-                Pour les 30 heures (hors promotion):{" "}
-              </p>
+              <p className={classes.p}>Pour les 30 heures (hors promotion):</p>
 
               <p className={classes.p2}> 1 200€ </p>
 
               <p className={classes.p}> Pour 1 module : </p>
 
               <p className={classes.p2}> 160 € </p>
-            </div>
-          </Grid>
-
-          <Grid lg={4} xl={4} sm={4} md={4} xs={12}>
-            <div className={classes.thirdGrid}>
-              <h1 className={classes.h1RQ}>
-                {" "}
-                <Icon className={classes.icon}> exclamation-circle </Icon>{" "}
-                Remarques{" "}
-              </h1>
-
-              <span className={classes.aaaa}>
-                <br></br>
-                Les techniques prodiguées sont dans une éthique de bon sens,
-                loin de tout endoctrinement.
-                <br></br>
-                <br></br>
-                Il s’agit d’un savoir être avec beaucoup de tact, et de
-                communication par un toucher juste et progressif.
-                <br></br>
-                <br></br>
-                <br></br>
-                Aucun lien avec la pratique de la kinésithérapie ni de soins
-                médicaux occidentaux et ne remplace aucunement la visite chez le
-                médecin.
-              </span>
             </div>
           </Grid>
         </Grid>

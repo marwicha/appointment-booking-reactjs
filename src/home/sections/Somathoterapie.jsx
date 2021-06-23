@@ -16,8 +16,49 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     },
   },
 
+  container: {
+    maxWidth: "1140px",
+    margin: "0 auto",
+    padding: "0 20px",
+  },
+
+  skill: {
+    position: "relative",
+  },
+
+  skillImage: {
+    position: "absolute",
+    zIndex: "1",
+    width: "50%",
+    height: "100%",
+    overflow: "hidden",
+  },
+
   img: {
-    maxWidth: "65%",
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    transition: "all 1s",
+  },
+
+  skillRight: {
+    right: "0",
+  },
+
+  skillLeft: {
+    left: "0",
+  },
+
+  skillDescriptionRight: {
+    padding: "36px 55% 36px 0",
+    textAlign: "right",
+    zIndex: "0",
+  },
+
+  skillDescriptionLeft: {
+    padding: "36px 0 36px 55%",
+    textAlign: "left",
+    zIndex: "0",
   },
 }));
 
@@ -27,61 +68,45 @@ const Somathoterapie = () => {
   return (
     <section className="section">
       <Container maxWidth="lg">
-        <Box pt={4} pb={4}>
-          <Grid container spacing={6}>
-            <Grid item xs={12} md={6}>
-              <Box display="flex" height="80%">
-                <Box my="auto">
-                  <Container maxWidth="md">
-                    <Typography
-                      variant="h5"
-                      component="h5"
-                      color="second"
-                      mt={4}
-                    >
-                      {" "}
-                      Somathotérapie{" "}
-                    </Typography>
+        <article className="skill-left">
+          <div className="skill-image">
+            <img src="./assets/images/somato.png" alt="" />
+          </div>
+          <div className="skill-description">
+            <h3 className="skill-title">Somathotérapie</h3>
+            C’est une pratique qui instaure une relation d’aide par un toucher
+            psycho-corporel.
+            <br></br>
+            <br></br>
+            Le praticien prend en compte vos ressentis corporels et permet de
+            replacer votre corps au centre de votre attention.
+            <br></br>
+            <br></br>
+            Cette approche vous invite à entrer en contact avec ce que vous
+            ressentez, avec votre vécu corporel et intérieur de la situation que
+            vous vivez.
+          </div>
+        </article>
 
-                    <Box mt={8}>
-                      <p>
-                        C’est une pratique qui instaure une relation d’aide par
-                        un toucher psycho-corporel.
-                        <br></br>
-                        <br></br>
-                        Le praticien prend en compte vos ressentis corporels et
-                        permet de replacer votre corps au centre de votre
-                        attention.
-                        <br></br>
-                        <br></br>
-                        Cette approche vous invite à entrer en contact avec ce
-                        que vous ressentez, avec votre vécu corporel et
-                        intérieur de la situation que vous vivez.
-                      </p>
-                    </Box>
-
-                    <Box mt={6}>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.buttonAction}
-                      >
-                        <NavLink to="/somatotherapie">En savoir plus</NavLink>
-                      </Button>
-                    </Box>
-                  </Container>
-                </Box>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <img
-                src="./assets/images/somato.png"
-                alt=""
-                className={classes.img}
-              />
-            </Grid>
-          </Grid>
-        </Box>
+        <article className="skill-right">
+          <div className="skill-image">
+            <img src="./assets/images/coach.png" alt="" />
+          </div>
+          <div className="skill-description">
+            <h3 className="skill-title">Coaching</h3>
+            C’est une pratique qui instaure une relation d’aide par un toucher
+            psycho-corporel.
+            <br></br>
+            <br></br>
+            Le praticien prend en compte vos ressentis corporels et permet de
+            replacer votre corps au centre de votre attention.
+            <br></br>
+            <br></br>
+            Cette approche vous invite à entrer en contact avec ce que vous
+            ressentez, avec votre vécu corporel et intérieur de la situation que
+            vous vivez.
+          </div>
+        </article>
       </Container>
     </section>
   );

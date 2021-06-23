@@ -30,8 +30,8 @@ const SectionFour = () => {
       <Container maxWidth="md" className={classes.container}>
         <Box py={8} textAlign="center">
           <Typography variant="h5" component="h5" className={classes.p}>
-            A 60 ans je souhaite continuer à partager mes connaissances et
-            transmettre mon savoir.
+            N´hésitez pas á me contacter pour toute information, je vous
+            répondrais avec plaisir.
           </Typography>
         </Box>
       </Container>

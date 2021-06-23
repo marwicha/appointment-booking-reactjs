@@ -3,6 +3,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "../common/Carousel";
 import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   introWrapper: {
@@ -24,9 +25,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   p: {
     textAlign: "center",
-    fontSize: "18px",
+    fontSize: "15px",
     fontFamily: "LEMON MILK Light",
-    maxWidth: "387px",
+    maxWidth: "400px",
     "@media screen and (max-width: 767px)": {
       fontSize: "10px",
     },
@@ -84,24 +85,27 @@ const IntroFinal = () => {
   const ikdoList = [
     {
       img: "./assets/images/1.png",
-      h1: "IKDO",
-      h2: " By Zen Workshop",
-      text: "Détentez vous et prenez votre temps",
-      buttonText: "Massages",
+      h1: "IKDO®",
+      h2: " par Zen Workshop depuis 2006",
+      text: "Il est grand temps de renouer le contact humain ",
+      buttonText: "Praticien",
+      navLink: "/praticien",
     },
     {
       img: "./assets/images/2.png",
-      h1: "IKDO",
-      h2: " By Zen Workshop",
-      text: "Plusieurs formations sont accessibles",
+      h1: "IKDO®",
+      h2: " par Zen Workshop depuis 2006",
+      text: "Atelier à Cormont adapté à la situation Covid",
       buttonText: "Formations",
+      navLink: "/formations",
     },
     {
       img: "./assets/images/3.jpg",
-      h1: "IKDO",
-      h2: " By Zen Workshop",
-      text: "Détentez vous et prenez votre temps",
+      h1: "IKDO®",
+      h2: " par Zen Workshop depuis 2006",
+      text: "Un plaisir de partager savoir-faire et savoir être ",
       buttonText: "Somathotérapie",
+      navLink: "/somatotherapie",
     },
   ];
 
@@ -125,13 +129,17 @@ const IntroFinal = () => {
 
                 <div className={clsx(classes.text)}>
                   <h1 className={classes.h1}>{item.h1}</h1>
-                  <h2 className={classes.h2}>{item.h2}</h2>
 
+                  <h2 className={classes.h2}>{item.h2}</h2>
+                  <br></br>
                   <p className={classes.p}>{item.text}</p>
+                  <br></br>
                   <div className={classes.center}>
-                    <button className={clsx(classes.button)}>
-                      {item.buttonText}
-                    </button>
+                    <NavLink to={item.navLink}>
+                      <button className={clsx(classes.button)}>
+                        {item.buttonText}
+                      </button>
+                    </NavLink>
                   </div>
                 </div>
               </div>

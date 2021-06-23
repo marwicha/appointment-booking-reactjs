@@ -81,7 +81,7 @@ const ThirdSection = () => {
               <p className={classes.benefice}> Les bénéfices </p>
 
               <p className={classes.p}>
-                Les Bénefices Ikdo est doté d’un centre de formation qui a pour
+                Les Bénefices IKDO® est doté d’un centre de formation qui a pour
                 but de vous faire acquérir les notions de bases en
                 toucher-massage®, et sur les autres techniques associées aux
                 autres sens tels que la vue, l'utilisation des huiles

@@ -134,7 +134,7 @@ const SecondSection = () => {
 
   return (
     <div className={clsx(classes.container, "container")}>
-      <h3 className="font-bold text-28 text-center text-second mt-10">IKDO</h3>
+      <h3 className="font-bold text-28 text-center text-second mt-10">IKDO®</h3>
       <h3 className={clsx(classes.h2, "text-center text-26 text-second")}>
         Formation
       </h3>
@@ -145,18 +145,12 @@ const SecondSection = () => {
             <div className={classes.containerTextWrapper}>
               <div className={classes.textWrapper}>
                 <h1 className={classes.h1}>
-                  {" "}
-                  IKDO EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS
-                  D'INITIATIONS:{" "}
+                  IKDO® EST AUSSI UN CENTRE DE FORMATIONS ET D'ATELIERS
+                  D'INITIATIONS:
                 </h1>
 
-                <h2 className={classes.h2}>
-                  {" "}
-                  Pour acquérir des notions en Toucher-Massage® Ikdo{" "}
-                </h2>
-
                 <h3 className={classes.p}>
-                  Ikdo est doté d’un centre de formation qui a pour but de vous
+                  IKDO® est doté d’un centre de formation qui a pour but de vous
                   faire acquérir les notions de bases en toucher-massage®, et
                   sur les autres techniques associées aux autres sens tels que
                   la vue, l'utilisation des huiles essentielles et la
@@ -170,14 +164,12 @@ const SecondSection = () => {
                 </h2>
 
                 <h3 className={classes.p}>
-                  {" "}
                   "Massages" non thérapeutiques, ne s'apparentant à aucune
                   pratique médicale ni paramédicale occidentale.
                 </h3>
 
                 <h4 className={clsx(classes.h4, "text-center")}>
-                  {" "}
-                  Prendre un rendez vous{" "}
+                  Prendre un rendez vous
                 </h4>
 
                 <div className="text-center">

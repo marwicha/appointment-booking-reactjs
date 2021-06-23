@@ -58,16 +58,14 @@ const AllServices = () => {
             color="primary"
             className="text-fourth"
           >
-            {" "}
-            IKDO{" "}
+            IKDO®
           </Typography>
           <Typography
             variant="subtitle1"
             color="textSecondary"
             paragraph={true}
           >
-            {" "}
-            Services{" "}
+            Services
           </Typography>
         </Container>
       </Box>

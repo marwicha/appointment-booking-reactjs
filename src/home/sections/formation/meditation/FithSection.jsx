@@ -44,6 +44,15 @@ const FithSection = () => {
             formation est de profiter d'un soin au sein de notre institut.
           </p>
 
+          <p className={clsx(classes.p, "mt-6")}>
+            Déplacements possible chez vous avec les équipements nécessaires :
+            Tables ou chaise de massage, musique relaxante, huiles
+            essentielles... (*):
+            <br></br>
+            "Massages" non thérapeutiques, ne s'apparentant à aucune pratique
+            médicale ni paramédicale occidentale.
+          </p>
+
           <img
             src="./assets/images/formations/Polygon.png"
             className="mt-10"

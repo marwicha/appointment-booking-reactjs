@@ -71,19 +71,11 @@ const FinalSection = () => {
   return (
     <section className="section">
       <Container maxWidth="lg" className={classes.firstGrid}>
-        <Grid
-          md={12}
-          xs={12}
-          container
-          spacing={0}
-          alignItems="center"
-          justify="center"
-        >
-          <Grid md={6} xs={12}>
+        <Grid container spacing={2} alignItems="center" justify="center">
+          <Grid md={4} xs={12}>
             <h1 className={classes.h1}>
-              {" "}
               <Icon className={classes.icon}> check </Icon> Déroulement de la
-              formation:{" "}
+              formation:
             </h1>
 
             <p className={classes.p}>
@@ -105,11 +97,10 @@ const FinalSection = () => {
             </p>
           </Grid>
 
-          <Grid md={6} xs={12}>
+          <Grid md={4} xs={12}>
             <h1 className={classes.h1}>
-              {" "}
               <Icon className={classes.icon}> map-marker-alt </Icon> Lieu de la
-              formation:{" "}
+              formation:
             </h1>
 
             <p className={classes.p}> Texte à ajouter par Patrick </p>
@@ -117,9 +108,8 @@ const FinalSection = () => {
             <hr />
 
             <h1 className={classes.h1}>
-              {" "}
               <Icon className={classes.icon}> euro-sign </Icon> côut de la
-              formation:{" "}
+              formation:
             </h1>
 
             <p className={classes.p}> Pour le prix (hors promotion): </p>

@@ -6,7 +6,6 @@ import AllServices from "./sections/AllServices";
 import Massages from "./sections/Massages";
 import Formations from "./sections/Formations";
 import Somathoterapie from "./sections/Somathoterapie";
-import Coaching from "./sections/Coaching";
 import Footer from "./sections/Footer";
 import IntroPatrick from "./sections/IntroPatrick";
 
@@ -23,7 +22,6 @@ const Accueil = () => {
       <AllServices />
       <Somathoterapie />
       <Massages />
-      <Coaching />
       <Formations />
       <Footer />
     </div>

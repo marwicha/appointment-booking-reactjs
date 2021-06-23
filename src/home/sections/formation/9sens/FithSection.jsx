@@ -36,7 +36,7 @@ const FithSection = () => {
   return (
     <div className="section">
       <div className="container-program-formation text-center p-12">
-        <div container>
+        <div>
           <h4 className={classes.title}> Bon Moyen </h4>
 
           <p className={clsx(classes.p, "mt-6")}>
@@ -48,6 +48,15 @@ const FithSection = () => {
           <p className={clsx(classes.p, "mt-6")}>
             De découvrir cette méthode avant de vous engager dans cette
             formation est de profiter d'un soin au sein de notre institut.
+          </p>
+
+          <p className={clsx(classes.p, "mt-6")}>
+            Déplacements possible chez vous avec les équipements nécessaires :
+            Tables ou chaise de massage, musique relaxante, huiles
+            essentielles... (*):
+            <br></br>
+            "Massages" non thérapeutiques, ne s'apparentant à aucune pratique
+            médicale ni paramédicale occidentale.
           </p>
 
           <img

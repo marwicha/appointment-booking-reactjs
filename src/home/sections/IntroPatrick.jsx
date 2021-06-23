@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  Grid,
-  Avatar,
-  Button,
-  Container,
-  Box,
-  Typography,
-} from "@material-ui/core";
+import { Container, Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   container: {
@@ -52,13 +44,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     },
   },
 
-  containerAvatar: {
-    position: "absolute",
-    top: "0%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  },
-
   containerName: {
     position: "absolute",
     top: "15%",
@@ -75,21 +60,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
     [theme.breakpoints.down("md")]: {
       top: "32%",
-    },
-  },
-
-  avatar: {
-    width: theme.spacing(14),
-    height: theme.spacing(14),
-
-    [theme.breakpoints.down("xs")]: {
-      width: theme.spacing(3),
-      height: theme.spacing(3),
-    },
-
-    [theme.breakpoints.down("sm")]: {
-      width: theme.spacing(10),
-      height: theme.spacing(10),
     },
   },
 
@@ -110,17 +80,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     lineHeight: "30px",
     textAlign: "left",
   },
-
-  buttonAction: {
-    position: "absolute",
-    top: "83%",
-    left: "13%",
-    transform: "translate(-50%, -50%)",
-  },
 }));
 
 const IntroPatrick = () => {
   const classes = useStyles();
+  const mediaQuery = window.matchMedia("(min-width: 768px)");
 
   return (
     <>
@@ -132,46 +96,29 @@ const IntroPatrick = () => {
             className={classes.containerImg}
           />
 
-          <Box textAlign="center" className={classes.containerAvatar}>
-            <Avatar
-              alt=""
-              src="/assets/images/patrick.png"
-              className={classes.avatar}
-            />
-          </Box>
-
           <Box textAlign="center" className={classes.containerName}>
             <Typography className={classes.typo} variant="h4" component="span">
-              {" "}
-              PATRICK{" "}
-            </Typography>
-            <Typography
-              className={classes.typo}
-              variant="h4"
-              color="textSecondary"
-              component="span"
-            >
-              {" "}
-              CAILLIER{" "}
+              IKDO®
             </Typography>
           </Box>
-
           <Box className={classes.contentText} align="left">
             <p className={classes.p}>
-              En 1997 j’ai vécu de l’intérieur ce qu’on appelle un burn-out,
-              après un épuisement total physique et intellectuel j’avais du mal
-              à cette époque à assumer mon corps. Je ressentais de l’aversion
-              envers mon physique et ma personne ; j’avais parallèlement des
-              soucis d’addictions (tabac alcool) pour compenser mon mal être.
-              Pour sortir de ces problèmes j’ai du me faire accompagner par de
-              nombreux thérapeutes..
+              Le centre de thérapie ou de bien etre IKDO® est un centre de
+              formation et d'apprentissage mais surtout un espace d'échange et
+              de bien etre. Piloté par Mr. Cailler Patrick, praticien confirmé
+              qui, à travers ses multiples voyages et des années d'expériences,
+              s'est forgé un savoir qu'il partage aujourd'hui avec vous. Il est
+              le créateur de plusieurs techniques de massages et de méditations
+              notamment la Somatotherapie® , pratique thérapeutique
+              exclusivement enseignée au sein de notre institut. A travers ses
+              séances de coaching ou lors d'ateliers d'initiations vous
+              apprendrez ses techniques de méditations et de massages, Pour
+              bénéficier de nos stages et nos programmes d'apprentissage
+              offrants un certificat á terme, vous êtes invités à découvrir plus
+              en détails nos prestations et vous inscrire sur notre site ou en
+              contactant directement Mr. Cailler.
             </p>
           </Box>
-
-          <Button className={classes.buttonAction} size="small">
-            {" "}
-            En savoir plus
-          </Button>
         </Container>
       </section>
     </>

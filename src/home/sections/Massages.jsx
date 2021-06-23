@@ -49,16 +49,14 @@ const Massages = () => {
             color="primary"
             className="text-fourth"
           >
-            {" "}
-            IKDO{" "}
+            IKDO®
           </Typography>
           <Typography
             variant="subtitle1"
             color="textSecondary"
             paragraph={true}
           >
-            {" "}
-            prestations de massages{" "}
+            prestations de massages
           </Typography>
         </Container>
       </Box>
