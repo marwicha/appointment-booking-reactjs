@@ -40,16 +40,12 @@ const FourSection = () => {
 
               <Box textAlign="left">
                 <p className={classes.p}>
-                  C’est dans un cadre bienveillant, efficace et respectueux de
-                  votre personne, que nous abordons votre{" "}
-                  <strong>parcours de vie</strong> (passé-présent), afin de
-                  trouver ensemble la cohérence de votre projet futur.
-                  <br></br>
-                  <br></br>
-                  Je vous aide aussi dans l’identification de vos points forts.
-                  <br></br>
-                  <br></br>
-                  Grâce à l’interaction établie entre nous, vous vous fixer de
+                  C'est dans un cadre bienveillant, efficace et respectueux de
+                  votre personne, que nous abordons votre parcours de vie
+                  (passé-présent), afin de trouver ensemble la cohérence de
+                  votre projet futur. <br></br> <br></br>
+                  Je vous aide aussi dans l'identification de vos points forts.
+                  Grâce à l'interaction établie entre nous, vous vous fixer de
                   nouveaux objectifs clairs et précis en accord avec vos
                   valeurs.
                   <br></br>
@@ -68,18 +64,14 @@ const FourSection = () => {
 
               <Box textAlign="left">
                 <p className={classes.p}>
-                  A chaque avancement de votre projet, Je vous apporte un{" "}
-                  <strong>soutien</strong>, je vous aide à aussi à reconnaître
-                  vos points de blocage, à les comprendre et à les adoucir.
-                  <br></br>
-                  <br></br>
-                  Cette compréhension vous permet d’affiner vos objectifs et à
-                  vous engager dans l’action.
-                  <br></br>
-                  <br></br>
-                  Je vous encourage à progresser le plus rapidement possible
-                  vers la réalisation de ceux-ci et à vous centrer sur vos
-                  priorités.
+                  A chaque avancement de votre projet, Je vous apporte un
+                  soutien, je vous aide à aussi à identifier et reconnaître vos
+                  points de blocage, à les comprendre et à les adoucir.
+                  <br></br> <br></br>
+                  Cette compréhension vous permet d'affiner vos objectifs et à
+                  vous engager dans l'action. Je vous encourage à progresser le
+                  plus rapidement possible vers la réalisation de ceux-ci et à
+                  vous centrer sur vos priorités
                 </p>
               </Box>
             </Grid>
@@ -95,12 +87,10 @@ const FourSection = () => {
 
               <Box textAlign="left">
                 <p className={classes.p}>
-                  Ce coaching individuel vous permet d’obtenir des{" "}
-                  <strong>résultats</strong> mesurables dans le temps sur votre
-                  vie personnelle et professionnelle grâce à l’optimisation de
-                  vos ressources.
-                  <br></br>
-                  <br></br>
+                  Ce coaching individuel vous permet d'obtenir des résultats
+                  mesurables dans le temps sur votre vie personnelle et
+                  professionnelle grâce à l'optimisation de vos ressources.
+                  <br></br> <br></br>
                   Vous obtiendrez des résultats rapides et concrets !
                 </p>
               </Box>

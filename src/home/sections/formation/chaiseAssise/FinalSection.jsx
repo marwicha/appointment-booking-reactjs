@@ -74,29 +74,23 @@ const FinalSection = () => {
         <Grid container spacing={2} alignItems="center" justify="center">
           <Grid md={5} xs={12}>
             <h1 className={classes.h1}>
-              {" "}
-              <Icon className={classes.icon}> check </Icon> Déroulement de la
-              formation:{" "}
+              <Icon className={classes.icon}> check </Icon>
+              Déroulement de la formation:
             </h1>
-            <p className={classes.p}>Texte à ajouter par Patrick</p>
-            <p> En Initiale (3 mois) : </p>
-            <p className={classes.p}>Texte à ajouter par patrick</p>
-            Courte :
+            <p> Format 2 jours: 4 séances de 3h30min de 9h á 17h </p>
             <p className={classes.p}>
-              Possibilité de choisir les modules qui vous intéressent. Une
-              attestation vous sera fournie après chaque module effectué.
-              Entretien préalable pour les inscriptions et le démarrage de la
-              formation
+              Possibilité de déjeuner ensemble sur place mise á disposition des
+              locaux en toute convivialité
             </p>
           </Grid>
 
           <Grid md={5} xs={12}>
             <h1 className={classes.h1}>
-              <Icon className={classes.icon}> map-marker-alt </Icon> Lieu de la
-              formation:
+              <Icon className={classes.icon}> map-marker-alt </Icon>
+              Lieu de la formation:
             </h1>
 
-            <p className={classes.p}> Texte à ajouter par Patrick </p>
+            <p className={classes.p}>...</p>
 
             <hr />
 

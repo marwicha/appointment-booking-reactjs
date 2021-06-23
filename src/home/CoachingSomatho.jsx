@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { scrollTo } from "utils";
 import TopBar from "./sections/TopBar";
 
 import IndexRouteCoaching from "./sections/coaching/IndexRouteCoaching";
@@ -44,10 +43,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 const CoachingSomatho = () => {
   const [tabIndex, setTabIndex] = useState(0);
-
-  useEffect(() => {
-    scrollTo("root");
-  });
 
   const classes = useStyles();
   const serviceList = [

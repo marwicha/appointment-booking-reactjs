@@ -49,11 +49,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "Lato",
     fontStyle: "normal",
-    fontWeight: "300",
-    fontSize: "12px",
-    lineHeight: "30px",
+    fontWeight: "400",
+    fontSize: "16px",
     alignItems: "center",
     textAlign: "justify",
     color: "#182731",

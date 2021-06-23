@@ -37,19 +37,12 @@ const FithSection = () => {
     <div className="section">
       <div className="container-program-formation text-center p-12">
         <div container>
-          <h4 className={classes.title}> Bon Moyen </h4>
+          <h4 className={classes.title}> Offre IKDO </h4>
 
           <p className={clsx(classes.p, "mt-6")}>
-            de découvrir cette méthode avant de vous engager dans cette
-            formation est de profiter d'un soin au sein de notre institut.
-          </p>
-          <p className={clsx(classes.p, "mt-6")}>
-            Déplacements possible chez vous avec les équipements nécessaires :
-            Tables ou chaise de massage, musique relaxante, huiles
-            essentielles... (*):
-            <br></br>
-            "Massages" non thérapeutiques, ne s'apparentant à aucune pratique
-            médicale ni paramédicale occidentale.
+            Nous organisons aussi des ateliers d'initiation permettant une
+            introduction á nos méthodes et de profiter d'un soin avant tout
+            engagement au sein de notre institut.
           </p>
 
           <img

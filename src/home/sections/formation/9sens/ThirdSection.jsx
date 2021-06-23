@@ -49,11 +49,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "Lato",
     fontStyle: "normal",
-    fontWeight: "300",
-    fontSize: "12px",
-    lineHeight: "30px",
+    fontWeight: "500",
+    fontSize: "16px",
     alignItems: "center",
     textAlign: "justify",
     color: "#182731",
@@ -81,10 +80,15 @@ const ThirdSection = () => {
               <p className={classes.benefice}> Les bénéfices </p>
 
               <p className={classes.p}>
-                Acquérir les notions de bases en toucher-massage®, et sur les
-                autres techniques associées aux autres sens tels que la vue,
-                l'utilisation des huiles essentielles et la respiration
-                (odorat), utilisation des bols chantants (ouïe).
+                A travers un programme riche, IKDO vous offre un apprentissage
+                complet sur les notions de base en massage des 9 sens® ainsi que
+                diverses techniques associées aux sens et leur stimulation. Vous
+                apprendrez a exploiter différents outils et supports tels que
+                l'utilisation des bols chantants et des huiles essentielles ou
+                encore l'importance de la respiration.
+                <br></br> Pour plus d'information vous trouverez ci-dessous les
+                modules traités lors de chaque session ainsi que le déroulement
+                de la formation massages 9 sens.
               </p>
             </div>
           </Grid>

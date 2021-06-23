@@ -49,11 +49,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "Lato",
     fontStyle: "normal",
-    fontWeight: "300",
-    fontSize: "12px",
-    lineHeight: "30px",
+    fontWeight: "400",
+    fontSize: "16px",
     alignItems: "center",
     textAlign: "justify",
     color: "#182731",
@@ -81,8 +80,15 @@ const ThirdSection = () => {
               <p className={classes.benefice}> Les bénéfices </p>
 
               <p className={classes.p}>
-                sont instantanés et les effets immédiats : récupération,
-                ressourcement.
+                Recommandé pour les employés au sein d'une entreprise, ce
+                massage pratiqué sur une chaise assise ergonomique, offre une
+                détente en profondeur, tout en fournissant une tonicité et
+                réveil musculaire. Ce massage est particulièrement efficace pour
+                la remise en forme, la baisse du stress et le calme intérieur.
+                <br></br>
+                Pour plus d'information vous trouverez ci-dessous les modules
+                traités lors de chaque session ainsi que le déroulement de la
+                formation massage chaise assise.
               </p>
             </div>
           </Grid>

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { scrollTo } from "utils";
 import TopBar from "./sections/TopBar";
 import Footer from "./sections/Footer";
 
@@ -9,10 +8,6 @@ import SectionOne from "./sections/patrick/SectionOne";
 import SectionFour from "./sections/patrick/SectionFour";
 
 const Patrick = () => {
-  useEffect(() => {
-    scrollTo("root");
-  });
-
   return (
     <div className="landing">
       <TopBar />

@@ -39,24 +39,24 @@ const FourthSection = () => {
 
   const imgList = [
     {
-      title: "Plus énergie",
+      title: "Equilibre",
       link: "/assets/images/formations/energie.png",
       description:
         "Un employé détendu est plus énergique, plus concentré. Il offre une meilleure performance. Il gagne en motivation, en créativité, bref en efficacité et en savoir être.",
     },
 
     {
-      title: "Un climat social",
+      title: "Teamwork",
       link: "/assets/images/formations/environement.png",
       description:
-        "Le massage-bien-être renforce également le sentiment d’appartenance à l’organisation et améliore le climat social.",
+        "En agissant sur notre propre équilibre, le massage-bien-être renforce également le sentiment d’appartenance et améliore le climat social, offrant un environnement qui favorise l'épanouissement le développement des performances.",
     },
 
     {
-      title: "Le travail",
+      title: "Entreprise",
       link: "/assets/images/formations/work.png",
       description:
-        "Il est un moyen efficace de renforcer votre image auprès de vos collaborateurs, clients et partenaires.",
+        "Pour toute activité professionnelle, un employé détendu est un employé motivé et créatif. Il est mieux concentré et sait bien mieux gérer les situations stressantes. Un environnement de travail zen est important pour la santé de chaque entreprise.",
     },
   ];
 

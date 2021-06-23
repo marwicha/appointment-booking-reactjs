@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   media: {
-    height: "320px",
     width: "80%",
   },
 
@@ -62,6 +61,9 @@ const FirstSection = () => {
             alignItems="center"
           >
             <Grid item xs={12} md={4}>
+              <h3 className={classes.title}> Le coaching: </h3>
+
+              <h4 className={classes.titleText}> qu'est ce que c'est? </h4>
               <img
                 alt=""
                 className={classes.media}
@@ -71,20 +73,15 @@ const FirstSection = () => {
 
             <Grid item xs={12} md={6}>
               <Box display="flex" height="100%">
-                <Box my="auto" className={classes.box}>
-                  <h3 className={classes.title}> Le coaching: </h3>
-
-                  <h4 className={classes.titleText}> qu’est ce que c’est? </h4>
-
+                <Box my="auto" className={classes.box} mt={4}>
                   <p className={classes.p}>
                     Le coaching individuel vous apporte une véritable réponse à
-                    vos questions d’ordre professionnels ou privé pour révéler
-                    le meilleur de vous-même.
+                    vos questions d'ordre professionnel ou privé pour révéler le
+                    meilleur de vous-même.
                     <br></br>
-                    Ceci pour vous permettre également de fixer de nouveaux
-                    objectifs, une direction à suivre. Et de trouver ou
-                    retrouver de l’énergie et la motivation pour révéler votre
-                    potentiel.
+                    <br></br>
+                    Ceci vous permet également de fixer de nouveaux objectifs,
+                    une direction à suivre.
                   </p>
                 </Box>
               </Box>

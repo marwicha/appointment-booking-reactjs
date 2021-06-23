@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { scrollTo } from "utils";
 
 import FirstSection from "./somato/FirstSection";
 import SecondSection from "./somato/SecondSection";
@@ -8,10 +7,6 @@ import FourSection from "./somato/FourSection";
 import FiveSection from "./somato/FiveSection";
 
 const IndexRouteSomato = () => {
-  useEffect(() => {
-    scrollTo("root");
-  });
-
   return (
     <div className="landing">
       <FirstSection />

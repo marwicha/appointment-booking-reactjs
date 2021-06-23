@@ -7,7 +7,6 @@ import { shadowStyles } from "./utilities/_shadows";
 import { colorStyles } from "./utilities/_color";
 import { typographyStyles } from "./utilities/_typography";
 import { commonStyles } from "./utilities/_common";
-import { animationStyles } from "./utilities/_animations";
 import { layoutStyles } from "./utilities/_layout";
 import { landingStyles } from "./utilities/_landing";
 
@@ -20,7 +19,6 @@ const GlobalCss = ({ children }) => {
   shadowStyles();
   typographyStyles();
   commonStyles();
-  animationStyles();
   layoutStyles();
   landingStyles();
 

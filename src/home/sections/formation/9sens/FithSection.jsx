@@ -15,7 +15,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato Medium",
+    fontFamily: "Lato",
     fontSize: "20px",
     lineHeight: "24px",
     color: "#384C5A",
@@ -37,26 +37,12 @@ const FithSection = () => {
     <div className="section">
       <div className="container-program-formation text-center p-12">
         <div>
-          <h4 className={classes.title}> Bon Moyen </h4>
+          <h4 className={classes.title}> Offre IKDO </h4>
 
           <p className={clsx(classes.p, "mt-6")}>
-            Vous apprendrez les bases de différentes techniques de massage
-            telles que le shiatsu, le massage californien, suédois et le massage
-            aux pierres chaudes.
-          </p>
-
-          <p className={clsx(classes.p, "mt-6")}>
-            De découvrir cette méthode avant de vous engager dans cette
-            formation est de profiter d'un soin au sein de notre institut.
-          </p>
-
-          <p className={clsx(classes.p, "mt-6")}>
-            Déplacements possible chez vous avec les équipements nécessaires :
-            Tables ou chaise de massage, musique relaxante, huiles
-            essentielles... (*):
-            <br></br>
-            "Massages" non thérapeutiques, ne s'apparentant à aucune pratique
-            médicale ni paramédicale occidentale.
+            Nous organisons aussi des ateliers d'initiation permettant une
+            introduction á nos méthodes et de profiter d'un soin avant tout
+            engagement au sein de notre institut.
           </p>
 
           <img

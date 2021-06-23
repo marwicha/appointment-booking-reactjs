@@ -4,8 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   media: {
-    height: "320px",
-    width: "70%",
+    width: "80%",
   },
 
   p: {
@@ -57,41 +56,43 @@ const FirstSection = () => {
             alignItems="center"
           >
             <Grid item xs={12} md={4}>
-              <img
-                alt=""
-                className={classes.media}
-                src="/assets/images/coaching/somato.png"
-              />
+              <Box>
+                <h3 className={classes.title}> La somatothérapie: </h3>
+
+                <h4 className={classes.titleText}> qu'est ce que c'est? </h4>
+
+                <img
+                  alt=""
+                  className={classes.media}
+                  src="/assets/images/coaching/somato.png"
+                />
+              </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Box display="flex" height="100%">
+              <Box display="flex" height="100%" mt={4}>
                 <Box my="auto">
-                  <h3 className={classes.title}> La somatothérapie: </h3>
-
-                  <h4 className={classes.titleText}> qu’est ce que c’est? </h4>
-
                   <p className={classes.p}>
-                    Le praticien prend en compte vos ressentis corporels et
-                    permet de replacer votre corps au centre de votre attention.
+                    La somatothérapie est un soin psychocorporel, reliant corps
+                    et esprit par différentes techniques multi sensorielles,
+                    principalement le touché dont le but est de débloquer les
+                    tensions dans le corps c'est á dire la somatisation.
+                    <br></br> <br></br>
+                    En plaçant le corps au centre de l'attention Cette approche
+                    vous invite à entrer en contact avec ce que vous ressentez
+                    de manière claire voyante, avec votre vécu moral et corporel
+                    afin de mieux comprendre votre situation actuelle. <br></br>
                     <br></br>
-                    Cette approche vous invite à entrer en contact avec ce que
-                    vous ressentez, avec votre vécu corporel et intérieur de la
-                    situation que vous vivez.
-                    <br></br>
-                    Accompagné par le praticien, vous découvrez comment cette
-                    situation vous affecte, comment elle vous touche
-                    intérieurement.
-                    <br></br>
+                    Cette médiation corporelle n'est pas un traitement mais un
+                    accompagnement pour votre mieux être, ces séances permettent
+                    de dénouer des blocages émotionnels, sources de souffrances
+                    d'ordre psychosomatique. Au fil de mon accompagnement, vous
+                    saurez mieux vivre en harmonie avec vos émotions en
+                    décrivant mieux comment cette situation vous affecte,
+                    comment elle vous touche intérieurement. <br></br> <br></br>
                     La traversée de ce ressenti modifie la perception que vous
                     avez de vous-même, des autres et de la situation et vous
-                    découvrez de nouvelles possibilités d’être, de vous
-                    positionner et de réagir.
-                    <br></br>
-                    Cette médiation corporelle n’est pas un traitement mais un
-                    accompagnement pour votre mieux être.
-                    <br></br>
-                    Ces séances permettent de dénouer des blocages émotionnels,
-                    sources de souffrances d’ordre psychosomatique.
+                    découvrez de nouvelles possibilités d'être, de vous
+                    positionner et de réagir
                   </p>
                 </Box>
               </Box>

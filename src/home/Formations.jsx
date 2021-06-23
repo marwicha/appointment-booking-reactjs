@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { scrollTo } from "utils";
 import TopBar from "../home/sections/TopBar";
 import IndexRoute9sens from "./sections/formation/9sens/IndexRoute9sens";
 import IndexRouteMeditation from "./sections/formation/meditation/IndexRouteMeditation";
@@ -44,10 +43,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 const Formation = () => {
   const [tabIndex, setTabIndex] = useState(0);
-
-  useEffect(() => {
-    scrollTo("root");
-  });
 
   const classes = useStyles();
   const serviceList = [

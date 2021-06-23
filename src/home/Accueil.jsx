@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { scrollTo } from "utils";
+import React from "react";
 import IntroFinal from "./sections/IntroFinal";
 import TopBar from "./sections/TopBar";
 import AllServices from "./sections/AllServices";
@@ -10,10 +9,6 @@ import Footer from "./sections/Footer";
 import IntroPatrick from "./sections/IntroPatrick";
 
 const Accueil = () => {
-  useEffect(() => {
-    scrollTo("root");
-  });
-
   return (
     <div className="landing">
       <TopBar />
