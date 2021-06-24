@@ -14,7 +14,6 @@ import GlobalCss from "./styles/jss/GlobalCss";
 
 import Accueil from "./home/Accueil";
 import Formations from "./home/Formations";
-import Massages from "./home/Massages";
 import Patrick from "./home/Patrick";
 import CoachingSomatho from "./home/CoachingSomatho";
 import UserAccount from "./home/UserAccount";
@@ -110,7 +109,6 @@ const App = () => {
             <Switch>
               <Route path={["/", "/accueil"]} component={Accueil} exact />
               <Route path="/formations" component={Formations} />
-              <Route path="/massages" component={Massages} />
               <Route path="/praticien" component={Patrick} />
               <Route path="/somatotherapie" component={CoachingSomatho} />
               <PublicRoute path="/inscription" exact component={Inscription} />

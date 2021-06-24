@@ -104,9 +104,6 @@ const UpdateProfile = (props) => {
 
                   <br></br>
                   <br></br>
-
-                  <br></br>
-                  <br></br>
                   <TextField
                     fullWidth
                     name="phone"

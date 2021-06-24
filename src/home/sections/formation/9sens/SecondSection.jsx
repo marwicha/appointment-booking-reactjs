@@ -96,20 +96,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     margin: "2rem 0 0 0",
   },
 
-  button: {
-    margin: "1rem 1rem 0 0 !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 10,
-    background: `${palette.second} !important`,
-    color: "white",
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: 300,
-    borderRadius: "50px",
-    alignItems: "center",
-    textAlign: "center",
-  },
-
   button2: {
     marginTop: "1rem !important",
     padding: "1rem 2rem 1rem 2rem",
@@ -171,15 +157,11 @@ const SecondSection = () => {
                 </h4>
 
                 <div className="text-center">
-                  <NavLink to="/prendre-rendez-vous">
-                    <Button className={clsx(classes.button, "text-center")}>
+                  <NavLink to="/inscription">
+                    <Button className={clsx(classes.button2, "text-center")}>
                       Réserver maintenant
                     </Button>
                   </NavLink>
-
-                  <Button className={clsx(classes.button2, "text-center")}>
-                    Massage des 9 sens
-                  </Button>
                 </div>
               </div>
             </div>

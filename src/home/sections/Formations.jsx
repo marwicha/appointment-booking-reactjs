@@ -89,7 +89,7 @@ const Massages = () => {
                       color="primary"
                       className={classes.btn}
                     >
-                      <NavLink to="/Formations">En savoir plus</NavLink>
+                      <NavLink to="/formations">En savoir plus</NavLink>
                     </Button>
                   </Box>
                 </Box>

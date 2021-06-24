@@ -1,45 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { debounce, classList } from "utils";
+import { classList } from "utils";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import { NavLink } from "react-router-dom";
-import ScrollTo from "../common/ScrollTo";
 import AuthService from "../../services/auth.service";
 
 const TopBar = (props) => {
   const [isTop, setIsTop] = useState(true);
   const [isClosed, setIsClosed] = useState(true);
 
-  let scrollableElement = document.querySelector(".scrollable-content");
-  if (!scrollableElement) scrollableElement = window;
-
-  let handleScrollRef = null;
   let toggleIcon = isClosed ? "menu" : "close";
-
-  const handleScroll = () => {
-    return debounce(({ target: { scrollTop } }) => {
-      let isCurrentTop = scrollTop < 100 || scrollableElement.scrollY < 100;
-      setIsTop(isCurrentTop);
-    }, 20);
-  };
-
-  handleScrollRef = handleScroll();
 
   const close = () => {
     setIsClosed(false);
   };
-
-  useEffect(() => {
-    if (scrollableElement) {
-      scrollableElement.addEventListener("scroll", handleScrollRef);
-    }
-
-    return () => {
-      if (scrollableElement) {
-        scrollableElement.removeEventListener("scroll", handleScrollRef);
-      }
-    };
-  }, [scrollableElement, handleScrollRef]);
 
   const [currentUser, setCurrentUser] = useState(undefined);
 
@@ -85,9 +59,6 @@ const TopBar = (props) => {
           <li>
             <NavLink to="/somatotherapie">Somatothérapie et coaching</NavLink>
           </li>
-          <li>
-            <NavLink to="/massages">Presations de massages</NavLink>
-          </li>
         </ul>
         <div className="m-auto" />
         <ul className="navigation flex">
@@ -113,10 +84,7 @@ const TopBar = (props) => {
 
           <li>
             <a href="https://www.facebook.com/ikdobienetre">
-              <Icon style={{ fontSize: 20, marginLeft: "2px" }}>
-                {" "}
-                facebook{" "}
-              </Icon>
+              <Icon style={{ fontSize: 20, marginLeft: "2px" }}>facebook</Icon>
             </a>
           </li>
         </ul>

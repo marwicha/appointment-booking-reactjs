@@ -67,59 +67,63 @@ const AllUserAppointments = () => {
 
   return (
     <Container maxWidth="lg">
-      <Grid
-        container
-        spacing={2}
-        md={12}
-        xs={12}
-        justify="flex-start"
-        align="center"
-      >
-        {appointments.map((app, index) => (
-          <Grid item key={index} md={4} xs={12}>
-            <Card>
-              <CardHeader
-                style={{
-                  backgroundColor: "#dfe5e6",
-                  color: "black",
-                }}
-                subheader={app.prestation}
-              />
+      {appointments.length > 0 ? (
+        <Grid
+          container
+          spacing={2}
+          md={12}
+          xs={12}
+          justify="flex-start"
+          align="center"
+        >
+          {appointments.map((app, index) => (
+            <Grid item key={index} md={4} xs={12}>
+              <Card>
+                <CardHeader
+                  style={{
+                    backgroundColor: "#dfe5e6",
+                    color: "black",
+                  }}
+                  subheader={app.prestation}
+                />
 
-              <CardContent>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  component="p"
-                  align="left"
-                >
-                  Date: {app.slots.slot_date}
-                </Typography>
-                <br></br>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  component="p"
-                  align="left"
-                >
-                  Heure: {displayHeure(app.slots.slot_time)}
-                </Typography>
-                <br></br>
-              </CardContent>
-              <Box align="center">
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className={classes.btn}
-                  onClick={() => deleteAppoint(app._id)}
-                >
-                  Annuler
-                </Button>
-              </Box>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+                <CardContent>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                    align="left"
+                  >
+                    Date: {app.slots.slot_date}
+                  </Typography>
+                  <br></br>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                    align="left"
+                  >
+                    Heure: {displayHeure(app.slots.slot_time)}
+                  </Typography>
+                  <br></br>
+                </CardContent>
+                <Box align="center">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.btn}
+                    onClick={() => deleteAppoint(app._id)}
+                  >
+                    Annuler
+                  </Button>
+                </Box>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <p> Vous n'avez pas encore pris de rendez vous </p>
+      )}
     </Container>
   );
 };

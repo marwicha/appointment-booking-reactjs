@@ -17,7 +17,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 }));
 
-const FiveSection = () => {
+const Benefices = () => {
   const classes = useStyles();
 
   return (
@@ -139,4 +139,4 @@ const FiveSection = () => {
   );
 };
 
-export default FiveSection;
+export default Benefices;

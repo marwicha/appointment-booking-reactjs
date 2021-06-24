@@ -83,7 +83,7 @@ const AllServices = () => {
                     color="primary"
                     className={classes.btn}
                   >
-                    <NavLink to="/Formations">{item.title}</NavLink>
+                    <NavLink to="/formations">{item.title}</NavLink>
                   </Button>
                 </Box>
               </Grid>

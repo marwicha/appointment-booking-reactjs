@@ -97,20 +97,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     marginTop: "2rem",
   },
 
-  button: {
-    margin: "2rem 1rem 0 0 !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 11,
-    background: `${palette.second} !important`,
-    color: "white",
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: 300,
-    borderRadius: "50px",
-    alignItems: "center",
-    textAlign: "center",
-  },
-
   button2: {
     marginTop: "2rem !important",
     padding: "1rem 2rem 1rem 2rem",
@@ -170,19 +156,15 @@ const SecondSection = () => {
 
                 <h4 className={clsx(classes.h4, "text-center")}>
                   {" "}
-                  Prendre un rendez vous{" "}
+                  Prendre un rendez vous
                 </h4>
 
                 <div className="text-center">
-                  <NavLink to="/prendre-rendez-vous">
-                    <Button className={clsx(classes.button, "text-center")}>
+                  <NavLink to="/inscription">
+                    <Button className={clsx(classes.button2, "text-center")}>
                       Réserver maintenant
                     </Button>
                   </NavLink>
-
-                  <Button className={clsx(classes.button2, "text-center")}>
-                    Massage sur chaise assise
-                  </Button>
                 </div>
               </div>
             </div>
