@@ -1,29 +1,23 @@
 import React from "react";
-import { Grid, Container, Box } from "@material-ui/core";
+import {
+  Grid,
+  Container,
+  Box,
+  Card,
+  Typography,
+  CardContent,
+  CardActionArea,
+} from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
+  root: { maxWidth: 250 },
+
   title: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "Lato",
     width: "100%",
     margin: "auto",
-  },
-
-  paragraph: {
-    color: "#434343",
-    fontFamily: "Lato Medium",
-    fontSize: "18px",
-    width: "100%",
-    margin: "auto",
-  },
-
-  imgShadow: {
-    boxShadow: "0px 7px 10px rgba(0, 0, 0, 0.25)",
-    borderRadius: "0 50px",
-    width: "10em",
-    padding: "12px",
-    background: "#FFFFFF",
   },
 
   img: {
@@ -105,25 +99,38 @@ const FourthSection = () => {
           <Grid container justify="space-between" alignItems="center">
             {imgList.map((item) => (
               <Grid item md={2} xs={12}>
-                <div className={classes.imgShadow}>
-                  <img src={item.link} alt="" />
+                <img src={item.link} alt="" />
 
-                  <h6 className="mt-3"> {item.title} </h6>
-                </div>
+                <h6 className="mt-3"> {item.title} </h6>
               </Grid>
             ))}
           </Grid>
+          <br></br>
+          <br></br>
 
-          <Grid container justify="space-between" alignItems="center">
+          <Grid container spacing={2} justify="center" alignItems="center">
             {imgList2.map((item) => (
               <Grid item md={3} xs={12}>
-                {getImgSrc(item.id, item.link)}
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    {getImgSrc(item.id, item.link)}
+                    <CardContent>
+                      <Typography gutterBottom variant="body2" component="h6">
+                        {item.title}
+                      </Typography>
 
-                <Box mt={4}>
-                  <h5 className={classes.title}> {item.title} </h5>
-
-                  <p className={classes.paragraph}> {item.text} </p>
-                </Box>
+                      <Box align="left">
+                        <Typography
+                          variant="p"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          {item.text}
+                        </Typography>
+                      </Box>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
               </Grid>
             ))}
           </Grid>

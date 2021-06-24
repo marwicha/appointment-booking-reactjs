@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Box, Container, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { NavLink } from "react-router-dom";
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   media: {
     width: "85%",
@@ -89,8 +89,9 @@ const FiveSection = () => {
                   <h3 className={classes.title2}>
                     N’attendez plus pour bénéficier de cette séance !
                   </h3>
-
-                  <Button className={classes.btn}>Réserver ici</Button>
+                  <NavLink to="/inscription">
+                    <Button className={classes.btn}>Réserver ici</Button>
+                  </NavLink>
                 </Box>
               </Box>
             </Grid>

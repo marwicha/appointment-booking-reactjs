@@ -5,21 +5,11 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  button: {
-    marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 15,
-    fontFamily: theme.typography.fontFamily,
-    backgroundColor: palette.second,
-    color: "white",
-    borderRadius: "100px",
-  },
-
   h1: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "26px",
+    fontSize: "24px",
     marginBottom: "20px",
     alignItems: "center",
     textAlign: "justify",
@@ -29,7 +19,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "26px",
+    fontSize: "22px",
     alignItems: "center",
     textAlign: "justify",
   },

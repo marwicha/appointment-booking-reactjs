@@ -70,7 +70,8 @@ const UserAccount = () => {
         .then((response) => {
           setcurrentUser({ ...currentUser });
 
-          // localStorage.removeItem("user");
+          localStorage.removeItem("user");
+          localStorage.removeItem("token");
           window.location.reload();
         })
         .catch((e) => {

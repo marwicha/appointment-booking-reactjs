@@ -40,7 +40,9 @@ const TopBar = (props) => {
     >
       <div className="container header-container">
         <div className="brand">
-          <img src="./assets/images/logos/logo@2x.png" alt="" />
+          <NavLink to="/accueil">
+            <img src="./assets/images/logos/logo@2x.png" alt="" />
+          </NavLink>
         </div>
 
         <ul className="navigation">
