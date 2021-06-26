@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://ikdo-patrick-marwa.herokuapp.com/api/appointment";
+const API_URL = "http://localhost:5000/api/appointment";
 const API_PAY = "https://ikdo-patrick-marwa.herokuapp.com";
 
 const token = JSON.parse(localStorage.getItem("token"));

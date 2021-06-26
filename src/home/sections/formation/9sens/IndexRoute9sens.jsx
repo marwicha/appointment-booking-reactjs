@@ -6,6 +6,7 @@ import FithSection from "./FithSection";
 import SixSection from "./SixSection";
 import FinalSection from "./FinalSection";
 import Benefices from "./Benefices";
+import Footer from "home/sections/Footer";
 
 const IndexRouteMassage9sens = () => {
   return (
@@ -17,6 +18,7 @@ const IndexRouteMassage9sens = () => {
       <FithSection />
       <SixSection />
       <FinalSection />
+      <Footer />
     </div>
   );
 };

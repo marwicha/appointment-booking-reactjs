@@ -51,8 +51,7 @@ const Massages = () => {
             color="primary"
             className="text-fourth"
           >
-            {" "}
-            Zen workshop{" "}
+            Zen workshop
           </Typography>
           <Typography
             variant="subtitle1"

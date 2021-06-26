@@ -58,24 +58,9 @@ const getAllAppointments = async () => {
   return response.data;
 };
 
-const updateFormation = async (id, data) => {
-  const response = await axios({
-    method: "PUT",
-    url: `${API_URL}/formation/update/${id}`,
-    headers: {
-      authorization: "Bearer " + token,
-      "Content-Type": "application/json",
-    },
-    data: data,
-  });
-
-  return response.data;
-};
-
 export default {
   createFormation,
   getAllFormations,
   deleteFormation,
-  updateFormation,
   getAllAppointments,
 };

@@ -109,14 +109,14 @@ const IntroPatrick = () => {
               qui, à travers ses multiples voyages et des années d'expériences,
               s'est forgé un savoir qu'il partage aujourd'hui avec vous. Il est
               le créateur de plusieurs techniques de massages et de méditations
-              notamment la Somatotherapie® , pratique thérapeutique
-              exclusivement enseignée au sein de notre institut. A travers ses
-              séances de coaching ou lors d'ateliers d'initiations vous
-              apprendrez ses techniques de méditations et de massages, Pour
-              bénéficier de nos stages et nos programmes d'apprentissage
-              offrants un certificat á terme, vous êtes invités à découvrir plus
-              en détails nos prestations et vous inscrire sur notre site ou en
-              contactant directement Mr. Cailler.
+              notamment la Somatothérapie®, pratique thérapeutique exclusivement
+              enseignée au sein de notre institut. A travers ses séances de
+              coaching ou lors d'ateliers d'initiations vous apprendrez ses
+              techniques de méditations et de massages, Pour bénéficier de nos
+              stages et nos programmes d'apprentissage offrants un certificat á
+              terme, vous êtes invités à découvrir plus en détails nos
+              prestations et vous inscrire sur notre site ou en contactant
+              directement Mr. Cailler.
             </p>
           </Box>
         </Container>

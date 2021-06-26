@@ -5,6 +5,7 @@ import FourthSection from "./FourthSection";
 import FithSection from "./FithSection";
 import SixSection from "./SixSection";
 import FinalSection from "./FinalSection";
+import Footer from "home/sections/Footer";
 
 const IndexRouteChaiseAssise = () => {
   return (
@@ -15,6 +16,7 @@ const IndexRouteChaiseAssise = () => {
       <FithSection />
       <SixSection />
       <FinalSection />
+      <Footer />
     </div>
   );
 };

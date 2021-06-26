@@ -4,6 +4,7 @@ import ThirdSection from "./ThirdSection";
 import FourthSection from "./FourthSection";
 import FithSection from "./FithSection";
 import FinalSection from "./FinalSection";
+import Footer from "home/sections/Footer";
 
 const IndexRouteMeditation = () => {
   return (
@@ -13,6 +14,7 @@ const IndexRouteMeditation = () => {
       <FourthSection />
       <FithSection />
       <FinalSection />
+      <Footer />
     </div>
   );
 };

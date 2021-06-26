@@ -42,12 +42,10 @@ const Footer = () => {
                     Adresse
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    {" "}
-                    446 Bis Av De Dunkerque{" "}
+                    446B AV DE DUNKERQUE
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    {" "}
-                    Lambersart, 59130{" "}
+                    Lambersart, 59130
                   </Typography>
                 </Box>
               </div>
@@ -61,12 +59,10 @@ const Footer = () => {
                     </Avatar>
                   </Box>
                   <Typography variant="h6" gutterBottom={true}>
-                    {" "}
-                    Email{" "}
+                    Email
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    {" "}
-                    patrick.caillier@hotmail.fr{" "}
+                    patrick.caillier@hotmail.fr
                   </Typography>
                   <br />
                 </Box>
@@ -81,11 +77,10 @@ const Footer = () => {
                     </Avatar>
                   </Box>
                   <Typography variant="h6" gutterBottom={true}>
-                    {" "}
-                    Téléphone{" "}
+                    Téléphone
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    (33) 555555555
+                    07 86 99 59 40 ou 09 8222 8555
                   </Typography>
                   <br />
                 </Box>

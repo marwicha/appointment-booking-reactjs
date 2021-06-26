@@ -89,8 +89,6 @@ const ResetPassword = (props) => {
   };
 
   const handleResetPassword = (e) => {
-    //e.preventDefault();
-
     setMessage("");
     const token = getParamFromUrl("token");
     const userId = getParamFromUrl("id");
@@ -100,7 +98,14 @@ const ResetPassword = (props) => {
         alert("Ok");
       },
       (error) => {
-        alert(error);
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setMessage(resMessage);
       }
     );
   };

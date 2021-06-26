@@ -32,6 +32,8 @@ const AddFormation = () => {
   const [formations, setFormations] = useState([]);
   const [name, setName] = useState("");
   const [dateText, setDateText] = useState("");
+  const [description, setDescription] = useState("");
+  const [prix, setPrix] = useState("");
 
   useEffect(() => {
     AdminService.getAllFormations().then((response) => {
@@ -43,6 +45,8 @@ const AddFormation = () => {
     const data = {
       name: name,
       dateText: dateText,
+      description: description,
+      prix: prix,
     };
 
     AdminService.createFormation(data)
@@ -85,7 +89,7 @@ const AddFormation = () => {
             <CardContent>
               <Box align="center">
                 <TextField
-                  placeholder="Nom de la formation"
+                  placeholder="Nom"
                   name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -94,10 +98,30 @@ const AddFormation = () => {
                 <br></br>
                 <br></br>
                 <TextField
-                  placeholder="Date de la formation"
+                  placeholder="Date"
                   name="dateText"
                   value={dateText}
                   onChange={(e) => setDateText(e.target.value)}
+                />
+
+                <br></br>
+                <br></br>
+
+                <TextField
+                  placeholder="Description"
+                  name="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+
+                <br></br>
+                <br></br>
+
+                <TextField
+                  placeholder="Prix"
+                  name="prix"
+                  value={prix}
+                  onChange={(e) => setPrix(e.target.value)}
                 />
               </Box>
               <br></br>
@@ -134,7 +158,14 @@ const AddFormation = () => {
                   subheader={formation.name}
                 />
                 <Divider />
-                <CardContent>{formation.dateText}</CardContent>
+                <CardContent>
+                  {formation.dateText}
+
+                  <br></br>
+                  {formation.description}
+                  <br></br>
+                  {formation.prix}
+                </CardContent>
 
                 <Button
                   color="secondary"

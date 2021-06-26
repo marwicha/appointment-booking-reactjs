@@ -104,7 +104,7 @@ const IntroFinal = () => {
       h1: "IKDO®",
       h2: " par Zen Workshop depuis 2006",
       text: "Un plaisir de partager savoir-faire et savoir être ",
-      buttonText: "Somathotérapie",
+      buttonText: "Somatothérapie",
       navLink: "/somatotherapie",
     },
   ];

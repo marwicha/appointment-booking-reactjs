@@ -70,14 +70,13 @@ const RequestResetPassword = (props) => {
 
     setMessage("");
 
-    AuthService.resetRequest(emailForgot).then(
-      () => {
+    AuthService.resetRequest(emailForgot)
+      .then(() => {
         setMessage("E-mail de réinitialisation de mot de passe envoyé!");
-      },
-      (error) => {
-        setMessage("Un problème est survenue ou e-mail n'existe pas");
-      }
-    );
+      })
+      .catch((error) => {
+        setMessage("Un problème est survenu ou email n'existe pas");
+      });
   };
 
   return (

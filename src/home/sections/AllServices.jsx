@@ -25,7 +25,7 @@ const AllServices = () => {
   const serviceList = [
     {
       id: "1",
-      title: "Somathotérapie",
+      title: "Somatothérapie",
       imgSrc: "/assets/images/coaching.png",
     },
     {

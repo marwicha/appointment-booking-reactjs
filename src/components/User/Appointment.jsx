@@ -387,7 +387,6 @@ const Appointment = (props) => {
             <StepContent>
               <FormControl>
                 <Select
-                  fullWidth
                   onChange={(event) => {
                     const newPrestationObj = {
                       name: event.target.value.name,
