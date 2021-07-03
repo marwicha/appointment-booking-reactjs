@@ -47,21 +47,20 @@ const ThirdSection = () => {
     <section className="section">
       <Container maxWidth="lg" className="container-icon-formation text-center">
         <Grid container spacing={4}>
-          <Grid md={5} xs={12}>
+          <Grid item md={5} xs={12}>
             <div className="pt-8">
               <h4 className={clsx(classes.h2)}>
-                {" "}
-                Comment se passent les séances?{" "}
+                Comment se passent les séances?
               </h4>
             </div>
           </Grid>
 
-          <Grid md={7} xs={12}>
+          <Grid item md={7} xs={12}>
             <div className={classes.verticalLine}>
               <p className={classes.p}>
-                Je vous propose un{" "}
-                <strong>accompagnement professionnel et personnalisé</strong>{" "}
-                vous permettant d’atteindre vos objectifs et de révéler votre
+                Je vous propose un
+                <strong>accompagnement professionnel et personnalisé</strong>
+                vous permettant d'atteindre vos objectifs et de révéler votre
                 potentiel.
                 <br></br>
                 Cette aide peut se faire également dans le but de surmonter ou

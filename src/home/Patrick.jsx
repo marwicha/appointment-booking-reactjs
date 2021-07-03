@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TopBar from "./sections/TopBar";
 import Footer from "./sections/Footer";
 

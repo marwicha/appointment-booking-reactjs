@@ -66,16 +66,16 @@ const ThirdSection = () => {
     <div className="section">
       <div className="container-icon-formation text-center">
         <Grid container>
-          <Grid sm={1} md={1} xs={12}></Grid>
+          <Grid item md={1} xs={12}></Grid>
 
-          <Grid sm={5} md={5} xs={12}>
+          <Grid item md={5} xs={12}>
             <div className="pt-8">
               <h1 className={clsx(classes.h1)}> Formation </h1>
               <h2 className={clsx(classes.h2)}> Massage Sur Chaîse Assise </h2>
             </div>
           </Grid>
 
-          <Grid sm={5} md={5} xs={12}>
+          <Grid item md={5} xs={12}>
             <div className={classes.verticalLine}>
               <p className={classes.benefice}> Les bénéfices </p>
 
@@ -93,7 +93,7 @@ const ThirdSection = () => {
             </div>
           </Grid>
 
-          <Grid sm={1} md={1} xs={12}></Grid>
+          <Grid item md={1} xs={12}></Grid>
         </Grid>
       </div>
     </div>

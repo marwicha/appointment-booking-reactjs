@@ -27,17 +27,20 @@ const AllServices = () => {
       id: "1",
       title: "Somatothérapie",
       imgSrc: "/assets/images/coaching.png",
+      link: "/somatotherapie"
     },
     {
       id: "3",
       title: "Formations",
       imgSrc: "/assets/images/formation.png",
+      link: "/formations"
     },
 
     {
       id: "2",
       title: "Massages",
       imgSrc: "/assets/images/massage.png",
+      link: "/formations"
     },
   ];
 
@@ -83,7 +86,7 @@ const AllServices = () => {
                     color="primary"
                     className={classes.btn}
                   >
-                    <NavLink to="/formations">{item.title}</NavLink>
+                    <NavLink to={item.link}>{item.title}</NavLink>
                   </Button>
                 </Box>
               </Grid>

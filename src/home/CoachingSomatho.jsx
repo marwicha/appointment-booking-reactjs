@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TopBar from "./sections/TopBar";
 
 import IndexRouteCoaching from "./sections/coaching/IndexRouteCoaching";

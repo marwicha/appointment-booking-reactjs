@@ -162,8 +162,7 @@ const SixSection = () => {
     <section className="section">
       <Container maxWidth="lg">
         <h1 className={clsx(classes.h1, "text-center mt-5 mb-12")}>
-          {" "}
-          Programme{" "}
+          Programme
         </h1>
 
         <Grid container spacing={2} justify="space-between" alignItems="center">
@@ -188,7 +187,7 @@ const SixSection = () => {
             alignItems="center"
           >
             {programList2.map((item) => (
-              <Grid md={3} xs={12}>
+              <Grid item md={3} xs={12}>
                 <div className={clsx(classes.imgShadow, "mt-5")}>
                   <h1 className={classes.number}> {item.id} </h1>
 
@@ -209,7 +208,7 @@ const SixSection = () => {
             alignItems="center"
           >
             {programList3.map((item) => (
-              <Grid md={3} xs={12}>
+              <Grid item md={3} xs={12}>
                 <div className={clsx(classes.imgShadow, "mt-5")}>
                   <h1 className={classes.number}> {item.id} </h1>
 

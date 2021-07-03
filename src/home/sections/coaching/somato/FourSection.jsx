@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container, Box, Card } from "@material-ui/core";
+import { Grid, Container, Box } from "@material-ui/core";
 import LooksTwoIcon from "@material-ui/icons/LooksTwo";
 import LooksOneIcon from "@material-ui/icons/LooksOne";
 import Looks3Icon from "@material-ui/icons/Looks3";

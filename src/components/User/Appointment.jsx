@@ -14,11 +14,9 @@ import {
   Select,
   MenuItem,
   CardHeader,
-  Checkbox,
 } from "@material-ui/core";
 
 import Snackbar from "@material-ui/core/Snackbar";
-import { makeStyles } from "@material-ui/core/styles";
 import AppointmentService from "../../services/appointment.service";
 import AuthService from "../../services/auth.service";
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
@@ -27,6 +25,7 @@ import moment from "moment";
 import fr from "moment/locale/fr";
 
 import PrestationService from "../../services/prestation.service";
+import SlotService from "../../services/slot.service";
 import { Step, Stepper, StepContent } from "@material-ui/core";
 import axios from "axios";
 
@@ -34,8 +33,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import Payement from "./Payment";
-
-const API_BASE = "https://ikdo-patrick-marwa.herokuapp.com/";
 
 const stripePromise = loadStripe(
   "pk_test_51Iv0X0Idt2OtpHpwAsbJ5pQv2QCWfpaR9FS8aaxvgXb5DhfEXXbRVC1H4GMr7HaVL4pki2jjpTYbeIuEPyPpK3cJ00ygUHxsGY"
@@ -73,7 +70,7 @@ const Appointment = (props) => {
   };
 
   useEffect(() => {
-    axios.get(API_BASE + `api/slots/all`).then((response) => {});
+    SlotService.getAllTimeSlots().then((response) => {});
   }, []);
 
   useEffect(() => {

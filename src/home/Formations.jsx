@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TopBar from "../home/sections/TopBar";
 import IndexRoute9sens from "./sections/formation/9sens/IndexRoute9sens";
 import IndexRouteMeditation from "./sections/formation/meditation/IndexRouteMeditation";

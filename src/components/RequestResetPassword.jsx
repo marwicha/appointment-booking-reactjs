@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import TopBar from "../home/sections/TopBar";
 import { makeStyles } from "@material-ui/core/styles";

@@ -121,7 +121,6 @@ const IntroFinal = () => {
             {ikdoList.map((item, index) => (
               <div key={index}>
                 <img
-                  container
                   className="h-full w-full"
                   src={item.img}
                   alt=""

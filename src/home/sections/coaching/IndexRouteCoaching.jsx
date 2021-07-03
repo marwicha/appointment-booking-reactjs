@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FirstSection from "./coach/FirstSection";
 import FiveSection from "./coach/FiveSection";
 import FourSection from "./coach/FourSection";

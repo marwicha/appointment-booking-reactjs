@@ -125,7 +125,7 @@ const SecondSection = () => {
 
       <div className={classes.wrapperAll}>
         <Grid container spacing={0} alignItems="center">
-          <Grid lg={6} xl={6} sm={6} md={6} xs={12}>
+          <Grid item md={6} xs={12}>
             <div className={classes.containerTextWrapper}>
               <div className={classes.textWrapper}>
                 <h1 className={classes.h1}>
@@ -167,7 +167,7 @@ const SecondSection = () => {
             </div>
           </Grid>
 
-          <Grid sm={5} md={5} xs={12}>
+          <Grid item md={5} xs={12}>
             <div className="mb-6 ml-1 relative">
               <img
                 src="/assets/images/formations/9sens.png"

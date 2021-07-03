@@ -118,8 +118,6 @@ const AddPrestation = () => {
         justify="flex-start"
         align="center"
         spacing={2}
-        md={12}
-        xs={12}
       >
         {prestations.map((prestation, index) => (
           <Grid item md={3} xs={12}>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import TopBar from "../home/sections/TopBar";
 import PersonOutlineOutlined from "@material-ui/icons/PersonOutlineOutlined";
@@ -41,8 +41,8 @@ function Copyright() {
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   title: {
-    fontFamily: "LEMON MILK",
-    margin: "3em",
+    fontFamily: "Roboto",
+    margin: "2em",
     width: "51%",
   },
 
@@ -60,7 +60,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   input: {
     margin: theme.spacing(1),
-    fontSize: "1.25em",
+    fontSize: "1em",
     color: "#217093",
     fontWeight: "500",
   },
@@ -76,30 +76,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 }));
 
-const requiredFieldsLogin = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
-
 const Inscription = (props) => {
   const classes = useStyles();
   const { handleSubmit, register, errors } = useForm();
 
-  // Error Messages
-  const required = "Veuillez remplir tous les champs";
-  const patternPhone = "Numéro de téléphone doit être un chiffre";
-  const patternEmail = "Adresse email invalide";
-
-  // Error Component
-  const errorMessage = (error) => {
-    return <Alert severity="error">{error} </Alert>;
-  };
-
+  //states
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -155,8 +136,6 @@ const Inscription = (props) => {
 
   /// Login
 
-  const form = useRef();
-
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
 
@@ -195,7 +174,7 @@ const Inscription = (props) => {
   };
 
   return (
-    <div className="landing">
+    <Container className="landing">
       <TopBar />
       <div className="section-box-inscription">
         <Container maxWidth="lg">
@@ -216,34 +195,38 @@ const Inscription = (props) => {
                     {message && <Alert severity="info">{message}</Alert>}
                   </div>
 
-                  {((errors.name && errors.name.type === "required") ||
-                    (errors.email && errors.email.type === "required") ||
-                    (errors.phone && errors.phone.type === "required") ||
-                    (errors.password && errors.password.type === "required")) &&
-                    errorMessage(required)}
-
-                  {errors.phone && errorMessage(patternPhone)}
-
-                  {errors.email && errorMessage(patternEmail)}
-
                   <div>
                     <div>
                       <label> Nom et Prénom </label>
-                      <Grid container spacing={1} alignItems="flex-end">
+                      <Grid container spacing={1} alignItems="center">
                         <Grid item>
                           <PersonOutlineOutlined />
                         </Grid>
 
                         <Grid item>
                           <TextField
-                            className={classes.input}
-                            margin="normal"
-                            fullWidth
+                            fullWidth={true}
                             value={name}
                             name="name"
+                            type="text"
                             onChange={onChangeName}
                             error={!!errors.name}
-                            inputRef={register({ required: true })}
+                            helperText={
+                              errors.name?.type && errors.name?.message
+                            }
+                            inputRef={register({
+                              required: "Votre nom complet est obligatoire",
+                              minLength: {
+                                value: 2,
+                                message:
+                                  "Le nom doit contenir au moins 2 caracteres",
+                              },
+                              maxLength: {
+                                value: 20,
+                                message:
+                                  "Le nom doit contenir au max 20 caracteres",
+                              },
+                            })}
                           />
                         </Grid>
                       </Grid>
@@ -251,7 +234,7 @@ const Inscription = (props) => {
 
                     <div>
                       <label>Téléphone</label>
-                      <Grid container spacing={1} alignItems="flex-end">
+                      <Grid container spacing={1} alignItems="center">
                         <Grid item>
                           <PhoneOutlined />
                         </Grid>
@@ -259,15 +242,17 @@ const Inscription = (props) => {
                         <Grid item>
                           <TextField
                             className={classes.input}
-                            fullWidth
+                            fullWidth={true}
                             name="phone"
-                            margin="normal"
+                            type="number"
                             value={phone}
                             onChange={onChangePhone}
                             error={!!errors.phone}
+                            helperText={
+                              errors.phone?.type && errors.phone?.message
+                            }
                             inputRef={register({
-                              required: true,
-                              pattern: /\d+/,
+                              required: "Le téléphone est obligatoire",
                             })}
                           />
                         </Grid>
@@ -278,7 +263,7 @@ const Inscription = (props) => {
 
                     <div>
                       <label>E-mail</label>
-                      <Grid container spacing={1} alignItems="flex-end">
+                      <Grid container spacing={1} alignItems="center">
                         <Grid item>
                           <AlternateEmail />
                         </Grid>
@@ -287,15 +272,21 @@ const Inscription = (props) => {
                           <TextField
                             className={classes.input}
                             margin="normal"
-                            fullWidth
+                            fullWidth={true}
+                            type="email"
                             name="email"
                             value={email}
                             onChange={onChangeEmail}
                             error={!!errors.email}
+                            helperText={
+                              errors.email?.type && errors.email?.message
+                            }
                             inputRef={register({
-                              required: true,
-                              pattern:
-                                /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                              required: "l'email est obligatoire",
+                              pattern: {
+                                value: /^\S+@\S+$/i,
+                                message: "l'adresse email invalide",
+                              },
                             })}
                           />
                         </Grid>
@@ -306,7 +297,7 @@ const Inscription = (props) => {
 
                     <div>
                       <label>Mot de passe</label>
-                      <Grid container spacing={1} alignItems="flex-end">
+                      <Grid container spacing={1} alignItems="center">
                         <Grid item>
                           <LockOutlined />
                         </Grid>
@@ -314,13 +305,23 @@ const Inscription = (props) => {
                         <Grid item>
                           <TextField
                             className={classes.input}
-                            fullWidth
+                            fullWidth={true}
                             margin="normal"
                             name="password"
                             value={password}
                             onChange={onChangePassword}
                             error={!!errors.password}
-                            inputRef={register({ required: true })}
+                            helperText={
+                              errors.password?.type && errors.password?.message
+                            }
+                            inputRef={register({
+                              required: "Le mot de passe est obligatoire",
+                              minLength: {
+                                value: 10,
+                                message:
+                                  "Le mot de passe doit contenir au moins 10 caracteres",
+                              },
+                            })}
                           />
                         </Grid>
                       </Grid>
@@ -344,11 +345,7 @@ const Inscription = (props) => {
               <Card className={classes.paper}>
                 <h5 className={classes.title}>Se connecter</h5>
 
-                <form
-                  onSubmit={handleLogin}
-                  ref={form}
-                  className={classes.form}
-                >
+                <form onSubmit={handleLogin} className={classes.form}>
                   <div>
                     {messageLogin && (
                       <Alert severity="error">{messageLogin}</Alert>
@@ -369,7 +366,6 @@ const Inscription = (props) => {
                           name="emailLogin"
                           value={emailLogin}
                           onChange={onChangeEmailLogin}
-                          validations={[requiredFieldsLogin]}
                         />
                       </Grid>
                     </Grid>
@@ -391,7 +387,6 @@ const Inscription = (props) => {
                           type="password"
                           value={passwordLogin}
                           onChange={onChangePasswordLogin}
-                          validations={[requiredFieldsLogin]}
                         />
                       </Grid>
                     </Grid>
@@ -424,7 +419,7 @@ const Inscription = (props) => {
           </Box>
         </Container>
       </div>
-    </div>
+    </Container>
   );
 };
 

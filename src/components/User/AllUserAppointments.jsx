@@ -71,8 +71,6 @@ const AllUserAppointments = () => {
         <Grid
           container
           spacing={2}
-          md={12}
-          xs={12}
           justify="flex-start"
           align="center"
         >

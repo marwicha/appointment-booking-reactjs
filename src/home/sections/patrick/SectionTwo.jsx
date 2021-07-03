@@ -36,8 +36,7 @@ const SectionTwo = () => {
       <Container maxWidth="lg">
         <Box mb={8} textAlign="center">
           <Typography variant="h4" component="span">
-            {" "}
-            CERTIFICATS{" "}
+            CERTIFICATS
           </Typography>
         </Box>
 

@@ -1,39 +1,9 @@
 import React from "react";
-import { Grid, Box, Container, Button, Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  buttonAction: {
-    marginRight: theme.spacing(2),
-    color: "white",
-    backgroundColor: "#4b9fbc",
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-      marginRight: theme.spacing(0),
-      marginBottom: theme.spacing(2),
-    },
-  },
-
-  container: {
-    maxWidth: "1140px",
-    margin: "0 auto",
-    padding: "0 20px",
-  },
-
-  skill: {
-    position: "relative",
-  },
-
-  skillImage: {
-    position: "absolute",
-    zIndex: "1",
-    width: "50%",
-    height: "100%",
-    overflow: "hidden",
-  },
-
   img: {
     width: "100%",
     height: "100%",
@@ -41,24 +11,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     transition: "all 1s",
   },
 
-  skillRight: {
-    right: "0",
-  },
-
-  skillLeft: {
-    left: "0",
-  },
-
-  skillDescriptionRight: {
-    padding: "36px 55% 36px 0",
-    textAlign: "right",
-    zIndex: "0",
-  },
-
-  skillDescriptionLeft: {
-    padding: "36px 0 36px 55%",
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "30px",
     textAlign: "left",
-    zIndex: "0",
   },
 }));
 

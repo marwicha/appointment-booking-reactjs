@@ -58,15 +58,15 @@ const Massages = () => {
             color="textSecondary"
             paragraph={true}
           >
-            Centre de formation
+            centre de formation
           </Typography>
         </Container>
       </Box>
       <Container maxWidth="lg" className="container-formations">
         <Box py={5} textAlign="center">
-          <Grid container spacing={6}>
+          <Grid container spacing={2}>
             {formationsList.map((item) => (
-              <Grid item xs={12} md={4}>
+              <Grid item key={item} xs={12} md={4}>
                 <Box p={3} pb={4}>
                   <img src={item.imgUrl} alt="" className={classes.img} />
 

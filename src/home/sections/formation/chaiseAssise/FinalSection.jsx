@@ -72,7 +72,7 @@ const FinalSection = () => {
     <section className="section">
       <Container maxWidth="lg" className={classes.firstGrid}>
         <Grid container spacing={2} alignItems="center" justify="center">
-          <Grid md={5} xs={12}>
+          <Grid item md={5} xs={12}>
             <h1 className={classes.h1}>
               <Icon className={classes.icon}> check </Icon>
               Déroulement de la formation:
@@ -84,7 +84,7 @@ const FinalSection = () => {
             </p>
           </Grid>
 
-          <Grid md={5} xs={12}>
+          <Grid item md={5} xs={12}>
             <h1 className={classes.h1}>
               <Icon className={classes.icon}> map-marker-alt </Icon>
               Lieu de la formation:

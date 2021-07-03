@@ -74,19 +74,16 @@ const SixSection = () => {
     <section className="section">
       <Container maxWidth="lg">
         <h1 className={clsx(classes.h1, "text-center mt-5 mb-12")}>
-          {" "}
-          Programme{" "}
+          Programme
         </h1>
 
         <Grid
-          md={12}
-          xs={12}
           container
           justify="space-between"
           alignItems="center"
         >
           {programList.map((item) => (
-            <Grid md={3} xs={12} className={clsx(classes.imgShadow, "mt-5")}>
+            <Grid item md={3} xs={12} className={clsx(classes.imgShadow, "mt-5")}>
               <h1 className={classes.title}> {item.id}</h1>
 
               <h4 className={classes.title2}>{item.title}</h4>

@@ -27,10 +27,6 @@ const Contact = () => {
     <section className="section" id="contact">
       <div className="container text-center">
         <Grid
-          lg={12}
-          md={12}
-          sm={12}
-          xs={12}
           container
           justify="center"
           alignItems="center"

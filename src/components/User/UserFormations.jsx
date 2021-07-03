@@ -39,11 +39,9 @@ const UserFormations = () => {
         justify="flex-start"
         align="center"
         spacing={2}
-        md={12}
-        xs={12}
       >
         {formations.map((formation, index) => (
-          <Grid item md={3} xs={12}>
+          <Grid key={index} item md={3} xs={12}>
             <Box mt={2}>
               <Card>
                 <CardHeader
