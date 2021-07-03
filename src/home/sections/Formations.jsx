@@ -17,6 +17,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "white",
     backgroundColor: "#4b9fbc",
   },
+
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1rem",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 500,
+  },
 }));
 
 const Massages = () => {
@@ -78,9 +88,7 @@ const Massages = () => {
                   >
                     {item.title}
                   </Typography>
-                  <Typography variant="body2" component="p" gutterBottom={true}>
-                    {item.text}
-                  </Typography>
+                  <p className={classes.p}>{item.text}</p>
 
                   <Box mt={3}>
                     <Button

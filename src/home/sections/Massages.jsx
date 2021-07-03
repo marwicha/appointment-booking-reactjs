@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   img: {
-    maxWidth: 230,
+    maxWidth: 200,
     marginBottom: theme.spacing(4),
   },
 
@@ -18,6 +18,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "white",
     backgroundColor: "#4b9fbc",
   },
+
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1rem",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 500,
+  },
 }));
 
 const Massages = () => {
@@ -27,15 +37,13 @@ const Massages = () => {
     {
       name: "Massage chaise assise",
       imgUrl: "/assets/images/massage-assis.png",
-      text: "Profitez de 15 minutes d'un massage sur chaise assise Amma,",
-      text1: "le massage le plus adapté en entreprise.",
+      text: "Profitez de 15 minutes d'un massage sur chaise assise Amma, le massage le plus adapté en entreprise.",
     },
 
     {
       name: "Massage des 9 sens",
       imgUrl: "/assets/images/massage-9sens.png",
-      text: "Profitez d'une heure d'un massage de 9 sens,",
-      text1: "un ressourcement garantis qui recentre votre énergie.",
+      text: "Profitez d'une heure d'un massage de 9 sens, un ressourcement garanti qui recentre votre énergie.",
     },
   ];
 
@@ -78,14 +86,7 @@ const Massages = () => {
                     {item.name}
                   </Typography>
 
-                  <Typography variant="body2" component="p" gutterBottom={true}>
-                    {" "}
-                    {item.text}
-                  </Typography>
-                  <Typography variant="body2" component="p" gutterBottom={true}>
-                    {" "}
-                    {item.text1}
-                  </Typography>
+                  <p className={classes.p}>{item.text}</p>
 
                   <Box mt={3}>
                     <Button

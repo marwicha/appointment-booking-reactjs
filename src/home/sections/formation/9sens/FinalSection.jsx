@@ -15,7 +15,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "16px",
@@ -28,9 +28,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p2: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "bold",
-    fontWeight: "700",
+    fontWeight: "500",
     fontSize: "22px",
     lineHeight: "19px",
     color: "#384C5A",
@@ -41,9 +41,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   aaaa: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "bold",
-    fontWeight: "700",
+    fontWeight: "500",
     fontSize: "16px",
     lineHeight: "19px",
     textAlign: "left",
@@ -75,12 +75,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     background: "#EBF0FF",
     padding: "3rem",
     paddingTop: "34px",
-  },
-
-  thirdGrid: {
-    background: "#FF6150",
-    padding: "4rem",
-    height: "35em",
   },
 
   icon: {

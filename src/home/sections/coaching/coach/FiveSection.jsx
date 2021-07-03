@@ -9,11 +9,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: "18px",
-    lineHeight: "22px",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "25px",
     textAlign: "justify",
   },
 
@@ -24,23 +24,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "1.5em",
     color: "#384C5A",
     marginBottom: "3em",
-  },
-
-  titleText: {
-    fontFamily: "LEMON MILK light",
-    fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: "1em",
-    color: "#384C5A",
-  },
-
-  title2: {
-    fontFamily: "LEMON MILK",
-    fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: "1.5em",
-    color: "#384C5A",
-    marginTop: "3em",
   },
 
   btn: {
@@ -75,20 +58,19 @@ const FiveSection = () => {
               <Box display="flex" height="100%">
                 <Box my="auto">
                   <h3 className={classes.title}>
-                    {" "}
-                    Une séance de coaching avec patrick caillier{" "}
+                    Une séance de coaching avec patrick caillier
                   </h3>
 
                   <p className={classes.p}>
                     Vous désirez vous fixer de nouveaux objectifs, ou faire le
-                    point dans votre vie. Patrick Caillier spécialisé entre
-                    autre dans l’accompagnement est là pour vous aider à
-                    retrouver du sens dans vos projets..
+                    point dans votre vie.
+                    <br></br> Patrick Caillier spécialisé entre autre dans
+                    l'accompagnement est là pour vous aider à retrouver du sens
+                    dans vos projets..
                   </p>
 
-                  <h3 className={classes.title2}>
-                    {" "}
-                    N’attendez plus pour bénéficier de cette séance !
+                  <h3 className={classes.title}>
+                    N'attendez plus pour bénéficier de cette séance !
                   </h3>
 
                   <NavLink to="/inscription">

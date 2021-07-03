@@ -39,13 +39,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "16px",
-    alignItems: "center",
-    textAlign: "justify",
-    color: "#182731",
+    fontSize: "1em",
+    lineHeight: "30px",
+    color: "white",
+    textAlign: "left",
   },
 }));
 

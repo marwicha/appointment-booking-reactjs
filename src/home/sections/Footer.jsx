@@ -17,8 +17,18 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   contactWrapper: {
     backgroundColor: "rgb(250 251 255)",
   },
+
   iconWrapper: {
     backgroundColor: "rgb(250 251 255)",
+  },
+
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1rem",
+    textAlign: "center",
+    maxWidth: 500,
   },
 }));
 
@@ -38,15 +48,10 @@ const Footer = () => {
                       <RoomIcon color="primary" fontSize="large" />
                     </Avatar>
                   </Box>
-                  <Typography variant="h6" gutterBottom={true}>
-                    Adresse
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    446B AV DE DUNKERQUE
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    Lambersart, 59130
-                  </Typography>
+
+                  <p className={classes.p}>
+                    446B AV DE DUNKERQUE 59130,Lambersart
+                  </p>
                 </Box>
               </div>
             </Grid>
@@ -58,12 +63,8 @@ const Footer = () => {
                       <EmailIcon color="primary" fontSize="large" />
                     </Avatar>
                   </Box>
-                  <Typography variant="h6" gutterBottom={true}>
-                    Email
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    patrick.caillier@hotmail.fr
-                  </Typography>
+
+                  <p className={classes.p}>patrick.caillier@hotmail.fr</p>
                   <br />
                 </Box>
               </div>
@@ -76,12 +77,8 @@ const Footer = () => {
                       <PhoneIcon color="primary" fontSize="large" />
                     </Avatar>
                   </Box>
-                  <Typography variant="h6" gutterBottom={true}>
-                    Téléphone
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    07 86 99 59 40 ou 09 8222 8555
-                  </Typography>
+
+                  <p className={classes.p}>07 86 99 59 40 ou 09 8222 8555</p>
                   <br />
                 </Box>
               </div>

@@ -20,9 +20,18 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   img: {
     maxHeight: "6em",
-    marginLeft: "auto",
+    margin: "auto",
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(4),
+  },
+
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "600",
+    fontSize: "1em",
+    lineHeight: "30px",
+    textAlign: "left",
   },
 }));
 
@@ -48,7 +57,7 @@ const FourthSection = () => {
       title: "Entreprise",
       link: "/assets/images/formations/work.png",
       description:
-        "Pour toute activité professionnelle, un employé détendu est un employé motivé et créatif. Il est mieux concentré et sait bien mieux gérer les situations stressantes. Un environnement de travail zen est important pour la santé de chaque entreprise.",
+        "Pour toute activité professionnelle, un employé détendu est un employé motivé et créatif.Il est mieux concentré et sait bien mieux gérer les situations stressantes. Un environnement de travail zen est important pour la santé de chaque entreprise.",
     },
   ];
 

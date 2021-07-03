@@ -15,11 +15,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
-    fontSize: "20px",
-    lineHeight: "24px",
-    color: "#384C5A",
-    width: "50%",
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "1.25em",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 700,
     margin: "auto",
   },
 
@@ -41,7 +43,7 @@ const FithSection = () => {
 
           <p className={clsx(classes.p, "mt-6")}>
             Nous organisons aussi des ateliers d'initiation permettant une
-            introduction á nos méthodes et de profiter d'un soin avant tout
+            introduction à nos méthodes et de profiter d'un soin avant tout
             engagement au sein de notre institut.
           </p>
 

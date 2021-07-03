@@ -15,6 +15,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   cardHeader: {
     backgroundColor: "#EBF0FF",
   },
+
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 500,
+  },
 }));
 
 const Benefices = () => {
@@ -38,45 +48,25 @@ const Benefices = () => {
                 ></CardHeader>
                 <CardContent>
                   <Box pt={2} pb={1} px={1} align="left">
-                    <Typography
-                      variant="body1"
-                      component="p"
-                      gutterBottom={true}
-                    >
-                      1 Redonne estime et confiance en soi
-                    </Typography>
+                    <p className={classes.p}>
+                      1 REDONNE ESTIME ET CONFIANCE EN SOI
+                    </p>
 
-                    <br></br>
+                    <p className={classes.p}>
+                      2 LA COSCIENCE CORPORELLE La conscience corporelle
+                    </p>
 
-                    <Typography variant="body1" component="p">
-                      2 La conscience corporelle
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>3 LE RAPPORT AVEC SOI ET AUTRUI</p>
 
-                    <Typography variant="body1" component="p" color="primary">
-                      3 Le rapport avec soi et autrui
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>4 L'ÉPUISEMENT PROFESSIONNEL</p>
 
-                    <Typography variant="body1" component="p">
-                      4 L'épuisement professionnel
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>5 LE HANDICAP ET LA MALADIE </p>
 
-                    <Typography variant="body1" component="p">
-                      5 Le handicap et la maladie
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>
+                      6 L'ACCOMPAGNEMENT DE LA FIN DE VIE
+                    </p>
 
-                    <Typography variant="body1" component="p">
-                      6 L'accompagnement de fin de vie
-                    </Typography>
-                    <br></br>
-
-                    <Typography variant="body1" component="p">
-                      7 Libère la peur du contact
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>7 LIBERE LA PEUR DU CONTACT</p>
                   </Box>
                 </CardContent>
               </Card>
@@ -89,45 +79,23 @@ const Benefices = () => {
                 ></CardHeader>
                 <CardContent>
                   <Box pt={2} pb={1} px={1} align="left">
-                    <Typography
-                      variant="body1"
-                      component="p"
-                      gutterBottom={true}
-                    >
-                      1 LE BON DÉVELOPPEMENT DU BÉBÉ
-                    </Typography>
+                    <p className={classes.p}>1 LE BON DÉVELOPPEMENT DU BÉBÉ</p>
 
-                    <br></br>
+                    <p className={classes.p}>2 PSYCHO-CORPORELS</p>
 
-                    <Typography variant="body1" component="p">
-                      2 PSYCHO-CORPORELS
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>
+                      3 L'ACCOMPAGNEMENT DE FIN DE VIE
+                    </p>
 
-                    <Typography variant="body1" component="p" color="primary">
-                      3 L’ACCOMPAGNEMENT DE FIN DE VIE
-                    </Typography>
-                    <br></br>
-
-                    <Typography variant="body1" component="p">
+                    <p className={classes.p}>
                       4 LA RELATION AVEC SOI ET LES AUTRES
-                    </Typography>
-                    <br></br>
+                    </p>
 
-                    <Typography variant="body1" component="p">
-                      5 L’ÉPUISEMENT PROFESSIONNEL
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>5 L'ÉPUISEMENT PROFESSIONNEL</p>
 
-                    <Typography variant="body1" component="p">
-                      6 STRESS QUOTIDIEN
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>6 STRESS QUOTIDIEN</p>
 
-                    <Typography variant="body1" component="p">
-                      7 LE BON dÉVELOPPEMENT DU BÉBÉ
-                    </Typography>
-                    <br></br>
+                    <p className={classes.p}>7 LE BON dÉVELOPPEMENT DU BÉBÉ</p>
                   </Box>
                 </CardContent>
               </Card>

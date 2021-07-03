@@ -78,14 +78,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "16px",
-    lineHeight: "22px",
-    alignItems: "center",
-    color: "#182731",
-    marginTop: "2rem",
+    fontSize: "1em",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 500,
   },
 
   h4: {
@@ -100,7 +99,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   button2: {
     marginTop: "2rem !important",
     padding: "1rem 2rem 1rem 2rem",
-    fontSize: 9,
+    fontSize: 12,
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: 300,
@@ -149,13 +148,11 @@ const SecondSection = () => {
                 </h2>
 
                 <h3 className={classes.p}>
-                  {" "}
                   "Massages" non thérapeutiques, ne s'apparentant à aucune
                   pratique médicale ni paramédicale occidentale.
                 </h3>
 
                 <h4 className={clsx(classes.h4, "text-center")}>
-                  {" "}
                   Prendre un rendez vous
                 </h4>
 

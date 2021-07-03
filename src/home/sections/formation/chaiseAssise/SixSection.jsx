@@ -32,21 +32,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     lineHeight: "22px",
   },
 
-  description: {
-    fontFamily: "LEMON MILK Light",
-    fontStyle: "normal",
-    fontWeight: "500",
-    height: "50%",
-    fontSize: "10px",
-    color: "#182731",
-  },
-
   imgShadow: {
     boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
-    borderRadius: "30px 0px",
     background: "#FFFFFF",
-    padding: "1rem",
-    maxWidth: "73%",
+    padding: "2rem",
+    maxWidth: 300,
+    height: "8em",
+    borderRadius: "0px 50px",
+    margin: "auto",
   },
 }));
 
@@ -54,7 +47,7 @@ const SixSection = () => {
   const programList = [
     {
       id: "1",
-      title: "ACCUEIL EN VU D’UN LACHER PRISE",
+      title: "ACCUEIL EN VU D'UN LACHER PRISE",
     },
 
     {
@@ -77,13 +70,14 @@ const SixSection = () => {
           Programme
         </h1>
 
-        <Grid
-          container
-          justify="space-between"
-          alignItems="center"
-        >
+        <Grid container spacing={2} justify="space-between" alignItems="center">
           {programList.map((item) => (
-            <Grid item md={3} xs={12} className={clsx(classes.imgShadow, "mt-5")}>
+            <Grid
+              item
+              md={3}
+              xs={12}
+              className={clsx(classes.imgShadow, "mt-5")}
+            >
               <h1 className={classes.title}> {item.id}</h1>
 
               <h4 className={classes.title2}>{item.title}</h4>

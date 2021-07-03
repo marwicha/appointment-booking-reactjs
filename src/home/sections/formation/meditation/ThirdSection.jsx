@@ -47,15 +47,14 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     borderLeft: "3px solid",
     paddingLeft: "20px",
   },
-
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: "16px",
-    alignItems: "center",
-    textAlign: "justify",
-    color: "#182731",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "30px",
+    color: "white",
+    textAlign: "left",
   },
 }));
 
@@ -71,9 +70,7 @@ const ThirdSection = () => {
           <Grid item md={5} xs={12}>
             <div className="pt-8">
               <h1 className={clsx(classes.h1)}> Formation </h1>
-              <h2 className={clsx(classes.h2)}>
-                Méditation Pleine Consciense
-              </h2>
+              <h2 className={clsx(classes.h2)}>Méditation Pleine Consciense</h2>
             </div>
           </Grid>
 

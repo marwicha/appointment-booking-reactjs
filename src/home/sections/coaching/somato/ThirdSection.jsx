@@ -29,14 +29,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "300",
-    fontSize: "12px",
-    lineHeight: "30px",
-    alignItems: "center",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "19px",
     textAlign: "justify",
-    color: "#182731",
   },
 }));
 

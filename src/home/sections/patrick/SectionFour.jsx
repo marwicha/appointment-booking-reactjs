@@ -5,20 +5,18 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   container: {
     padding: "0 0 0 0",
-    maxWidth: "1400px",
+    maxWidth: "1200px",
     margin: "0 auto",
     background: "#182731",
   },
 
   p: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "2vh",
-    lineHeight: "40px",
+    fontSize: "1.5em",
+    lineHeight: "30px",
     color: "white",
-    paddingRight: "15em",
-    paddingLeft: "15em",
   },
 }));
 
@@ -30,7 +28,7 @@ const SectionFour = () => {
       <Container maxWidth="md" className={classes.container}>
         <Box py={8} textAlign="center">
           <Typography variant="h5" component="h5" className={classes.p}>
-            N´hésitez pas á me contacter pour toute information, je vous
+            N'hésitez pas á me contacter pour toute information, je vous
             répondrais avec plaisir.
           </Typography>
         </Box>

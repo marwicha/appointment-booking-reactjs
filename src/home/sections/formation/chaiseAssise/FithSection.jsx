@@ -15,11 +15,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato Medium",
-    fontSize: "20px",
-    lineHeight: "24px",
-    color: "#384C5A",
-    width: "50%",
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "1.25em",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 700,
     margin: "auto",
   },
 

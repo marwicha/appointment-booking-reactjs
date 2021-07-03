@@ -12,11 +12,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: "18px",
-    lineHeight: "22px",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "19px",
     textAlign: "justify",
   },
 }));

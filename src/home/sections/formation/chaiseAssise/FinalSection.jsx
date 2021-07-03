@@ -1,13 +1,11 @@
 import React from "react";
 import { Grid, Icon, Container } from "@material-ui/core";
 
-import clsx from "clsx";
-
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "16px",
@@ -20,9 +18,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p2: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "bold",
-    fontWeight: "700",
+    fontWeight: "500",
     fontSize: "22px",
     lineHeight: "19px",
     color: "#384C5A",

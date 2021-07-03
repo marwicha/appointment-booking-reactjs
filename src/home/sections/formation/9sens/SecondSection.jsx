@@ -49,7 +49,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "16px",
+    fontSize: "14px",
     lineHeight: "30px",
     color: "#182731",
   },
@@ -61,7 +61,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "16px",
     lineHeight: "30px",
     color: "#182731",
-    marginTop: "2rem",
+    marginTop: "1.5rem",
   },
 
   img: {
@@ -76,14 +76,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "16px",
-    lineHeight: "22px",
-    alignItems: "center",
-    color: "#182731",
-    marginTop: "2rem",
+    fontSize: "1em",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 500,
   },
 
   h4: {
@@ -158,7 +157,9 @@ const SecondSection = () => {
 
                 <div className="text-center">
                   <NavLink to="/inscription">
-                    <Button className={clsx(classes.button2, "text-center")}>
+                    <Button
+                      className={clsx(classes.button2, "text-center text-13")}
+                    >
                       Réserver maintenant
                     </Button>
                   </NavLink>

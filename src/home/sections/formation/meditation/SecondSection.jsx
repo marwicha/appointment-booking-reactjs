@@ -78,7 +78,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "16px",
@@ -101,7 +101,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   button2: {
     marginTop: "1rem !important",
     padding: "1rem 2rem 1rem 2rem",
-    fontSize: 9,
+    fontSize: 12,
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: 300,
@@ -112,6 +112,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     border: "3px solid #384C5A",
     boxSizing: "border-box",
     color: "#384C5A",
+  },
+
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 500,
   },
 }));
 

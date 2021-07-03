@@ -5,16 +5,6 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  button: {
-    marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 15,
-    fontFamily: theme.typography.fontFamily,
-    backgroundColor: palette.second,
-    color: "white",
-    borderRadius: "100px",
-  },
-
   h1: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
@@ -49,13 +39,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: "16px",
-    alignItems: "center",
-    textAlign: "justify",
-    color: "#182731",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "30px",
+    color: "white",
+    textAlign: "left",
   },
 }));
 
@@ -83,7 +73,7 @@ const ThirdSection = () => {
                 Recommandé pour les employés au sein d'une entreprise, ce
                 massage pratiqué sur une chaise assise ergonomique, offre une
                 détente en profondeur, tout en fournissant une tonicité et
-                réveil musculaire. Ce massage est particulièrement efficace pour
+                réveil musculaire, ce massage est particulièrement efficace pour
                 la remise en forme, la baisse du stress et le calme intérieur.
                 <br></br>
                 Pour plus d'information vous trouverez ci-dessous les modules

@@ -10,10 +10,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   p: {
-    fontFamily: "Lato",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "normal",
-    fontSize: "16px",
+    fontSize: "1em",
     lineHeight: "19px",
     textAlign: "justify",
   },
