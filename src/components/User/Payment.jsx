@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 import AppointmentService from "../../services/appointment.service";
 
 const Payement = (props) => {
-  const { amount, parentCallback } = props;
+  const { amount, email, name, phone, parentCallback } = props;
 
   const stripe = useStripe();
   const elements = useElements();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmitPayement = async (ev) => {
     ev.preventDefault();
@@ -24,11 +25,7 @@ const Payement = (props) => {
         paymentMethodType: "card",
         currency: "eur",
         amount: amount,
-        //receipt_email: email,
-        // billing_details: {
-        //   name: name,
-        //   phone: phone,
-        // },
+        confirm: true,
       }).then((response) => {
         return response;
       });
@@ -42,6 +39,11 @@ const Payement = (props) => {
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
+          billing_details: {
+            email: email,
+            name: name,
+            phone: phone,
+          },
         },
       });
 
@@ -52,6 +54,7 @@ const Payement = (props) => {
 
     if (paymentIntent.status === "succeeded") {
       parentCallback(true);
+      setLoading(true);
     }
 
     alert(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
@@ -89,7 +92,9 @@ const Payement = (props) => {
           </div>
         </div>
 
-        <button className="btn">Payer la prestation</button>
+        <button disabled={loading === true} className="btn">
+          Payer la prestation
+        </button>
       </form>
     );
   };

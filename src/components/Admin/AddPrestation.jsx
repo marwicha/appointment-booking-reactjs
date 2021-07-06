@@ -113,14 +113,9 @@ const AddPrestation = () => {
         </Grid>
       </Grid>
 
-      <Grid
-        container
-        justify="flex-start"
-        align="center"
-        spacing={2}
-      >
+      <Grid container justify="flex-start" align="center" spacing={2}>
         {prestations.map((prestation, index) => (
-          <Grid item md={3} xs={12}>
+          <Grid key={index} item md={3} xs={12}>
             <Box mt={2}>
               <Card>
                 <CardHeader

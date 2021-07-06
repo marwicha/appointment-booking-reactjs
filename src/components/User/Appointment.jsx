@@ -14,24 +14,29 @@ import {
   Select,
   MenuItem,
   CardHeader,
+  Step,
+  Stepper,
+  StepContent,
+  InputLabel,
 } from "@material-ui/core";
 
 import Snackbar from "@material-ui/core/Snackbar";
+import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+
+//services
 import AppointmentService from "../../services/appointment.service";
 import AuthService from "../../services/auth.service";
-import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import PrestationService from "../../services/prestation.service";
+import SlotService from "../../services/slot.service";
+
 import MomentUtils from "@date-io/moment";
 import moment from "moment";
 import fr from "moment/locale/fr";
 
-import PrestationService from "../../services/prestation.service";
-import SlotService from "../../services/slot.service";
-import { Step, Stepper, StepContent } from "@material-ui/core";
-import axios from "axios";
-
+//Stripe js
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-
+//component
 import Payement from "./Payment";
 
 const stripePromise = loadStripe(
@@ -197,7 +202,7 @@ const Appointment = (props) => {
       })
       .catch((err) => {
         setConfirmationSnackbarMessage(
-          "Vous devez vous connecter afin de prendre un rendez vous"
+          "Une erreur est survenue, veuillez contacter l'administrateur"
         );
         setConfirmationSnackbarOpen(true);
       });
@@ -370,7 +375,7 @@ const Appointment = (props) => {
       >
         <CardHeader
           style={{
-            backgroundColor: "#dfe5e6",
+            backgroundColor: "#435f71",
             color: "#000000",
           }}
           subheader="Prendre un rendez vous"
@@ -378,7 +383,7 @@ const Appointment = (props) => {
         <Stepper activeStep={stepIndex} linear="false" orientation="vertical">
           <Step>
             <StepButton onClick={() => setStepIndex(0)}>
-              Choisir une prestation
+              Cliquer pour choisir une prestation
             </StepButton>
 
             <StepContent>
@@ -439,6 +444,9 @@ const Appointment = (props) => {
               <Elements stripe={stripePromise}>
                 <Payement
                   amount={prestation.price}
+                  name={currentUser.name}
+                  email={currentUser.email}
+                  phone={currentUser.phone}
                   parentCallback={handleCallback}
                 />
               </Elements>

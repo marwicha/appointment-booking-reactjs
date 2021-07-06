@@ -8,20 +8,54 @@ import {
   CardHeader,
   Button,
   Box,
+  Divider,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AppointmentService from "../../services/appointment.service";
+import AuthService from "../../services/auth.service";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
+  colorWhite: {
+    color: "white",
+  },
+
   btn: {
     color: "white",
     backgroundColor: "#4b9fbc",
+  },
+
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1rem",
+    textAlign: "left",
+    maxWidth: 500,
+  },
+
+  pRD: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "600",
+    fontSize: "1rem",
+    textAlign: "left",
+    maxWidth: 500,
+    color: "#e62638",
   },
 }));
 
 const AllUserAppointments = () => {
   const classes = useStyles();
   const [appointments, setAppointments] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
 
   useEffect(() => {
     AppointmentService.getUserAppointments().then((response) => {
@@ -29,15 +63,16 @@ const AllUserAppointments = () => {
     });
   }, []);
 
-  const deleteAppoint = (id) => {
-    // eslint-disable-next-line no-restricted-globals
-    if (confirm("Etes vous sûre de vouloir supprimer ce rendez-vous ?")) {
-      AppointmentService.deleteAppointment(id).then(() => {
-        AppointmentService.getUserAppointments().then((response) => {
-          setAppointments(response);
-        });
+  //change statu of appointment to cancel= true
+  const handleUpdateAppointment = async (id, data) => {
+    const newData = { ...data, annule: true };
+
+    AppointmentService.updateAppointment(id, newData).then(() => {
+      AppointmentService.getUserAppointments().then((response) => {
+        setAppointments(response);
+        alert("Rendez vous annulé, remboursement sous quelque jours!");
       });
-    }
+    });
   };
 
   const displayHeure = (heure) => {
@@ -68,52 +103,58 @@ const AllUserAppointments = () => {
   return (
     <Container maxWidth="lg">
       {appointments.length > 0 ? (
-        <Grid
-          container
-          spacing={2}
-          justify="flex-start"
-          align="center"
-        >
+        <Grid container spacing={2} justify="flex-start" align="center">
           {appointments.map((app, index) => (
             <Grid item key={index} md={4} xs={12}>
               <Card>
                 <CardHeader
+                  className={classes.colorWhite}
                   style={{
-                    backgroundColor: "#dfe5e6",
-                    color: "black",
+                    backgroundColor:
+                      app.annule === true ? "#e62638" : "#435f71",
                   }}
-                  subheader={app.prestation}
+                  title={
+                    displayHeure(app.slots.slot_time) +
+                    "    " +
+                    app.slots.slot_date
+                  }
                 />
-
                 <CardContent>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                    align="left"
-                  >
-                    Date: {app.slots.slot_date}
-                  </Typography>
-                  <br></br>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                    align="left"
-                  >
-                    Heure: {displayHeure(app.slots.slot_time)}
-                  </Typography>
-                  <br></br>
+                  {app.annule === true ? (
+                    <>
+                      <p className={classes.pRD}>Rendez vous annulé</p>
+                      <Divider />
+                    </>
+                  ) : null}
+
+                  <p className={classes.p}>
+                    La prestation choisie: {app.prestation}
+                  </p>
+
+                  <Divider />
+
+                  <p className={classes.p}>
+                    Nom du patient: <br></br>
+                    {currentUser.name}
+                  </p>
+
+                  <p className={classes.p}>
+                    Numéro de téléphone: <br></br>
+                    {currentUser.phone}
+                  </p>
                 </CardContent>
+
                 <Box align="center">
                   <Button
                     variant="contained"
-                    color="secondary"
+                    color="third"
                     className={classes.btn}
-                    onClick={() => deleteAppoint(app._id)}
+                    onClick={() => handleUpdateAppointment(app._id, app)}
                   >
                     Annuler
                   </Button>
+                  <br></br>
+                  <br></br>
                 </Box>
               </Card>
             </Grid>

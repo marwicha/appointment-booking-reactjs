@@ -59,10 +59,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   input: {
-    margin: theme.spacing(1),
-    fontSize: "1em",
-    color: "#217093",
-    fontWeight: "500",
+    fontSize: "1.5em",
+    fontWeight: "600",
+    fontFamily: "Roboto",
   },
 
   avatar: {
@@ -180,7 +179,7 @@ const Inscription = (props) => {
         <Container maxWidth="lg">
           <CssBaseline />
           <Grid container spacing={2} justify="center" align="center">
-            <Grid item md={5} lg={5} sm={5}>
+            <Grid item md={5} xs={12}>
               <Card className={classes.paper}>
                 <h5 className={classes.title}>
                   Merci de vous s'inscrire afin de prendre un rendez-vous
@@ -196,136 +195,121 @@ const Inscription = (props) => {
                   </div>
 
                   <div>
-                    <div>
-                      <label> Nom et Prénom </label>
-                      <Grid container spacing={1} alignItems="center">
-                        <Grid item>
-                          <PersonOutlineOutlined />
-                        </Grid>
-
-                        <Grid item>
-                          <TextField
-                            fullWidth={true}
-                            value={name}
-                            name="name"
-                            type="text"
-                            onChange={onChangeName}
-                            error={!!errors.name}
-                            helperText={
-                              errors.name?.type && errors.name?.message
-                            }
-                            inputRef={register({
-                              required: "Votre nom complet est obligatoire",
-                              minLength: {
-                                value: 2,
-                                message:
-                                  "Le nom doit contenir au moins 2 caracteres",
-                              },
-                              maxLength: {
-                                value: 20,
-                                message:
-                                  "Le nom doit contenir au max 20 caracteres",
-                              },
-                            })}
-                          />
-                        </Grid>
+                    <label> Nom et Prénom </label>
+                    <Grid container spacing={1} alignItems="center">
+                      <Grid item>
+                        <PersonOutlineOutlined />
                       </Grid>
-                    </div>
 
-                    <div>
-                      <label>Téléphone</label>
-                      <Grid container spacing={1} alignItems="center">
-                        <Grid item>
-                          <PhoneOutlined />
-                        </Grid>
-
-                        <Grid item>
-                          <TextField
-                            className={classes.input}
-                            fullWidth={true}
-                            name="phone"
-                            type="number"
-                            value={phone}
-                            onChange={onChangePhone}
-                            error={!!errors.phone}
-                            helperText={
-                              errors.phone?.type && errors.phone?.message
-                            }
-                            inputRef={register({
-                              required: "Le téléphone est obligatoire",
-                            })}
-                          />
-                        </Grid>
+                      <Grid item>
+                        <TextField
+                          className={classes.input}
+                          fullWidth={true}
+                          value={name}
+                          name="name"
+                          type="text"
+                          onChange={onChangeName}
+                          error={!!errors.name}
+                          helperText={errors.name?.type && errors.name?.message}
+                          inputRef={register({
+                            required: "Votre nom complet est obligatoire",
+                            minLength: {
+                              value: 2,
+                              message:
+                                "Le nom doit contenir au moins 2 caracteres",
+                            },
+                            maxLength: {
+                              value: 20,
+                              message:
+                                "Le nom doit contenir au max 20 caracteres",
+                            },
+                          })}
+                        />
                       </Grid>
-                    </div>
+                    </Grid>
 
-                    <br></br>
-
-                    <div>
-                      <label>E-mail</label>
-                      <Grid container spacing={1} alignItems="center">
-                        <Grid item>
-                          <AlternateEmail />
-                        </Grid>
-
-                        <Grid item>
-                          <TextField
-                            className={classes.input}
-                            margin="normal"
-                            fullWidth={true}
-                            type="email"
-                            name="email"
-                            value={email}
-                            onChange={onChangeEmail}
-                            error={!!errors.email}
-                            helperText={
-                              errors.email?.type && errors.email?.message
-                            }
-                            inputRef={register({
-                              required: "l'email est obligatoire",
-                              pattern: {
-                                value: /^\S+@\S+$/i,
-                                message: "l'adresse email invalide",
-                              },
-                            })}
-                          />
-                        </Grid>
+                    <label>Téléphone</label>
+                    <Grid container spacing={1} alignItems="center">
+                      <Grid item>
+                        <PhoneOutlined />
                       </Grid>
-                    </div>
 
-                    <br></br>
-
-                    <div>
-                      <label>Mot de passe</label>
-                      <Grid container spacing={1} alignItems="center">
-                        <Grid item>
-                          <LockOutlined />
-                        </Grid>
-
-                        <Grid item>
-                          <TextField
-                            className={classes.input}
-                            fullWidth={true}
-                            margin="normal"
-                            name="password"
-                            value={password}
-                            onChange={onChangePassword}
-                            error={!!errors.password}
-                            helperText={
-                              errors.password?.type && errors.password?.message
-                            }
-                            inputRef={register({
-                              required: "Le mot de passe est obligatoire",
-                              minLength: {
-                                value: 10,
-                                message:
-                                  "Le mot de passe doit contenir au moins 10 caracteres",
-                              },
-                            })}
-                          />
-                        </Grid>
+                      <Grid item>
+                        <TextField
+                          className={classes.input}
+                          fullWidth={true}
+                          name="phone"
+                          type="number"
+                          value={phone}
+                          onChange={onChangePhone}
+                          error={!!errors.phone}
+                          helperText={
+                            errors.phone?.type && errors.phone?.message
+                          }
+                          inputRef={register({
+                            required: "Le téléphone est obligatoire",
+                          })}
+                        />
                       </Grid>
-                    </div>
+                    </Grid>
+
+                    <label>E-mail</label>
+                    <Grid container spacing={1} alignItems="center">
+                      <Grid item>
+                        <AlternateEmail />
+                      </Grid>
+
+                      <Grid item>
+                        <TextField
+                          className={classes.input}
+                          fullWidth={true}
+                          type="email"
+                          name="email"
+                          value={email}
+                          onChange={onChangeEmail}
+                          error={!!errors.email}
+                          helperText={
+                            errors.email?.type && errors.email?.message
+                          }
+                          inputRef={register({
+                            required: "L'email est obligatoire",
+                            pattern: {
+                              value: /^\S+@\S+$/i,
+                              message: "l'adresse email invalide",
+                            },
+                          })}
+                        />
+                      </Grid>
+                    </Grid>
+
+                    <label>Mot de passe</label>
+                    <Grid container spacing={1} alignItems="center">
+                      <Grid item>
+                        <LockOutlined />
+                      </Grid>
+
+                      <Grid item>
+                        <TextField
+                          className={classes.input}
+                          fullWidth={true}
+                          name="password"
+                          value={password}
+                          onChange={onChangePassword}
+                          error={!!errors.password}
+                          helperText={
+                            errors.password?.type && errors.password?.message
+                          }
+                          inputRef={register({
+                            required: "Le mot de passe est obligatoire",
+                            minLength: {
+                              value: 10,
+                              message:
+                                "Le mot de passe doit contenir au moins 10 caracteres",
+                            },
+                          })}
+                        />
+                      </Grid>
+                    </Grid>
 
                     <Button
                       type="submit"
@@ -341,7 +325,7 @@ const Inscription = (props) => {
               </Card>
             </Grid>
 
-            <Grid item md={5} lg={5} sm={5}>
+            <Grid item md={5} xs={12}>
               <Card className={classes.paper}>
                 <h5 className={classes.title}>Se connecter</h5>
 
@@ -352,57 +336,51 @@ const Inscription = (props) => {
                     )}
                   </div>
 
-                  <div className="form-group">
-                    <label>Email</label>
-                    <Grid container spacing={1} alignItems="flex-end">
-                      <Grid item>
-                        <PersonOutlineOutlined />
-                      </Grid>
-
-                      <Grid item>
-                        <TextField
-                          className={classes.input}
-                          fullWidth
-                          name="emailLogin"
-                          value={emailLogin}
-                          onChange={onChangeEmailLogin}
-                        />
-                      </Grid>
+                  <label>Email</label>
+                  <Grid container spacing={1} alignItems="flex-end">
+                    <Grid item>
+                      <PersonOutlineOutlined />
                     </Grid>
-                  </div>
+
+                    <Grid item>
+                      <TextField
+                        className={classes.input}
+                        fullWidth
+                        name="emailLogin"
+                        value={emailLogin}
+                        onChange={onChangeEmailLogin}
+                      />
+                    </Grid>
+                  </Grid>
 
                   <br></br>
 
-                  <div className="form-group">
-                    <label>Mot de passe</label>
-                    <Grid container spacing={1} alignItems="flex-end">
-                      <Grid item>
-                        <Lock />
-                      </Grid>
-                      <Grid item>
-                        <TextField
-                          className={classes.input}
-                          name="passwordLogin"
-                          fullWidth
-                          type="password"
-                          value={passwordLogin}
-                          onChange={onChangePasswordLogin}
-                        />
-                      </Grid>
+                  <label>Mot de passe</label>
+                  <Grid container spacing={1} alignItems="flex-end">
+                    <Grid item>
+                      <Lock />
                     </Grid>
-                  </div>
+                    <Grid item>
+                      <TextField
+                        className={classes.input}
+                        name="passwordLogin"
+                        fullWidth
+                        type="password"
+                        value={passwordLogin}
+                        onChange={onChangePasswordLogin}
+                      />
+                    </Grid>
+                  </Grid>
 
-                  <div className="form-group">
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      color="primary"
-                      className={classes.submit}
-                    >
-                      <span> Connecter </span>
-                    </Button>
-                  </div>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                  >
+                    <span> Connecter </span>
+                  </Button>
                 </form>
               </Card>
               <div>

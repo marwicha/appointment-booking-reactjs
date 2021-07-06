@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://ikdo-patrick-marwa.herokuapp.com/api/formation";
 const API_URL_app = "https://ikdo-patrick-marwa.herokuapp.com/api";
+const API_PAY = "https://ikdo-patrick-marwa.herokuapp.com";
 
 const token = JSON.parse(localStorage.getItem("token"));
 

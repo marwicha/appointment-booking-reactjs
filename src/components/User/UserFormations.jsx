@@ -19,6 +19,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "white",
     backgroundColor: "#4b9fbc",
   },
+  
 }));
 
 const UserFormations = () => {

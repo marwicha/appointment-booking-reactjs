@@ -43,7 +43,7 @@ const FourthSection = () => {
       title: "Equilibre",
       link: "/assets/images/formations/energie.png",
       description:
-        "Un employé détendu est plus énergique, plus concentré. Il offre une meilleure performance. Il gagne en motivation, en créativité, bref en efficacité et en savoir être.",
+        "Un employé détendu est plus énergique, plus concentré.Il offre une meilleure performance.Il gagne en motivation, en créativité, bref en efficacité et en savoir être.",
     },
 
     {

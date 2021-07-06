@@ -15,16 +15,7 @@ const themeOptions = {
     contrastThreshold: 3,
     tonalOffset: 0.2,
   },
-  typography: {
-    useNextVariants: true,
-    fontFamily: ["LEMON MILK"],
-    h1: {
-      fontFamily: "LEMON MILK",
-    },
-    p: {
-      fontFamily: "LEMON MILK",
-    },
-  },
+
   overrides: {
     MuiButton: {
       root: {

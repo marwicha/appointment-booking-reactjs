@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://ikdo-patrick-marwa.herokuapp.com/api/appointment";
 const API_PAY = "https://ikdo-patrick-marwa.herokuapp.com";
+//const API_LOCAL = "http://localhost:5000/api/appointment";
 
 const token = JSON.parse(localStorage.getItem("token"));
 const user = JSON.parse(localStorage.getItem("user"));
@@ -55,6 +56,20 @@ const deleteAppointment = async (id) => {
   return response.data;
 };
 
+const updateAppointment = async (id, data) => {
+  const response = await axios({
+    method: "PUT",
+    url: `${API_URL}/cancel/${id}`,
+    headers: {
+      authorization: "Bearer " + token,
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify(data),
+  });
+
+  return response.data;
+};
+
 const payment = async (data) => {
   const response = await axios({
     method: "POST",
@@ -74,5 +89,6 @@ export default {
   getUserAppointments,
   getAllAppointments,
   deleteAppointment,
+  updateAppointment,
   payment,
 };
