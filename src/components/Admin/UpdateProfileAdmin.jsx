@@ -70,13 +70,7 @@ const UpdateProfileAdmin = (props) => {
         <Grid container justify="center" align="center">
           <Grid item md={6} xs={12}>
             <Card>
-              <CardHeader
-                style={{
-                  backgroundColor: "#dfe5e6",
-                  color: "black",
-                }}
-                subheader="Modifier vos informations"
-              />
+              <CardHeader subheader="Modifier vos informations" />
 
               <CardContent>
                 <Box align="left">

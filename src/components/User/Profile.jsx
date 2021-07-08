@@ -41,13 +41,7 @@ const Profile = () => {
       <Grid container justify="flex-start" align="center">
         <Grid item md={6} xs={12}>
           <Card>
-            <CardHeader
-              style={{
-                backgroundColor: "#dfe5e6",
-                color: "black",
-              }}
-              subheader="Vos informations personnelles"
-            />
+            <CardHeader subheader="Vos informations personnelles" />
 
             <CardContent>
               <Box align="left">

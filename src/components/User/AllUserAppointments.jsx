@@ -60,19 +60,22 @@ const AllUserAppointments = () => {
   useEffect(() => {
     AppointmentService.getUserAppointments().then((response) => {
       setAppointments(response);
+      console.log(response);
     });
   }, []);
 
   //change statu of appointment to cancel= true
   const handleUpdateAppointment = async (id, data) => {
     const newData = { ...data, annule: true };
-
-    AppointmentService.updateAppointment(id, newData).then(() => {
-      AppointmentService.getUserAppointments().then((response) => {
-        setAppointments(response);
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm("Êtes-vous sûr de vouloir annuler le rendez vous ?")) {
+      AppointmentService.updateAppointment(id, newData).then(() => {
         alert("Rendez vous annulé, remboursement sous quelque jours!");
+        AppointmentService.getUserAppointments().then((response) => {
+          setAppointments(response);
+        });
       });
-    });
+    }
   };
 
   const displayHeure = (heure) => {
@@ -108,10 +111,10 @@ const AllUserAppointments = () => {
             <Grid item key={index} md={4} xs={12}>
               <Card>
                 <CardHeader
-                  className={classes.colorWhite}
                   style={{
                     backgroundColor:
                       app.annule === true ? "#e62638" : "#435f71",
+                    color: app.annule === true ? "white" : "black",
                   }}
                   title={
                     displayHeure(app.slots.slot_time) +
@@ -125,7 +128,21 @@ const AllUserAppointments = () => {
                       <p className={classes.pRD}>Rendez vous annulé</p>
                       <Divider />
                     </>
-                  ) : null}
+                  ) : (
+                    <>
+                      <Button
+                        variant="contained"
+                        color="third"
+                        className={classes.btn}
+                        onClick={() => handleUpdateAppointment(app._id, app)}
+                      >
+                        Annuler le rendez vous
+                      </Button>
+                      <br></br>
+                      <br></br>
+                      <Divider />
+                    </>
+                  )}
 
                   <p className={classes.p}>
                     La prestation choisie: {app.prestation}
@@ -143,19 +160,6 @@ const AllUserAppointments = () => {
                     {currentUser.phone}
                   </p>
                 </CardContent>
-
-                <Box align="center">
-                  <Button
-                    variant="contained"
-                    color="third"
-                    className={classes.btn}
-                    onClick={() => handleUpdateAppointment(app._id, app)}
-                  >
-                    Annuler
-                  </Button>
-                  <br></br>
-                  <br></br>
-                </Box>
               </Card>
             </Grid>
           ))}

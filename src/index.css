@@ -158,3 +158,13 @@ label {
 .skill-image img:hover {
   transform: scale(0.8);
 }
+
+.read-more-link {
+  color: cornflowerblue;
+  text-decoration: underline;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.extra-content {
+  font-weight: 500;
+}

@@ -2,18 +2,25 @@ import React, { useState, useEffect } from "react";
 
 import ReactDOM from "react-dom";
 import AdminService from "../../services/admin.service";
-import AppointmentService from "../../services/appointment.service";
 
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridDay from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 
+import { makeStyles } from "@material-ui/core/styles";
 import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
 import { Container } from "@material-ui/core";
+
+const useStyles = makeStyles(({ palette, ...theme }) => ({
+  colorEvent: {
+    backgroundColor: "#e62638",
+    color: "white",
+  },
+}));
 
 const RendezVous = () => {
   const [calendarEvents, setCalendarEvents] = useState([
@@ -23,6 +30,7 @@ const RendezVous = () => {
       start: "",
       description: "",
       user: { name: "", email: "", phone: "" },
+      annule: "",
     },
   ]);
 
@@ -69,6 +77,7 @@ const RendezVous = () => {
               email: appointments[i].user.email,
               phone: appointments[i].user.phone,
             },
+            annule: !!appointments[i].annule && appointments[i].annule,
           });
         }
         setCalendarEvents(tmpAppointment);
@@ -79,27 +88,75 @@ const RendezVous = () => {
       });
   }, []);
 
+  // DELETE EVENT
+  // const handleEventClick = (clickInfo) => {
+  //   if (
+  //     // eslint-disable-next-line no-restricted-globals
+  //     confirm(
+  //       `Êtes-vous sûr de vouloir supprimer le rendez vous '${clickInfo.event.title}', son numéro de telephone pour annuler:
+  //       ${clickInfo.event.extendedProps.user.phone}`
+  //     )
+  //   ) {
+  //     AppointmentService.deleteAppointment(clickInfo.event.id).then(() => {
+  //       clickInfo.event.remove();
+  //     });
+  //   }
+  // };
+
+  // UPDATE EVENT TO SET CANCELLED TO TRUE
   const handleEventClick = (clickInfo) => {
-    if (
-      // eslint-disable-next-line no-restricted-globals
-      confirm(
-        `Êtes-vous sûr de vouloir supprimer le rendez vous '${clickInfo.event.title}', son numéro de telephone pour annuler:
-        ${clickInfo.event.extendedProps.user.phone}`
-      )
-    ) {
-      AppointmentService.deleteAppointment(clickInfo.event.id).then(() => {
-        clickInfo.event.remove();
-      });
-    }
+    const newData = {
+      ...calendarEvents,
+      annule: true,
+    };
+    if (clickInfo.event.extendedProps.annule === false)
+      if (
+        // eslint-disable-next-line no-restricted-globals
+        confirm("Êtes-vous sûr de vouloir annuler le rendez vous")
+      ) {
+        AdminService.updateAppointmentByAdmin(clickInfo.event.id, newData).then(
+          (response) => {
+            alert("Rendez vous annulé avec succés");
+            AdminService.getAllAppointments().then((response) => {
+              let appointments = response;
+
+              let tmpAppointment = [];
+              for (let i = 0; i < appointments.length; i++) {
+                tmpAppointment.push({
+                  id: appointments[i]._id,
+                  title: appointments[i].prestation,
+                  start:
+                    appointments[i].slots.slot_date +
+                    displayHeure(appointments[i].slots.slot_time),
+                  user: {
+                    name: appointments[i].user.name,
+                    email: appointments[i].user.email,
+                    phone: appointments[i].user.phone,
+                  },
+                  annule: !!appointments[i].annule && appointments[i].annule,
+                });
+              }
+              setCalendarEvents(tmpAppointment);
+            });
+          }
+        );
+      }
   };
 
   const renderEventContent = ({ event, el }) => {
     const content = (
-      <div>
+      <div
+        style={{
+          backgroundColor:
+            event.extendedProps.annule === true ? "#dd7c5d" : "#ffffff",
+          color: event.extendedProps.annule === true ? "white" : "black",
+        }}
+      >
         {event.title}
-        <div>Nom :{event.extendedProps.user.name} </div>
-        <div>Email: {event.extendedProps.user.email} </div>
-        <div>Tél: {event.extendedProps.user.phone} </div>
+        <div>{event.extendedProps.user.name} </div>
+        <div>{event.extendedProps.user.email} </div>
+        <div>{event.extendedProps.user.phone} </div>
+        <div>{event.extendedProps.annule === true ? "annulé" : " "} </div>
       </div>
     );
     ReactDOM.render(content, el);
@@ -116,14 +173,13 @@ const RendezVous = () => {
             header={{
               left: "prev,next",
               center: "title",
-              right: "dayGridMonth,listMonth, timeGridDay",
+              right: "dayGridMonth,listMonth",
             }}
             views={{
               dayGridMonth: { buttonText: "Mois" },
               listMonth: { buttonText: "Détail mois" },
-              timeGridDay: { buttonText: "jour" },
             }}
-            plugins={[dayGridPlugin, timeGridDay, listPlugin]}
+            plugins={[dayGridPlugin, listPlugin]}
             events={calendarEvents}
             eventRender={renderEventContent}
             eventClick={handleEventClick}

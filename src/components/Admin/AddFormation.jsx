@@ -34,6 +34,9 @@ const AddFormation = () => {
   const [dateText, setDateText] = useState("");
   const [description, setDescription] = useState("");
   const [prix, setPrix] = useState("");
+  const [readMore, setReadMore] = useState(false);
+
+  const linkName = readMore ? "Lire moins" : "Lire la suite";
 
   useEffect(() => {
     AdminService.getAllFormations().then((response) => {
@@ -76,15 +79,9 @@ const AddFormation = () => {
   return (
     <Container maxWidth="lg">
       <Grid container justify="flex-start" align="center">
-        <Grid item md={8} lg={8} sm={8}>
+        <Grid item md={8} xs={12}>
           <Card>
-            <CardHeader
-              style={{
-                backgroundColor: "#dfe5e6",
-                color: "black",
-              }}
-              subheader="Ajouter une formation"
-            />
+            <CardHeader subheader="Ajouter une formation" />
 
             <CardContent>
               <Box align="center">
@@ -139,30 +136,29 @@ const AddFormation = () => {
         </Grid>
       </Grid>
 
-      <Grid
-        container
-        justify="flex-start"
-        align="center"
-        spacing={2}
-      >
+      <Grid container justify="flex-start" align="center" spacing={2}>
         {formations.map((formation, index) => (
-          <Grid item md={3} xs={12}>
+          <Grid key={index} item md={3} xs={12}>
             <Box mt={2}>
               <Card>
                 <CardHeader
-                  style={{
-                    color: "black",
-                  }}
-                  subheader={formation.name}
+                  subheader={formation.name + " " + formation.prix + " eur"}
                 />
                 <Divider />
                 <CardContent>
-                  {formation.dateText}
+                  <p className="extra-content">{formation.dateText}</p>
+                  <a
+                    className="read-more-link"
+                    onClick={() => {
+                      setReadMore(!readMore);
+                    }}
+                  >
+                    <h6>{linkName}</h6>
+                  </a>
 
-                  <br></br>
-                  {formation.description}
-                  <br></br>
-                  {formation.prix}
+                  {readMore && (
+                    <p className="extra-content">{formation.description}</p>
+                  )}
                 </CardContent>
 
                 <Button

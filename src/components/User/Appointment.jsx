@@ -33,6 +33,7 @@ import MomentUtils from "@date-io/moment";
 import moment from "moment";
 import fr from "moment/locale/fr";
 
+import { makeStyles } from "@material-ui/core/styles";
 //Stripe js
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -43,7 +44,11 @@ const stripePromise = loadStripe(
   "pk_test_51Iv0X0Idt2OtpHpwAsbJ5pQv2QCWfpaR9FS8aaxvgXb5DhfEXXbRVC1H4GMr7HaVL4pki2jjpTYbeIuEPyPpK3cJ00ygUHxsGY"
 );
 
+const useStyles = makeStyles(({ palette, ...theme }) => ({}));
+
 const Appointment = (props) => {
+  const classes = useStyles();
+
   const [schedule, setSchedule] = useState([]);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
   const [confirmationSnackbarOpen, setConfirmationSnackbarOpen] =
@@ -105,6 +110,7 @@ const Appointment = (props) => {
       appointmentData.map((appointment) => {
         return (
           !bookedDates.includes(appointment.slots.slot_date) &&
+          appointment.annule === false &&
           (bookedDates.push(appointment.slots.slot_date),
           bookedSlots.push(appointment.slots.slot_time))
         );
@@ -116,6 +122,7 @@ const Appointment = (props) => {
         appointmentData.map((appointment) => {
           return (
             appointment.slots.slot_date === bookedDate &&
+            appointment.annule === false &&
             newArray.push(appointment.slots.slot_time)
           );
         });
@@ -374,10 +381,7 @@ const Appointment = (props) => {
         }}
       >
         <CardHeader
-          style={{
-            backgroundColor: "#435f71",
-            color: "#000000",
-          }}
+          className="colorHeaderCard"
           subheader="Prendre un rendez vous"
         />
         <Stepper activeStep={stepIndex} linear="false" orientation="vertical">

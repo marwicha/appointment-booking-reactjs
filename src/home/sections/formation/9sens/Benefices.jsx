@@ -36,16 +36,13 @@ const Benefices = () => {
         <Box pt={8} pb={10} textAlign="center">
           <Box mb={6}>
             <Typography variant="h5" component="h5" gutterBottom={true}>
-              lES EFFETS
+              LES EFFETS
             </Typography>
           </Box>
           <Grid container spacing={6}>
             <Grid item xs={12} md={6}>
               <Card>
-                <CardHeader
-                  subheader="Effets psychologiques"
-                  className={classes.cardHeader}
-                ></CardHeader>
+                <CardHeader subheader="Effets psychologiques"></CardHeader>
                 <CardContent>
                   <Box pt={2} pb={1} px={1} align="left">
                     <p className={classes.p}>

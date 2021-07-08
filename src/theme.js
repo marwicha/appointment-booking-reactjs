@@ -32,6 +32,15 @@ const themeOptions = {
         textTransform: "none",
       },
     },
+
+    MuiCardHeader: {
+      root: {
+        backgroundColor: "#435f71",
+      },
+      subheader: {
+        color: "white !important",
+      },
+    },
   },
 };
 

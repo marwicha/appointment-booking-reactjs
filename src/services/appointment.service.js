@@ -56,6 +56,7 @@ const deleteAppointment = async (id) => {
   return response.data;
 };
 
+//to cancel appointment annule = true
 const updateAppointment = async (id, data) => {
   const response = await axios({
     method: "PUT",

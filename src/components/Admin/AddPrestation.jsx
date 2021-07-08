@@ -43,16 +43,12 @@ const AddPrestation = () => {
     };
 
     PrestationService.createPrestation(data)
-      .then((response) => {
-        toast.success("Crée avec success!");
-      })
       .then(() => {
         PrestationService.getAllPrestations().then((response) => {
           setPrestations(response);
         });
       })
       .catch((e) => {
-        toast.error("erreur");
         console.log(e);
       });
   };
@@ -69,15 +65,9 @@ const AddPrestation = () => {
   return (
     <Container maxWidth="lg">
       <Grid container justify="flex-start" align="center">
-        <Grid item md={8} lg={8} sm={8}>
+        <Grid item md={8} xs={12}>
           <Card>
-            <CardHeader
-              style={{
-                backgroundColor: "#dfe5e6",
-                color: "black",
-              }}
-              subheader="Ajouter une prestation"
-            />
+            <CardHeader subheader="Ajouter une prestation" />
 
             <CardContent>
               <Box align="center">
@@ -118,12 +108,7 @@ const AddPrestation = () => {
           <Grid key={index} item md={3} xs={12}>
             <Box mt={2}>
               <Card>
-                <CardHeader
-                  style={{
-                    color: "black",
-                  }}
-                  subheader={prestation.name}
-                />
+                <CardHeader subheader={prestation.name} />
                 <Divider />
 
                 <CardContent>{prestation.price} EUR</CardContent>
