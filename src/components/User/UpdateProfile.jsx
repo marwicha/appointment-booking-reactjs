@@ -45,20 +45,10 @@ const UpdateProfile = (props) => {
   };
 
   const update = () => {
-    const data = {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      phone: user.phone,
-    };
-
-    UserService.updateAccount(data.id, data)
+    UserService.updateAccount(user.id, user)
       .then((response) => {
-        setUser({ ...data });
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ ...data, roles: user.roles })
-        );
+        alert("Success");
+        localStorage.setItem("user", JSON.stringify({ ...user }));
         props.history.push("/compte");
       })
       .catch((e) => {
@@ -111,7 +101,7 @@ const UpdateProfile = (props) => {
                   color="primary"
                   className={classes.btn}
                   type="submit"
-                  onClick={update}
+                  onClick={() => update(user.id, user)}
                 >
                   Valider
                 </Button>
