@@ -32,8 +32,6 @@ const UpdateProfileAdmin = (props) => {
   const initialState = {
     id: userTest.id,
     email: userTest.email,
-    //password: userTest.password,
-    roles: userTest.roles,
   };
 
   const [user, setUser] = useState(initialState);
@@ -44,18 +42,10 @@ const UpdateProfileAdmin = (props) => {
   };
 
   const update = () => {
-    const data = {
-      id: user.id,
-      email: user.email,
-      //password: user.password,
-    };
-    UserService.updateAccount(data.id, data)
-      .then((response) => {
-        setUser({ ...user });
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ ...data, roles: user.roles })
-        );
+    UserService.updateAccount(user.id, user)
+      .then(() => {
+        alert("Vos informations sont mis à jour");
+        localStorage.setItem("user", JSON.stringify({ ...user }));
         props.history.push("/admin");
       })
       .catch((e) => {

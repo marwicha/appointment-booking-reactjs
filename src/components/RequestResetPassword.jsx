@@ -11,15 +11,17 @@ import AuthService from "../services/auth.service";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   title: {
-    fontFamily: "LEMON MILK",
-    margin: "3em",
+    fontFamily: "Roboto",
+    fontWeight: 500,
+    fontSize: "normal",
+    textAlign: "center",
     width: "51%",
+    marginTop: "2em",
   },
 
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: "9em",
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     background: "#fff",
@@ -35,11 +37,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontWeight: "500",
   },
 
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: "#78b9dc",
-  },
-
   submit: {
     margin: theme.spacing(3, 0, 2),
     color: "white",
@@ -51,7 +48,7 @@ const RequestResetPassword = (props) => {
 
   const { handleSubmit, register, errors } = useForm();
   const [message, setMessage] = useState("");
-  const required = "Veuillez saisir votre E-mail";
+  const required = "Veuillez saisir votre adresse e-mail";
 
   const [emailForgot, setEmailForgot] = useState("");
 
@@ -89,7 +86,7 @@ const RequestResetPassword = (props) => {
             <Grid item md={9} lg={9} sm={9}>
               <Card className={classes.paper}>
                 <h6 className={classes.title}>
-                  Veuillez entrer votre adresse E-mail
+                  Veuillez saisir votre adresse email
                 </h6>
 
                 <form onSubmit={handleSubmit(handleResetRequest)}>
@@ -102,7 +99,7 @@ const RequestResetPassword = (props) => {
                     errorMessage(required)}
 
                   <TextField
-                    placeholder="Adresse e-mail"
+                    placeholder="saisir votre adresse email"
                     className={classes.input}
                     name="emailForgot"
                     value={emailForgot}

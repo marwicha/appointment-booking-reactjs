@@ -29,6 +29,7 @@ import AddPrestation from "components/Admin/AddPrestation";
 import AddFormation from "components/Admin/AddFormation";
 import RequestResetPassword from "components/RequestResetPassword";
 import ResetPassword from "components/ResetPassword";
+import ListFormation from "components/Admin/ListFormation";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -37,7 +38,7 @@ const App = () => {
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
-    if (user) {
+    if (user && user.roles) {
       setCurrentUser(user);
       setShowAdminProfile(user.roles.includes("ROLE_ADMIN"));
       setShowUserProfile(user.roles.includes("ROLE_USER"));
@@ -147,6 +148,11 @@ const App = () => {
                 exact
                 path="/formation/ajout"
                 component={AddFormation}
+              />
+              <PrivateAdminRoute
+                exact
+                path="/formation/list"
+                component={ListFormation}
               />
               <Redirect path="/" exact to="accueil" />
               {/* <Route component={Error} /> */}

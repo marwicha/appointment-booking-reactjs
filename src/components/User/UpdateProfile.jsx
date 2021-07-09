@@ -34,7 +34,6 @@ const UpdateProfile = (props) => {
     email: userTest.email,
     name: userTest.name,
     phone: userTest.phone,
-    roles: userTest.roles,
   };
 
   const [user, setUser] = useState(initialState);
@@ -46,8 +45,8 @@ const UpdateProfile = (props) => {
 
   const update = () => {
     UserService.updateAccount(user.id, user)
-      .then((response) => {
-        alert("Success");
+      .then(() => {
+        alert("Vos informations sont mis à jour");
         localStorage.setItem("user", JSON.stringify({ ...user }));
         props.history.push("/compte");
       })
@@ -101,7 +100,7 @@ const UpdateProfile = (props) => {
                   color="primary"
                   className={classes.btn}
                   type="submit"
-                  onClick={() => update(user.id, user)}
+                  onClick={update}
                 >
                   Valider
                 </Button>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import { toast } from "react-toastify";
 import PrestationService from "../../services/prestation.service";
-
+import { useForm } from "react-hook-form";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
@@ -25,6 +24,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 const AddPrestation = () => {
   const classes = useStyles();
+  const { handleSubmit, register, errors } = useForm();
 
   const [prestations, setPrestations] = useState([]);
   const [namePrestation, setNamePrestation] = useState("");
@@ -36,7 +36,7 @@ const AddPrestation = () => {
     });
   }, []);
 
-  const addPrestation = () => {
+  const addPrestation = (e) => {
     const data = {
       name: namePrestation,
       price: pricePrestation,
@@ -64,46 +64,71 @@ const AddPrestation = () => {
 
   return (
     <Container maxWidth="lg">
-      <Grid container justify="flex-start" align="center">
-        <Grid item md={8} xs={12}>
+      <Grid container justify="center" align="center">
+        <Grid item md={10} xs={12}>
           <Card>
             <CardHeader subheader="Ajouter une prestation" />
 
             <CardContent>
-              <Box align="center">
-                <TextField
-                  placeholder="Nom de la prestation"
-                  name="namePrestation"
-                  value={namePrestation}
-                  onChange={(e) => setNamePrestation(e.target.value)}
-                />
+              <form onSubmit={handleSubmit(addPrestation)} noValidate>
+                <Box align="center">
+                  <TextField
+                    placeholder="Nom de la prestation"
+                    name="namePrestation"
+                    value={namePrestation}
+                    type="text"
+                    onChange={(e) => setNamePrestation(e.target.value)}
+                    error={!!errors.namePrestation}
+                    helperText={
+                      errors.namePrestation?.type &&
+                      errors.namePrestation?.message
+                    }
+                    inputRef={register({
+                      required: "La prestation est obligatoire",
+                      maxLength: {
+                        value: 20,
+                        message:
+                          "Le nom de la prestation doit contenir au max 20 caracteres",
+                      },
+                    })}
+                  />
 
+                  <br></br>
+                  <br></br>
+
+                  <TextField
+                    placeholder="Prix de la prestation"
+                    name="pricePrestation"
+                    value={pricePrestation}
+                    type="number"
+                    onChange={(e) => setPricePrestation(e.target.value)}
+                    error={!!errors.pricePrestation}
+                    helperText={
+                      errors.pricePrestation?.type &&
+                      errors.pricePrestation?.message
+                    }
+                    inputRef={register({
+                      required: "Le prix est obligatoire",
+                    })}
+                  />
+                </Box>
                 <br></br>
-                <br></br>
 
-                <TextField
-                  placeholder="Prix de la prestation"
-                  name="pricePrestation"
-                  value={pricePrestation}
-                  onChange={(e) => setPricePrestation(e.target.value)}
-                />
-              </Box>
-              <br></br>
-
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.btn}
-                onClick={addPrestation}
-              >
-                Valider
-              </Button>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  className={classes.btn}
+                >
+                  Valider
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
 
-      <Grid container justify="flex-start" align="center" spacing={2}>
+      <Grid container justify="center" align="center" spacing={2}>
         {prestations.map((prestation, index) => (
           <Grid key={index} item md={3} xs={12}>
             <Box mt={2}>

@@ -11,15 +11,17 @@ import AuthService from "../services/auth.service";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   title: {
-    fontFamily: "LEMON MILK",
-    margin: "3em",
+    fontFamily: "Roboto",
+    fontWeight: 500,
+    fontSize: "normal",
+    textAlign: "center",
     width: "51%",
+    marginTop: "2em",
   },
 
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: "9em",
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     background: "#fff",
@@ -95,7 +97,8 @@ const ResetPassword = (props) => {
 
     AuthService.resetPassword(userId, token, password).then(
       () => {
-        alert("Ok");
+        alert("Mot de passe réinitialisé avec succés!");
+        props.history.push("/inscription");
       },
       (error) => {
         const resMessage =
@@ -133,9 +136,10 @@ const ResetPassword = (props) => {
                     errorMessage(required)}
 
                   <TextField
-                    placeholder="Mot de passe"
+                    placeholder="saisir votre nouvelle mot de passe"
                     className={classes.input}
                     name="password"
+                    type="password"
                     value={password}
                     onChange={onChangePassword}
                     fullWidth

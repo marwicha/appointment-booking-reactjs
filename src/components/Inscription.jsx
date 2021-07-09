@@ -109,8 +109,6 @@ const Inscription = (props) => {
   };
 
   const handleRegister = (e) => {
-    //e.preventDefault();
-
     setMessage("");
     setSuccessful(false);
 
