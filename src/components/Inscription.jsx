@@ -210,12 +210,7 @@ const Inscription = (props) => {
                           error={!!errors.name}
                           helperText={errors.name?.type && errors.name?.message}
                           inputRef={register({
-                            required: "Votre nom complet est obligatoire",
-                            minLength: {
-                              value: 2,
-                              message:
-                                "Le nom doit contenir au moins 2 caracteres",
-                            },
+                            required: "Votre nom et prénom est obligatoire",
                             maxLength: {
                               value: 20,
                               message:
@@ -273,7 +268,7 @@ const Inscription = (props) => {
                             required: "L'email est obligatoire",
                             pattern: {
                               value: /^\S+@\S+$/i,
-                              message: "l'adresse email invalide",
+                              message: "l'adresse email est invalide",
                             },
                           })}
                         />

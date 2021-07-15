@@ -112,39 +112,33 @@ const IntroFinal = () => {
   return (
     <div className="section-intro">
       <div className={classes.introWrapper}>
-        <div className="container">
-          <Carousel
-            carouselId="swiper-11"
-            paginationClass="mt-16"
-            slidesPerView={1}
-          >
-            {ikdoList.map((item, index) => (
-              <div key={index}>
-                <img
-                  className="h-full w-full"
-                  src={item.img}
-                  alt=""
-                />
+        <Carousel
+          carouselId="swiper-11"
+          paginationClass="mt-16"
+          slidesPerView={1}
+        >
+          {ikdoList.map((item, index) => (
+            <div key={index}>
+              <img className="h-full w-full" src={item.img} alt="" />
 
-                <div className={clsx(classes.text)}>
-                  <h1 className={classes.h1}>{item.h1}</h1>
+              <div className={clsx(classes.text)}>
+                <h1 className={classes.h1}>{item.h1}</h1>
 
-                  <h2 className={classes.h2}>{item.h2}</h2>
-                  <br></br>
-                  <p className={classes.p}>{item.text}</p>
-                  <br></br>
-                  <div className={classes.center}>
-                    <NavLink to={item.navLink}>
-                      <button className={clsx(classes.button)}>
-                        {item.buttonText}
-                      </button>
-                    </NavLink>
-                  </div>
+                <h2 className={classes.h2}>{item.h2}</h2>
+                <br></br>
+                <p className={classes.p}>{item.text}</p>
+                <br></br>
+                <div className={classes.center}>
+                  <NavLink to={item.navLink}>
+                    <button className={clsx(classes.button)}>
+                      {item.buttonText}
+                    </button>
+                  </NavLink>
                 </div>
               </div>
-            ))}
-          </Carousel>
-        </div>
+            </div>
+          ))}
+        </Carousel>
       </div>
     </div>
   );

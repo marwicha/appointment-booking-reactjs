@@ -56,6 +56,9 @@ const App = () => {
             <Redirect
               to={{
                 pathname: "/inscription",
+                state: {
+                  from: props.location,
+                },
               }}
             />
           )
@@ -75,6 +78,9 @@ const App = () => {
             <Redirect
               to={{
                 pathname: "/inscription",
+                state: {
+                  from: props.location,
+                },
               }}
             />
           )
@@ -99,6 +105,7 @@ const App = () => {
       />
     );
   };
+
   return (
     <MuiThemeProvider theme={Theme}>
       <GlobalCss>
