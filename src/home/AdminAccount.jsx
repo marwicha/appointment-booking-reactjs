@@ -73,27 +73,27 @@ const AdminAccount = () => {
           onChange={handleChange}
           className={classes.tabs}
         >
-          <Tab label="Mes informations" {...a11yProps(0)} />
-          <Tab label="Tous les rendez vous" {...a11yProps(1)} />
-          <Tab label="Ajouter une prestation" {...a11yProps(2)} />
-          <Tab label="Ajouter une formation" {...a11yProps(3)} />
+          {/* <Tab label="Mes informations" {...a11yProps(0)} /> */}
+          <Tab label="Tous les rendez vous" {...a11yProps(0)} />
+          <Tab label="Ajouter une prestation" {...a11yProps(1)} />
+          <Tab label="Ajouter une formation" {...a11yProps(2)} />
           <Tab label="Tous les formations" {...a11yProps(3)} />
         </Tabs>
-        <TabPanel style={{ width: "100%" }} value={value} index={0}>
+        {/* <TabPanel style={{ width: "100%" }} value={value} index={0}>
           <ProfileAdmin />
-        </TabPanel>
-        <TabPanel style={{ width: "100%" }} value={value} index={1}>
+        </TabPanel> */}
+        <TabPanel style={{ width: "100%" }} value={value} index={0}>
           <RendezVous />
         </TabPanel>
 
-        <TabPanel style={{ width: "100%" }} value={value} index={2}>
+        <TabPanel style={{ width: "100%" }} value={value} index={1}>
           <AddPrestation />
         </TabPanel>
 
-        <TabPanel style={{ width: "100%" }} value={value} index={3}>
+        <TabPanel style={{ width: "100%" }} value={value} index={2}>
           <AddFormation />
         </TabPanel>
-        <TabPanel style={{ width: "100%" }} value={value} index={4}>
+        <TabPanel style={{ width: "100%" }} value={value} index={3}>
           <ListFormation />
         </TabPanel>
       </Container>

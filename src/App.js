@@ -141,11 +141,11 @@ const App = () => {
                 component={UserFormations}
               />
               <PrivateAdminRoute exact path="/admin" component={AdminAccount} />
-              <PrivateAdminRoute
+              {/* <PrivateAdminRoute
                 exact
                 path="/admin/:id"
                 component={UpdateProfileAdmin}
-              />
+              /> */}
               <PrivateAdminRoute
                 exact
                 path="/prestation/ajout"

@@ -73,9 +73,11 @@ const RendezVous = () => {
               appointments[i].slots.slot_date +
               displayHeure(appointments[i].slots.slot_time),
             user: {
-              name: appointments[i].user.name,
-              email: appointments[i].user.email,
-              phone: appointments[i].user.phone,
+              name: appointments[i].user !== null && appointments[i].user.name,
+              email:
+                appointments[i].user !== null && appointments[i].user.email,
+              phone:
+                appointments[i].user !== null && appointments[i].user.phone,
             },
             annule: !!appointments[i].annule && appointments[i].annule,
           });
@@ -129,9 +131,9 @@ const RendezVous = () => {
                     appointments[i].slots.slot_date +
                     displayHeure(appointments[i].slots.slot_time),
                   user: {
-                    name: appointments[i].user.name,
-                    email: appointments[i].user.email,
-                    phone: appointments[i].user.phone,
+                    name: appointments[i].user && appointments[i].user.name,
+                    email: appointments[i].user && appointments[i].user.email,
+                    phone: appointments[i].user && appointments[i].user.phone,
                   },
                   annule: !!appointments[i].annule && appointments[i].annule,
                 });
@@ -144,7 +146,7 @@ const RendezVous = () => {
   };
 
   const renderEventContent = ({ event, el }) => {
-    const content = (
+    const content = event.extendedProps.user && (
       <div
         style={{
           backgroundColor:
@@ -153,9 +155,13 @@ const RendezVous = () => {
         }}
       >
         {event.title}
-        <div>{event.extendedProps.user.name} </div>
-        <div>{event.extendedProps.user.email} </div>
-        <div>{event.extendedProps.user.phone} </div>
+        {event.extendedProps.user && (
+          <>
+            <div>{event.extendedProps.user.name} </div>
+            <div>{event.extendedProps.user.email} </div>
+            <div>{event.extendedProps.user.phone} </div>
+          </>
+        )}
         <div>{event.extendedProps.annule === true ? "annulé" : " "} </div>
       </div>
     );
