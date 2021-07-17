@@ -179,7 +179,7 @@ const Inscription = (props) => {
             <Grid item md={5} xs={12}>
               <Card className={classes.paper}>
                 <h5 className={classes.title}>
-                  Merci de vous s'inscrire afin de prendre un rendez-vous
+                  Merci de vous inscrire afin de prendre un rendez-vous
                 </h5>
 
                 <form
