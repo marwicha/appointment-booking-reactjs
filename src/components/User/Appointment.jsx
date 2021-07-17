@@ -387,7 +387,7 @@ const Appointment = (props) => {
         <Stepper activeStep={stepIndex} linear="false" orientation="vertical">
           <Step>
             <StepButton onClick={() => setStepIndex(0)}>
-              Cliquer pour choisir une prestation
+              Cliquez pour choisir une prestation
             </StepButton>
 
             <StepContent>

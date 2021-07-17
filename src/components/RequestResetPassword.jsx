@@ -47,7 +47,6 @@ const RequestResetPassword = (props) => {
   const classes = useStyles();
 
   const { handleSubmit, register, errors } = useForm();
-  const [message, setMessage] = useState("");
   const required = "Veuillez saisir votre adresse e-mail";
 
   const [emailForgot, setEmailForgot] = useState("");
@@ -63,16 +62,12 @@ const RequestResetPassword = (props) => {
   };
 
   const handleResetRequest = (e) => {
-    //e.preventDefault();
-
-    setMessage("");
-
     AuthService.resetRequest(emailForgot)
       .then(() => {
-        setMessage("E-mail de réinitialisation de mot de passe envoyé!");
+        alert("E-mail de réinitialisation de mot de passe envoyé!");
       })
       .catch((error) => {
-        setMessage("Un problème est survenu ou email n'existe pas");
+        alert("Un problème est survenu ou email n'existe pas");
       });
   };
 
@@ -90,10 +85,6 @@ const RequestResetPassword = (props) => {
                 </h6>
 
                 <form onSubmit={handleSubmit(handleResetRequest)}>
-                  <div>
-                    {message && <Alert severity="info">{message}</Alert>}
-                  </div>
-
                   {errors.emailForgot &&
                     errors.emailForgot.type === "required" &&
                     errorMessage(required)}

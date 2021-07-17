@@ -113,7 +113,7 @@ const UserAccount = () => {
 
         <TabPanel style={{ width: "100%" }} value={value} index={4}>
           <Button align="center" color="primary" onClick={deleteAccount}>
-            cliquer pour supprimer votre compte
+            cliquez pour supprimer votre compte
           </Button>
         </TabPanel>
       </Container>

@@ -145,7 +145,7 @@ const RendezVous = () => {
       ) {
         AdminService.updateAppointmentByAdmin(clickInfo.event.id, newData).then(
           (response) => {
-            alert("Rendez vous annulé avec succés");
+            alert("Rendez vous annulé avec succès");
             AdminService.getAllAppointments().then((response) => {
               let appointments = response;
 

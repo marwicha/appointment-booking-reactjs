@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 import Lock from "@material-ui/icons/Lock";
 import { useForm } from "react-hook-form";
+import ReCaptchaV2 from "react-google-recaptcha";
 
 import {
   Typography,
@@ -285,6 +286,7 @@ const Inscription = (props) => {
                           className={classes.input}
                           fullWidth={true}
                           name="password"
+                          type="password"
                           value={password}
                           onChange={onChangePassword}
                           error={!!errors.password}
@@ -301,6 +303,10 @@ const Inscription = (props) => {
                           })}
                         />
                       </Grid>
+
+                      {/* <Grid item>
+                        <ReCaptchaV2 sitekey={process.env.REACT_APP_SITE_KEY} />
+                      </Grid> */}
                     </Grid>
 
                     <Button

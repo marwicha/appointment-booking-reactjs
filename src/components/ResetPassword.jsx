@@ -97,7 +97,7 @@ const ResetPassword = (props) => {
 
     AuthService.resetPassword(userId, token, password).then(
       () => {
-        alert("Mot de passe réinitialisé avec succés!");
+        alert("Mot de passe réinitialisé avec succès!");
         props.history.push("/inscription");
       },
       (error) => {
@@ -123,7 +123,7 @@ const ResetPassword = (props) => {
             <Grid item md={9} lg={9} sm={9}>
               <Card className={classes.paper}>
                 <h6 className={classes.title}>
-                  Veuillez entrer votre nouvelle mot de passe
+                  Veuillez entrer votre nouveau mot de passe
                 </h6>
 
                 <form onSubmit={handleSubmit(handleResetPassword)}>
@@ -136,7 +136,7 @@ const ResetPassword = (props) => {
                     errorMessage(required)}
 
                   <TextField
-                    placeholder="saisir votre nouvelle mot de passe"
+                    placeholder="saisir votre nouveau mot de passe"
                     className={classes.input}
                     name="password"
                     type="password"

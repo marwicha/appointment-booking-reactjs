@@ -77,7 +77,7 @@ const AdminAccount = () => {
           <Tab label="Tous les rendez vous" {...a11yProps(0)} />
           <Tab label="Ajouter une prestation" {...a11yProps(1)} />
           <Tab label="Ajouter une formation" {...a11yProps(2)} />
-          <Tab label="Tous les formations" {...a11yProps(3)} />
+          <Tab label="Toutes les formations" {...a11yProps(3)} />
         </Tabs>
         {/* <TabPanel style={{ width: "100%" }} value={value} index={0}>
           <ProfileAdmin />

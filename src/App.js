@@ -106,6 +106,14 @@ const App = () => {
     );
   };
 
+  const ScrollToTopOnMount = () => {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
+    return null;
+  };
+
   return (
     <MuiThemeProvider theme={Theme}>
       <GlobalCss>

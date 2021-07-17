@@ -14,6 +14,8 @@ import {
 } from "@material-ui/core";
 import TopBar from "home/sections/TopBar";
 
+import Alert from "@material-ui/lab/Alert";
+
 import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
@@ -30,6 +32,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 const UpdateProfile = (props) => {
   const classes = useStyles();
   const { handleSubmit, register, errors } = useForm();
+  const [message, setMessage] = useState("");
   const userTest = AuthService.getCurrentUser();
 
   const initialState = {
@@ -47,14 +50,22 @@ const UpdateProfile = (props) => {
   };
 
   const update = () => {
+    setMessage("");
     UserService.updateAccount(user.id, user)
       .then(() => {
         alert("Vos informations sont mis à jour");
         localStorage.setItem("user", JSON.stringify({ ...user }));
         props.history.push("/compte");
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setMessage(resMessage);
       });
   };
 
@@ -69,6 +80,9 @@ const UpdateProfile = (props) => {
 
               <CardContent>
                 <form onSubmit={handleSubmit(update)} noValidate>
+                  <div>
+                    {message && <Alert severity="info">{message}</Alert>}
+                  </div>
                   <Box align="center">
                     <TextField
                       fullWidth
