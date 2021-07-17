@@ -114,7 +114,7 @@ const AllUserAppointments = () => {
                   style={{
                     backgroundColor:
                       app.annule === true ? "#e62638" : "#435f71",
-                    color: app.annule === true ? "white" : "black",
+                    color: "white",
                   }}
                   title={
                     displayHeure(app.slots.slot_time) +

@@ -28,10 +28,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "600",
+    fontWeight: "500",
     fontSize: "1em",
     lineHeight: "30px",
     textAlign: "left",
+    maxWidth: 500,
   },
 }));
 
@@ -43,14 +44,14 @@ const FourthSection = () => {
       title: "Equilibre",
       link: "/assets/images/formations/energie.png",
       description:
-        "Un employé détendu est plus énergique, plus concentré.Il offre une meilleure performance.Il gagne en motivation, en créativité, bref en efficacité et en savoir être.",
+        "Un employé détendu est plus énergique, plus concentré.Il offre une meilleure performance,Il gagne en motivation, en créativité et en efficacité.",
     },
 
     {
       title: "Teamwork",
       link: "/assets/images/formations/environement.png",
       description:
-        "En agissant sur notre propre équilibre, le massage-bien-être renforce également le sentiment d’appartenance et améliore le climat social, offrant un environnement qui favorise l'épanouissement le développement des performances.",
+        "En agissant sur notre propre équilibre, le massage-bien-être améliore le climat social, offrant un environnement qui favorise l'épanouissement le développement des performances.",
     },
 
     {
@@ -81,13 +82,7 @@ const FourthSection = () => {
                       </Typography>
 
                       <Box align="left">
-                        <Typography
-                          variant="p"
-                          color="textSecondary"
-                          component="p"
-                        >
-                          {item.description}
-                        </Typography>
+                        <p className={classes.p}>{item.description}</p>
                       </Box>
                     </CardContent>
                   </CardActionArea>

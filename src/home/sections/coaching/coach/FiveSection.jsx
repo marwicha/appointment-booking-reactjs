@@ -64,9 +64,9 @@ const FiveSection = () => {
                   <p className={classes.p}>
                     Vous désirez vous fixer de nouveaux objectifs, ou faire le
                     point dans votre vie.
-                    <br></br> Patrick Caillier spécialisé entre autre dans
+                    <br></br> Patrick Caillier spécialisé entre autres dans
                     l'accompagnement est là pour vous aider à retrouver du sens
-                    dans vos projets..
+                    dans vos projets.
                   </p>
 
                   <h3 className={classes.title}>

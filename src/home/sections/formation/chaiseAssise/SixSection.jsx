@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   h1: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: "26px",
@@ -14,7 +14,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   title: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: "16px",
@@ -23,7 +23,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   title2: {
-    fontFamily: "LEMON MILK Light",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: "14px",
@@ -36,8 +36,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
     background: "#FFFFFF",
     padding: "2rem",
-    maxWidth: 300,
-    height: "8em",
+    maxWidth: 326,
+    height: "7em",
     borderRadius: "0px 50px",
     margin: "auto",
   },

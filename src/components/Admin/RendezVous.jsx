@@ -30,6 +30,7 @@ const RendezVous = () => {
       start: "",
       description: "",
       user: { name: "", email: "", phone: "" },
+      time: "",
       annule: "",
     },
   ]);
@@ -59,6 +60,31 @@ const RendezVous = () => {
     }
   };
 
+  const displayTime = (heure) => {
+    switch (heure) {
+      case "0":
+        return "09:00";
+      case "1":
+        return "10:00";
+      case "2":
+        return "11:00";
+      case "3":
+        return "12:00";
+      case "4":
+        return "13:00";
+      case "5":
+        return "14:00";
+      case "6":
+        return "15:00";
+      case "7":
+        return "16:00";
+      case "8":
+        return "17:00";
+      default:
+        return "date invalide";
+    }
+  };
+
   useEffect(() => {
     AdminService.getAllAppointments()
       .then((response) => {
@@ -72,6 +98,7 @@ const RendezVous = () => {
             start:
               appointments[i].slots.slot_date +
               displayHeure(appointments[i].slots.slot_time),
+            time: displayTime(appointments[i].slots.slot_time),
             user: {
               name: appointments[i].user !== null && appointments[i].user.name,
               email:
@@ -130,6 +157,7 @@ const RendezVous = () => {
                   start:
                     appointments[i].slots.slot_date +
                     displayHeure(appointments[i].slots.slot_time),
+                  time: displayTime(appointments[i].slots.slot_time),
                   user: {
                     name: appointments[i].user && appointments[i].user.name,
                     email: appointments[i].user && appointments[i].user.email,
@@ -150,11 +178,11 @@ const RendezVous = () => {
       <div
         style={{
           backgroundColor:
-            event.extendedProps.annule === true ? "#dd7c5d" : "#ffffff",
+            event.extendedProps.annule === true ? "#ae5c57" : "#ffffff",
           color: event.extendedProps.annule === true ? "white" : "black",
         }}
       >
-        {event.title}
+        {event.title}:{event.extendedProps.time}
         {event.extendedProps.user && (
           <>
             <div>{event.extendedProps.user.name} </div>

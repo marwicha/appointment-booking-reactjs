@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   CardActionArea,
+  Container,
 } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,7 +21,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#384C5A",
     margin: "auto",
     textAlign: "left",
-    maxWidth: "70%",
+    maxWidth: "100%",
     padding: "1rem",
   },
 
@@ -33,15 +34,15 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     color: "#384C5A",
     margin: "auto",
     textAlign: "left",
-    maxWidth: "70%",
-    padding: "1.1rem",
+    maxWidth: "100%",
+    padding: "1rem",
   },
 
   h1: {
     fontFamily: "LEMON MILK",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "16px",
+    fontSize: "14px",
     lineHeight: "20px",
     textAlign: "left",
   },
@@ -60,10 +61,10 @@ const FinalSection = () => {
   const classes = useStyles();
 
   return (
-    <div className="section">
-      <div className="container-final-formation text-center p-12">
-        <Grid container spacing={2} alignItems="center" justify="center">
-          <Grid md={4} xs={12}>
+    <section className="section">
+      <Container maxWidth="lg">
+        <Grid container spacing={2} justify="center" alignItems="center">
+          <Grid item md={5} xs={12}>
             <Card className={classes.card}>
               <CardActionArea>
                 <CardContent>
@@ -97,7 +98,7 @@ const FinalSection = () => {
             </Card>
           </Grid>
 
-          <Grid md={4} xs={12}>
+          <Grid item md={5} xs={12}>
             <Card className={classes.card}>
               <CardActionArea>
                 <CardContent>
@@ -135,8 +136,8 @@ const FinalSection = () => {
             </Card>
           </Grid>
         </Grid>
-      </div>
-    </div>
+      </Container>
+    </section>
   );
 };
 

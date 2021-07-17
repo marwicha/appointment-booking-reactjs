@@ -45,7 +45,7 @@ const FourSection = () => {
                   (passé-présent), afin de trouver ensemble la cohérence de
                   votre projet futur. <br></br> <br></br>
                   Je vous aide aussi dans l'identification de vos points forts.
-                  Grâce à l'interaction établie entre nous, vous vous fixer de
+                  Grâce à l'interaction établie entre nous, vous vous fixez de
                   nouveaux objectifs clairs et précis en accord avec vos
                   valeurs.
                   <br></br>

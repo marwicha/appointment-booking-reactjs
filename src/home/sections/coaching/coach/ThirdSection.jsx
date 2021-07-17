@@ -57,7 +57,7 @@ const ThirdSection = () => {
             <div className={classes.verticalLine}>
               <p className={classes.p}>
                 Je vous propose un
-                <strong>accompagnement professionnel et personnalisé</strong>
+                <strong> accompagnement professionnel et personnalisé </strong>
                 vous permettant d'atteindre vos objectifs et de révéler votre
                 potentiel.
                 <br></br>
