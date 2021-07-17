@@ -48,8 +48,7 @@ const ThirdSection = () => {
           <Grid md={5} xs={12}>
             <div className="pt-8">
               <h4 className={clsx(classes.h2)}>
-                {" "}
-                Comment se passent les séances?{" "}
+                Comment se passent les séances?
               </h4>
             </div>
           </Grid>
@@ -57,7 +56,7 @@ const ThirdSection = () => {
           <Grid md={7} xs={12}>
             <div className={classes.verticalLine}>
               <p className={classes.p}>
-                Les séances de somatothérapie se déroulent en moyenne entre{" "}
+                Les séances de somatothérapie se déroulent en moyenne entre
                 <strong>4 à 6 séances</strong>.<br></br>
                 Dès la première séance le cadre est fixé avec le praticien. Vous
                 vous engagez sur un double objectif (un mieux-être dans votre
@@ -65,7 +64,7 @@ const ThirdSection = () => {
                 <br></br>A partir de vos symptômes physiques et votre situation
                 de vie, le praticien vous apporte une aide individualisée.
                 <br></br>
-                Celle-ci associant les techniques de{" "}
+                Celle-ci associant les techniques de
                 <strong>toucher-massage</strong> et les outils d’aide au
                 changement de vie.
               </p>

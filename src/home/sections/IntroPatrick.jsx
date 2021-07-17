@@ -48,13 +48,13 @@ const IntroPatrick = () => {
           <Grid container spacing={6}>
             <Grid item md={5} xs={12}>
               <h4 className={classes.p}>
-                Le centre de thérapie ou de bien etre IKDO® est un centre de
+                Le centre de thérapie ou de bien-être IKDO® est un centre de
                 formation et d'apprentissage mais surtout un espace d'échange et
-                de bien etre, piloté par Mr. Cailler Patrick, praticien confirmé
-                qui, à travers ses multiples voyages et des années
-                d'expériences, s'est forgé un savoir qu'il partage aujourd'hui
-                avec vous. <br></br> Il est le créateur de plusieurs techniques
-                de massages et de méditations notamment la
+                de bien-être, piloté par Mr.Cailler Patrick, praticien confirmé
+                qui, à travers ses multiples voyages et des années d'expérience,
+                s'est forgé un savoir qu'il partage aujourd'hui avec vous.
+                <br></br> Il est le créateur de plusieurs techniques de massages
+                et de méditations notamment la
                 <strong> Somatothérapie®</strong>,
               </h4>
             </Grid>
@@ -66,13 +66,12 @@ const IntroPatrick = () => {
                 pratique thérapeutique
                 <strong> exclusivement</strong> enseignée au sein de notre
                 institut.
-                <br></br>A travers ses séances de coaching ou lors d'ateliers
-                d'initiations vous apprendrez ses techniques de méditations et
-                de massages, pour bénéficier de nos stages et nos programmes
+                <br></br>À travers ses séances de coaching ou lors d'ateliers
+                d'initiation vous apprendrez ses techniques de méditations et de
+                massages, pour bénéficier de nos stages et nos programmes
                 d'apprentissage offrants un certificat á terme, vous êtes
-                invités à découvrir plus en détails nos prestations et vous
-                inscrire sur notre site ou en contactant directement Mr.
-                Cailler.
+                invités à découvrir en détail nos prestations et vous inscrire
+                sur notre site afin de prendre un rendez-vous.
               </h4>
             </Grid>
             <Grid item md={1} xs={12}></Grid>

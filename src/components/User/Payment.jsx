@@ -57,7 +57,7 @@ const Payement = (props) => {
       setLoading(true);
     }
 
-    alert(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
+    alert(`Payement réussi`);
   };
 
   const renderForm = () => {

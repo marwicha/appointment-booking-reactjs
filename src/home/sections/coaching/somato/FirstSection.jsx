@@ -72,18 +72,19 @@ const FirstSection = () => {
               <Box display="flex" height="100%" mt={4}>
                 <Box my="auto">
                   <p className={classes.p}>
-                    La somatothérapie est un soin psychocorporel, reliant corps
-                    et esprit par différentes techniques multi sensorielles,
-                    principalement le touché dont le but est de débloquer les
-                    tensions dans le corps c'est á dire la somatisation.
+                    <strong>La somatothérapie</strong> est un soin
+                    psychocorporel, reliant corps et esprit par différentes
+                    techniques multi sensorielle, principalement le toucher dont
+                    le but est de débloquer les tensions dans le corps c'est á
+                    dire la somatisation.
                     <br></br> <br></br>
-                    En plaçant le corps au centre de l'attention Cette approche
+                    En plaçant le corps au centre de l'attention cette approche
                     vous invite à entrer en contact avec ce que vous ressentez
                     de manière claire voyante, avec votre vécu moral et corporel
                     afin de mieux comprendre votre situation actuelle. <br></br>
                     <br></br>
                     Cette médiation corporelle n'est pas un traitement mais un
-                    accompagnement pour votre mieux être, ces séances permettent
+                    accompagnement pour votre mieux-être, ces séances permettent
                     de dénouer des blocages émotionnels, sources de souffrances
                     d'ordre psychosomatique. Au fil de mon accompagnement, vous
                     saurez mieux vivre en harmonie avec vos émotions en
@@ -92,7 +93,7 @@ const FirstSection = () => {
                     La traversée de ce ressenti modifie la perception que vous
                     avez de vous-même, des autres et de la situation et vous
                     découvrez de nouvelles possibilités d'être, de vous
-                    positionner et de réagir
+                    positionner et de réagir.
                   </p>
                 </Box>
               </Box>

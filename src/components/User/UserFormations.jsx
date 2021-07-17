@@ -35,7 +35,8 @@ const UserFormations = () => {
                 />
                 <Divider />
                 <CardContent>
-                  <p className="extra-content">{formation.dateText}</p>
+                  <p className="extra-content">{formation.dateDebut}</p>
+                  <p className="extra-content">{formation.dateFin}</p>
                   <a
                     className="read-more-link"
                     onClick={() => {

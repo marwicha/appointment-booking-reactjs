@@ -15,6 +15,7 @@ import {
   Box,
   TextField,
   TextareaAutosize,
+  Divider,
 } from "@material-ui/core";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
@@ -29,21 +30,23 @@ const AddFormation = () => {
   const { handleSubmit, register, errors } = useForm();
 
   const [name, setName] = useState("");
-  const [dateText, setDateText] = useState("");
+  const [dateDebut, setDateDebut] = useState("");
+  const [dateFin, setDateFin] = useState("");
   const [description, setDescription] = useState("");
   const [prix, setPrix] = useState("");
 
   const addFormation = () => {
     const data = {
       name: name,
-      dateText: dateText,
+      dateDebut: dateDebut,
+      dateFin: dateFin,
       description: description,
       prix: prix,
     };
 
     AdminService.createFormation(data)
       .then(() => {
-        toast.success("Formation crée avec success!");
+        alert("Formation crée avec success!");
       })
       .catch((e) => {
         toast.error("erreur");
@@ -61,8 +64,8 @@ const AddFormation = () => {
             <CardContent>
               <form onSubmit={handleSubmit(addFormation)} noValidate>
                 <Box align="center">
+                  <label>Nom</label>
                   <TextField
-                    placeholder="Nom"
                     name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -76,26 +79,39 @@ const AddFormation = () => {
                       },
                     })}
                   />
+
                   <br></br>
-                  <br></br>
+                  <label>Date de début</label>
                   <TextField
-                    placeholder="Date"
-                    name="dateText"
-                    value={dateText}
+                    name="dateDebut"
+                    value={dateDebut}
                     type="date"
-                    onChange={(e) => setDateText(e.target.value)}
-                    error={!!errors.dateText}
+                    onChange={(e) => setDateDebut(e.target.value)}
+                    error={!!errors.dateDebut}
                     helperText={
-                      errors.dateText?.type && errors.dateText?.message
+                      errors.dateDebut?.type && errors.dateDebut?.message
                     }
                     inputRef={register({
-                      required: "La date est obligatoire",
+                      required: "La date de début est obligatoire",
+                    })}
+                  />
+
+                  <br></br>
+                  <label>Date de fin</label>
+                  <TextField
+                    name="dateFin"
+                    value={dateFin}
+                    type="date"
+                    onChange={(e) => setDateFin(e.target.value)}
+                    error={!!errors.dateFin}
+                    helperText={errors.dateFin?.type && errors.dateFin?.message}
+                    inputRef={register({
+                      required: "La date de fin est obligatoire",
                     })}
                   />
                   <br></br>
-                  <br></br>
+                  <label>Prix</label>
                   <TextField
-                    placeholder="Prix"
                     name="prix"
                     value={prix}
                     type="number"
@@ -107,10 +123,9 @@ const AddFormation = () => {
                     })}
                   />
                   <br></br>
-                  <br></br>
 
+                  <label>Description</label>
                   <TextareaAutosize
-                    placeholder="Description"
                     name="description"
                     value={description}
                     type="text"
@@ -124,6 +139,8 @@ const AddFormation = () => {
                     })}
                   />
                 </Box>
+
+                <Divider></Divider>
                 <br></br>
 
                 <Button

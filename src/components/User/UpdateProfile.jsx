@@ -14,6 +14,8 @@ import {
 } from "@material-ui/core";
 import TopBar from "home/sections/TopBar";
 
+import { useForm } from "react-hook-form";
+
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   btn: {
     color: "white",
@@ -27,6 +29,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
 const UpdateProfile = (props) => {
   const classes = useStyles();
+  const { handleSubmit, register, errors } = useForm();
   const userTest = AuthService.getCurrentUser();
 
   const initialState = {
@@ -65,45 +68,63 @@ const UpdateProfile = (props) => {
               <CardHeader subheader="Modifier vos informations" />
 
               <CardContent>
-                <Box align="center">
-                  <TextField
-                    fullWidth
-                    name="name"
-                    value={user.name}
-                    onChange={handleInputChange}
-                  />
+                <form onSubmit={handleSubmit(update)} noValidate>
+                  <Box align="center">
+                    <TextField
+                      fullWidth
+                      name="name"
+                      value={user.name}
+                      onChange={handleInputChange}
+                      error={!!errors.name}
+                      helperText={errors.name?.type && errors.name?.message}
+                      inputRef={register({
+                        required: "Votre nom et prénom est obligatoire",
+                      })}
+                    />
 
+                    <br></br>
+                    <br></br>
+
+                    <TextField
+                      fullWidth
+                      name="email"
+                      type="email"
+                      value={user.email}
+                      onChange={handleInputChange}
+                      error={!!errors.email}
+                      helperText={errors.email?.type && errors.email?.message}
+                      inputRef={register({
+                        required: "Votre email est obligatoire",
+                      })}
+                    />
+
+                    <br></br>
+                    <br></br>
+                    <TextField
+                      fullWidth
+                      name="phone"
+                      type="number"
+                      value={user.phone}
+                      onChange={handleInputChange}
+                      error={!!errors.phone}
+                      helperText={errors.phone?.type && errors.phone?.message}
+                      inputRef={register({
+                        required: "Votre téléphone est obligatoire",
+                      })}
+                    />
+                  </Box>
                   <br></br>
                   <br></br>
 
-                  <TextField
-                    fullWidth
-                    name="email"
-                    value={user.email}
-                    onChange={handleInputChange}
-                  />
-
-                  <br></br>
-                  <br></br>
-                  <TextField
-                    fullWidth
-                    name="phone"
-                    value={user.phone}
-                    onChange={handleInputChange}
-                  />
-                </Box>
-                <br></br>
-                <br></br>
-
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.btn}
-                  type="submit"
-                  onClick={update}
-                >
-                  Valider
-                </Button>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.btn}
+                    type="submit"
+                  >
+                    Valider
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </Grid>

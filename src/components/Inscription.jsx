@@ -132,7 +132,6 @@ const Inscription = (props) => {
   };
 
   /// Login
-
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
 

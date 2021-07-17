@@ -70,13 +70,13 @@ const ThirdSection = () => {
               <p className={classes.benefice}> Les bénéfices </p>
 
               <p className={classes.p}>
-                A travers un programme riche, IKDO vous offre un apprentissage
+                À travers un programme riche, IKDO vous offre un apprentissage
                 complet sur les notions de base en massage des 9 sens® ainsi que
-                diverses techniques associées aux sens et leur stimulation. Vous
-                apprendrez a exploiter différents outils et supports tels que
+                diverses techniques associées au sens et leur stimulation. Vous
+                apprendrez à exploiter différents outils et supports tels que
                 l'utilisation des bols chantants et des huiles essentielles ou
                 encore l'importance de la respiration.
-                <br></br> Pour plus d'information vous trouverez ci-dessous les
+                <br></br> Pour plus d'informations vous trouverez ci-dessous les
                 modules traités lors de chaque session ainsi que le déroulement
                 de la formation massages 9 sens.
               </p>

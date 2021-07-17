@@ -60,7 +60,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "16px",
+    fontSize: "14px",
     lineHeight: "30px",
     color: "#182731",
     marginTop: "2rem",
@@ -85,6 +85,16 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     lineHeight: "30px",
     textAlign: "left",
     maxWidth: 500,
+  },
+
+  pInfo: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1em",
+    textAlign: "left",
+    maxWidth: 600,
+    color: "#b72e02",
   },
 
   h4: {
@@ -142,8 +152,8 @@ const SecondSection = () => {
                 </h3>
 
                 <h2 className={classes.h22}>
-                  Déplacements possible chez vous avec les équipements
-                  nécessaires : Tables ou chaise de massage, musique relaxante,
+                  Déplacement possible chez vous avec les équipements
+                  nécessaires: Tables ou chaise de massage, musique relaxante,
                   huiles essentielles... (*):
                 </h2>
 
@@ -151,6 +161,14 @@ const SecondSection = () => {
                   "Massages" non thérapeutiques, ne s'apparentant à aucune
                   pratique médicale ni paramédicale occidentale.
                 </h3>
+
+                <div className={classes.pInfo}>
+                  La prise de rendez vous des prestations de massages ce fait
+                  sur le site.
+                  <br></br>
+                  Pour s'inscrire à une formation professionnelle appelez le
+                  numéro ...
+                </div>
 
                 <h4 className={clsx(classes.h4, "text-center")}>
                   Prendre un rendez vous

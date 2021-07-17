@@ -11,6 +11,7 @@ import {
   Button,
   Box,
   Divider,
+  CardActions,
 } from "@material-ui/core";
 
 const ListFormation = () => {
@@ -42,11 +43,14 @@ const ListFormation = () => {
             <Box mt={2}>
               <Card>
                 <CardHeader
-                  subheader={formation.name + " " + formation.prix + " eur"}
+                  subheader={
+                    "nom: " + formation.name + " " + " prix: " + formation.prix
+                  }
                 />
                 <Divider />
                 <CardContent>
-                  <p className="extra-content">{formation.dateText}</p>
+                  <p className="extra-content">{formation.dateDebut}</p>
+                  <p className="extra-content">{formation.dateFin}</p>
                   <a
                     className="read-more-link"
                     onClick={() => {
@@ -61,12 +65,15 @@ const ListFormation = () => {
                   )}
                 </CardContent>
 
-                <Button
-                  color="secondary"
-                  onClick={() => deleteFormation(formation._id)}
-                >
-                  Supprimer
-                </Button>
+                <Divider></Divider>
+                <CardActions>
+                  <Button
+                    color="secondary"
+                    onClick={() => deleteFormation(formation._id)}
+                  >
+                    Supprimer
+                  </Button>
+                </CardActions>
               </Card>
             </Box>
           </Grid>

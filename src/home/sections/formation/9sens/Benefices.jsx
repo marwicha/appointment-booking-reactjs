@@ -70,10 +70,7 @@ const Benefices = () => {
             </Grid>
             <Grid item xs={12} md={6}>
               <Card>
-                <CardHeader
-                  subheader="Effets physiologiques"
-                  className={classes.cardHeader}
-                ></CardHeader>
+                <CardHeader subheader="Effets physiologiques"></CardHeader>
                 <CardContent>
                   <Box pt={2} pb={1} px={1} align="left">
                     <p className={classes.p}>1 LE BON DÉVELOPPEMENT DU BÉBÉ</p>

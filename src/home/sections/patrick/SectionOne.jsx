@@ -54,7 +54,7 @@ const SectionOne = () => {
               <h4 className={classes.p}>
                 Mon histoire… <br></br>
                 Cadre de formation, j'ai travaillé 20 ans en tant que salarié
-                dans le monde de l'entreprise sur des postes à responsabilité
+                dans le monde de l'entreprise sur des postes à responsabilités
                 dans le domaine de la restauration.
                 <br></br> Au cours de mon chemin, certains évènements ont
                 bouleversé ma vie, un épuisement professionnel, un licenciement
@@ -72,10 +72,10 @@ const SectionOne = () => {
             <Grid item md={6} xs={12}>
               <h4 className={classes.p}>
                 Je continue de développer mon activité avec l'ouverture de mon
-                nouvel atelier bien–être à Cormont, en moi réside l'envie de
+                nouvel atelier bien-être à Cormont, en moi réside l'envie de
                 partager avec vous toutes ces réussites et ces difficultés
                 rencontrées tout au long de mon parcours. L'envie de réveiller
-                cette joie qui sommeille en chacun de nous, d’activer son
+                cette joie qui sommeille en chacun de nous, d'activer son
                 énergie, de la laisser vivre, de connaitre son potentiel.
                 <br></br>
                 Mon parcours est simplement le fruit d'une recherche de paix et

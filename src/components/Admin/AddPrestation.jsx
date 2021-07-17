@@ -114,6 +114,9 @@ const AddPrestation = () => {
                 </Box>
                 <br></br>
 
+                <Divider></Divider>
+                <br></br>
+
                 <Button
                   type="submit"
                   variant="contained"
@@ -138,6 +141,7 @@ const AddPrestation = () => {
 
                 <CardContent>{prestation.price} EUR</CardContent>
 
+                <Divider></Divider>
                 <Button
                   color="secondary"
                   onClick={() => deletePrestation(prestation._id)}

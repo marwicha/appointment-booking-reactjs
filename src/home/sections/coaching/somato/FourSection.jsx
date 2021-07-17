@@ -60,7 +60,7 @@ const FourSection = () => {
                   La deuxieme est concentrée sur le <strong>soin</strong>.
                   <br></br>
                   <br></br>
-                  Cette phase intègre l’utilisation de différentes techniques de
+                  Cette phase intègre l'utilisation de différentes techniques de
                   toucher-massages® en fonction de chaque personne, pouvant
                   utiliser le massage californien, shiatsu, énergétique,
                   relaxation, réflexologie plantaire mais aussi fait appel aux

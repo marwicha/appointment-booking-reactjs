@@ -76,7 +76,7 @@ const ThirdSection = () => {
                 réveil musculaire, ce massage est particulièrement efficace pour
                 la remise en forme, la baisse du stress et le calme intérieur.
                 <br></br>
-                Pour plus d'information vous trouverez ci-dessous les modules
+                Pour plus d'informations vous trouverez ci-dessous les modules
                 traités lors de chaque session ainsi que le déroulement de la
                 formation massage chaise assise.
               </p>

@@ -1,31 +1,26 @@
 import React from "react";
-import { Grid, Box, Container } from "@material-ui/core";
+import {
+  Grid,
+  Box,
+  Container,
+  CardContent,
+  Card,
+  CardActionArea,
+  Typography,
+} from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
-  button: {
-    marginTop: "2rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 15,
-    fontFamily: theme.typography.fontFamily,
-    backgroundColor: "white",
-    borderRadius: "100px",
-  },
-
-  h5: {
-    fontFamily: "LEMON MILK",
-    fontSize: "16px",
-    width: "100%",
-  },
-
+  root: { maxWidth: 250, margin: "auto" },
   paragraph: {
-    color: "#434343",
-    fontFamily: "Lato Medium",
-    fontSize: "14px",
-    width: "100%",
-    //flexDirection: "column",
-    //justifyContent: "center"
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "30px",
+    textAlign: "left",
+    maxWidth: 500,
   },
 
   Container: {
@@ -34,12 +29,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     //height: "100px",
     padding: "10px 0",
   },
-
-  textContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
 }));
 
 const FourthSection = () => {
@@ -47,28 +36,21 @@ const FourthSection = () => {
 
   const imgList = [
     {
-      title: "",
       link: "/assets/images/formations/1.png",
       description:
-        "La pleine conscience est une approche méditative qui consiste à vivre pleinement l’instant présent",
+        "La méditation est une approche méditative qui consiste à vivre pleinement l'instant présent.",
     },
 
     {
-      title: "",
       link: "/assets/images/formations/2.png",
-      description: "",
+      description:
+        "La méditation réduit la fréquence cardiaque et l'hypertension artérielle.",
     },
 
     {
-      title: "",
       link: "/assets/images/formations/3.png",
-      description: "",
-    },
-
-    {
-      title: "",
-      link: "/assets/images/formations/4.png",
-      description: "",
+      description:
+        "La méditation réduit les niveaux de stress et la dépression, ce qui se traduit par moins d'anxiété.",
     },
   ];
 
@@ -76,14 +58,20 @@ const FourthSection = () => {
     <section className="section">
       <Container maxWidth="lg">
         <Box textAlign="center">
-          <Grid container justify="space-between" alignItems="center">
+          <Grid container justify="center" alignItems="center">
             {imgList.map((item) => (
-              <Grid item md={2} xs={12}>
-                <div className={classes.imgShadow}>
-                  <img src={item.link} alt="" />
+              <Grid item md={3} xs={12}>
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    <img src={item.link} alt="" />
 
-                  <h6 className="mt-3"> {item.title} </h6>
-                </div>
+                    <CardContent>
+                      <Box align="left">
+                        <p className={classes.paragraph}>{item.description}</p>
+                      </Box>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
               </Grid>
             ))}
           </Grid>
