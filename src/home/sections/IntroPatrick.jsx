@@ -42,20 +42,36 @@ const IntroPatrick = () => {
           <Typography className={classes.typo} variant="h4" component="span">
             IKDO®
           </Typography>
+
+          <Typography
+            variant="subtitle1"
+            color="textSecondary"
+            paragraph={true}
+          >
+            Suite au Covid 19 la réouverture d'ikdo est reporté en octobre 2021.
+          </Typography>
+
+          <Typography
+            variant="subtitle2"
+            color="textSecondary"
+            paragraph={true}
+          >
+            Nous vous remercions de votre compréhension.
+          </Typography>
         </Box>
 
         <Box mt={5} textAlign="center">
           <Grid container spacing={6}>
             <Grid item md={5} xs={12}>
               <h4 className={classes.p}>
-                Le centre de thérapie ou de bien-être IKDO® est un centre de
-                formation et d'apprentissage mais surtout un espace d'échange et
-                de bien-être, piloté par Mr.Cailler Patrick, praticien confirmé
-                qui, à travers ses multiples voyages et des années d'expérience,
-                s'est forgé un savoir qu'il partage aujourd'hui avec vous.
-                <br></br> Il est le créateur de plusieurs techniques de massages
-                et de méditations notamment la
-                <strong> Somatothérapie®</strong>,
+                Le centre de bien-être IKDO® est un centre de formation et
+                d'apprentissage mais surtout un espace d'échange et de
+                ressourcement, piloté par Mr.Caillier Patrick, praticien
+                confirmé qui, à travers ses multiples voyages et des années
+                d'expérience, s'est forgé un savoir qu'il partage aujourd'hui
+                avec vous, en séances individuelles (massages, coaching de vie,
+                la somatothérapie), ou en groupe pour le massage des 9 sens, la
+                méditation, le massage assis sur chaise érgonomique
               </h4>
             </Grid>
 
@@ -63,15 +79,15 @@ const IntroPatrick = () => {
 
             <Grid item md={5} xs={12}>
               <h4 className={classes.p}>
-                pratique thérapeutique
-                <strong> exclusivement</strong> enseignée au sein de notre
-                institut.
-                <br></br>À travers ses séances de coaching ou lors d'ateliers
-                d'initiation vous apprendrez ses techniques de méditations et de
-                massages, pour bénéficier de nos stages et nos programmes
-                d'apprentissage offrants un certificat á terme, vous êtes
-                invités à découvrir en détail nos prestations et vous inscrire
-                sur notre site afin de prendre un rendez-vous.
+                afin d'apprendre les notions élémentaires de ces techniques.
+                <br></br>
+                Pour les prestations individuelles vous êtes invités à vous
+                inscrire sur notre site en créant un compte et prendre un rendez
+                vous, et pour les stages et nos programmes de formation offrant
+                une attestation de stage, merci d'appeler le centre IKDO sur le
+                numéro 0784942149.
+                <br></br>
+                Au plaisir de vous accueillir prochainement!.
               </h4>
             </Grid>
             <Grid item md={1} xs={12}></Grid>

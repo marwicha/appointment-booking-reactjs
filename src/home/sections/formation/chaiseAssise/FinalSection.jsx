@@ -74,7 +74,7 @@ const FinalSection = () => {
                       Déroulement de la formation:
                     </h1>
                     <p className={classes.p}>
-                      Format 2 jours: 4 séances de 3h30min de 9h á 17h
+                      Format 2 jours: 4 séances de 3h30min de 9h à 17h
                     </p>
                     <br></br>
                     <p className={classes.p}>
@@ -97,7 +97,7 @@ const FinalSection = () => {
                       Lieu de la formation:
                     </h1>
 
-                    <p className={classes.p}>...</p>
+                    <p className={classes.p}>1 rue de l'église 62630 Cormant</p>
                     <hr />
 
                     <h1 className={classes.h1}>

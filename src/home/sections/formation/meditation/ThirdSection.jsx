@@ -79,11 +79,22 @@ const ThirdSection = () => {
               <p className={classes.benefice}> Les bénéfices </p>
 
               <p className={classes.p}>
-                La pleine conscience a le pouvoir de diminuer le stress, de nous
-                recentrer sur l’essentiel, d’augmenter notre créativité et notre
-                enthousiasme à entreprendre, d’améliorer nos relations avec les
-                autres et surtout, de nous permettre de vivre un quotidien plus
-                serein.
+                La méditation de pleine conscience permet à être plus conscient
+                de ses sensations corporelles, de ses émotions, de ses
+                sentiments et de ses pensées, savoir détecter ses pensées
+                automatiques et ses ruminations invasives afin de mieux les
+                canaliser
+                <br></br>
+                Accepter et accueillir les évènements de la vie telle qu'ils se
+                présentent tout en ayant le meilleur recul possible, apprécier
+                chaque instant que l'on vit dans toute son intensité et être en
+                contact avec soi-même.
+                <br></br>
+                Reconnaître ses pensées et croyances limitantes (non souhaitées)
+                et voir comment y remédier, savoir prendre du recul et lâcher
+                prise par rapport aux stimuli quotidiens de l'environnement.
+                Adapter de nouvelles réponses, plus efficaces et en meilleures
+                corrélations face aux situations de stress.
               </p>
             </div>
           </Grid>

@@ -75,22 +75,22 @@ const FinalSection = () => {
                     </h1>
 
                     <p className={classes.p}>
-                      Une séance par semaine, avec des exercices quotidiens à
-                      pratiquer chez soi de 20 minutes. 12 personnes maximum
+                      La formation se déroule sur le lieu de l'atelier sur une
+                      durée de six semaines, chaque séance dure 2h30min pendant
+                      lesquelles un groupe de 6 à 12 personnes sera formé
                     </p>
 
                     <p className={classes.p}>
-                      Des supports interactifs pour la pratique
-                      <br></br>
-                      Une instruction guidée par l’intervenant
-                      <br></br>
-                      Des exercices simples de méditation relaxinésie® stretch
+                      A travers des supports interactifs pour la pratique et une
+                      instruction guidée par l'intervenant, vous seront proposés
+                      des exercices simples de méditation relaxinésie® stretch
                       (étirements doux), conscience corporelle, Do in (auto
                       massage).
-                      <br></br>
-                      Des temps de partages entre les participants
-                      <br></br>
-                      Des instructions pour la pratique au domicile
+                    </p>
+                    <br></br>
+                    <p className={classes.p}>
+                      Cette formation inclue un accompagnement et des
+                      instructions pour une pratique à domicile.
                     </p>
                   </Box>
                 </CardContent>
@@ -108,7 +108,7 @@ const FinalSection = () => {
                       Lieu de la formation:
                     </h1>
 
-                    <p className={classes.p}> Texte à ajouter par Patrick </p>
+                    <p className={classes.p}>1 rue de l'église 62630 Cormant</p>
 
                     <hr />
 

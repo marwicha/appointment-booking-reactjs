@@ -31,6 +31,8 @@ import RequestResetPassword from "components/RequestResetPassword";
 import ResetPassword from "components/ResetPassword";
 import ListFormation from "components/Admin/ListFormation";
 
+import ScrollToTop from "ScrollToTop";
+
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
   const [showAdminProfile, setShowAdminProfile] = useState(false);
@@ -106,14 +108,6 @@ const App = () => {
     );
   };
 
-  const ScrollToTopOnMount = () => {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-
-    return null;
-  };
-
   return (
     <MuiThemeProvider theme={Theme}>
       <GlobalCss>
@@ -122,6 +116,7 @@ const App = () => {
           option={{ suppressScrollX: true }}
         >
           <Router basename="/">
+            <ScrollToTop />
             <Switch>
               <Route path={["/", "/accueil"]} component={Accueil} exact />
               <Route path="/formations" component={Formations} />
@@ -133,7 +128,6 @@ const App = () => {
                 exact
                 component={RequestResetPassword}
               />
-
               <Route path="/passwordReset" exact component={ResetPassword} />
 
               {/* After authentication */}

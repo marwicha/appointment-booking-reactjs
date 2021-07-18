@@ -35,9 +35,9 @@ const Massages = () => {
 
   const massagesList = [
     {
-      name: "Massage chaise assise",
+      name: "Massage assis",
       imgUrl: "/assets/images/massage-assis.png",
-      text: "Profitez de 15 minutes d'un massage sur chaise assise Amma, le massage le plus adapté en entreprise.",
+      text: "Profitez de 15 minutes d'un massage assis sur chaise érgonomique, le massage le plus adapté en entreprise.",
     },
 
     {

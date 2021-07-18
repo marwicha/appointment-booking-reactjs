@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 import Lock from "@material-ui/icons/Lock";
 import { useForm } from "react-hook-form";
-import ReCaptchaV2 from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 import {
   Typography,
@@ -88,6 +88,9 @@ const Inscription = (props) => {
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
   const [messageLogin, setMessageLogin] = useState("");
+
+  //for captcha state
+  const [isVerified, setIsVerified] = useState(false);
 
   const onChangeName = (e) => {
     const name = e.target.value;
@@ -170,13 +173,18 @@ const Inscription = (props) => {
     );
   };
 
+  const onChangeCaptcha = (value) => {
+    console.log("Captcha value:", value);
+    setIsVerified(true);
+  };
+
   return (
     <Container className="landing">
       <TopBar />
       <div className="section-box-inscription">
         <Container maxWidth="lg">
           <CssBaseline />
-          <Grid container spacing={2} justify="center" align="center">
+          <Grid container spacing={2} justify="center" align="flex-start">
             <Grid item md={5} xs={12}>
               <Card className={classes.paper}>
                 <h5 className={classes.title}>
@@ -303,11 +311,13 @@ const Inscription = (props) => {
                           })}
                         />
                       </Grid>
-
-                      {/* <Grid item>
-                        <ReCaptchaV2 sitekey={process.env.REACT_APP_SITE_KEY} />
-                      </Grid> */}
                     </Grid>
+                    <br></br>
+
+                    <ReCAPTCHA
+                      sitekey="6LdIGqIbAAAAACPBiinUr4wZfddhBpLEXa0Mt0Ch"
+                      onChange={onChangeCaptcha}
+                    />
 
                     <Button
                       type="submit"
@@ -315,6 +325,7 @@ const Inscription = (props) => {
                       variant="contained"
                       color="primary"
                       className={classes.submit}
+                      disabled={!isVerified}
                     >
                       <span> S'inscrire </span>
                     </Button>

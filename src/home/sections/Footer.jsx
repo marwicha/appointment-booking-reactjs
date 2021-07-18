@@ -49,9 +49,8 @@ const Footer = () => {
                     </Avatar>
                   </Box>
 
-                  <p className={classes.p}>
-                    446B AV DE DUNKERQUE 59130,Lambersart
-                  </p>
+                  <p className={classes.p}>1 rue de l'église 62630 Cormant.</p>
+                  <p className={classes.p}>n siret 49127638200026</p>
                 </Box>
               </div>
             </Grid>
@@ -64,7 +63,7 @@ const Footer = () => {
                     </Avatar>
                   </Box>
 
-                  <p className={classes.p}>patrick.caillier@hotmail.fr</p>
+                  <p className={classes.p}>ikdo.zen@gmail.com</p>
                   <br />
                 </Box>
               </div>
@@ -78,7 +77,7 @@ const Footer = () => {
                     </Avatar>
                   </Box>
 
-                  <p className={classes.p}>07 86 99 59 40 ou 09 8222 8555</p>
+                  <p className={classes.p}>07 84 94 21 49 ou 07 86 99 59 40</p>
                   <br />
                 </Box>
               </div>

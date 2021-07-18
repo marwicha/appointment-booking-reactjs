@@ -81,8 +81,8 @@ const FinalSection = () => {
                       <p> En Initiale (3 mois) : </p>
                       <p className={classes.p}>
                         Attestation après 10 modules de
-                        <strong>2h30 heures + 40 heures</strong> de pratique en
-                        tant que Praticien en Relaxation "Relation et
+                        <strong> 2h30 heures + 40 heures </strong> de pratique
+                        en tant que Praticien en Relaxation "Relation et
                         Communication par les 9 sens"
                       </p>
                       Courte :
@@ -108,11 +108,7 @@ const FinalSection = () => {
                       Lieu de la formation:
                     </h1>
 
-                    <p className={classes.p}>
-                      Vous disposerez d'une salle aménagée à la relaxation avec
-                      chromothérapie, musique apaisante, et également de quatre
-                      tables de massage et matelas chauffants.
-                    </p>
+                    <p className={classes.p}>1 rue de l'église 62630 Cormant</p>
 
                     <hr />
 
