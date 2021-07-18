@@ -75,9 +75,11 @@ const FinalSection = () => {
                     </h1>
 
                     <p className={classes.p}>
-                      La formation se déroule sur le lieu de l'atelier sur une
-                      durée de six semaines, chaque séance dure 2h30min pendant
-                      lesquelles un groupe de 6 à 12 personnes sera formé
+                      La formation se déroule sur le lieu de l'atelier pour une
+                      durée de 6 semaines.
+                      <br></br>
+                      Chaque séance dure 2h30 min pendant lesquelles un groupe
+                      de 6 à 12 personnes sera formé.
                     </p>
 
                     <p className={classes.p}>
@@ -113,15 +115,15 @@ const FinalSection = () => {
                     <hr />
 
                     <h1 className={classes.h1}>
-                      <Icon className={classes.icon}> euro-sign </Icon> côut de
+                      <Icon className={classes.icon}> euro-sign </Icon> Coût de
                       la formation:
                     </h1>
 
-                    <p className={classes.p}>Pour le prix (hors promotion):</p>
-
-                    <p className={classes.p}> 6 séances de 2h30 : </p>
-
-                    <p className={classes.p2}> 450 € </p>
+                    <p className={classes.p}>
+                      Prix par séance: 450 € (hors promotion)
+                      <br></br>
+                      Une séance par semaine.
+                    </p>
                   </Box>
                 </CardContent>
               </CardActionArea>

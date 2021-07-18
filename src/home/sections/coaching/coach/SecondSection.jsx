@@ -54,55 +54,23 @@ const SecondSection = () => {
               <Box display="flex" height="100%">
                 <Box my="auto">
                   <p className={classes.p}>
-                    vous êtes débordé(e), dépassé(e) par les évènements , vous
-                    vous sentez à cran <br></br>
-                    vous vous sentez inquiet(te) angoissé(e), exemple du COVID
-                    19 <br></br>
-                    vous avez souvent une boule dans la gorge, un creux à
-                    l’estomac <br></br>
-                    vous vous sentez hypersensible, facilement perturbé(e)
-                    émotionnellement <br></br>
-                    vos réactions vis à vis des autres sont exagérées ou
-                    inadéquates <br></br>
-                    vous prenez trop à cœur les critiques et les remarques{" "}
+                    Vous avez besoin de vous déconnecter de votre quotidien et
+                    de votre mental ?.
                     <br></br>
-                    vous êtes souvent déçu(e), exaspéré(e) par les autres{" "}
+                    Vous avez besoin de partir à la rencontre de votre vrai
+                    vous, de votre coeur ?.
                     <br></br>
-                    vous manquez de confiance en vous ou vous l’avez perdue{" "}
+                    Vous avez envie de lâcher tout ce qui vous emprisonne et ne
+                    vous appartient pas pour enfin vivre pleinement et vous
+                    épanouir ?<br></br>
+                    Vous avez décidé d'être d'heureux, quoiqu'il arrive et de
+                    prendre votre vie en main ?<br></br>
+                    Vous désirez vous fixer de nouveaux objectifs, ou faire le
+                    point dans votre vie.
                     <br></br>
-                    vous hésitez à exprimer vos opinions, à dire non <br></br>
-                    vous avez peur d’être manipulé(e) par les autres, qu’ils
-                    profitent de vous <br></br>
-                    vous vous sentez régulièrement triste sans raison précise{" "}
-                    <br></br>
-                    vous vous découragez devant les difficultés, vous vous
-                    sentez abattu(e) <br></br>
-                    vous n’avez plus de goût à ce que vous aimiez faire{" "}
-                    <br></br>
-                    vous avez de la retenue à exprimer vos sentiments <br></br>
-                    vous doutez de vous, vous avez une image négative de vous
-                    même <br></br>
-                    vous rencontrez des difficultés dans vos relations sexuelles{" "}
-                    <br></br>
-                    vous vous sentez seul(e) et engager des relations vous
-                    parait compliqué <br></br>
-                    vous êtes sujet(te) au trac, à des appréhensions fortes, à
-                    des peurs irraisonnées <br></br>
-                    vous n’osez pas ou vous ne réussissez pas à exprimer votre
-                    créativité <br></br>
-                    vous souffrez de douleurs de dos, du cou, des articulations{" "}
-                    <br></br>
-                    vous souffrez de maux de tête ou de migraines <br></br>
-                    vous rencontrez des difficultés de sommeil <br></br>
-                    vous digérez mal et/ou avez des problèmes de transit
-                    intestinal <br></br>
-                    vous avez des difficultés à bien respirer, vous êtes
-                    sujet(te) régulièrement à des rhumes / maux de gorge{" "}
-                    <br></br>
-                    vous vous sentez oppressé(e) <br></br>
-                    vous vous sentez mal à l’aise, limité(e) dans votre posture
-                    corporelle <br></br>
-                    vous vous sentez raide, souvent tendu(e) <br></br>.
+                    Patrick Caillier spécialisé entre autres dans
+                    l'accompagnement est là pour vous aider à retrouver du sens
+                    dans vos projets.
                   </p>
                 </Box>
               </Box>

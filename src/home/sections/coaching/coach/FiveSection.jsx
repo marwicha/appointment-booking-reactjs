@@ -60,19 +60,19 @@ const FiveSection = () => {
                   <h3 className={classes.title}>
                     Une séance de coaching avec patrick caillier
                   </h3>
-
                   <p className={classes.p}>
-                    Vous désirez vous fixer de nouveaux objectifs, ou faire le
-                    point dans votre vie.
-                    <br></br> Patrick Caillier spécialisé entre autres dans
-                    l'accompagnement est là pour vous aider à retrouver du sens
-                    dans vos projets.
+                    Un accompagnement de coaching personnalisé pour une
+                    transformation puissante.
+                    <br></br>
+                    Un voyage en nature hors des sentiers battus, en communion
+                    avec la nature et avec vous-même.
+                    <br></br>
+                    une détox téléphonique et numérique (Pas de réseau mobile
+                    sur Cormont).
                   </p>
-
                   <h3 className={classes.title}>
                     N'attendez plus pour bénéficier de cette séance !
                   </h3>
-
                   <NavLink to="/inscription">
                     <Button className={classes.btn}> Réserver ici</Button>
                   </NavLink>

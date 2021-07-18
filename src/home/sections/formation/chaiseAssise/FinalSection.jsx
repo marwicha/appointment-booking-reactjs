@@ -74,12 +74,16 @@ const FinalSection = () => {
                       Déroulement de la formation:
                     </h1>
                     <p className={classes.p}>
-                      Format 2 jours: 4 séances de 3h30min de 9h à 17h
+                      Formation par petits groupes de 6 à 12 personnes.
+                      <br></br>
+                      Cette formation se déroule en 4 séances de 3h30 min, qui
+                      se répartissent sur 2 jours de 9h à 17h.
                     </p>
                     <br></br>
                     <p className={classes.p}>
-                      Possibilité de déjeuner ensemble sur place mise á
-                      disposition des locaux en toute convivialité
+                      En considérant ce format vous avez la possibilité de
+                      déjeuner sur place en toute convivialité suite à la mise
+                      en place des locaux.
                     </p>
                   </Box>
                 </CardContent>
@@ -107,7 +111,7 @@ const FinalSection = () => {
 
                     <p className={classes.p}>Pour le prix (hors promotion): </p>
 
-                    <p className={classes.p2}> 450€ </p>
+                    <p className={classes.p2}> Verifier avec patrick </p>
                   </Box>
                 </CardContent>
               </CardActionArea>

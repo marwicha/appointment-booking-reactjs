@@ -82,6 +82,16 @@ const FirstSection = () => {
                     Ceci vous permet également de fixer de nouveaux objectifs,
                     une direction à suivre.
                   </p>
+                  <br></br>
+
+                  <p className={classes.p}>
+                    Pour cette semaine pas comme les autres, en immérsion dans
+                    la nature, je vous accueille à Cormont, au cœur d'un petit
+                    village face à l'Eglise, au cœur de soi et en connexion avec
+                    cette magnifique nature authentique. A Proximité de
+                    Montreuil sur mer, de la vallée de la course, d’Étaples et
+                    du Touquet paris-plage.
+                  </p>
                 </Box>
               </Box>
             </Grid>

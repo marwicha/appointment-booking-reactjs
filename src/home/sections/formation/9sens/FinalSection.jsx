@@ -75,7 +75,8 @@ const FinalSection = () => {
                         Déroulement de la formation:
                       </h1>
                       <p className={classes.p}>
-                        Formation par petits groupes de 8 personnes.<br></br>
+                        Formation par petits groupes de 6 à 12 personnes.
+                        <br></br>
                         Plusieurs formations sont accessibles :
                       </p>
                       <p> En Initiale (3 mois) : </p>
