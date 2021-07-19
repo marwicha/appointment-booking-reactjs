@@ -19,8 +19,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "16px",
+    fontWeight: "400",
+    fontSize: "14px",
     lineHeight: "19px",
     color: "#384C5A",
     margin: "auto",
@@ -32,7 +32,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p2: {
     fontFamily: "Roboto",
     fontStyle: "bold",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "22px",
     lineHeight: "19px",
     color: "#384C5A",
@@ -76,8 +76,8 @@ const FinalSection = () => {
                     <p className={classes.p}>
                       Formation par petits groupes de 6 à 12 personnes.
                       <br></br>
-                      Cette formation se déroule en 4 séances de 3h30 min, qui
-                      se répartissent sur 2 jours de 9h à 17h.
+                      La formation chaise assis se déroule en 4 séances de 3h30
+                      min, qui se répartissent sur 2 jours de 9h à 17h.
                     </p>
                     <br></br>
                     <p className={classes.p}>
@@ -101,7 +101,7 @@ const FinalSection = () => {
                       Lieu de la formation:
                     </h1>
 
-                    <p className={classes.p}>1 rue de l'église 62630 Cormant</p>
+                    <p className={classes.p}>1 rue de l'église 62630 Cormont</p>
                     <hr />
 
                     <h1 className={classes.h1}>
@@ -109,9 +109,9 @@ const FinalSection = () => {
                       la formation:
                     </h1>
 
-                    <p className={classes.p}>Pour le prix (hors promotion): </p>
-
-                    <p className={classes.p2}> Verifier avec patrick </p>
+                    <p className={classes.p}>
+                      Pour le prix: <strong>400 € </strong>
+                    </p>
                   </Box>
                 </CardContent>
               </CardActionArea>

@@ -8,19 +8,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   h2: {
     fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "20px",
     alignItems: "center",
     textAlign: "justify",
-  },
-
-  benefice: {
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "18px",
-    alignItems: "center",
-    textAlign: "left",
-    color: "#182731",
   },
 
   verticalLine: {
@@ -31,9 +22,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "1em",
-    lineHeight: "19px",
+    lineHeight: "30px",
     textAlign: "justify",
   },
 }));
@@ -56,16 +47,16 @@ const ThirdSection = () => {
           <Grid md={7} xs={12}>
             <div className={classes.verticalLine}>
               <p className={classes.p}>
-                Les séances de somatothérapie se déroulent en moyenne entre
-                <strong>4 à 6 séances</strong>.<br></br>
+                Les séances de somatothérapies se déroulent en moyenne entre
+                <strong> 4 à 6 séances </strong>.<br></br>
                 Dès la première séance le cadre est fixé avec le praticien. Vous
                 vous engagez sur un double objectif (un mieux-être dans votre
                 corps et dans votre vie).
-                <br></br>A partir de vos symptômes physiques et votre situation
+                <br></br> A partir de vos symptômes physiques et votre situation
                 de vie, le praticien vous apporte une aide individualisée.
                 <br></br>
                 Celle-ci associant les techniques de
-                <strong>toucher-massage</strong> et les outils d’aide au
+                <strong> toucher-massage </strong> et les outils d'aide au
                 changement de vie.
               </p>
             </div>

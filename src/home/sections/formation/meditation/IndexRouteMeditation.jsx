@@ -7,13 +7,12 @@ import FinalSection from "./FinalSection";
 
 const IndexRouteMeditation = () => {
   return (
-    <div>
-      <SecondSection />
+    <>
       <ThirdSection />
       <FourthSection />
       <FithSection />
       <FinalSection />
-    </div>
+    </>
   );
 };
 

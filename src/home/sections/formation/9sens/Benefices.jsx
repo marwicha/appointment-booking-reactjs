@@ -49,9 +49,7 @@ const Benefices = () => {
                       1 REDONNE ESTIME ET CONFIANCE EN SOI
                     </p>
 
-                    <p className={classes.p}>
-                      2 LA COSCIENCE CORPORELLE La conscience corporelle
-                    </p>
+                    <p className={classes.p}>2 LA COSCIENCE CORPORELLE</p>
 
                     <p className={classes.p}>3 LE RAPPORT AVEC SOI ET AUTRUI</p>
 
@@ -88,8 +86,6 @@ const Benefices = () => {
                     <p className={classes.p}>5 L'ÉPUISEMENT PROFESSIONNEL</p>
 
                     <p className={classes.p}>6 STRESS QUOTIDIEN</p>
-
-                    <p className={classes.p}>7 LE BON dÉVELOPPEMENT DU BÉBÉ</p>
                   </Box>
                 </CardContent>
               </Card>

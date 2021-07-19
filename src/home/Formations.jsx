@@ -4,6 +4,9 @@ import IndexRoute9sens from "./sections/formation/9sens/IndexRoute9sens";
 import IndexRouteMeditation from "./sections/formation/meditation/IndexRouteMeditation";
 import IndexRouteChaiseAssise from "./sections/formation/chaiseAssise/IndexRouteChaiseAssise";
 import Footer from "./sections/Footer";
+import SecondSection from "./sections/formation/9sens/SecondSection";
+import SecondSectionChaise from "./sections/formation/chaiseAssise/SecondSection";
+import SecondSectionMeditation from "./sections/formation/meditation/SecondSection";
 
 import { Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
@@ -62,6 +65,9 @@ const Formation = () => {
       <TopBar />
 
       <div className="section-intro-formations">
+        {tabIndex === 0 && <SecondSection />}
+        {tabIndex === 1 && <SecondSectionChaise />}
+        {tabIndex === 2 && <SecondSectionMeditation />}
         <div className="container-formation text-center">
           <h1 className={classes.h1}>Nos Formations</h1>
 

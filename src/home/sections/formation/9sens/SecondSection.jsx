@@ -37,12 +37,13 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   h1: {
-    fontFamily: "LEMON MILK",
+    fontFamily: "LEMON MILK Light",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     color: "#182731",
-    fontSize: "22px",
+    fontSize: "14px",
     lineHeight: "30px",
+    marginTop: "1rem",
   },
 
   h2: {
@@ -52,16 +53,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontSize: "14px",
     lineHeight: "30px",
     color: "#182731",
-  },
-
-  h22: {
-    fontFamily: "LEMON MILK Light",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "14px",
-    lineHeight: "30px",
-    color: "#182731",
-    marginTop: "1.5rem",
   },
 
   img: {
@@ -78,11 +69,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "1em",
     lineHeight: "30px",
-    textAlign: "left",
-    maxWidth: 500,
+    textAlign: "justify",
+    maxWidth: 600,
   },
 
   pInfo: {
@@ -107,11 +98,11 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   button2: {
     marginTop: "1rem !important",
-    padding: "1rem 2rem 1rem 2rem",
-    fontSize: 10,
-    fontFamily: "LEMON MILK",
+    padding: "1rem 1rem 1rem 1rem",
+    fontSize: 12,
+    fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: 300,
+    fontWeight: 500,
     borderRadius: "50px",
     alignItems: "center",
     textAlign: "center",
@@ -147,13 +138,14 @@ const SecondSection = () => {
                   faire acquérir les notions de bases en toucher-massage®, et
                   sur les autres techniques associées aux autres sens tels que
                   la vue, l'utilisation des huiles essentielles et la
-                  respiration (odorat), utilisation des bols chantants (ouïe).
+                  respiration (odorat), utilisation des bols chantants (ouïe) et
+                  la méditation.
                 </h3>
 
-                <h2 className={classes.h22}>
+                <h2 className={classes.h1}>
                   Déplacement possible chez vous avec les équipements
                   nécessaires: Tables ou chaise de massage, musique relaxante,
-                  huiles essentielles... (*):
+                  huiles essentielles.
                 </h2>
 
                 <h3 className={classes.p}>
@@ -162,11 +154,11 @@ const SecondSection = () => {
                 </h3>
 
                 <div className={classes.pInfo}>
-                  La prise de rendez vous des prestations de massages ce fait
-                  sur le site.
+                  La prise de rendez-vous des prestations de massages ce fait
+                  sur le site, en créant un compte.
                   <br></br>
                   Pour s'inscrire à une formation professionnelle appelez le
-                  numéro ...
+                  numéro 07 86 99 59 40.
                 </div>
 
                 <h4 className={clsx(classes.h4, "text-center")}>

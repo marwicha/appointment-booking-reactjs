@@ -55,11 +55,10 @@ const TopBar = (props) => {
           </li>
 
           <li>
-            <NavLink to="/formations">Formations</NavLink>
-          </li>
-
-          <li>
             <NavLink to="/somatotherapie">Somatothérapie et coaching</NavLink>
+          </li>
+          <li>
+            <NavLink to="/formations">Formations</NavLink>
           </li>
         </ul>
         <div className="m-auto" />

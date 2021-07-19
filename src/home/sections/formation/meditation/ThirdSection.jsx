@@ -50,11 +50,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "1em",
     lineHeight: "30px",
-    color: "white",
-    textAlign: "left",
+    textAlign: "justify",
   },
 }));
 
@@ -77,7 +76,6 @@ const ThirdSection = () => {
           <Grid item md={5} xs={12}>
             <div className={classes.verticalLine}>
               <p className={classes.benefice}> Les bénéfices </p>
-
               <p className={classes.p}>
                 La méditation de pleine conscience permet à être plus conscient
                 de ses sensations corporelles, de ses émotions, de ses
@@ -95,7 +93,13 @@ const ThirdSection = () => {
                 prise par rapport aux stimuli quotidiens de l'environnement.
                 Adapter de nouvelles réponses, plus efficaces et en meilleures
                 corrélations face aux situations de stress.
+                <br></br>
+                Participation à l'hébergement chez moi à Cormont: 20 à 25 euros
+                par nuit et par personne en fonction de la taille du groupe.
+                Chacun peut amener sa nourriture, c'est plus simple, possibilité
+                de cuisiner ensemble selon ses envies.
               </p>
+              <br></br>
             </div>
           </Grid>
 

@@ -41,7 +41,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import Payement from "./Payment";
 
 const stripePromise = loadStripe(
-  "pk_test_51Iv0X0Idt2OtpHpwAsbJ5pQv2QCWfpaR9FS8aaxvgXb5DhfEXXbRVC1H4GMr7HaVL4pki2jjpTYbeIuEPyPpK3cJ00ygUHxsGY"
+  "pk_live_51Iv0X0Idt2OtpHpw1kCP435BFCowenu91aG9kmU7wuIvPGuY6V0sTWfnePSit4BPi4OhZ7dr1otxLuy5osEFvVey00XrlJRI1m"
 );
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({}));

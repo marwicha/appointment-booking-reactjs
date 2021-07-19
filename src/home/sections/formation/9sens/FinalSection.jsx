@@ -15,8 +15,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "16px",
+    fontWeight: "400",
+    fontSize: "14px",
     lineHeight: "19px",
     color: "#384C5A",
     margin: "auto",
@@ -28,7 +28,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p2: {
     fontFamily: "Roboto",
     fontStyle: "bold",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "22px",
     lineHeight: "19px",
     color: "#384C5A",
@@ -75,18 +75,18 @@ const FinalSection = () => {
                         Déroulement de la formation:
                       </h1>
                       <p className={classes.p}>
-                        Formation par petits groupes de 6 à 12 personnes.
+                        La formation 9 sens: en groupe de 6 à 12 personnes.
                         <br></br>
                         Plusieurs formations sont accessibles :
                       </p>
-                      <p> En Initiale (3 mois) : </p>
+                      <p> En Initiale (1 semaine) : </p>
                       <p className={classes.p}>
                         Attestation après 10 modules de
                         <strong> 2h30 heures + 40 heures </strong> de pratique
                         en tant que Praticien en Relaxation "Relation et
                         Communication par les 9 sens"
                       </p>
-                      Courte :
+                      Courte:
                       <p className={classes.p}>
                         Possibilité de choisir les modules qui vous intéressent.
                         <br></br>Une <strong>attestation</strong> vous sera
@@ -109,7 +109,7 @@ const FinalSection = () => {
                       Lieu de la formation:
                     </h1>
 
-                    <p className={classes.p}>1 rue de l'église 62630 Cormant</p>
+                    <p className={classes.p}>1 rue de l'église 62630 Cormont</p>
 
                     <hr />
 
@@ -118,11 +118,9 @@ const FinalSection = () => {
                       la formation:
                     </h1>
 
-                    <p className={classes.p}>
-                      Pour les 30 heures (hors promotion):
-                    </p>
+                    <p className={classes.p}>Pour les 30 heures:</p>
 
-                    <p className={classes.p2}> 1 200€ </p>
+                    <p className={classes.p2}> 700 € </p>
 
                     <p className={classes.p}> Pour 1 module : </p>
 

@@ -15,8 +15,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "16px",
+    fontWeight: "400",
+    fontSize: "14px",
     lineHeight: "19px",
     color: "#384C5A",
     margin: "auto",
@@ -28,7 +28,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p2: {
     fontFamily: "Roboto",
     fontStyle: "bold",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "22px",
     lineHeight: "19px",
     color: "#384C5A",
@@ -75,8 +75,8 @@ const FinalSection = () => {
                     </h1>
 
                     <p className={classes.p}>
-                      La formation se déroule sur le lieu de l'atelier pour une
-                      durée de 6 semaines.
+                      La formation médiation se déroule sur le lieu de l'atelier
+                      pour une durée d'une semaine.
                       <br></br>
                       Chaque séance dure 2h30 min pendant lesquelles un groupe
                       de 6 à 12 personnes sera formé.
@@ -106,11 +106,11 @@ const FinalSection = () => {
                 <CardContent>
                   <Box align="left">
                     <h1 className={classes.h1}>
-                      <Icon className={classes.icon}> map-marker-alt </Icon>{" "}
+                      <Icon className={classes.icon}> map-marker-alt </Icon>
                       Lieu de la formation:
                     </h1>
 
-                    <p className={classes.p}>1 rue de l'église 62630 Cormant</p>
+                    <p className={classes.p}>1 rue de l'église 62630 Cormont</p>
 
                     <hr />
 
@@ -120,9 +120,8 @@ const FinalSection = () => {
                     </h1>
 
                     <p className={classes.p}>
-                      Prix par séance: 450 € (hors promotion)
-                      <br></br>
-                      Une séance par semaine.
+                      {" "}
+                      Prix de la semaine: <strong>450 €</strong>
                     </p>
                   </Box>
                 </CardContent>

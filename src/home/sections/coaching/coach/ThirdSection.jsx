@@ -14,15 +14,6 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     textAlign: "justify",
   },
 
-  benefice: {
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "18px",
-    alignItems: "center",
-    textAlign: "left",
-    color: "#182731",
-  },
-
   verticalLine: {
     borderLeft: "3px solid",
     paddingLeft: "20px",
@@ -32,8 +23,8 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "1.2em",
-    lineHeight: "20px",
+    fontSize: "1.1em",
+    lineHeight: "30px",
     textAlign: "justify",
   },
 }));
@@ -45,7 +36,7 @@ const ThirdSection = () => {
     <section className="section">
       <Container maxWidth="lg" className="container-icon-formation text-center">
         <Grid container spacing={4}>
-          <Grid item md={4} xs={12}>
+          <Grid item md={5} xs={12}>
             <div className="pt-5">
               <h4 className={clsx(classes.h2)}>
                 Comment se passent les séances?
@@ -53,26 +44,21 @@ const ThirdSection = () => {
             </div>
           </Grid>
 
-          <Grid item md={8} xs={12}>
+          <Grid item md={7} xs={12}>
             <div className={classes.verticalLine}>
               <p className={classes.p}>
                 6 jours, 6 étapes pour transformer votre vie, rallumer votre
                 étincelle, pour enfin oser être vous-même, oser votre vibration
                 unique.
                 <br></br>
-                <br></br>
-                Une séance de coaching individuel de 40 minutes à 60€ (première
-                séance offerte).
-                <br></br>
                 Stage de 4 à 6 personnes maximum.
                 <br></br>
                 Programme du dimanche 17h à samedi 17h.
                 <br></br>
-                <br></br>
                 Tarif unique et exceptionnel de 700 € au lieu de 1100 €.
                 <br></br>
-                Participation à l'hébergement: 20 à 25 euros par nuit et par
-                personne en fonction de la taille du groupe.
+                Participation à l'hébergement chez moi à Cormont: 20 à 25 euros
+                par nuit et par personne en fonction de la taille du groupe.
                 <br></br>
                 Chacun peut amener sa nourriture, c'est plus simple, possibilité
                 de cuisiner ensemble selon ses envies.

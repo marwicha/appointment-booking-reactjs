@@ -15,10 +15,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "1em",
     lineHeight: "30px",
-    textAlign: "left",
+    textAlign: "justify",
   },
 
   avatar: {
@@ -50,7 +50,7 @@ const SectionOne = () => {
         </Typography>
         <Box mt={5} textAlign="center" justifyContent="center">
           <Grid container spacing={2}>
-            <Grid item md={6} xs={12}>
+            <Grid item md={5} xs={12}>
               <h4 className={classes.p}>
                 Mon histoire… <br></br>
                 Cadre de formation, j'ai travaillé 20 ans en tant que salarié
@@ -69,7 +69,9 @@ const SectionOne = () => {
               </h4>
             </Grid>
 
-            <Grid item md={6} xs={12}>
+            <Grid item md={1} xs={12}></Grid>
+
+            <Grid item md={5} xs={12}>
               <h4 className={classes.p}>
                 Je continue de développer mon activité avec l'ouverture de mon
                 nouvel atelier bien-être à Cormont, en moi réside l'envie de

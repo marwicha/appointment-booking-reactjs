@@ -47,10 +47,10 @@ const CoachingSomatho = () => {
   const classes = useStyles();
   const serviceList = [
     {
-      title: "Somatothérapie",
+      title: "Séance individuelle de somatothérapie.",
     },
     {
-      title: "Coaching de vie",
+      title: "Séance collective de coaching.",
     },
   ];
 
@@ -60,9 +60,9 @@ const CoachingSomatho = () => {
 
       <div className="section-intro-formations">
         <div className="container-formation text-center">
-          <h1 className={classes.h1}>Nos Coaching</h1>
+          <h1 className={classes.h1}>Séance de Coaching</h1>
 
-          <p className="pb-8"> Choisir votre type de coaching </p>
+          <p className="pb-8"> Choisir votre type d'accompagnement </p>
 
           <div className={clsx(classes.containerTabs)}>
             <Grid container spacing={6} justify="center">

@@ -84,13 +84,14 @@ const SixSection = () => {
       title: "CALIFORNIEN",
       title2: "Méthode des 9 Sens Manoeuvres de base dos - Aromathérapie",
       description:
-        "vous découvrirez l’utilité de la méthode des 9 SENS, nous commencerons par des manœuvre de base du dos avec dos ainsi que l’utilisation de l’aromathérapie et des autres sens.",
+        "vous découvrirez l'utilité de la méthode des 9 SENS, nous commencerons par des manœuvres de base du dos avec dos ainsi que l'utilisation de l'aromathérapie et des autres sens.",
     },
 
     {
       id: "2",
       title: "SHIATSU",
-      title2: "Dos approfondissement pression progressive et étirements doux",
+      title2:
+        "Dos approfondissement des pressions progressive et étirements doux",
       description:
         "Approfondir vos connaissances avec des pression de Shiatsu progressive et étirement doux du dos.",
     },
@@ -144,7 +145,7 @@ const SixSection = () => {
       title: "SHIATSU",
       title2: "Nuque - clavicule",
       description:
-        "Nous reviendrons sur les mouvement de Shiatsu pour masser la nuque, les omoplates et les clavicules.",
+        "Nous reviendrons sur les mouvements de Shiatsu pour masser la nuque, les omoplates et les clavicules.",
     },
 
     {
@@ -152,7 +153,7 @@ const SixSection = () => {
       title: "CALIFORNIEN",
       title2: "Tête - visage",
       description:
-        "Nous terminerons par des mouvement de californien et indiens en massant la tête et le visage.",
+        "Nous terminerons par des mouvements de californien et indiens en massant la tête et le visage.",
     },
   ];
 

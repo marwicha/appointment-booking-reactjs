@@ -10,10 +10,19 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "1.25em",
-    lineHeight: "20px",
+    fontWeight: "400",
+    fontSize: "1em",
+    lineHeight: "30px",
     textAlign: "justify",
+  },
+
+  souTitle: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "30px",
+    textAlign: "center",
   },
 
   title: {
@@ -47,6 +56,10 @@ const FirstSection = () => {
           <h3 className="font-bold text-28 text-center text-second mt-5 mb-10">
             Coaching
           </h3>
+          <p className={classes.souTitle}>
+            Pour le stage de coaching, merci d'appeler le centre IKDO sur le
+            numéro 07 86 99 59 40.
+          </p>
         </Box>
       </Container>
 
@@ -74,13 +87,10 @@ const FirstSection = () => {
               <Box display="flex" height="100%">
                 <Box my="auto" className={classes.box} mt={4}>
                   <p className={classes.p}>
-                    Le coaching individuel vous apporte une véritable réponse à
-                    vos questions d'ordre professionnel ou privé pour révéler le
-                    meilleur de vous-même.
-                    <br></br>
-                    <br></br>
-                    Ceci vous permet également de fixer de nouveaux objectifs,
-                    une direction à suivre.
+                    Le coaching vous apporte une véritable réponse à vos
+                    questions d'ordre professionnel ou privé pour révéler le
+                    meilleur de vous-même, ceci vous permet également de fixer
+                    de nouveaux objectifs, une direction à suivre.
                   </p>
                   <br></br>
 

@@ -7,10 +7,19 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     width: "80%",
   },
 
-  p: {
+  souTitle: {
     fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",
+    fontSize: "1em",
+    lineHeight: "30px",
+    textAlign: "center",
+  },
+
+  p: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "400",
     fontSize: "1em",
     lineHeight: "20px",
     textAlign: "justify",
@@ -43,6 +52,12 @@ const FirstSection = () => {
           <h3 className="font-bold text-28 text-center text-second mt-5 mb-10">
             SOMATOTHERAPIE
           </h3>
+
+          <p className={classes.souTitle}>
+            Pour une séance de somatothérapie vous êtes invités à vous inscrire
+            sur notre site <br></br> en créant un compte et prendre un rendez
+            vous.
+          </p>
         </Box>
       </Container>
 

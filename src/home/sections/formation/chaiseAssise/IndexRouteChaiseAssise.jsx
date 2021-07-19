@@ -8,14 +8,13 @@ import FinalSection from "./FinalSection";
 
 const IndexRouteChaiseAssise = () => {
   return (
-    <div>
-      <SecondSection />
+    <>
       <ThirdSection />
       <FourthSection />
       <FithSection />
       <SixSection />
       <FinalSection />
-    </div>
+    </>
   );
 };
 

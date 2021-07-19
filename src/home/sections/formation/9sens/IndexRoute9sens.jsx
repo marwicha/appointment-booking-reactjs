@@ -9,15 +9,14 @@ import Benefices from "./Benefices";
 
 const IndexRouteMassage9sens = () => {
   return (
-    <div>
-      <SecondSection />
+    <>
       <ThirdSection />
       <FourthSection />
       <Benefices />
       <FithSection />
       <SixSection />
       <FinalSection />
-    </div>
+    </>
   );
 };
 

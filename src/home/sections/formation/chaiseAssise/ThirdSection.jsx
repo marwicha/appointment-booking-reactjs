@@ -41,11 +41,10 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "1em",
     lineHeight: "30px",
-    color: "white",
-    textAlign: "left",
+    textAlign: "justify",
   },
 }));
 
@@ -79,6 +78,11 @@ const ThirdSection = () => {
                 Pour plus d'informations vous trouverez ci-dessous les modules
                 traités lors de chaque session ainsi que le déroulement de la
                 formation massage chaise assise.
+                <br></br>
+                Participation à l'hébergement chez moi à Cormont: 20 à 25 euros
+                par nuit et par personne en fonction de la taille du groupe.
+                Chacun peut amener sa nourriture, c'est plus simple, possibilité
+                de cuisiner ensemble selon ses envies.
               </p>
             </div>
           </Grid>

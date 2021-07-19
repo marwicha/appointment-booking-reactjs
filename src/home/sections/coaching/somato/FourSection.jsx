@@ -13,9 +13,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "1em",
-    lineHeight: "19px",
+    lineHeight: "20px",
     textAlign: "justify",
   },
 }));

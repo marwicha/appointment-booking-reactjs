@@ -41,7 +41,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   p: {
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     fontSize: "1em",
     lineHeight: "30px",
     color: "white",
@@ -79,6 +79,7 @@ const ThirdSection = () => {
                 <br></br> Pour plus d'informations vous trouverez ci-dessous les
                 modules traités lors de chaque session ainsi que le déroulement
                 de la formation massages 9 sens.
+                <br></br>
               </p>
             </div>
           </Grid>
