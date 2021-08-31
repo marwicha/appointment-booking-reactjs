@@ -24,7 +24,6 @@ import AuthService from "./services/auth.service";
 import UpdateProfile from "components/User/UpdateProfile";
 import UserFormations from "components/User/UserFormations";
 
-import UpdateProfileAdmin from "components/Admin/UpdateProfileAdmin";
 import AddPrestation from "components/Admin/AddPrestation";
 import AddFormation from "components/Admin/AddFormation";
 import RequestResetPassword from "components/RequestResetPassword";
@@ -143,11 +142,7 @@ const App = () => {
                 component={UserFormations}
               />
               <PrivateAdminRoute exact path="/admin" component={AdminAccount} />
-              {/* <PrivateAdminRoute
-                exact
-                path="/admin/:id"
-                component={UpdateProfileAdmin}
-              /> */}
+
               <PrivateAdminRoute
                 exact
                 path="/prestation/ajout"

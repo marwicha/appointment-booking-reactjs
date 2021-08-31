@@ -174,7 +174,6 @@ const Inscription = (props) => {
   };
 
   const onChangeCaptcha = (value) => {
-    console.log("Captcha value:", value);
     setIsVerified(true);
   };
 

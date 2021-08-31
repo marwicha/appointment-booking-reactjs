@@ -37,7 +37,6 @@ const UpdateProfile = (props) => {
 
   const initialState = {
     id: userTest.id,
-    email: userTest.email,
     name: userTest.name,
     phone: userTest.phone,
   };
@@ -99,21 +98,6 @@ const UpdateProfile = (props) => {
                     <br></br>
                     <br></br>
 
-                    <TextField
-                      fullWidth
-                      name="email"
-                      type="email"
-                      value={user.email}
-                      onChange={handleInputChange}
-                      error={!!errors.email}
-                      helperText={errors.email?.type && errors.email?.message}
-                      inputRef={register({
-                        required: "Votre email est obligatoire",
-                      })}
-                    />
-
-                    <br></br>
-                    <br></br>
                     <TextField
                       fullWidth
                       name="phone"

@@ -67,7 +67,14 @@ const RequestResetPassword = (props) => {
         alert("E-mail de réinitialisation de mot de passe envoyé!");
       })
       .catch((error) => {
-        alert("Un problème est survenu ou email n'existe pas");
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        alert(resMessage);
       });
   };
 

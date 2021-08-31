@@ -12,8 +12,6 @@ import {
   Box,
 } from "@material-ui/core";
 
-import { Link } from "react-router-dom";
-
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   btn: {
     color: "white",
@@ -49,19 +47,6 @@ const ProfileAdmin = () => {
                 <p> {currentUser.email} </p>
               </Box>
               <br></br>
-
-              <Link
-                to={"/admin/" + currentUser.id}
-                className="badge badge-warning"
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.btn}
-                >
-                  Modifier
-                </Button>
-              </Link>
             </CardContent>
           </Card>
         </Grid>
