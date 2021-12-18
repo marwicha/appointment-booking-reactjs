@@ -72,9 +72,9 @@ const FiveSection = () => {
                   <h3 className={classes.title}>
                     N'attendez plus pour bénéficier de cette séance !
                   </h3>
-                  <NavLink to="/inscription">
-                    <Button className={classes.btn}>Réserver ici</Button>
-                  </NavLink>
+                  <a href="https://www.resalib.fr/">
+                    <Button className={classes.btn}> Réserver ici</Button>
+                  </a>
                 </Box>
               </Box>
             </Grid>

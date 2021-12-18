@@ -63,6 +63,7 @@ const TopBar = (props) => {
         </ul>
         <div className="m-auto" />
         <ul className="navigation flex">
+          {/*
           {currentUser ? (
             <div>
               <li>
@@ -82,7 +83,11 @@ const TopBar = (props) => {
               </li>
             </div>
           )}
-
+          */}
+           
+              <li>
+                <a href="https://www.resalib.fr/">Prendre un rendez vous sur résalib</a>
+              </li>
           <li>
             <a href="https://www.facebook.com/ikdobienetre">
               <Icon style={{ fontSize: 20, marginLeft: "2px" }}>facebook</Icon>

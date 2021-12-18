@@ -48,7 +48,7 @@ const IntroPatrick = () => {
             color="textSecondary"
             paragraph={true}
           >
-            Suite au Covid 19 la réouverture d'ikdo est reporté en Mars 2022.
+            Suite au Covid 19 la réouverture d'ikdo est reporté en Janvier 2022.
           </Typography>
 
           <Typography variant="subtitle2" color="textSecondary">

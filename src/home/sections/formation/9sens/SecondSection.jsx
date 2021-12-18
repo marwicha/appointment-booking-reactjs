@@ -85,6 +85,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     maxWidth: 600,
     color: "#b72e02",
   },
+  link: {
+    color: "blue",
+  },
 
   h4: {
     fontFamily: "LEMON MILK",
@@ -155,7 +158,7 @@ const SecondSection = () => {
 
                 <div className={classes.pInfo}>
                   La prise de rendez-vous des prestations de massages ce fait
-                  sur le site, en créant un compte.
+                  sur le site <a href="https://www.resalib.fr/" className={classes.link}>résalib.fr</a>
                   <br></br>
                   Pour s'inscrire à une formation professionnelle appelez le
                   numéro 07 86 99 59 40.

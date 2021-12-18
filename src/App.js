@@ -121,6 +121,7 @@ const App = () => {
               <Route path="/formations" component={Formations} />
               <Route path="/praticien" component={Patrick} />
               <Route path="/somatotherapie" component={CoachingSomatho} />
+              {/*
               <PublicRoute path="/inscription" exact component={Inscription} />
               <Route
                 path="/reinitialiser-mot-de-passe"
@@ -128,8 +129,7 @@ const App = () => {
                 component={RequestResetPassword}
               />
               <Route path="/passwordReset" exact component={ResetPassword} />
-
-              {/* After authentication */}
+             
               <PrivateUserRoute exact path="/compte" component={UserAccount} />
               <PrivateUserRoute
                 exact
@@ -158,6 +158,7 @@ const App = () => {
                 path="/formation/list"
                 component={ListFormation}
               />
+               */}
               <Redirect path="/" exact to="accueil" />
               {/* <Route component={Error} /> */}
             </Switch>

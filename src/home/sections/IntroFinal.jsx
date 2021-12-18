@@ -2,8 +2,8 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "../common/Carousel";
-import clsx from "clsx";
 import { NavLink } from "react-router-dom";
+import clsx from "clsx";
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   introWrapper: {
@@ -13,19 +13,18 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   text: {
-    paddingBottom: "2rem",
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    "@media screen and (max-width: 767px)": {
-      top: "66%",
+    "@media screen and (min-width: 767px)": {
+      top: "53%",
     },
   },
 
   p: {
     textAlign: "center",
-    fontSize: "15px",
+    fontSize: "18px",
     fontFamily: "LEMON MILK Light",
     maxWidth: "400px",
     "@media screen and (max-width: 767px)": {
@@ -35,7 +34,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
 
   h1: {
     color: palette.second,
-    fontSize: "30px",
+    fontSize: "32px",
     textAlign: "center",
     "@media screen and (max-width: 767px)": {
       fontSize: "12px",
@@ -53,20 +52,18 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 
   button: {
-    marginTop: "1rem",
+    marginTop: "1em",
     width: "200px",
     height: "60px",
     borderRadius: "100px",
-    //backgroundColor: "#182731",
     background: palette.second,
     color: "white",
     fontSize: "1rem",
     fontFamily: "LEMON MILK Light",
     "@media screen and (max-width: 767px)": {
       width: "120px",
-      height: "30px",
-      fontSize: "10px",
-      marginTop: "0rem",
+      height: "20px",
+      fontSize: "9px"
     },
   },
 
@@ -74,8 +71,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
-    alignItems: "center",
-    marginTop: "1rem",
+    alignItems: "center"
   },
 }));
 
@@ -114,7 +110,7 @@ const IntroFinal = () => {
       <div className={classes.introWrapper}>
         <Carousel
           carouselId="swiper-11"
-          paginationClass="mt-16"
+          paginationClass="mt-10"
           slidesPerView={1}
         >
           {ikdoList.map((item, index) => (
@@ -125,16 +121,14 @@ const IntroFinal = () => {
                 <h1 className={classes.h1}>{item.h1}</h1>
 
                 <h2 className={classes.h2}>{item.h2}</h2>
-                <br></br>
+
                 <p className={classes.p}>{item.text}</p>
-                <br></br>
-                <div className={classes.center}>
-                  <NavLink to={item.navLink}>
-                    <button className={clsx(classes.button)}>
-                      {item.buttonText}
-                    </button>
-                  </NavLink>
-                </div>
+
+                <NavLink to={item.navLink} className={classes.center}>
+                  <button className={clsx(classes.button)}>
+                    {item.buttonText}
+                  </button>
+                </NavLink>
               </div>
             </div>
           ))}

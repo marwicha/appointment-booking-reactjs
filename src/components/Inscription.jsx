@@ -187,13 +187,6 @@ const Inscription = (props) => {
           <Grid container spacing={2} justify="center" align="flex-start">
             <Grid item md={5} xs={12}>
               <Card className={classes.paper}>
-                <p>
-                  Merci de ne pas s'inscrire avant Mars 2022, vos données ne
-                  seront pas enregistrés.
-                </p>
-                <h5 className={classes.title}>
-                  Merci de vous inscrire afin de prendre un rendez-vous
-                </h5>
 
                 <form
                   onSubmit={handleSubmit(handleRegister)}
