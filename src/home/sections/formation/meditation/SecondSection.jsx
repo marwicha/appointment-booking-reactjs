@@ -167,11 +167,11 @@ const SecondSection = () => {
                 </h4>
 
                 <div className="text-center">
-                  <NavLink to="/inscription">
+                  <a href="https://www.resalib.fr/">
                     <Button className={clsx(classes.button2, "text-center")}>
                       Réserver maintenant
                     </Button>
-                  </NavLink>
+                  </a>
                 </div>
               </div>
             </div>

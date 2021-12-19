@@ -55,8 +55,7 @@ const FirstSection = () => {
 
           <p className={classes.souTitle}>
             Pour une séance de somatothérapie vous êtes invités à vous inscrire
-            sur notre site <br></br> en créant un compte et prendre un rendez
-            vous.
+            sur le site <a href="https://www.resalib.fr/" >résalib</a>
           </p>
         </Box>
       </Container>
