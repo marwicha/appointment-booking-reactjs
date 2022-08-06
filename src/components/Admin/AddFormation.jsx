@@ -81,7 +81,7 @@ const AddFormation = () => {
                   />
 
                   <br></br>
-                  <p>test</p>
+                  <p>test2</p>
                   <label>Date de début</label>
                   <TextField
                     name="dateDebut"
